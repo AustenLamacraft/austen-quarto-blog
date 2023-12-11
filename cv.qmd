@@ -1,0 +1,78 @@
+---
+format:
+  quarto-cv-pdf: default
+title: CV
+author: Austen Lamacraft
+address: University of Cambridge
+# The following are optional
+phone: (+44)(0)7725 884318
+email: austen.lamacraft@gmail.com
+web: austen.uk
+fontsize: 12pt
+bibliography_peer: austen-publications.bib
+fontawesome: yes
+nocite: '@*'
+csl: apa-cv.csl
+---
+
+# Relevant recent experience
+
+Researcher with 20+ years' experience:
+
+- Current research focus in Quantum Computing and Machine Learning. Extensive knowledge of Python scientific and machine learning stack (e.g. NumPy, SciPy, Pandas, PyTorch, JAX).
+
+- Formulating and executing complex research projects involving multiple team members.
+
+- Recruitment and managing research of undergraduates, postgraduates and postdocs.
+
+
+# Employment
+
+*University of Cambridge*
+
+Lecturer → Reader → Professor of Theoretical Physics \hfill 2012-2023
+
+*University of Virginia*
+
+Assistant → Associate Professor \hfill 2007-2012
+
+*All Souls College, University of Oxford*
+
+Postdoctoral Fellow \hfill 2005-2007
+
+*Princeton University*
+
+Robert H. Dicke Fellow, Department of Physics \hfill 2002-2005
+
+*Trinity College, University of Cambridge*
+
+Junior Research Fellow \hfill 2001-2007
+
+*Barclays Capital, London*
+
+Interest rate derivatives quant \hfill 1998-2000
+
+# Expositions and side projects
+
+Machine Learning and Statistical Mechanics ([Lecture 1](https://austen.uk/post/ml-stat-mech-1/), [Lecture 2](https://austen.uk/post/ml-stat-mech-2/))
+
+New Rules: Quantum Circuits, Cellular Automata, Complexity and Chaos ([Aspen colloquium](https://austen.uk/post/new-rules/) see also [YouTube](https://www.youtube.com/watch?v=poGqzhr7zZk))
+
+Cambridge [Computational Physics course](https://computational-physics.tripos.org/) and [Maths question site](https://questions.tripos.org/)
+
+# Education
+
+*Trinity College, University of Cambridge*
+
+PhD in Theoretical Physics \hfill 2002
+
+Master of Mathematics (Distinction) \hfill 1998
+
+MA in Natural Sciences (First class) \hfill 1997
+
+# Publications
+
+::: {#refs_peer}
+:::
+
+
