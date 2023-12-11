@@ -1,0 +1,179 @@
+---
+title: "The Planted Directed Polymer"
+author: "Austen Lamacraft (Cambridge) and Sun-Woo Kim (KCL)"
+data: 
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    hash: true
+    center: true
+    auto-stretch: false
+    html-math-method: katex
+    preview-links: true
+---
+
+## Outline
+
+- Kalman filter
+  - As an inference problem
+
+- Relation to measurement induced phase transition
+- Planting
+- Machine learning approaches and models used
+- Data Assimilation
+- Other occurrences in the literature (road tracking, etc)
+
+
+
+- The 1D case
+  - Wandering exponent and KPZ scaling
+  - Connection to quantum mechanics and Feynman-Kac
+
+- The tree case
+  - Recursion
+  - Transition in the planted case
+
+## Bayes' rule
+
+- Measure $y$, infer $x$ based on prior $p(x)$ and model $p(y|x)$
+$$
+\begin{align*}
+p(x|y) = \frac{p(y|x)p(x)}{p(y)}\\
+p(y) = \int dx \,p(y|x)p(x)
+\end{align*}
+$$
+
+## Inference in HMM
+
+![](assets/1000px-Hmm_temporal_bayesian_net.svg.png)
+
+$$
+\begin{align*}
+p(x_t|y_{1:t})&=\frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t)}\\
+&=\frac{p(y_t|x_t)}{p(y_t)}\sum_{x_{t-1}}p(x_t|x_{t-1})p(x_{t-1}|y_{1:t-1})
+\end{align*}
+$$
+
+- Separate update of $x$ by $p(x_t|x_{t-1})$ and reweighting due to measurement outcome $y_t$ 
+
+## Filtering, smoothing, etc.
+
+- _Filtering_ is  estimation of current state $x_t$ based on past history of $y_{1:t}$ i.e. $p(x_t|y_{1:t})$
+
+- _Smoothing_ uses all measurements $y_{1:T}$ up to some time horizong $T$ i.e. $p(x_t|y_{1:T})$
+
+---
+
+ There's a great diversity of terminology here see e.g. _filtering_ vs _smoothing_, and discrete vs. continuous time e.g. the [Zakai]([Zakai equation - Wikipedia](https://en.wikipedia.org/wiki/Zakai_equation)) and [Kushner](https://en.wikipedia.org/wiki/Kushner_equation) equations. In any case, I haven't really found anything that addresses the thermodynamic limit of large systems and long times. Incidentally, the term [Data assimilation](https://en.wikipedia.org/wiki/Data_assimilation) is used in weather forecasting for the same problem, and there the setting is naturally spatially extended see e.g. the [Lorenz 96 model](https://en.wikipedia.org/wiki/Lorenz_96_model).
+
+
+## Example: Kalman filter
+
+[Wikipedia](https://en.wikipedia.org/wiki/Kalman_filter)
+
+Nice Twitter thread
+
+https://twitter.com/docmilanfar/status/1720946454796304861
+
+https://twitter.com/docmilanfar/status/1503206828716400641
+
+
+---
+
+Kalman getting medal of science from Obama
+
+---
+
+
+Inference involves the application of Bayes' rule
+$$
+p(x|y) = \frac{p(y|x)p(x)}{p(y)}
+$$
+where $p(y) = \int dx \,p(y|x)p(x)$. For a HMM, this is can be written in more detail as
+
+$$
+p(x_t|y_{1:t})=\frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t)}=\frac{p(y_t|x_t)}{p(y_t)}\sum_{x_{t-1}}p(x_t|x_{t-1})p(x_{t-1}|y_{1:t-1}).
+$$
+In this expression we have explicitly separated the Markov update of the latent state by the transition kernel $p(x_t|x_{t-1})$ and the reweighting due to the measurement outcome $y_t$. 
+
+Switching now to our "image" observation model and taking $x_t\in \mathbb{Z}$. For Gaussian observations we have
+$$
+\begin{align}
+p(\varphi_t|x_t) &= \prod_{\xi\in\mathbb{Z}}\frac{1}{\sqrt{2\pi \sigma_\varphi^2 }} \exp\left[-\frac{\left(\varphi_{\xi,t}-\epsilon \delta_{x_t,\xi}\right)^2}{2\sigma_\varphi^2}\right]\\
+&= \prod_{\xi\in\mathbb{Z}}\frac{1}{\sqrt{2\pi \sigma_\varphi^2 }} \exp\left[-\frac{\varphi_{\xi,t}^2}{2\sigma_\varphi^2}\right]\exp\left[\frac{\delta_{x_t,\xi}\left(\epsilon\varphi_{x,t}-\frac{\epsilon^2}{2}\right)}{\sigma_\varphi^2}\right]\\
+&= \pi(\varphi_t)\exp\left[-h(x_t,\varphi_{x_t,t})\right]
+\end{align}
+$$
+where the last line defines a Gaussian measure $\pi(\varphi_t)$ for a random potential and a Boltzmann factor at time $t$ for a "polymer" moving in that potential. The corresponding normalization factor that appears in the Bayesian update for a whole trajectory is then
+$$
+\begin{align}
+p(\varphi_{1:T}) &= \frac{\pi(\varphi_{1:T})}{\mathcal{N}_T}\sum_{\text{trajectories }x_{1:T}} \exp\left[-\sum_{t=1}^T h(x_t,\varphi_{x_t,t})\right]\\
+&=\frac{\pi(\varphi_{1:T})}{\mathcal{N}_T} Z_T(\varphi_{1:T})
+\end{align}
+$$
+where $\mathcal{N}_T$ is the number of trajectories of length $T$, if we assume a uniform prior distribution $p(x_{1:T})=1/\mathcal{N}_T$ on trajectories. The key point about this expression is that the distribution of the "disorder" $\varphi_{\xi,t}$ is affected by the polymer trajectories "planted" in it, with the size of the effect being determined by $\epsilon$.
+
+---
+
+The posterior for the trajectory is then written as the normalized Boltzmann probability
+$$
+p(x_{1:T}|\varphi_{1:T}) = \frac{\exp\left[-\sum_{t=1}^T h(x_t, \varphi_{x_t,t})\right]}{Z_T(\varphi_{1:T})}
+$$
+The unnormalized posterior $q(x_T|\varphi_{1:T})$ obeys the update (this is essentially the discrete time Zakai equation)
+$$
+q(x_T|\varphi_{1:T}) =  \exp\left[-h(x_T,\varphi_{x_T, T})\right]\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})
+$$
+and this is related to the partition function by
+$$
+Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T}).
+$$
+We can think of $q$ as the point-to-point partition function or an imaginary-time "wavefunction" in the path integral picture.
+
+The procedure for propagating $q$ is then as follows
+1. From the normalized $p(x_{t-1}|\varphi_{1:t-1})$ and the transition kernel $p(x_t|x_{t-1})$ we can find $p(x_t|\varphi_{1:t-1})$, then sample $x_t$ and then $\varphi_t$ using $p(\varphi_t|x_t)$. 
+2. We then reweight $p(x_t|\varphi_{1:t-1})$ using $e^{-h(x_t,\varphi_t)}$ to give $q(x_t|\varphi_{1:t})$ (or $p(x_t|\varphi_{1:T})$ after normalization). 
+
+---
+
+We are concerned with the problem inferring a Brownian (or other stochastic) trajectory from certain imperfect (noisy) measurements. The simplest situation to consider is the linear update
+$$
+\begin{align}
+x_{t} &= x_{t-1} + w_t\\
+y_{t} &= x_t + v_t
+\end{align}
+$$
+where $w_t\sim \mathcal{N}(0,\sigma^2)$ and $v_t\sim\mathcal{N}(0,\sigma_y^2)$ represent the random increment of the latent variables $x_t$ (to be inferred) and the measurement noise in the measurement $y_t$. This is a simple example of a hidden Markov model. More specifically, it is an example of a [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter) (Taking the continuum limit yields the Kalman—Bucy filter). The posterior distribution $p(x_t|y_{1:t})$ is Gaussian and its parameters can be found in closed form. 
+
+We are interested in another kind of observation model, analogous to an "image" in which a dot or spike appears at $x_t$. Our measurement is now a field $\varphi_{\xi,t}$ 
+
+$$
+\varphi_{\xi,t} = \delta(\xi - x_t) + \eta_{\xi,t}
+$$
+where $\eta_{\xi,t}$ is white noise that obscure the spike at $x_t$. Note that this is now a nonlinear problem, even if the dynamics of $x_t$ remains linear. The sequence of "images" $\varphi_{\xi,t}$ will allow us to infer the position of $x_t$ with a confidence that depends on the signal to noise. 
+
+We can imagine various versions of the model:
+
+1. We can take position to be discrete, in which case the underlying dynamics of $x_t$ could be a random walk on $\mathbb{Z}$. and the image $\varphi_{\xi,t}$ is corrupted by iid Gaussians at each site and each instant.
+2. With discrete positions the measurements could be taken to be Ising variables, with 0 or 1 providing information on the likely occupancy of a site
+3. For theoretical analysis it's probably natural to take space and time to be continuous
+4. Finally, we can consider many body versions of the problem, where we have a number of particles diffusing (e.g. SSEP on a lattice)
+
+
+---
+
+## Application: road tracking
+
+[Yuille and Coughlan (2000)](https://ieeexplore.ieee.org/abstract/document/825754)
+
+![](assets/road-tracking.png)
+
+
+[Offer (2018)](https://ieeexplore.ieee.org/abstract/document/8455360), Phase Transition in Bayesian Tracking in Clutter
+
+# and the next
+
+## Does this give a new one?
+
+## How about this?
+
