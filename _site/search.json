@@ -11,7 +11,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "Quantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nML and SM 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\n\nAusten Lamacraft (Cambridge) and Sun-Woo Kim (KCL)\n\n\n\n\n\n\n  \n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits I\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\n\nQuantum Circuits\n\n\nPhysics\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Quantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nML and SM 2\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\n\nAusten Lamacraft (Cambridge) and Sun Woo Kim (KCL)\n\n\n\n\n\n\n  \n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits I\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\n\nQuantum Circuits\n\n\nPhysics\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/dual-unitaries-pcts/index.html",
@@ -81,7 +81,7 @@
     "href": "talks/planted-directed-polymer/index.html#outline",
     "title": "The Planted Directed Polymer",
     "section": "Outline",
-    "text": "Outline\n\nKalman filter\n\nAs an inference problem\n\nRelation to measurement induced phase transition\nPlanting\nMachine learning approaches and models used\nData Assimilation\nOther occurrences in the literature (road tracking, etc)\nThe 1D case\n\nWandering exponent and KPZ scaling\nConnection to quantum mechanics and Feynman-Kac\n\nThe tree case\n\nRecursion\nTransition in the planted case"
+    "text": "Outline\n\nInferring a path in a noisy image\nRelation to directed polymer\nNumerics in d=1+1\nAnalytic solution on tree"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#kalman-filter",
@@ -95,7 +95,7 @@
     "href": "talks/planted-directed-polymer/index.html#application-road-tracking",
     "title": "The Planted Directed Polymer",
     "section": "Application: road tracking",
-    "text": "Application: road tracking\nYuille and Coughlan (2000)\n\nOffer (2018), Phase Transition in Bayesian Tracking in Clutter"
+    "text": "Application: road tracking\n\nYuille and Coughlan (2000)\n\n\n\nOffer (2018): Phase Transition in Bayesian Tracking in Clutter"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#inference-in-hmm",
@@ -116,13 +116,237 @@
     "href": "talks/planted-directed-polymer/index.html#filtering-smoothing-etc.",
     "title": "The Planted Directed Polymer",
     "section": "Filtering, smoothing, etc.",
-    "text": "Filtering, smoothing, etc.\n\nFiltering is estimation of current state x_t based on past history of y_{1:t} i.e. p(x_t|y_{1:t})\nSmoothing uses all measurements y_{1:T} up to some time horizong T i.e. p(x_t|y_{1:T})"
+    "text": "Filtering, smoothing, etc.\n\nFiltering is estimation of current state x_t based on past history of y_{1:t} i.e. p(x_t|y_{1:t})\nSmoothing uses all measurements y_{1:T} up to some time horizon T i.e. p(x_t|y_{1:T})"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#example-kalman-filter",
     "href": "talks/planted-directed-polymer/index.html#example-kalman-filter",
     "title": "The Planted Directed Polymer",
     "section": "Example: Kalman filter",
-    "text": "Example: Kalman filter\nWikipedia\nNice Twitter thread\nhttps://twitter.com/docmilanfar/status/1720946454796304861\nhttps://twitter.com/docmilanfar/status/1503206828716400641"
+    "text": "Example: Kalman filter\n\n\n\\begin{align*}\nx_{t} = x_{t-1} + w_t\\qquad y_{t} = x_t + v_t \\\\\nw_t\\sim \\mathcal{N}(0,\\sigma^2)\\qquad v_t\\sim\\mathcal{N}(0,\\sigma_y^2)\\\\\np(x_t|x_{t-1}, y_t) = \\frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}\n\\end{align*}\n\n\nPrediction is Gaussian!\nSee Robert Ghrist’s YT video"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#image-model",
+    "href": "talks/planted-directed-polymer/index.html#image-model",
+    "title": "The Planted Directed Polymer",
+    "section": "“Image” model",
+    "text": "“Image” model\n\nTake x_t\\in \\mathbb{Z} simple random walk\n“Pixel” values \\phi_{x,t}\\sim \\mathcal{N}(\\epsilon\\delta_{x,x_t}, \\sigma^2)\nNonlinear! (c.f. Kalman)\nWhat is p(x_t|\\phi_{1:t})?"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#more-complicated",
+    "href": "talks/planted-directed-polymer/index.html#more-complicated",
+    "title": "The Planted Directed Polymer",
+    "section": "More complicated",
+    "text": "More complicated\nwhere w_t\\sim \\mathcal{N}(0,\\sigma^2) and v_t\\sim\\mathcal{N}(0,\\sigma_y^2) represent the random increment of the latent variables x_t (to be inferred) and the measurement noise in the measurement y_t. This is a simple example of a hidden Markov model. More specifically, it is an example of a Kalman filter (Taking the continuum limit yields the Kalman—Bucy filter). The posterior distribution p(x_t|y_{1:t}) is Gaussian and its parameters can be found in closed form.\nNice Twitter thread\nhttps://twitter.com/docmilanfar/status/1503206828716400641\nWorks by product see Ghrist video\n\n\\begin{align}\nx_{t} &= x_{t-1} + w_t\\\\\ny_{t} &= x_t + v_t\n\\end{align}\n where w_t\\sim \\mathcal{N}(0,\\sigma^2) and v_t\\sim\\mathcal{N}(0,\\sigma_y^2) represent the random increment of the latent variables x_t (to be inferred) and the measurement noise in the measurement y_t. This is a simple example of a hidden Markov model. More specifically, it is an example of a Kalman filter (Taking the continuum limit yields the Kalman—Bucy filter). The posterior distribution p(x_t|y_{1:t}) is Gaussian and its parameters can be found in closed form."
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#garden-of-forking-paths",
+    "href": "talks/planted-directed-polymer/index.html#garden-of-forking-paths",
+    "title": "The Planted Directed Polymer",
+    "section": "Garden of forking paths",
+    "text": "Garden of forking paths"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#directed-polymer",
+    "href": "talks/planted-directed-polymer/index.html#directed-polymer",
+    "title": "The Planted Directed Polymer",
+    "section": "Directed Polymer",
+    "text": "Directed Polymer\n\nClassic problem in statistical physics of disordered systems\nWalker x_t (“polymer”) weighted by Boltzmann weight \n\\exp\\left[-\\beta\\sum_t \\varphi_{x_t,t}\\right]\n (inverse temperature \\beta)\nIid random “potential” \\varphi_{x,t}\\sim \\mathcal{N(0,\\sigma_\\varphi^2)}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#planting",
+    "href": "talks/planted-directed-polymer/index.html#planting",
+    "title": "The Planted Directed Polymer",
+    "section": "Planting",
+    "text": "Planting\n\np(\\varphi_{1:T}) determined by “ground truth”\nPlanting: generate samples by sampling x_t from prior and using observation model p(\\varphi_{1:T}|x_{1:T})\n\n\n\nSee review by Zdeborová and Krzakala (2016)"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#relation-to-the-quantum-case",
+    "href": "talks/planted-directed-polymer/index.html#relation-to-the-quantum-case",
+    "title": "The Planted Directed Polymer",
+    "section": "Relation to the quantum case",
+    "text": "Relation to the quantum case\nBorn probabilities and how to update a density matrix"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#posterior",
+    "href": "talks/planted-directed-polymer/index.html#posterior",
+    "title": "The Planted Directed Polymer",
+    "section": "Posterior",
+    "text": "Posterior\n\n\n\n\n\n\n\n\\begin{align*}\np(\\varphi_t|x_t) &= \\prod_{\\xi\\in\\mathbb{Z}}\\frac{1}{\\sqrt{2\\pi \\sigma_\\varphi^2 }} \\exp\\left[-\\frac{\\left(\\varphi_{\\xi,t}-\\epsilon \\delta_{x_t,\\xi}\\right)^2}{2\\sigma_\\varphi^2}\\right]\\\\\n&= \\pi(\\varphi_t)\\prod_{\\xi\\in\\mathbb{Z}}\\exp\\left[\\frac{\\delta_{x_t,\\xi}\\left(\\epsilon\\varphi_{x,t}-\\frac{\\epsilon^2}{2}\\right)}{\\sigma_\\varphi^2}\\right]\\\\\n&= \\pi(\\varphi_t)\\exp\\left[-h(x_t,\\varphi_{x_t,t})\\right]\n\\end{align*}\n where the last line defines a Gaussian measure \\pi(\\varphi_t) for a random potential and a Boltzmann factor at time t for a “polymer” moving in that potential. The corresponding normalization factor that appears in the Bayesian update for a whole trajectory is then \n\\begin{align}\np(\\varphi_{1:T}) &= \\frac{\\pi(\\varphi_{1:T})}{\\mathcal{N}_T}\\sum_{\\text{trajectories }x_{1:T}} \\exp\\left[-\\sum_{t=1}^T h(x_t,\\varphi_{x_t,t})\\right]\\\\\n&=\\frac{\\pi(\\varphi_{1:T})}{\\mathcal{N}_T} Z_T(\\varphi_{1:T})\n\\end{align}\n where \\mathcal{N}_T is the number of trajectories of length T, if we assume a uniform prior distribution p(x_{1:T})=1/\\mathcal{N}_T on trajectories. The key point about this expression is that the distribution of the “disorder” \\varphi_{\\xi,t} is affected by the polymer trajectories “planted” in it, with the size of the effect being determined by \\epsilon.\n\n\n\nThe posterior for the trajectory is then written as the normalized Boltzmann probability \np(x_{1:T}|\\varphi_{1:T}) = \\frac{\\exp\\left[-\\sum_{t=1}^T h(x_t, \\varphi_{x_t,t})\\right]}{Z_T(\\varphi_{1:T})}\n The unnormalized posterior q(x_T|\\varphi_{1:T}) obeys the update (this is essentially the discrete time Zakai equation) \nq(x_T|\\varphi_{1:T}) =  \\exp\\left[-h(x_T,\\varphi_{x_T, T})\\right]\\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\\varphi_{1:T-1})\n and this is related to the partition function by \nZ(\\varphi_{1:T}) = \\sum_{x_T} q(x_T|\\varphi_{1:T}).\n We can think of q as the point-to-point partition function or an imaginary-time “wavefunction” in the path integral picture.\nThe procedure for propagating q is then as follows 1. From the normalized p(x_{t-1}|\\varphi_{1:t-1}) and the transition kernel p(x_t|x_{t-1}) we can find p(x_t|\\varphi_{1:t-1}), then sample x_t and then \\varphi_t using p(\\varphi_t|x_t). 2. We then reweight p(x_t|\\varphi_{1:t-1}) using e^{-h(x_t,\\varphi_t)} to give q(x_t|\\varphi_{1:t}) (or p(x_t|\\varphi_{1:T}) after normalization)."
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#image-distribution",
+    "href": "talks/planted-directed-polymer/index.html#image-distribution",
+    "title": "The Planted Directed Polymer",
+    "section": "Image distribution",
+    "text": "Image distribution\n\n\\begin{align*}\np(\\varphi_t|x_t) &= \\prod_{\\xi\\in\\mathbb{Z}}\\frac{1}{\\sqrt{2\\pi \\sigma_\\varphi^2 }} \\exp\\left[-\\frac{\\left(\\varphi_{\\xi,t}-\\epsilon \\delta_{x_t,\\xi}\\right)^2}{2\\sigma_\\varphi^2}\\right]\\\\\n&= \\pi(\\varphi_t)\\prod_{\\xi\\in\\mathbb{Z}}\\exp\\left[\\frac{\\delta_{x_t,\\xi}\\left(\\epsilon\\varphi_{x,t}-\\frac{\\epsilon^2}{2}\\right)}{\\sigma_\\varphi^2}\\right]\\\\\n&= \\pi(\\varphi_t)\\exp\\left[-h(x_t,\\varphi_{x_t,t})\\right]\n\\end{align*}\n\n\n\\exp(-h(x_t,\\varphi_{x_t,t}) represents change in Gaussian measure due to presence of walker (“polymer”)"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#phenomenology",
+    "href": "talks/planted-directed-polymer/index.html#phenomenology",
+    "title": "The Planted Directed Polymer",
+    "section": "Phenomenology",
+    "text": "Phenomenology\n\nHigh temperature phase (\\beta small, weak potential): random walk with wandering exponent 1/2 (x\\sim t^{1/2})\nLow temperature phase: polymer pinned by disorder\nd=1+1 always in low temperature phase. Wandering exponent z=2/3 (superdiffusion)"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#nishimori-point",
+    "href": "talks/planted-directed-polymer/index.html#nishimori-point",
+    "title": "The Planted Directed Polymer",
+    "section": "Nishimori point",
+    "text": "Nishimori point\n\nSimulate “true” trajectory x^*_{1:T}; generate measurements from p(\\varphi_{t}|x_{1:T}^*); infer posterior p(x_{1:T}|\\varphi_{1:T})\nResult is joint p(x_{1:T},x^*_{1:T},\\varphi_{1:T}) for planted trajectory, measurements, and inferred trajectory\n\n\n\\begin{align*}\np(X,X^*,\\Phi) &= p(X|\\Phi)p(\\Phi|X^*)p(X^*)\\\\\n&= \\frac{p(\\Phi|X)p(X)p(\\Phi|X^*)p(X^*)}{p(\\Phi)}\\\\\n\\end{align*}\n\n\nX and X^* are conditionally independent given \\Phi"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#data-assimilation",
+    "href": "talks/planted-directed-polymer/index.html#data-assimilation",
+    "title": "The Planted Directed Polymer",
+    "section": "Data Assimilation",
+    "text": "Data Assimilation\n\np(x_t|x_{t-1}, y_t) = \\frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}\n\n\nApplies also to deterministic dynamics x_t = f(x_{t_1})\n\n\np(x_t|x_{t-1}) = \\begin{cases}\n1 & x_t = f(x_{t_1})\\\\\n0 & \\text{otherwise}\n\\end{cases}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#measures",
+    "href": "talks/planted-directed-polymer/index.html#measures",
+    "title": "The Planted Directed Polymer",
+    "section": "Measures",
+    "text": "Measures\n\nMean square error\n\n\n\\text{MSE}_t \\equiv \\operatorname{\\mathbb{E}}\\left[\\left(x_t-x_t^*\\right)^2\\right]\n\n\nOverlap (for discrete variables)\n\n\n\\text{O} \\equiv \\frac{1}{T}\\operatorname{\\mathbb{E}}\\left[\\sum_{t=1}^T\\delta_{x_t,x_t^*}\\right]"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#away-from-the-bayes-optimal-setting",
+    "href": "talks/planted-directed-polymer/index.html#away-from-the-bayes-optimal-setting",
+    "title": "The Planted Directed Polymer",
+    "section": "Away from the Bayes optimal setting",
+    "text": "Away from the Bayes optimal setting"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#non-optimal-case",
+    "href": "talks/planted-directed-polymer/index.html#non-optimal-case",
+    "title": "The Planted Directed Polymer",
+    "section": "Non-optimal case",
+    "text": "Non-optimal case\n\np(\\varphi_{1:T}) depends on teacher parameter \\epsilon_\\text{t}\n\n\np(\\varphi_{1:T}) = \\frac{\\pi(\\varphi_{1:T})}{\\mathcal{N}_T}\\sum_{x_{1:T}} \\exp\\left[\\sigma_\\varphi^{-2}\\sum_{t=1}^T \\left(\\epsilon_\\text{t}\\varphi_{x_t,t}-\\frac{\\epsilon_\\text{t}^2}{2}\\right)\\right]\n\n\nWhen \\epsilon_\\text{t}=0 iid disorder: directed polymer!"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#teacher-student-setting",
+    "href": "talks/planted-directed-polymer/index.html#teacher-student-setting",
+    "title": "The Planted Directed Polymer",
+    "section": "“Teacher-Student” setting",
+    "text": "“Teacher-Student” setting\n\nSimulate “true” trajectory x^*_{1:T}; generate measurements from p(\\varphi_{t}|x_{1:T}^*); infer posterior p(x_{1:T}|\\varphi_{1:T})\n\n\n\\begin{align*}\np(X,X^*,\\Phi) &= p(X|\\Phi)p(\\Phi|X^*)p(X^*)\\\\\n&= \\frac{p(\\Phi|X)p(X)p(\\Phi|X^*)p(X^*)}{p(\\Phi)}\\\\\n\\end{align*}\n\n\nX and X^* are conditionally independent given \\Phi"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#numerics-in-d11",
+    "href": "talks/planted-directed-polymer/index.html#numerics-in-d11",
+    "title": "The Planted Directed Polymer",
+    "section": "Numerics in d=1+1",
+    "text": "Numerics in d=1+1"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#conjectured-phase-diagram",
+    "href": "talks/planted-directed-polymer/index.html#conjectured-phase-diagram",
+    "title": "The Planted Directed Polymer",
+    "section": "Conjectured phase diagram",
+    "text": "Conjectured phase diagram"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#connection-to-quantum-problem",
+    "href": "talks/planted-directed-polymer/index.html#connection-to-quantum-problem",
+    "title": "The Planted Directed Polymer",
+    "section": "Connection to quantum problem",
+    "text": "Connection to quantum problem"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#walking-on-a-tree-soluble-case",
+    "href": "talks/planted-directed-polymer/index.html#walking-on-a-tree-soluble-case",
+    "title": "The Planted Directed Polymer",
+    "section": "Walking on a tree: soluble case",
+    "text": "Walking on a tree: soluble case\n\n\n\nSource: Derrida and Spohn (1988)\n\n\n\nBranching number K=2 here"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#recursion-relation-for-z",
+    "href": "talks/planted-directed-polymer/index.html#recursion-relation-for-z",
+    "title": "The Planted Directed Polymer",
+    "section": "Recursion relation for Z",
+    "text": "Recursion relation for Z\n\nTree of depth t formed from K trees of depth t-1\n\n(assets/derrida-spohn-tree.png)\n\nUnplanted case \\epsilon_\\text{t}=0 (Derrida and Spohn (1988))"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#continuous-time-limit",
+    "href": "talks/planted-directed-polymer/index.html#continuous-time-limit",
+    "title": "The Planted Directed Polymer",
+    "section": "Continuous time limit",
+    "text": "Continuous time limit\n\n\n\nSource: Derrida and Spohn (1988)\n\n\n\n\\partial_t G_{\\epsilon_{\\text{t}}}=D\\partial_x^2 G_{\\epsilon_{\\text{t}}}-v_\\epsilon\\partial_x G_{\\epsilon_{\\text{t}}} + \\lambda\\left(G_{0}-1\\right)G_{\\epsilon_{\\text{t}}}\n (v_\\epsilon\\propto \\epsilon)\n\nG_0(x,t) satisfies Fisher KPP equation\n\n\n\\partial_t G_{0}=D\\partial_x^2 G_{0}+ \\lambda\\left(G_{0}-1\\right)G_{0}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#recursion-relation-for-zepsilon_texts-t",
+    "href": "talks/planted-directed-polymer/index.html#recursion-relation-for-zepsilon_texts-t",
+    "title": "The Planted Directed Polymer",
+    "section": "Recursion relation for Z(\\epsilon_\\text{s}, t)",
+    "text": "Recursion relation for Z(\\epsilon_\\text{s}, t)\n\nTree of depth t formed from K trees of depth t-1\n\n(assets/derrida-spohn-tree.png)\n\nUnplanted case (\\epsilon_\\text{t}=0): K copies are iid\n\n(Derrida and Spohn (1988))"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#recursion-relation-for-zepsilon_textt-t",
+    "href": "talks/planted-directed-polymer/index.html#recursion-relation-for-zepsilon_textt-t",
+    "title": "The Planted Directed Polymer",
+    "section": "Recursion relation for Z(\\epsilon_\\text{t}, t)",
+    "text": "Recursion relation for Z(\\epsilon_\\text{t}, t)\n\nTree of depth t formed from K trees of depth t-1\n\n\n\n\n\nUnplanted case (\\epsilon_\\text{t}=0): K copies are iid \nZ(0, t) = \\exp(\\varphi)\\sum_{i=1}^K Z_i(0, t-1)\\qquad \\varphi \\sim\\mathcal{N}(0,\\epsilon_\\text{s}^2\\sigma_\\text{t}^2/\\sigma_\\text{s}^4)"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#travelling-wave-solutions",
+    "href": "talks/planted-directed-polymer/index.html#travelling-wave-solutions",
+    "title": "The Planted Directed Polymer",
+    "section": "Travelling wave solutions",
+    "text": "Travelling wave solutions"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#traveling-wave-solutions",
+    "href": "talks/planted-directed-polymer/index.html#traveling-wave-solutions",
+    "title": "The Planted Directed Polymer",
+    "section": "Traveling wave solutions",
+    "text": "Traveling wave solutions\n\nWeak planting: v_\\epsilon &lt; c_\\beta, speed of unplanted wave\n\n\n\n\n\nStep in G_{\\epsilon_T} “sticks” to step in G_{0}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#overlap",
+    "href": "talks/planted-directed-polymer/index.html#overlap",
+    "title": "The Planted Directed Polymer",
+    "section": "Overlap",
+    "text": "Overlap\n\nZ(\\epsilon_\\text{t},t) = \\exp\\left(\\varphi+\\epsilon\\right)\\left[Z(\\epsilon_\\text{t},t-1)+\\sum_{i=1}^{K-1} Z_i(0,t-1)\\right],\n\n\nPartition function is weighted sum of contributions with different overlaps Y=\\sum_{t} \\delta_{x_t, x_t^*} \n\\begin{align*}\nZ(\\epsilon_\\text{t},t) = \\sum_{Y=1}^T e^{\\epsilon Y} Z_Y(t) \\\\\n\\langle Y\\rangle = \\frac{\\partial \\log Z(\\epsilon_\\text{t}, t)}{\\partial \\epsilon}\n\\end{align*}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#phase-diagram",
+    "href": "talks/planted-directed-polymer/index.html#phase-diagram",
+    "title": "The Planted Directed Polymer",
+    "section": "Phase diagram",
+    "text": "Phase diagram"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#planted",
+    "href": "talks/planted-directed-polymer/index.html#planted",
+    "title": "The Planted Directed Polymer",
+    "section": "Planted",
+    "text": "Planted\n\nPlanted case: one branch has planted path\n\n\nZ(\\epsilon_\\text{t},t) = \\exp\\left(\\varphi+\\epsilon\\right)\\left[Z(\\epsilon_\\text{t},t-1)+\\sum_{i=1}^{K-1} Z_i(0,t-1)\\right],\n\n\n\\epsilon \\equiv \\frac{\\epsilon_\\text{s}\\epsilon_{t}}{\\sigma_\\text{s}^2} is shift due to path passing through root of tree\n\n## Generating function \nG_{\\epsilon_\\text{t}}(x,t) \\equiv \\operatorname{\\mathbb{E}}\\left[\\exp\\left(-Z(\\epsilon_\\text{t},t)e^{-x}\\right)\\right]\n \nG_{\\epsilon_\\text{t}}(x,t)=\\begin{cases}\n0 & x\\to -\\infty\\\\\n1 & x\\to +\\infty\n\\end{cases}\n\n\nExpect \\log Z\\propto t at long times (extensive free energy)\nStep centred at \\sim\\log Z"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#summary",
+    "href": "talks/planted-directed-polymer/index.html#summary",
+    "title": "The Planted Directed Polymer",
+    "section": "Summary",
+    "text": "Summary\n\nInferring path from images related to directed polymer\nPhase transition in inference success, at least on tree (and perhaps d&gt;1+1?)\nRelation to data assimilation and quantum systems?"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#satisfies",
+    "href": "talks/planted-directed-polymer/index.html#satisfies",
+    "title": "The Planted Directed Polymer",
+    "section": "Satisfies",
+    "text": "Satisfies\n\nSatisfies the linear equation\n\n\nG_{\\epsilon_\\text{t}}(x,t)  = \\operatorname{\\mathbb{E}}_\\varphi\\left[G_{\\epsilon_\\text{t}}(x-\\varphi-\\epsilon,t-1) \\left(G_{0}(x-\\varphi,t-1) \\right)^{K-1}\\right]\n\n\nAlong with the nonlinear equation for G_0(x,t)\n\n\nG_{0}(x,t)  = \\operatorname{\\mathbb{E}}_\\varphi\\left[\\left(G_{0}(x-\\varphi,t-1) \\right)^{K}\\right]"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#quantum-systems",
+    "href": "talks/planted-directed-polymer/index.html#quantum-systems",
+    "title": "The Planted Directed Polymer",
+    "section": "Quantum systems",
+    "text": "Quantum systems\n\nDescribed by density matrix \\rho, playing role of p(x_t)\nUpdated after some measurement M_\\alpha\n\n\n\\rho\\longrightarrow \\frac{M_\\alpha\\rho M_\\alpha^\\dagger}{\\operatorname{tr}\\left[M_\\alpha \\rho M^\\dagger_\\alpha\\right]}\n\n\nSimilar to Bayesian update \np(x_t|x_{t-1}, y_t) = \\frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#measurement-induced-phase-transition",
+    "href": "talks/planted-directed-polymer/index.html#measurement-induced-phase-transition",
+    "title": "The Planted Directed Polymer",
+    "section": "Measurement induced phase transition",
+    "text": "Measurement induced phase transition\n\nSkinner, Ruhman, Nahum (2019), Li, Chen, Fisher (2019)\n\n\n\n\nSource: Gullans and Huse (2020)"
   }
 ]

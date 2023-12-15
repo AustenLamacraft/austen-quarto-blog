@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <meta name="author" content="Austen Lamacraft (Cambridge) and Sun-Woo Kim (KCL)">
+  <meta name="author" content="Austen Lamacraft (Cambridge) and Sun Woo Kim (KCL)">
   <title>Austen Lamacraft - The Planted Directed Polymer</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -346,35 +346,48 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Austen Lamacraft (Cambridge) and Sun-Woo Kim (KCL) 
+Austen Lamacraft (Cambridge) and Sun Woo Kim (KCL) 
 </div>
 </div>
 </div>
 
 </section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/2_good_image.svg"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/3_good_inference.svg"></p>
+</section>
 <section id="outline" class="slide level2 center">
 <h2>Outline</h2>
 <ul>
-<li><p>Kalman filter</p>
-<ul>
-<li>As an inference problem</li>
-</ul></li>
-<li><p>Relation to measurement induced phase transition</p></li>
-<li><p>Planting</p></li>
-<li><p>Machine learning approaches and models used</p></li>
-<li><p>Data Assimilation</p></li>
-<li><p>Other occurrences in the literature (road tracking, etc)</p></li>
-<li><p>The 1D case</p>
-<ul>
-<li>Wandering exponent and KPZ scaling</li>
-<li>Connection to quantum mechanics and Feynman-Kac</li>
-</ul></li>
-<li><p>The tree case</p>
-<ul>
-<li>Recursion</li>
-<li>Transition in the planted case</li>
-</ul></li>
+<li><p>Inferring a path in a noisy image</p></li>
+<li><p>Relation to directed polymer</p></li>
+<li><p>Numerics in <span class="math inline">d=1+1</span></p></li>
+<li><p>Analytic solution on tree</p></li>
 </ul>
+<!-- - Kalman filter
+  - As an inference problem
+
+- Relation to measurement induced phase transition
+- Planting. Connection to other problems.
+- Machine learning approaches and models used
+- Data Assimilation
+- Other occurrences in the literature (road tracking, etc)
+
+- Measures: overlap. RMS error
+
+- The 1D case
+  - Wandering exponent and KPZ scaling
+  - Connection to quantum mechanics and Feynman-Kac
+  - Free energy profiles
+
+- The tree case
+  - Recursion
+  - Overlap
+  - Transition in the planted case -->
 </section>
 <section id="bayes-rule" class="slide level2 center">
 <h2>Bayes’ rule</h2>
@@ -404,97 +417,497 @@ p(x_t|y_{1:t})&amp;=\frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t)}\\
 <h2>Filtering, smoothing, etc.</h2>
 <ul>
 <li><p><em>Filtering</em> is estimation of current state <span class="math inline">x_t</span> based on past history of <span class="math inline">y_{1:t}</span> i.e.&nbsp;<span class="math inline">p(x_t|y_{1:t})</span></p></li>
-<li><p><em>Smoothing</em> uses all measurements <span class="math inline">y_{1:T}</span> up to some time horizong <span class="math inline">T</span> i.e.&nbsp;<span class="math inline">p(x_t|y_{1:T})</span></p></li>
+<li><p><em>Smoothing</em> uses all measurements <span class="math inline">y_{1:T}</span> up to some time horizon <span class="math inline">T</span> i.e.&nbsp;<span class="math inline">p(x_t|y_{1:T})</span></p></li>
+</ul>
+</section>
+<section id="example-kalman-filter" class="slide level2 center">
+<h2>Example: <a href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a></h2>
+<p><img data-src="assets/1000px-Hmm_temporal_bayesian_net.svg.png"></p>
+<p><span class="math display">
+\begin{align*}
+x_{t} = x_{t-1} + w_t\qquad y_{t} = x_t + v_t \\
+w_t\sim \mathcal{N}(0,\sigma^2)\qquad v_t\sim\mathcal{N}(0,\sigma_y^2)\\
+p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
+\end{align*}
+</span></p>
+<ul>
+<li><p>Prediction is Gaussian!</p></li>
+<li><p>See <a href="https://www.youtube.com/watch?v=Gy2VsurG_yo&amp;list=PL8erL0pXF3JaJdUcmc_PeGV-vG5z87BkD">Robert Ghrist’s YT video</a></p></li>
+</ul>
+</section>
+<section id="image-model" class="slide level2 center">
+<h2>“Image” model</h2>
+<ul>
+<li><p>Take <span class="math inline">x_t\in \mathbb{Z}</span> simple random walk</p></li>
+<li><p>“Pixel” values <span class="math inline">\phi_{x,t}\sim \mathcal{N}(\epsilon\delta_{x,x_t}, \sigma^2)</span></p></li>
+<li><p>Nonlinear! (c.f. Kalman)</p></li>
+<li><p>What is <span class="math inline">p(x_t|\phi_{1:t})</span>?</p></li>
 </ul>
 </section>
 <section class="slide level2 center">
 
-<p>There’s a great diversity of terminology here see e.g.&nbsp;<em>filtering</em> vs <em>smoothing</em>, and discrete vs.&nbsp;continuous time e.g.&nbsp;the <a href="[Zakai equation - Wikipedia](https://en.wikipedia.org/wiki/Zakai_equation)">Zakai</a> and <a href="https://en.wikipedia.org/wiki/Kushner_equation">Kushner</a> equations. In any case, I haven’t really found anything that addresses the thermodynamic limit of large systems and long times. Incidentally, the term <a href="https://en.wikipedia.org/wiki/Data_assimilation">Data assimilation</a> is used in weather forecasting for the same problem, and there the setting is naturally spatially extended see e.g.&nbsp;the <a href="https://en.wikipedia.org/wiki/Lorenz_96_model">Lorenz 96 model</a>.</p>
-</section>
-<section id="example-kalman-filter" class="slide level2 center">
-<h2>Example: Kalman filter</h2>
-<p><a href="https://en.wikipedia.org/wiki/Kalman_filter">Wikipedia</a></p>
-<p>Nice Twitter thread</p>
-<p>https://twitter.com/docmilanfar/status/1720946454796304861</p>
-<p>https://twitter.com/docmilanfar/status/1503206828716400641</p>
+<p><img data-src="assets/1_true_path.svg"></p>
 </section>
 <section class="slide level2 center">
 
-<p>Kalman getting medal of science from Obama</p>
+<p><img data-src="assets/2_good_image.svg"></p>
 </section>
 <section class="slide level2 center">
 
-<p>Inference involves the application of Bayes’ rule <span class="math display">
-p(x|y) = \frac{p(y|x)p(x)}{p(y)}
-</span> where <span class="math inline">p(y) = \int dx \,p(y|x)p(x)</span>. For a HMM, this is can be written in more detail as</p>
-<p><span class="math display">
-p(x_t|y_{1:t})=\frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t)}=\frac{p(y_t|x_t)}{p(y_t)}\sum_{x_{t-1}}p(x_t|x_{t-1})p(x_{t-1}|y_{1:t-1}).
-</span> In this expression we have explicitly separated the Markov update of the latent state by the transition kernel <span class="math inline">p(x_t|x_{t-1})</span> and the reweighting due to the measurement outcome <span class="math inline">y_t</span>.</p>
-<p>Switching now to our “image” observation model and taking <span class="math inline">x_t\in \mathbb{Z}</span>. For Gaussian observations we have <span class="math display">
-\begin{align}
-p(\varphi_t|x_t) &amp;= \prod_{\xi\in\mathbb{Z}}\frac{1}{\sqrt{2\pi \sigma_\varphi^2 }} \exp\left[-\frac{\left(\varphi_{\xi,t}-\epsilon \delta_{x_t,\xi}\right)^2}{2\sigma_\varphi^2}\right]\\
-&amp;= \prod_{\xi\in\mathbb{Z}}\frac{1}{\sqrt{2\pi \sigma_\varphi^2 }} \exp\left[-\frac{\varphi_{\xi,t}^2}{2\sigma_\varphi^2}\right]\exp\left[\frac{\delta_{x_t,\xi}\left(\epsilon\varphi_{x,t}-\frac{\epsilon^2}{2}\right)}{\sigma_\varphi^2}\right]\\
-&amp;= \pi(\varphi_t)\exp\left[-h(x_t,\varphi_{x_t,t})\right]
-\end{align}
-</span> where the last line defines a Gaussian measure <span class="math inline">\pi(\varphi_t)</span> for a random potential and a Boltzmann factor at time <span class="math inline">t</span> for a “polymer” moving in that potential. The corresponding normalization factor that appears in the Bayesian update for a whole trajectory is then <span class="math display">
-\begin{align}
-p(\varphi_{1:T}) &amp;= \frac{\pi(\varphi_{1:T})}{\mathcal{N}_T}\sum_{\text{trajectories }x_{1:T}} \exp\left[-\sum_{t=1}^T h(x_t,\varphi_{x_t,t})\right]\\
-&amp;=\frac{\pi(\varphi_{1:T})}{\mathcal{N}_T} Z_T(\varphi_{1:T})
-\end{align}
-</span> where <span class="math inline">\mathcal{N}_T</span> is the number of trajectories of length <span class="math inline">T</span>, if we assume a uniform prior distribution <span class="math inline">p(x_{1:T})=1/\mathcal{N}_T</span> on trajectories. The key point about this expression is that the distribution of the “disorder” <span class="math inline">\varphi_{\xi,t}</span> is affected by the polymer trajectories “planted” in it, with the size of the effect being determined by <span class="math inline">\epsilon</span>.</p>
+<p><img data-src="assets/3_good_inference.svg"></p>
 </section>
 <section class="slide level2 center">
 
-<p>The posterior for the trajectory is then written as the normalized Boltzmann probability <span class="math display">
-p(x_{1:T}|\varphi_{1:T}) = \frac{\exp\left[-\sum_{t=1}^T h(x_t, \varphi_{x_t,t})\right]}{Z_T(\varphi_{1:T})}
-</span> The unnormalized posterior <span class="math inline">q(x_T|\varphi_{1:T})</span> obeys the update (this is essentially the discrete time Zakai equation) <span class="math display">
-q(x_T|\varphi_{1:T}) =  \exp\left[-h(x_T,\varphi_{x_T, T})\right]\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})
-</span> and this is related to the partition function by <span class="math display">
-Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T}).
-</span> We can think of <span class="math inline">q</span> as the point-to-point partition function or an imaginary-time “wavefunction” in the path integral picture.</p>
-<p>The procedure for propagating <span class="math inline">q</span> is then as follows 1. From the normalized <span class="math inline">p(x_{t-1}|\varphi_{1:t-1})</span> and the transition kernel <span class="math inline">p(x_t|x_{t-1})</span> we can find <span class="math inline">p(x_t|\varphi_{1:t-1})</span>, then sample <span class="math inline">x_t</span> and then <span class="math inline">\varphi_t</span> using <span class="math inline">p(\varphi_t|x_t)</span>. 2. We then reweight <span class="math inline">p(x_t|\varphi_{1:t-1})</span> using <span class="math inline">e^{-h(x_t,\varphi_t)}</span> to give <span class="math inline">q(x_t|\varphi_{1:t})</span> (or <span class="math inline">p(x_t|\varphi_{1:T})</span> after normalization).</p>
+<p><img data-src="assets/4_bad_image.svg"></p>
 </section>
 <section class="slide level2 center">
 
-<p>We are concerned with the problem inferring a Brownian (or other stochastic) trajectory from certain imperfect (noisy) measurements. The simplest situation to consider is the linear update <span class="math display">
-\begin{align}
-x_{t} &amp;= x_{t-1} + w_t\\
-y_{t} &amp;= x_t + v_t
-\end{align}
-</span> where <span class="math inline">w_t\sim \mathcal{N}(0,\sigma^2)</span> and <span class="math inline">v_t\sim\mathcal{N}(0,\sigma_y^2)</span> represent the random increment of the latent variables <span class="math inline">x_t</span> (to be inferred) and the measurement noise in the measurement <span class="math inline">y_t</span>. This is a simple example of a hidden Markov model. More specifically, it is an example of a <a href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a> (Taking the continuum limit yields the Kalman—Bucy filter). The posterior distribution <span class="math inline">p(x_t|y_{1:t})</span> is Gaussian and its parameters can be found in closed form.</p>
-<p>We are interested in another kind of observation model, analogous to an “image” in which a dot or spike appears at <span class="math inline">x_t</span>. Our measurement is now a field <span class="math inline">\varphi_{\xi,t}</span></p>
-<p><span class="math display">
-\varphi_{\xi,t} = \delta(\xi - x_t) + \eta_{\xi,t}
-</span> where <span class="math inline">\eta_{\xi,t}</span> is white noise that obscure the spike at <span class="math inline">x_t</span>. Note that this is now a nonlinear problem, even if the dynamics of <span class="math inline">x_t</span> remains linear. The sequence of “images” <span class="math inline">\varphi_{\xi,t}</span> will allow us to infer the position of <span class="math inline">x_t</span> with a confidence that depends on the signal to noise.</p>
-<p>We can imagine various versions of the model:</p>
-<ol type="1">
-<li>We can take position to be discrete, in which case the underlying dynamics of <span class="math inline">x_t</span> could be a random walk on <span class="math inline">\mathbb{Z}</span>. and the image <span class="math inline">\varphi_{\xi,t}</span> is corrupted by iid Gaussians at each site and each instant.</li>
-<li>With discrete positions the measurements could be taken to be Ising variables, with 0 or 1 providing information on the likely occupancy of a site</li>
-<li>For theoretical analysis it’s probably natural to take space and time to be continuous</li>
-<li>Finally, we can consider many body versions of the problem, where we have a number of particles diffusing (e.g.&nbsp;SSEP on a lattice)</li>
-</ol>
+<p><img data-src="assets/5_bad_inference.svg"></p>
 </section>
 <section id="application-road-tracking" class="slide level2 center">
 <h2>Application: road tracking</h2>
-<p><a href="https://ieeexplore.ieee.org/abstract/document/825754">Yuille and Coughlan (2000)</a></p>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/825754">Yuille and Coughlan (2000)</a></li>
+</ul>
 <p><img data-src="assets/road-tracking.png"></p>
-<p><a href="https://ieeexplore.ieee.org/abstract/document/8455360">Offer (2018)</a>, Phase Transition in Bayesian Tracking in Clutter</p>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/8455360">Offer (2018)</a>: Phase Transition in Bayesian Tracking in Clutter</li>
+</ul>
 </section>
-<section>
-<section id="and-the-next" class="title-slide slide level1 center">
-<h1>and the next</h1>
+<section id="image-distribution" class="slide level2 center">
+<h2>Image distribution</h2>
+<p><span class="math display">
+\begin{align*}
+p(\varphi_t|x_t) &amp;= \prod_{\xi\in\mathbb{Z}}\frac{1}{\sqrt{2\pi \sigma_\varphi^2 }} \exp\left[-\frac{\left(\varphi_{\xi,t}-\epsilon \delta_{x_t,\xi}\right)^2}{2\sigma_\varphi^2}\right]\\
+&amp;= \pi(\varphi_t)\prod_{\xi\in\mathbb{Z}}\exp\left[\frac{\delta_{x_t,\xi}\left(\epsilon\varphi_{x,t}-\frac{\epsilon^2}{2}\right)}{\sigma_\varphi^2}\right]\\
+&amp;= \pi(\varphi_t)\exp\left[-h(x_t,\varphi_{x_t,t})\right]
+\end{align*}
+</span></p>
+<ul>
+<li><span class="math inline">\exp(-h(x_t,\varphi_{x_t,t})</span> represents change in Gaussian measure due to presence of walker (“polymer”)</li>
+</ul>
+</section>
+<section class="slide level2 center">
 
+<ul>
+<li>Marginalizing over random walker gives</li>
+</ul>
+<p><span class="math display">
+\begin{align*}
+p(\varphi_{1:T}) &amp;= \frac{\pi(\varphi_{1:T})}{\mathcal{N}_T}\sum_{x_{1:T}} \exp\left[-\sum_{t=1}^T h(x_t,\varphi_{x_t,t})\right]\\
+&amp;\equiv\frac{\pi(\varphi_{1:T})}{\mathcal{N}_T} Z_T(\varphi_{1:T})
+\end{align*}
+</span></p>
+<ul>
+<li><p>Assuming uniform prior <span class="math inline">p(x_{1:T})=1/\mathcal{N}_T</span> (<span class="math inline">\mathcal{N}_T</span> is number of trajectories of length <span class="math inline">T</span>)</p></li>
+<li><p>Key point: distribution of <span class="math inline">\varphi_{\xi,t}</span> is affected by the polymer trajectories “planted” in it, with the size of the effect being determined by <span class="math inline">\epsilon</span>.</p></li>
+</ul>
 </section>
-<section id="does-this-give-a-new-one" class="slide level2 center">
-<h2>Does this give a new one?</h2>
+<section class="slide level2 center">
+
+<ul>
+<li><p>Posterior is then normalized Boltzmann probability <span class="math display">
+p(x_{1:T}|\varphi_{1:T}) = \frac{\exp\left[-\sum_{t=1}^T h(x_t, \varphi_{x_t,t})\right]}{Z_T(\varphi_{1:T})}
+</span></p></li>
+<li><p>Unnormalized posterior <span class="math inline">q(x_T|\varphi_{1:T})</span> obeys <span class="math display">
+\begin{align*}
+q(x_T|\varphi_{1:T}) = e^{-h(x_T,\varphi_{x_T, T})}\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})
+Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T})
+\end{align*}
+</span></p></li>
+<li><p><span class="math inline">q</span> “point-to-point” partition function or imaginary-time “wavefunction” in path integral picture</p></li>
+</ul>
 </section>
-<section id="how-about-this" class="slide level2 center">
-<h2>How about this?</h2>
+<section id="directed-polymer" class="slide level2 center">
+<h2>Directed Polymer</h2>
+<ul>
+<li><p>Classic problem in statistical physics of disordered systems</p></li>
+<li><p>Walker <span class="math inline">x_t</span> (“polymer”) weighted by Boltzmann weight <span class="math display">
+\exp\left[-\beta\sum_t \varphi_{x_t,t}\right]
+</span> (inverse temperature <span class="math inline">\beta</span>)</p></li>
+<li><p>Iid random “potential” <span class="math inline">\varphi_{x,t}\sim \mathcal{N(0,\sigma_\varphi^2)}</span></p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/directed-polymer.png"></p>
+<figcaption>Source: <a href="https://www.cambridge.org/core/books/statistical-physics-of-fields/06F49D11030FB3108683F413269DE945">Kardar, Statistical Physics of Fields</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="phenomenology" class="slide level2 center">
+<h2>Phenomenology</h2>
+<ul>
+<li><p><strong>High temperature phase</strong> (<span class="math inline">\beta</span> small, weak potential): random walk with <em>wandering exponent</em> <span class="math inline">1/2</span> (<span class="math inline">x\sim t^{1/2}</span>)</p></li>
+<li><p><strong>Low temperature phase</strong>: polymer <em>pinned</em> by disorder</p></li>
+<li><p><span class="math inline">d=1+1</span> always in low temperature phase. Wandering exponent <span class="math inline">z=2/3</span> (<em>superdiffusion</em>)</p></li>
+</ul>
+</section>
+<section id="planting" class="slide level2 center">
+<h2>Planting</h2>
+<ul>
+<li><p><span class="math inline">p(\varphi_{1:T})</span> determined by “ground truth”</p></li>
+<li><p><em>Planting</em>: generate samples by sampling <span class="math inline">x_t</span> from prior and using observation model <span class="math inline">p(\varphi_{1:T}|x_{1:T})</span></p></li>
+</ul>
+<p><img data-src="assets/2_good_image.svg"></p>
+<ul>
+<li>See review by <a href="https://www.tandfonline.com/doi/full/10.1080/00018732.2016.1211393">Zdeborová and Krzakala (2016)</a></li>
+</ul>
+</section>
+<section id="teacher-student-setting" class="slide level2 center">
+<h2>“Teacher-Student” setting</h2>
+<ul>
+<li>Simulate “true” trajectory <span class="math inline">x^*_{1:T}</span>; generate measurements from <span class="math inline">p(\varphi_{t}|x_{1:T}^*)</span>; infer posterior <span class="math inline">p(x_{1:T}|\varphi_{1:T})</span></li>
+</ul>
+<p><span class="math display">
+\begin{align*}
+p(X,X^*,\Phi) &amp;= p(X|\Phi)p(\Phi|X^*)p(X^*)\\
+&amp;= \frac{p(\Phi|X)p(X)p(\Phi|X^*)p(X^*)}{p(\Phi)}\\
+\end{align*}
+</span></p>
+<ul>
+<li><span class="math inline">X</span> and <span class="math inline">X^*</span> are <em>conditionally</em> independent given <span class="math inline">\Phi</span></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p><span class="math display">
+\begin{align*}
+p(X,X^*,\Phi) = \frac{p(\Phi|X)p(X)p(\Phi|X^*)p(X^*)}{p(\Phi)}\\
+\end{align*}
+</span></p>
+<ul>
+<li><p><em>Symmetry</em> between <span class="math inline">X</span> and <span class="math inline">X^*</span> is a consequence of the distribution <span class="math inline">p(\Phi|X^*)</span> being identical to <span class="math inline">p(\Phi|X)</span>. Likewise <span class="math inline">p(X^*)</span> and prior <span class="math inline">p(X)</span></p></li>
+<li><p>This is <em>Bayes optimal</em> setting, and corresponds to the <em>Nishimori point</em> in spin glasses</p></li>
+<li><p>The wandering exponent of <span class="math inline">x_t</span> must be <span class="math inline">1/2</span>, as for <span class="math inline">x_t^*</span></p></li>
+</ul>
+</section>
+<section id="non-optimal-case" class="slide level2 center">
+<h2>Non-optimal case</h2>
+<ul>
+<li><span class="math inline">p(\varphi_{1:T})</span> depends on teacher parameter <span class="math inline">\epsilon_\text{t}</span></li>
+</ul>
+<p><span class="math display">
+p(\varphi_{1:T}) = \frac{\pi(\varphi_{1:T})}{\mathcal{N}_T}\sum_{x_{1:T}} \exp\left[\sigma_\varphi^{-2}\sum_{t=1}^T \left(\epsilon_\text{t}\varphi_{x_t,t}-\frac{\epsilon_\text{t}^2}{2}\right)\right]
+</span></p>
+<ul>
+<li>When <span class="math inline">\epsilon_\text{t}=0</span> iid disorder: directed polymer!</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><span class="math inline">p(x_{1:t}|\varphi_{1:T})</span> depends on student parameter <span class="math inline">\epsilon_\text{s}</span></li>
+</ul>
+<p><span class="math display">
+p(x_{1:T}|\varphi_{1:T}) = \frac{\exp\left[-\sum_{t=1}^T h_{\epsilon_\text{s}}(x_t, \varphi_{x_t,t})\right]}{Z_T(\varphi_{1:T})}
+</span></p>
+<ul>
+<li><p><span class="math inline">\epsilon_\text{s}</span> sets polymer temperature / disorder</p></li>
+<li><p>Large <span class="math inline">\epsilon_\text{s}</span>: confidence in signal even if signal is weak!</p></li>
+</ul>
+</section>
+<section id="measures" class="slide level2 center">
+<h2>Measures</h2>
+<ul>
+<li>Mean square error</li>
+</ul>
+<p><span class="math display">
+\text{MSE}_t \equiv \operatorname{\mathbb{E}}\left[\left(x_t-x_t^*\right)^2\right]
+</span></p>
+<ul>
+<li>Overlap (for discrete variables)</li>
+</ul>
+<p><span class="math display">
+\text{O} \equiv \frac{1}{T}\operatorname{\mathbb{E}}\left[\sum_{t=1}^T\delta_{x_t,x_t^*}\right]
+</span></p>
+</section>
+<section id="data-assimilation" class="slide level2 center">
+<h2>Data Assimilation</h2>
+<p><span class="math display">
+p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
+</span></p>
+<ul>
+<li>Applies also to <em>deterministic</em> dynamics <span class="math inline">x_t = f(x_{t_1})</span></li>
+</ul>
+<p><span class="math display">
+p(x_t|x_{t-1}) = \begin{cases}
+1 &amp; x_t = f(x_{t_1})\\
+0 &amp; \text{otherwise}
+\end{cases}
+</span></p>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><p>Challenge of many degrees of freedom (e.g.&nbsp;weather)</p></li>
+<li><p>Recent ML based methods e.g.&nbsp;score-based data assimilation <a href="https://arxiv.org/abs/2306.10574">Rozet and Louppe (2023)</a></p></li>
+</ul>
+<p><img data-src="assets/rozet-louppe.png"></p>
+</section>
+<section id="quantum-systems" class="slide level2 center">
+<h2>Quantum systems</h2>
+<ul>
+<li><p>Described by <strong>density matrix</strong> <span class="math inline">\rho</span>, playing role of <span class="math inline">p(x_t)</span></p></li>
+<li><p>Updated after some measurement <span class="math inline">M_\alpha</span></p></li>
+</ul>
+<p><span class="math display">
+\rho\longrightarrow \frac{M_\alpha\rho M_\alpha^\dagger}{\operatorname{tr}\left[M_\alpha \rho M^\dagger_\alpha\right]}
+</span></p>
+<ul>
+<li>Similar to Bayesian update <span class="math display">
+p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
+</span></li>
+</ul>
+</section>
+<section id="measurement-induced-phase-transition" class="slide level2 center">
+<h2>Measurement induced phase transition</h2>
+<ul>
+<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009">Skinner, Ruhman, Nahum (2019)</a>, <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.134306">Li, Chen, Fisher (2019)</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/gullans-huse-circuit.png"></p>
+<figcaption>Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041020">Gullans and Huse (2020)</a></figcaption>
+</figure>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041020">Gullans and Huse (2020)</a> purification transition</li>
+</ul>
+<p><img data-src="assets/gullans-huse-phase-diagram.png"></p>
+</section>
+<section id="numerics-in-d11" class="slide level2 center">
+<h2>Numerics in <span class="math inline">d=1+1</span></h2>
+<figure align="center">
+<img src="assets/20_free_energy_profile_quadratic.svg" width="80%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/21_free_energy_profile_flat.svg" width="80%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/17_rms_crossover.svg" width="80%">
+</figure>
+<ul>
+<li><p>Recall <span class="math inline">\epsilon_\text{t}=0</span> is directed polymer with exponent <span class="math inline">2/3</span></p></li>
+<li><p>Finite <span class="math inline">\epsilon_\text{t}</span> gives crossover to random walk at long times</p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/16_rms_dist_plateau.svg" width="80%">
+</figure>
+<ul>
+<li>Finite <span class="math inline">\epsilon_\text{t}</span> leads to saturation as <span class="math inline">t\to\infty</span></li>
+</ul>
+</section>
+<section id="conjectured-phase-diagram" class="slide level2 center">
+<h2>Conjectured phase diagram</h2>
+<figure align="center">
+<img src="assets/19_1d_phase_diagram.svg" width="80%">
+</figure>
+</section>
+<section id="connection-to-quantum-problem" class="slide level2 center">
+<h2>Connection to quantum problem</h2>
+</section>
+<section id="walking-on-a-tree-soluble-case" class="slide level2 center">
+<h2>Walking on a tree: soluble case</h2>
+<figure align="center">
+<img src="assets/derrida-spohn-tree.png" width="50%">
+<figcaption>
+Source: <a href="https://link.springer.com/article/10.1007/BF01014886">Derrida and Spohn (1988)</a>
+</figcaption>
+</figure>
+<ul>
+<li>Branching number <span class="math inline">K=2</span> here</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/6_tree_true_path.svg" width="70%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/7_tree_good_image.svg" width="70%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/8_tree_good_inference.svg" width="70%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/9_tree_bad_image.svg" width="70%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<figure align="center">
+<img src="assets/10_tree_bad_inference.svg" width="70%">
+</figure>
+</section>
+<section id="recursion-relation-for-zepsilon_textt-t" class="slide level2 center">
+<h2>Recursion relation for <span class="math inline">Z(\epsilon_\text{t}, t)</span></h2>
+<ul>
+<li>Tree of depth <span class="math inline">t</span> formed from <span class="math inline">K</span> trees of depth <span class="math inline">t-1</span></li>
+</ul>
+<figure align="center">
+<img src="assets/derrida-spohn-tree.png" width="40%">
+</figure>
+<ul>
+<li>Unplanted case (<span class="math inline">\epsilon_\text{t}=0</span>): <span class="math inline">K</span> copies are iid <span class="math display">
+Z(0, t) = \exp(\varphi)\sum_{i=1}^K Z_i(0, t-1)\qquad \varphi \sim\mathcal{N}(0,\epsilon_\text{s}^2\sigma_\text{t}^2/\sigma_\text{s}^4)
+</span></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Planted case: one branch has planted path</li>
+</ul>
+<p><span class="math display">
+Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right]
+</span></p>
+<ul>
+<li><span class="math inline">\epsilon \equiv \frac{\epsilon_\text{s}\epsilon_{t}}{\sigma_\text{s}^2}</span> is shift due to path passing through root of tree</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Generating function <span class="math display">
+\begin{align*}
+G_{\epsilon_\text{t}}(x,t) \equiv \operatorname{\mathbb{E}}\left[\exp\left(-Z(\epsilon_\text{t},t)e^{-x}\right)\right]\\
+G_{\epsilon_\text{t}}(x,t)=\begin{cases}
+0 &amp; x\to -\infty\\
+1 &amp; x\to +\infty
+\end{cases}
+\end{align*}
+</span></p>
+<ul>
+<li><p>Expect <span class="math inline">\log Z\propto t</span> at long times (extensive free energy)</p></li>
+<li><p>Step centred at <span class="math inline">\sim\log Z</span></p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Satisfies the linear equation</li>
+</ul>
+<p><span class="math display">
+G_{\epsilon_\text{t}}(x,t)  = \operatorname{\mathbb{E}}_\varphi\left[G_{\epsilon_\text{t}}(x-\varphi-\epsilon,t-1) \left(G_{0}(x-\varphi,t-1) \right)^{K-1}\right]
+</span></p>
+<ul>
+<li>Along with the <em>nonlinear</em> equation for <span class="math inline">G_0(x,t)</span></li>
+</ul>
+<p><span class="math display">
+G_{0}(x,t)  = \operatorname{\mathbb{E}}_\varphi\left[\left(G_{0}(x-\varphi,t-1) \right)^{K}\right]
+</span></p>
+</section>
+<section id="continuous-time-limit" class="slide level2 center">
+<h2>Continuous time limit</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/derrida-spohn-branching.png"></p>
+<figcaption>Source: <a href="https://link.springer.com/article/10.1007/BF01014886">Derrida and Spohn (1988)</a></figcaption>
+</figure>
+</div>
+<p><span class="math display">
+\partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
+</span> (<span class="math inline">v_\epsilon\propto \epsilon</span>)</p>
+<ul>
+<li><span class="math inline">G_0(x,t)</span> satisfies Fisher KPP equation</li>
+</ul>
+<p><span class="math display">
+\partial_t G_{0}=D\partial_x^2 G_{0}+ \lambda\left(G_{0}-1\right)G_{0}
+</span></p>
+</section>
+<section id="traveling-wave-solutions" class="slide level2 center">
+<h2>Traveling wave solutions</h2>
+<ul>
+<li>Weak planting: <span class="math inline">v_\epsilon &lt; c_\beta</span>, speed of unplanted wave</li>
+</ul>
+<figure align="center">
+<img src="assets/22_slower.svg" width="70%">
+</figure>
+<ul>
+<li>Step in <span class="math inline">G_{\epsilon_T}</span> “sticks” to step in <span class="math inline">G_{0}</span></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Strong planting: <span class="math inline">v_\epsilon &gt; c_\beta</span></li>
+</ul>
+<figure align="center">
+<img src="assets/23_faster.svg" width="70%">
+</figure>
+<p><span class="math display">
+\partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
+</span></p>
+</section>
+<section id="overlap" class="slide level2 center">
+<h2>Overlap</h2>
+<p><span class="math display">
+Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right],
+</span></p>
+<ul>
+<li>Partition function is weighted sum of contributions with different overlaps <span class="math inline">Y=\sum_{t} \delta_{x_t, x_t^*}</span> <span class="math display">
+\begin{align*}
+Z(\epsilon_\text{t},t) = \sum_{Y=1}^T e^{\epsilon Y} Z_Y(t) \\
+\langle Y\rangle = \frac{\partial \log Z(\epsilon_\text{t}, t)}{\partial \epsilon}
+\end{align*}
+</span></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p><span class="math display">
+\begin{align*}
+\langle Y\rangle = \frac{\partial \log Z(\epsilon_\text{t}, t)}{\partial \epsilon}
+\end{align*}
+</span></p>
+<ul>
+<li>If fluctuations of <span class="math inline">\log Z(\epsilon_\text{t}, t)</span> are <em>sub-extensive</em>, <span class="math inline">\operatorname{\mathbb{E}}\left[\log Z(\epsilon_\text{t}, t)\right]\sim \text{step position}</span></li>
+</ul>
+<figure align="center">
+<img src="assets/23_faster.svg" width="70%">
+</figure>
+</section>
+<section id="phase-diagram" class="slide level2 center">
+<h2>Phase diagram</h2>
+<figure align="center">
+<img src="assets/18_tree_phase_diagram.svg" width="80%">
+</figure>
+</section>
+<section id="summary" class="slide level2 center">
+<h2>Summary</h2>
+<ul>
+<li><p>Inferring path from images related to <strong>directed polymer</strong></p></li>
+<li><p>Phase transition in inference success, at least on tree (and perhaps <span class="math inline">d&gt;1+1</span>?)</p></li>
+<li><p>Relation to data assimilation and quantum systems?</p></li>
+</ul>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
