@@ -82,7 +82,9 @@ $$
 
 ## Example: [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter)
 
-![](assets/1000px-Hmm_temporal_bayesian_net.svg.png)
+<figure align="center">
+<img src="assets/1000px-Hmm_temporal_bayesian_net.svg.png" width="70%"/>
+</figure>
 
 $$
 \begin{align*}
@@ -93,8 +95,6 @@ p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
 $$
 
 - Prediction is Gaussian!
-
-- See [Robert Ghrist's YT video](https://www.youtube.com/watch?v=Gy2VsurG_yo&list=PL8erL0pXF3JaJdUcmc_PeGV-vG5z87BkD)
 
 ## "Image" model
 
@@ -160,7 +160,7 @@ $$
 
 - Assuming uniform prior $p(x_{1:T})=1/\mathcal{N}_T$ ($\mathcal{N}_T$ is number of trajectories of length $T$) 
 
-- Key point: distribution of $\varphi_{\xi,t}$ is affected by the polymer trajectories "planted" in it, with the size of the effect being determined by $\epsilon$.
+- Key point: distribution of $\varphi_{\xi,t}$ is affected by the polymer trajectories "planted" in it, via $\epsilon$
 
 ---
 
@@ -172,8 +172,8 @@ $$
 - Unnormalized posterior $q(x_T|\varphi_{1:T})$ obeys
 $$
 \begin{align*}
-q(x_T|\varphi_{1:T}) = e^{-h(x_T,\varphi_{x_T, T})}\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})
-Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T})
+q(x_T|\varphi_{1:T}) &= e^{-h(x_T,\varphi_{x_T, T})}\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})\\
+Z(\varphi_{1:T}) &= \sum_{x_T} q(x_T|\varphi_{1:T})
 \end{align*}
 $$
 
@@ -211,11 +211,9 @@ $$
 
 - $p(\varphi_{1:T})$ determined by "ground truth"
 
-- _Planting_: generate samples by sampling $x_t$ from prior and using observation model $p(\varphi_{1:T}|x_{1:T})$
+- _Planting_: generate samples by sampling $x_t$ from prior and using observation model $p(\varphi_{1:T}|x_{1:T})$ (see [Zdeborová & Krzakala (2016)](https://www.tandfonline.com/doi/full/10.1080/00018732.2016.1211393))
 
 ![](assets/2_good_image.svg)
-
-- See review by [Zdeborová and Krzakala (2016)](https://www.tandfonline.com/doi/full/10.1080/00018732.2016.1211393)
 
 ## "Teacher-Student" setting
 
@@ -373,10 +371,8 @@ $$
 ## Conjectured phase diagram
 
 <figure align="center">
-<img src="assets/19_1d_phase_diagram.svg" width="80%"/>
+<img src="assets/19_1d_phase_diagram.svg" width="60%"/>
 </figure>
-
-## Connection to quantum problem
 
 ## Walking on a tree: soluble case
 
@@ -424,7 +420,7 @@ Source: [Derrida and Spohn (1988)](https://link.springer.com/article/10.1007/BF0
 - Tree of depth $t$ formed from $K$ trees of depth $t-1$
 
 <figure align="center">
-<img src="assets/derrida-spohn-tree.png" width="40%"/>
+<img src="assets/derrida-spohn-tree.png" width="30%"/>
 </figure>
 
 - Unplanted case ($\epsilon_\text{t}=0$): $K$ copies are iid
@@ -475,12 +471,14 @@ $$
 
 ## Continuous time limit
 
-![Source: [Derrida and Spohn (1988)](https://link.springer.com/article/10.1007/BF01014886)](assets/derrida-spohn-branching.png)
+<figure align="center">
+<img src="assets/derrida-spohn-branching.png" width="30%"/>
+</figure>
+
 
 $$
 \partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
 $$
-($v_\epsilon\propto \epsilon$)
 
 - $G_0(x,t)$ satisfies Fisher KPP equation
 
@@ -504,9 +502,8 @@ $$
 - Strong planting: $v_\epsilon > c_\beta$
 
 <figure align="center">
-<img src="assets/23_faster.svg" width="70%"/>
+<img src="assets/23_faster.svg" width="60%"/>
 </figure>
-
 $$
 \partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
 $$
@@ -514,7 +511,7 @@ $$
 ## Overlap
 
 $$
-Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right],
+Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right]
 $$
 
 - Partition function is weighted sum of contributions with different overlaps $Y=\sum_{t} \delta_{x_t, x_t^*}$
@@ -536,14 +533,14 @@ $$
 - If fluctuations of $\log Z(\epsilon_\text{t}, t)$ are _sub-extensive_, $\operatorname{\mathbb{E}}\left[\log Z(\epsilon_\text{t}, t)\right]\sim \text{step position}$
 
 <figure align="center">
-<img src="assets/23_faster.svg" width="70%"/>
+<img src="assets/23_faster.svg" width="50%"/>
 </figure>
 
 
 ## Phase diagram
 
 <figure align="center">
-<img src="assets/18_tree_phase_diagram.svg" width="80%"/>
+<img src="assets/18_tree_phase_diagram.svg" width="70%"/>
 </figure>
 
 ## Summary

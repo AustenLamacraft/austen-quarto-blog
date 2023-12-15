@@ -422,7 +422,9 @@ p(x_t|y_{1:t})&amp;=\frac{p(y_t|x_t)p(x_t|y_{1:t-1})}{p(y_t)}\\
 </section>
 <section id="example-kalman-filter" class="slide level2 center">
 <h2>Example: <a href="https://en.wikipedia.org/wiki/Kalman_filter">Kalman filter</a></h2>
-<p><img data-src="assets/1000px-Hmm_temporal_bayesian_net.svg.png"></p>
+<figure align="center">
+<img src="assets/1000px-Hmm_temporal_bayesian_net.svg.png" width="70%">
+</figure>
 <p><span class="math display">
 \begin{align*}
 x_{t} = x_{t-1} + w_t\qquad y_{t} = x_t + v_t \\
@@ -431,8 +433,7 @@ p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
 \end{align*}
 </span></p>
 <ul>
-<li><p>Prediction is Gaussian!</p></li>
-<li><p>See <a href="https://www.youtube.com/watch?v=Gy2VsurG_yo&amp;list=PL8erL0pXF3JaJdUcmc_PeGV-vG5z87BkD">Robert Ghrist’s YT video</a></p></li>
+<li>Prediction is Gaussian!</li>
 </ul>
 </section>
 <section id="image-model" class="slide level2 center">
@@ -500,7 +501,7 @@ p(\varphi_{1:T}) &amp;= \frac{\pi(\varphi_{1:T})}{\mathcal{N}_T}\sum_{x_{1:T}} \
 </span></p>
 <ul>
 <li><p>Assuming uniform prior <span class="math inline">p(x_{1:T})=1/\mathcal{N}_T</span> (<span class="math inline">\mathcal{N}_T</span> is number of trajectories of length <span class="math inline">T</span>)</p></li>
-<li><p>Key point: distribution of <span class="math inline">\varphi_{\xi,t}</span> is affected by the polymer trajectories “planted” in it, with the size of the effect being determined by <span class="math inline">\epsilon</span>.</p></li>
+<li><p>Key point: distribution of <span class="math inline">\varphi_{\xi,t}</span> is affected by the polymer trajectories “planted” in it, via <span class="math inline">\epsilon</span></p></li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -511,8 +512,8 @@ p(x_{1:T}|\varphi_{1:T}) = \frac{\exp\left[-\sum_{t=1}^T h(x_t, \varphi_{x_t,t})
 </span></p></li>
 <li><p>Unnormalized posterior <span class="math inline">q(x_T|\varphi_{1:T})</span> obeys <span class="math display">
 \begin{align*}
-q(x_T|\varphi_{1:T}) = e^{-h(x_T,\varphi_{x_T, T})}\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})
-Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T})
+q(x_T|\varphi_{1:T}) &amp;= e^{-h(x_T,\varphi_{x_T, T})}\sum_{x_{T-1}}p(x_T|x_{T-1}) q(x_{T-1}|\varphi_{1:T-1})\\
+Z(\varphi_{1:T}) &amp;= \sum_{x_T} q(x_T|\varphi_{1:T})
 \end{align*}
 </span></p></li>
 <li><p><span class="math inline">q</span> “point-to-point” partition function or imaginary-time “wavefunction” in path integral picture</p></li>
@@ -549,12 +550,9 @@ Z(\varphi_{1:T}) = \sum_{x_T} q(x_T|\varphi_{1:T})
 <h2>Planting</h2>
 <ul>
 <li><p><span class="math inline">p(\varphi_{1:T})</span> determined by “ground truth”</p></li>
-<li><p><em>Planting</em>: generate samples by sampling <span class="math inline">x_t</span> from prior and using observation model <span class="math inline">p(\varphi_{1:T}|x_{1:T})</span></p></li>
+<li><p><em>Planting</em>: generate samples by sampling <span class="math inline">x_t</span> from prior and using observation model <span class="math inline">p(\varphi_{1:T}|x_{1:T})</span> (see <a href="https://www.tandfonline.com/doi/full/10.1080/00018732.2016.1211393">Zdeborová &amp; Krzakala (2016)</a>)</p></li>
 </ul>
 <p><img data-src="assets/2_good_image.svg"></p>
-<ul>
-<li>See review by <a href="https://www.tandfonline.com/doi/full/10.1080/00018732.2016.1211393">Zdeborová and Krzakala (2016)</a></li>
-</ul>
 </section>
 <section id="teacher-student-setting" class="slide level2 center">
 <h2>“Teacher-Student” setting</h2>
@@ -715,11 +713,8 @@ p(x_t|x_{t-1}, y_t) = \frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}
 <section id="conjectured-phase-diagram" class="slide level2 center">
 <h2>Conjectured phase diagram</h2>
 <figure align="center">
-<img src="assets/19_1d_phase_diagram.svg" width="80%">
+<img src="assets/19_1d_phase_diagram.svg" width="60%">
 </figure>
-</section>
-<section id="connection-to-quantum-problem" class="slide level2 center">
-<h2>Connection to quantum problem</h2>
 </section>
 <section id="walking-on-a-tree-soluble-case" class="slide level2 center">
 <h2>Walking on a tree: soluble case</h2>
@@ -769,7 +764,7 @@ Source: <a href="https://link.springer.com/article/10.1007/BF01014886">Derrida a
 <li>Tree of depth <span class="math inline">t</span> formed from <span class="math inline">K</span> trees of depth <span class="math inline">t-1</span></li>
 </ul>
 <figure align="center">
-<img src="assets/derrida-spohn-tree.png" width="40%">
+<img src="assets/derrida-spohn-tree.png" width="30%">
 </figure>
 <ul>
 <li>Unplanted case (<span class="math inline">\epsilon_\text{t}=0</span>): <span class="math inline">K</span> copies are iid <span class="math display">
@@ -822,15 +817,12 @@ G_{0}(x,t)  = \operatorname{\mathbb{E}}_\varphi\left[\left(G_{0}(x-\varphi,t-1) 
 </section>
 <section id="continuous-time-limit" class="slide level2 center">
 <h2>Continuous time limit</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/derrida-spohn-branching.png"></p>
-<figcaption>Source: <a href="https://link.springer.com/article/10.1007/BF01014886">Derrida and Spohn (1988)</a></figcaption>
+<figure align="center">
+<img src="assets/derrida-spohn-branching.png" width="30%">
 </figure>
-</div>
 <p><span class="math display">
 \partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
-</span> (<span class="math inline">v_\epsilon\propto \epsilon</span>)</p>
+</span></p>
 <ul>
 <li><span class="math inline">G_0(x,t)</span> satisfies Fisher KPP equation</li>
 </ul>
@@ -856,7 +848,7 @@ G_{0}(x,t)  = \operatorname{\mathbb{E}}_\varphi\left[\left(G_{0}(x-\varphi,t-1) 
 <li>Strong planting: <span class="math inline">v_\epsilon &gt; c_\beta</span></li>
 </ul>
 <figure align="center">
-<img src="assets/23_faster.svg" width="70%">
+<img src="assets/23_faster.svg" width="60%">
 </figure>
 <p><span class="math display">
 \partial_t G_{\epsilon_{\text{t}}}=D\partial_x^2 G_{\epsilon_{\text{t}}}-v_\epsilon\partial_x G_{\epsilon_{\text{t}}} + \lambda\left(G_{0}-1\right)G_{\epsilon_{\text{t}}}
@@ -865,7 +857,7 @@ G_{0}(x,t)  = \operatorname{\mathbb{E}}_\varphi\left[\left(G_{0}(x-\varphi,t-1) 
 <section id="overlap" class="slide level2 center">
 <h2>Overlap</h2>
 <p><span class="math display">
-Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right],
+Z(\epsilon_\text{t},t) = \exp\left(\varphi+\epsilon\right)\left[Z(\epsilon_\text{t},t-1)+\sum_{i=1}^{K-1} Z_i(0,t-1)\right]
 </span></p>
 <ul>
 <li>Partition function is weighted sum of contributions with different overlaps <span class="math inline">Y=\sum_{t} \delta_{x_t, x_t^*}</span> <span class="math display">
@@ -887,13 +879,13 @@ Z(\epsilon_\text{t},t) = \sum_{Y=1}^T e^{\epsilon Y} Z_Y(t) \\
 <li>If fluctuations of <span class="math inline">\log Z(\epsilon_\text{t}, t)</span> are <em>sub-extensive</em>, <span class="math inline">\operatorname{\mathbb{E}}\left[\log Z(\epsilon_\text{t}, t)\right]\sim \text{step position}</span></li>
 </ul>
 <figure align="center">
-<img src="assets/23_faster.svg" width="70%">
+<img src="assets/23_faster.svg" width="50%">
 </figure>
 </section>
 <section id="phase-diagram" class="slide level2 center">
 <h2>Phase diagram</h2>
 <figure align="center">
-<img src="assets/18_tree_phase_diagram.svg" width="80%">
+<img src="assets/18_tree_phase_diagram.svg" width="70%">
 </figure>
 </section>
 <section id="summary" class="slide level2 center">

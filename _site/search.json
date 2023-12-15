@@ -123,7 +123,7 @@
     "href": "talks/planted-directed-polymer/index.html#example-kalman-filter",
     "title": "The Planted Directed Polymer",
     "section": "Example: Kalman filter",
-    "text": "Example: Kalman filter\n\n\n\\begin{align*}\nx_{t} = x_{t-1} + w_t\\qquad y_{t} = x_t + v_t \\\\\nw_t\\sim \\mathcal{N}(0,\\sigma^2)\\qquad v_t\\sim\\mathcal{N}(0,\\sigma_y^2)\\\\\np(x_t|x_{t-1}, y_t) = \\frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}\n\\end{align*}\n\n\nPrediction is Gaussian!\nSee Robert Ghrist’s YT video"
+    "text": "Example: Kalman filter\n\n\n\n\n\\begin{align*}\nx_{t} = x_{t-1} + w_t\\qquad y_{t} = x_t + v_t \\\\\nw_t\\sim \\mathcal{N}(0,\\sigma^2)\\qquad v_t\\sim\\mathcal{N}(0,\\sigma_y^2)\\\\\np(x_t|x_{t-1}, y_t) = \\frac{p(x_t|x_{t-1})p(y_t|x_t)}{p(y_t)}\n\\end{align*}\n\n\nPrediction is Gaussian!"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#image-model",
@@ -158,7 +158,7 @@
     "href": "talks/planted-directed-polymer/index.html#planting",
     "title": "The Planted Directed Polymer",
     "section": "Planting",
-    "text": "Planting\n\np(\\varphi_{1:T}) determined by “ground truth”\nPlanting: generate samples by sampling x_t from prior and using observation model p(\\varphi_{1:T}|x_{1:T})\n\n\n\nSee review by Zdeborová and Krzakala (2016)"
+    "text": "Planting\n\np(\\varphi_{1:T}) determined by “ground truth”\nPlanting: generate samples by sampling x_t from prior and using observation model p(\\varphi_{1:T}|x_{1:T}) (see Zdeborová & Krzakala (2016))"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#relation-to-the-quantum-case",
@@ -270,7 +270,7 @@
     "href": "talks/planted-directed-polymer/index.html#continuous-time-limit",
     "title": "The Planted Directed Polymer",
     "section": "Continuous time limit",
-    "text": "Continuous time limit\n\n\n\nSource: Derrida and Spohn (1988)\n\n\n\n\\partial_t G_{\\epsilon_{\\text{t}}}=D\\partial_x^2 G_{\\epsilon_{\\text{t}}}-v_\\epsilon\\partial_x G_{\\epsilon_{\\text{t}}} + \\lambda\\left(G_{0}-1\\right)G_{\\epsilon_{\\text{t}}}\n (v_\\epsilon\\propto \\epsilon)\n\nG_0(x,t) satisfies Fisher KPP equation\n\n\n\\partial_t G_{0}=D\\partial_x^2 G_{0}+ \\lambda\\left(G_{0}-1\\right)G_{0}"
+    "text": "Continuous time limit\n\n\n\n\n\\partial_t G_{\\epsilon_{\\text{t}}}=D\\partial_x^2 G_{\\epsilon_{\\text{t}}}-v_\\epsilon\\partial_x G_{\\epsilon_{\\text{t}}} + \\lambda\\left(G_{0}-1\\right)G_{\\epsilon_{\\text{t}}}\n\n\nG_0(x,t) satisfies Fisher KPP equation\n\n\n\\partial_t G_{0}=D\\partial_x^2 G_{0}+ \\lambda\\left(G_{0}-1\\right)G_{0}"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#recursion-relation-for-zepsilon_texts-t",
@@ -305,7 +305,7 @@
     "href": "talks/planted-directed-polymer/index.html#overlap",
     "title": "The Planted Directed Polymer",
     "section": "Overlap",
-    "text": "Overlap\n\nZ(\\epsilon_\\text{t},t) = \\exp\\left(\\varphi+\\epsilon\\right)\\left[Z(\\epsilon_\\text{t},t-1)+\\sum_{i=1}^{K-1} Z_i(0,t-1)\\right],\n\n\nPartition function is weighted sum of contributions with different overlaps Y=\\sum_{t} \\delta_{x_t, x_t^*} \n\\begin{align*}\nZ(\\epsilon_\\text{t},t) = \\sum_{Y=1}^T e^{\\epsilon Y} Z_Y(t) \\\\\n\\langle Y\\rangle = \\frac{\\partial \\log Z(\\epsilon_\\text{t}, t)}{\\partial \\epsilon}\n\\end{align*}"
+    "text": "Overlap\n\nZ(\\epsilon_\\text{t},t) = \\exp\\left(\\varphi+\\epsilon\\right)\\left[Z(\\epsilon_\\text{t},t-1)+\\sum_{i=1}^{K-1} Z_i(0,t-1)\\right]\n\n\nPartition function is weighted sum of contributions with different overlaps Y=\\sum_{t} \\delta_{x_t, x_t^*} \n\\begin{align*}\nZ(\\epsilon_\\text{t},t) = \\sum_{Y=1}^T e^{\\epsilon Y} Z_Y(t) \\\\\n\\langle Y\\rangle = \\frac{\\partial \\log Z(\\epsilon_\\text{t}, t)}{\\partial \\epsilon}\n\\end{align*}"
   },
   {
     "objectID": "talks/planted-directed-polymer/index.html#phase-diagram",
@@ -348,5 +348,19 @@
     "title": "The Planted Directed Polymer",
     "section": "Measurement induced phase transition",
     "text": "Measurement induced phase transition\n\nSkinner, Ruhman, Nahum (2019), Li, Chen, Fisher (2019)\n\n\n\n\nSource: Gullans and Huse (2020)"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#planting-zdeborová-and-krzakala-2016",
+    "href": "talks/planted-directed-polymer/index.html#planting-zdeborová-and-krzakala-2016",
+    "title": "The Planted Directed Polymer",
+    "section": "Planting (Zdeborová and Krzakala (2016)",
+    "text": "Planting (Zdeborová and Krzakala (2016)\n\np(\\varphi_{1:T}) determined by “ground truth”\nPlanting: generate samples by sampling x_t from prior and using observation model p(\\varphi_{1:T}|x_{1:T})"
+  },
+  {
+    "objectID": "talks/planted-directed-polymer/index.html#planting-zdeborová-krzakala-2016",
+    "href": "talks/planted-directed-polymer/index.html#planting-zdeborová-krzakala-2016",
+    "title": "The Planted Directed Polymer",
+    "section": "Planting (Zdeborová & Krzakala (2016)",
+    "text": "Planting (Zdeborová & Krzakala (2016)\n\np(\\varphi_{1:T}) determined by “ground truth”\nPlanting: generate samples by sampling x_t from prior and using observation model p(\\varphi_{1:T}|x_{1:T})"
   }
 ]
