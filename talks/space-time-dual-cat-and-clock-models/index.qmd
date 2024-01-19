@@ -25,18 +25,19 @@ format:
     }
 ---
 
-```{=html}
-<script src = "https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+```{ojs}
+P5 = require("p5")
 ```
 
+
 ```{ojs}
-// Modified from https://observablehq.com/@tmcw/P5
+// Modified from https://observablehq.com/@tmcw/p5
+// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/
 // This helper creates a div and attaches the sketch to it
-P5 = require("p5")
-function* createSketch(sketch, divId, slideId) {
+function* createSketch(sketch, slideId) {
   
   const element = DOM.element('div');
-  element.setAttribute('id', divId);
+  // element.setAttribute('id', divId);
   
   // p5.js really likes its target element to already be in the DOM, not just
   // floating around detached. So, before we call P5, we yield it, which puts
@@ -58,6 +59,7 @@ function* createSketch(sketch, divId, slideId) {
   } );
   
   // I think this next part is only if you use observable to update a sketch...
+
   // This is the tricky part: when you run P5(sketch, element), it starts a
   // loop that updates the drawing a bunch of times a second. If we were just
   // to call P5 repeatedly with different arguments, the loops would all keep
@@ -76,12 +78,24 @@ function* createSketch(sketch, divId, slideId) {
 }
 ```
 
+
+
 ## Space-time dual cat and clock maps
 
 Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 
 [austen.uk/#talks]s(https://austen.uk/#talks) for slides
 
+
+---
+
+## Life
+
+
+```{ojs}
+import { life } from "./js/life.js";
+createSketch(life, 'life');
+```
 
 ---
 
@@ -725,9 +739,11 @@ Cat map for $\alpha=2$, $\delta=1$. Source:  <a href="https://en.wikipedia.org/w
 
 ---
 
+## Cat map
+
 ```{ojs}
 import { catMap } from "./js/cat.js";
-createSketch(catMap, 'cat-map', '');
+// createSketch(catMap, 'cat-map');
 ```
 
 ---
@@ -1029,14 +1045,21 @@ $$
 
 ---
 
-### Elementary CA
+## Elementary CA
 
 - Many behaviours, from ordered (Rule 18) to chaotic (Rule 30)
 
 ```{ojs}
-import { elementary } from "./js/elementary-ca.js";
-createSketch(elementary, 'elementary-ca-demo', 'elementary-ca');
+viewof rule = Inputs.range([0, 255], {step: 1, label: "Rule"})
+viewof initialCondition = Inputs.select(["single 1", "random"], {label: "Initial"})
 ```
+
+
+```{ojs}
+import { elementary } from "./js/elementary-ca.js";
+// createSketch(elementary(rule, initialCondition), 'elementary-ca');
+```
+
 
 - Rule 110 is capable of universal computation!
 
@@ -1054,8 +1077,8 @@ createSketch(elementary, 'elementary-ca-demo', 'elementary-ca');
 
 - Rapid growth of small differences between two trajectories
 
-<script type="module">
-import difference from "js/ca-difference.js"
+<!-- <script type="module">
+import { difference } from "./js/ca-difference.js"
 const diffSketch = new p5(difference, "difference")
 Reveal.on( 'slidechanged', event => {
   if (!!event.currentSlide.querySelector("#chaos")) {
@@ -1069,7 +1092,7 @@ Reveal.on( 'slidechanged', event => {
 
 <figure align="center">
 <div id="difference" style="display: inline-block; position: relative"></div>
-</figure>
+</figure> -->
 
 
 - Smallest change: flip one site and monitor $z^t\equiv x^t\oplus y^t$
@@ -1155,7 +1178,7 @@ Reveal.on( 'slidechanged', event => {
 
 ```{ojs}
 import { block } from "./js/block-ca.js";
-createSketch(block, 'block', 'reversible-ca');
+// createSketch(block, 'block', 'reversible-ca');
 ```
 
 ---
@@ -1248,8 +1271,8 @@ $$
 
 - Three states: [Borsi and Pozsgay (2022)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.106.014302) find 227 DR models 
 
-<script type="module">
-import threeComponent from "js/three-component-dual-reversible.js"
+<!-- <script type="module">
+import { threeComponent } from "./js/three-component-dual-reversible.js"
 const threeComponentSketch = new p5(threeComponent, "three-component")
 Reveal.on( 'slidechanged', event => {
   if (!!event.currentSlide.querySelector("#three-state-models")) {
@@ -1263,7 +1286,7 @@ Reveal.on( 'slidechanged', event => {
 
 <figure align="center">
 <div id="three-component" style="display: inline-block; position: relative "></div>
-</figure>
+</figure> -->
 
 ---
 
@@ -1573,3 +1596,4 @@ $$
 <p align="center" class="fragment">
 <strong>Thank you!</strong>
 </p>
+
