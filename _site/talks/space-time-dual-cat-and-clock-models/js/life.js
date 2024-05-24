@@ -1,7 +1,7 @@
 // https://p5js.org/examples/simulate-game-of-life.html
 // All sketches in instance mode, to keep variables out of global scope
 // https://p5js.org/examples/instance-mode-instantiation.html
-export default function life(p) {
+export function life(p) {
 
   let w;
   let columns;

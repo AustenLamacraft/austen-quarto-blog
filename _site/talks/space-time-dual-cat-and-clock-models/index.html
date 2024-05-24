@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.554">
 
   <title>Austen Lamacraft - Space-time dual cat models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,7 +30,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -236,7 +236,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -422,7 +423,7 @@ Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="28" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb1-28"><a href="#cb1-28"></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="28" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb1-28"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -430,51 +431,51 @@ Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="33" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 32;"><span id="cb2-33"><a href="#cb2-33"></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
-<span id="cb2-37"><a href="#cb2-37"></a>  </span>
-<span id="cb2-38"><a href="#cb2-38"></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
-<span id="cb2-40"><a href="#cb2-40"></a>  </span>
-<span id="cb2-41"><a href="#cb2-41"></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
-<span id="cb2-42"><a href="#cb2-42"></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
-<span id="cb2-43"><a href="#cb2-43"></a>  <span class="co">// in the DOM.</span></span>
-<span id="cb2-44"><a href="#cb2-44"></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-45"><a href="#cb2-45"></a>  </span>
-<span id="cb2-46"><a href="#cb2-46"></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
-<span id="cb2-47"><a href="#cb2-47"></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
-<span id="cb2-49"><a href="#cb2-49"></a></span>
-<span id="cb2-50"><a href="#cb2-50"></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
-<span id="cb2-51"><a href="#cb2-51"></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb2-52"><a href="#cb2-52"></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
-<span id="cb2-53"><a href="#cb2-53"></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
-<span id="cb2-54"><a href="#cb2-54"></a>    }</span>
-<span id="cb2-55"><a href="#cb2-55"></a>    <span class="cf">else</span> {</span>
-<span id="cb2-56"><a href="#cb2-56"></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
-<span id="cb2-57"><a href="#cb2-57"></a>    }</span>
-<span id="cb2-58"><a href="#cb2-58"></a>  } )<span class="op">;</span></span>
-<span id="cb2-59"><a href="#cb2-59"></a>  </span>
-<span id="cb2-60"><a href="#cb2-60"></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
-<span id="cb2-61"><a href="#cb2-61"></a></span>
-<span id="cb2-62"><a href="#cb2-62"></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
-<span id="cb2-63"><a href="#cb2-63"></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
-<span id="cb2-64"><a href="#cb2-64"></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
-<span id="cb2-65"><a href="#cb2-65"></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
-<span id="cb2-66"><a href="#cb2-66"></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
-<span id="cb2-68"><a href="#cb2-68"></a>  <span class="co">// to clean it up.</span></span>
-<span id="cb2-69"><a href="#cb2-69"></a>  <span class="cf">try</span> {</span>
-<span id="cb2-70"><a href="#cb2-70"></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
-<span id="cb2-71"><a href="#cb2-71"></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-72"><a href="#cb2-72"></a>    }</span>
-<span id="cb2-73"><a href="#cb2-73"></a>  } <span class="cf">finally</span> {</span>
-<span id="cb2-74"><a href="#cb2-74"></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb2-75"><a href="#cb2-75"></a>  }</span>
-<span id="cb2-76"><a href="#cb2-76"></a></span>
-<span id="cb2-77"><a href="#cb2-77"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="33" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 32;"><span id="cb2-33"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
+<span id="cb2-34"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
+<span id="cb2-35"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
+<span id="cb2-36"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
+<span id="cb2-37"><a></a>  </span>
+<span id="cb2-38"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-39"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
+<span id="cb2-40"><a></a>  </span>
+<span id="cb2-41"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
+<span id="cb2-42"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
+<span id="cb2-43"><a></a>  <span class="co">// in the DOM.</span></span>
+<span id="cb2-44"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-45"><a></a>  </span>
+<span id="cb2-46"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
+<span id="cb2-47"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
+<span id="cb2-48"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-49"><a></a></span>
+<span id="cb2-50"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
+<span id="cb2-51"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb2-52"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
+<span id="cb2-53"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
+<span id="cb2-54"><a></a>    }</span>
+<span id="cb2-55"><a></a>    <span class="cf">else</span> {</span>
+<span id="cb2-56"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
+<span id="cb2-57"><a></a>    }</span>
+<span id="cb2-58"><a></a>  } )<span class="op">;</span></span>
+<span id="cb2-59"><a></a>  </span>
+<span id="cb2-60"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
+<span id="cb2-61"><a></a></span>
+<span id="cb2-62"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
+<span id="cb2-63"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
+<span id="cb2-64"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
+<span id="cb2-65"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
+<span id="cb2-66"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
+<span id="cb2-67"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
+<span id="cb2-68"><a></a>  <span class="co">// to clean it up.</span></span>
+<span id="cb2-69"><a></a>  <span class="cf">try</span> {</span>
+<span id="cb2-70"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-71"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-72"><a></a>    }</span>
+<span id="cb2-73"><a></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-74"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-75"><a></a>  }</span>
+<span id="cb2-76"><a></a></span>
+<span id="cb2-77"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -482,31 +483,23 @@ Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 </div>
 </div>
 </section>
+<section id="outline" class="slide level2 center">
+<h2>Outline</h2>
+<ul>
+<li><p>Review of space-time</p></li>
+<li><p>Hadamards</p></li>
+<li><p>ZX calculus</p></li>
+<li><p>Recent WW Ho paper on hexagonal lattice. Generalized dual unitarity. Three arrows of time and three light cones</p></li>
+<li><p>Triunitarity <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay, Khemani, Ippoliti</a></p></li>
+<li><p>Cauchy surfaces and Lorentz symmetry (review of earlier works)</p></li>
+<li><p>Cliffords and cats</p></li>
+<li><p>Automata</p></li>
+</ul>
+</section>
 <section id="space-time-dual-cat-and-clock-maps" class="slide level2 center">
 <h2>Space-time dual cat and clock maps</h2>
 <p>Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)</p>
-<p>[austen.uk/#talks]s(https://austen.uk/#talks) for slides</p>
-</section>
-<section id="life" class="slide level2 center">
-<h2>Life</h2>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="96" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 95;"><span id="cb3-96"><a href="#cb3-96"></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-97"><a href="#cb3-97"></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
+<p><a href="https://austen.uk/#talks">austen.uk/#talks</a> for slides</p>
 </section>
 <section class="slide level2 center">
 
@@ -563,8 +556,28 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <li>Evaluate <span class="math inline">\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}</span> for local <span class="math inline">\mathcal{O}</span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="160" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 159;"><span id="cb4-160"><a href="#cb4-160"></a>SVG <span class="op">=</span> <span class="pp">require</span>(<span class="st">"svg.js"</span>)</span>
-<span id="cb4-161"><a href="#cb4-161"></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@6"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="169" data-source-offset="-95"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 168;"><span id="cb3-169"><a></a><span class="fu">html</span><span class="vs">`&lt;div id="svg-container"&gt;&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="170" data-source-offset="-132"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 169;"><span id="cb4-170"><a></a>d3<span class="op">.</span><span class="fu">svg</span>(<span class="st">"./images/expectation.svg"</span>)<span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(xml) {</span>
+<span id="cb4-171"><a></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="fu">appendChild</span>(xml<span class="op">.</span><span class="at">documentElement</span>)<span class="op">;</span></span>
+<span id="cb4-172"><a></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="176" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 175;"><span id="cb5-176"><a></a>SVG <span class="op">=</span> <span class="pp">require</span>(<span class="st">"svg.js"</span>)</span>
+<span id="cb5-177"><a></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@6"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -580,72 +593,52 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </div>
 </div>
 </div>
-<div class="quarto-ojs-syntax-error">
-<div class="sourceCode" id="cb5" data-startfrom="164" data-syntax-error-position="1029" data-source-offset="9"><pre class="sourceCode numberSource numberLines java number-lines code-with-copy"><code class="sourceCode java" style="counter-reset: source-line 163;"><span id="cb5-164"><a href="#cb5-164"></a>```<span class="op">{</span>ojs<span class="op">}</span></span>
-<span id="cb5-165"><a href="#cb5-165"></a><span class="kw">import</span> <span class="im">{ expectation } from '</span><span class="op">.</span><span class="im">/js/expectation</span><span class="op">.</span><span class="im">js'</span></span>
-<span id="cb5-166"><a href="#cb5-166"></a>html`<span class="op">&lt;</span>div id<span class="op">=</span><span class="st">"svg-container"</span><span class="op">&gt;&lt;/</span>div<span class="op">&gt;</span>`</span>
-<span id="cb5-167"><a href="#cb5-167"></a>d3<span class="op">.</span><span class="fu">xml</span><span class="op">(</span><span class="er">'</span><span class="op">./</span>images<span class="op">/</span>expectation<span class="op">.</span><span class="fu">svg</span><span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-168"><a href="#cb5-168"></a>  <span class="op">.</span><span class="fu">then</span><span class="op">(</span>data <span class="op">=&gt;</span> <span class="op">{</span></span>
-<span id="cb5-169"><a href="#cb5-169"></a>    d3<span class="op">.</span><span class="fu">select</span><span class="op">(</span><span class="st">"#svg-container"</span><span class="op">).</span><span class="fu">node</span><span class="op">().</span><span class="fu">append</span><span class="op">(</span>data<span class="op">.</span><span class="fu">documentElement</span><span class="op">)</span></span>
-<span id="cb5-170"><a href="#cb5-170"></a>  <span class="op">});</span></span>
-<span id="cb5-171"><a href="#cb5-171"></a><span class="co">// graphic = {</span></span>
-<span id="cb5-172"><a href="#cb5-172"></a><span class="co">//   const test = await FileAttachment("text.txt").text();</span></span>
-<span id="cb5-173"><a href="#cb5-173"></a><span class="co">//   console.log(test)</span></span>
-<span id="cb5-174"><a href="#cb5-174"></a><span class="co">//   const data = (new DOMParser).parseFromString(test, "image/svg+xml");</span></span>
-<span id="cb5-175"><a href="#cb5-175"></a><span class="co">//   d3.select("#svg-container").node().append(data.documentElement)</span></span>
-<span id="cb5-176"><a href="#cb5-176"></a><span class="co">// }</span></span>
-<span id="cb5-177"><a href="#cb5-177"></a>  circuit <span class="op">=</span> <span class="fu">SVG</span><span class="op">(</span><span class="er">'</span>#gate<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-178"><a href="#cb5-178"></a>    gate <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#gate<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-179"><a href="#cb5-179"></a></span>
-<span id="cb5-180"><a href="#cb5-180"></a>    blue <span class="op">=</span> <span class="er">'</span>#<span class="er">5594</span>c3<span class="er">'</span></span>
-<span id="cb5-181"><a href="#cb5-181"></a>    red <span class="op">=</span> <span class="er">'</span>#d84141<span class="er">'</span></span>
-<span id="cb5-182"><a href="#cb5-182"></a></span>
-<span id="cb5-183"><a href="#cb5-183"></a>    <span class="co">// Hide original </span></span>
-<span id="cb5-184"><a href="#cb5-184"></a>    gateAndContractions <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#gate<span class="op">-</span>and<span class="op">-</span>contractions<span class="er">'</span><span class="op">).</span><span class="fu">hide</span><span class="op">()</span></span>
-<span id="cb5-185"><a href="#cb5-185"></a>    </span>
-<span id="cb5-186"><a href="#cb5-186"></a></span>
-<span id="cb5-187"><a href="#cb5-187"></a>    <span class="co">// The four contractions</span></span>
-<span id="cb5-188"><a href="#cb5-188"></a>    topLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#top<span class="op">-</span>left<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-189"><a href="#cb5-189"></a>    topRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#top<span class="op">-</span>right<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-190"><a href="#cb5-190"></a>    bottomLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#bottom<span class="op">-</span>left<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-191"><a href="#cb5-191"></a>    bottomRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#bottom<span class="op">-</span>right<span class="er">'</span><span class="op">)</span></span>
-<span id="cb5-192"><a href="#cb5-192"></a>    </span>
-<span id="cb5-193"><a href="#cb5-193"></a>    gateWidth <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb5-194"><a href="#cb5-194"></a>    gateHeight <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb5-195"><a href="#cb5-195"></a></span>
-<span id="cb5-196"><a href="#cb5-196"></a>    circuitWidth <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb5-197"><a href="#cb5-197"></a>    circuitDepth <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb5-198"><a href="#cb5-198"></a></span>
-<span id="cb5-199"><a href="#cb5-199"></a>    gate<span class="op">.</span><span class="fu">size</span><span class="op">(</span>gateWidth<span class="op">);</span></span>
-<span id="cb5-200"><a href="#cb5-200"></a></span>
-<span id="cb5-201"><a href="#cb5-201"></a>    <span class="co">// Build the circuit</span></span>
-<span id="cb5-202"><a href="#cb5-202"></a></span>
-<span id="cb5-203"><a href="#cb5-203"></a>    <span class="cf">for</span> <span class="op">(</span>let y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> circuitDepth<span class="op">;</span> y<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb5-204"><a href="#cb5-204"></a>        <span class="cf">for</span> <span class="op">(</span>let x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> circuitWidth<span class="op">;</span> x<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb5-205"><a href="#cb5-205"></a>            <span class="cf">if</span> <span class="op">((</span>x <span class="op">+</span> y<span class="op">)</span> <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-206"><a href="#cb5-206"></a>                gate<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#rect826<span class="er">'</span><span class="op">).</span><span class="fu">css</span><span class="op">({</span>fill<span class="op">:</span> blue<span class="op">})</span></span>
-<span id="cb5-207"><a href="#cb5-207"></a>                gate<span class="op">.</span><span class="fu">clone</span><span class="op">().</span><span class="fu">dmove</span><span class="op">(</span>gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> <span class="op">(</span>circuitDepth <span class="op">+</span> y<span class="op">)).</span><span class="fu">addTo</span><span class="op">(</span>circuit<span class="op">)</span></span>
-<span id="cb5-208"><a href="#cb5-208"></a>                y <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> x <span class="op">===</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> topLeft<span class="op">.</span><span class="fu">clone</span><span class="op">().</span><span class="fu">dmove</span><span class="op">(</span>gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> <span class="op">(</span>circuitDepth <span class="op">+</span> y<span class="op">)).</span><span class="fu">addTo</span><span class="op">(</span>circuit<span class="op">)</span></span>
-<span id="cb5-209"><a href="#cb5-209"></a>                gate<span class="op">.</span><span class="fu">findOne</span><span class="op">(</span><span class="er">'</span>#rect826<span class="er">'</span><span class="op">).</span><span class="fu">css</span><span class="op">({</span>fill<span class="op">:</span> red<span class="op">})</span></span>
-<span id="cb5-210"><a href="#cb5-210"></a>                gate<span class="op">.</span><span class="fu">clone</span><span class="op">().</span><span class="fu">dmove</span><span class="op">(</span>gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> <span class="op">(</span>circuitDepth <span class="op">-</span><span class="dv">1</span> <span class="op">-</span> y<span class="op">)).</span><span class="fu">addTo</span><span class="op">(</span>circuit<span class="op">)</span></span>
-<span id="cb5-211"><a href="#cb5-211"></a>            <span class="op">}</span></span>
-<span id="cb5-212"><a href="#cb5-212"></a>        <span class="op">}</span></span>
-<span id="cb5-213"><a href="#cb5-213"></a></span>
-<span id="cb5-214"><a href="#cb5-214"></a>    <span class="op">}</span></span>
-<span id="cb5-215"><a href="#cb5-215"></a>```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>OJS Syntax Error (line 203, column 5)Unexpected token</strong></p>
-</div>
-<div class="callout-content">
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="181" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb6-181"><a></a>{</span>
+<span id="cb6-182"><a></a>    <span class="kw">let</span> circuit <span class="op">=</span> <span class="fu">SVG</span>(d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>])</span>
+<span id="cb6-183"><a></a>    circuit<span class="op">.</span><span class="fu">hide</span>()</span>
+<span id="cb6-184"><a></a>    <span class="cf">return</span> circuit</span>
+<span id="cb6-185"><a></a>    <span class="kw">let</span> gate <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate'</span>)</span>
+<span id="cb6-186"><a></a></span>
+<span id="cb6-187"><a></a>    <span class="kw">const</span> blue <span class="op">=</span> <span class="st">'#5594c3'</span></span>
+<span id="cb6-188"><a></a>    <span class="kw">const</span> red <span class="op">=</span> <span class="st">'#d84141'</span></span>
+<span id="cb6-189"><a></a></span>
+<span id="cb6-190"><a></a>    <span class="co">// Hide original </span></span>
+<span id="cb6-191"><a></a>    <span class="kw">const</span> gateAndContractions <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate-and-contractions'</span>)<span class="op">.</span><span class="fu">hide</span>()</span>
+<span id="cb6-192"><a></a>    </span>
+<span id="cb6-193"><a></a></span>
+<span id="cb6-194"><a></a>    <span class="co">// The four contractions</span></span>
+<span id="cb6-195"><a></a>    <span class="kw">const</span> topLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-left'</span>)</span>
+<span id="cb6-196"><a></a>    <span class="kw">const</span> topRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-right'</span>)</span>
+<span id="cb6-197"><a></a>    <span class="kw">const</span> bottomLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-left'</span>)</span>
+<span id="cb6-198"><a></a>    <span class="kw">const</span> bottomRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-right'</span>)</span>
+<span id="cb6-199"><a></a>    </span>
+<span id="cb6-200"><a></a>    <span class="kw">const</span> gateWidth <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-201"><a></a>    <span class="kw">const</span> gateHeight <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-202"><a></a></span>
+<span id="cb6-203"><a></a>    <span class="kw">const</span> circuitWidth <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-204"><a></a>    <span class="kw">const</span> circuitDepth <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb6-205"><a></a></span>
+<span id="cb6-206"><a></a>    gate<span class="op">.</span><span class="fu">size</span>(gateWidth)</span>
+<span id="cb6-207"><a></a></span>
+<span id="cb6-208"><a></a>    <span class="co">// Build the circuit</span></span>
+<span id="cb6-209"><a></a></span>
+<span id="cb6-210"><a></a>    <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> circuitDepth<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb6-211"><a></a>        <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> circuitWidth<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb6-212"><a></a>            <span class="cf">if</span> ((x <span class="op">+</span> y) <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb6-213"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> blue})</span>
+<span id="cb6-214"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-215"><a></a>                y <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> x <span class="op">===</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> topLeft<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-216"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> red})</span>
+<span id="cb6-217"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">-</span><span class="dv">1</span> <span class="op">-</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-218"><a></a>            }</span>
+<span id="cb6-219"><a></a>        }</span>
+<span id="cb6-220"><a></a></span>
+<span id="cb6-221"><a></a>    }</span>
+<span id="cb6-222"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-5" data-nodetype="expression">
 
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -830,7 +823,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <img src="images/quantinuum.png" width="800">
 </figure>
 </section>
-<section id="outline" class="slide level2 center">
+<section id="outline-1" class="slide level2 center">
 <h2>Outline</h2>
 <ul>
 <li><p>Generalizing SDKI with Hadamard gates</p></li>
@@ -1057,6 +1050,81 @@ F_2\otimes F_2 = \begin{pmatrix}
 <li><span class="math inline">F_4^{(1)}(0)=F_4</span> and <span class="math inline">F_4^{(1)}(\pm\pi/4)</span> is perm equivalent to <span class="math inline">F_2\otimes F_2</span></li>
 </ul>
 </section>
+<section id="zx-calculus" class="slide level2 center">
+<h2>ZX Calculus</h2>
+<ul>
+<li><p>Provides alternative view on dual unitarity</p></li>
+<li><p>Links to reviews, also books.</p></li>
+<li><p><a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a></p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h3 id="basic-ingredients-z-and-x-tensors-spiders">Basic ingredients: Z and X tensors (“spiders”)</h3>
+<p><img data-src="images/z-spider.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/x-spider.png"></p>
+<figcaption>See <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a></figcaption>
+</figure>
+</div>
+<p><span class="math display">
+|0\rangle=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right) \quad|1\rangle=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right) \quad|+\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right) \quad|-\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+-1
+\end{array}\right)
+</span></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="some-properties">Some properties</h3>
+<p><img data-src="images/zx-identity.png"></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="colour-changing">Colour changing</h3>
+<p><img data-src="images/zx-hadamard.png"></p>
+<p><img data-src="images/zx-color-change.png"></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="spider-fusion">Spider fusion</h3>
+<p><img data-src="images/zx-fusion.png"></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="hopf-rule">Hopf rule</h3>
+<p><img data-src="images/hopf-rule.png"></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="example-liu-and-ho-2023">Example: <a href="https://arxiv.org/abs/2312.12239">Liu and Ho (2023)</a></h3>
+<p><img data-src="images/liu-ho-circuit.png"></p>
+<p><img data-src="images/liu-ho-tensors.png"></p>
+</section>
+<section class="slide level2 center">
+
+<h3 id="rewrite-in-zx-language">Rewrite in ZX language</h3>
+<p><img data-src="images/hexagonal.svg"></p>
+<ul>
+<li><p>X and Y spiders on A and B sublattices</p></li>
+<li><p>Can include arbitary phases on each spider</p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h3 id="unitarity-of-liuho-gate">Unitarity of Liu–Ho gate</h3>
+<p><img data-src="images/liu-ho-gate.svg"></p>
+</section>
 <section class="slide level2 center">
 
 <h3 id="generalized-pauli-matrices">Generalized Pauli matrices</h3>
@@ -1153,8 +1221,8 @@ Cat map for <span class="math inline">\alpha=2</span>, <span class="math inline"
 <section id="cat-map" class="slide level2 center">
 <h2>Cat map</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="744" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 743;"><span id="cb6-744"><a href="#cb6-744"></a><span class="im">import</span> { catMap } <span class="im">from</span> <span class="st">"./js/cat.js"</span><span class="op">;</span></span>
-<span id="cb6-745"><a href="#cb6-745"></a><span class="co">// createSketch(catMap, 'cat-map');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="846" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 845;"><span id="cb7-846"><a></a><span class="im">import</span> { catMap } <span class="im">from</span> <span class="st">"./js/cat.js"</span><span class="op">;</span></span>
+<span id="cb7-847"><a></a><span class="co">// createSketch(catMap, 'cat-map');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
 
@@ -1404,6 +1472,32 @@ v_\text{H} = v_\text{V} = \begin{pmatrix}
 <li>Fractal operator dynamics</li>
 </ul>
 </section>
+<section id="three-dimensions" class="slide level2 center">
+<h2>Three dimensions</h2>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1100" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1099;"><span id="cb8-1100"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb8-1101"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'three-dimensions'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-7-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="lorentz-symmetry">Lorentz symmetry</h3>
+<p>Cauchy surfaces etc.</p>
+</section>
 <section class="slide level2 center">
 
 <h3 id="questions">Questions</h3>
@@ -1484,29 +1578,38 @@ x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
 <li>Many behaviours, from ordered (Rule 18) to chaotic (Rule 30)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="1053" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1052;"><span id="cb7-1053"><a href="#cb7-1053"></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule"</span>})</span>
-<span id="cb7-1054"><a href="#cb7-1054"></a>viewof initialCondition <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Initial"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1171" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1170;"><span id="cb9-1171"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule"</span>})</span>
+<span id="cb9-1172"><a></a>viewof initialCondition <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Initial"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-7-1" data-nodetype="declaration">
+<div id="ojs-cell-8-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-7-2" data-nodetype="declaration">
+<div id="ojs-cell-8-2" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1058" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1057;"><span id="cb8-1058"><a href="#cb8-1058"></a><span class="im">import</span> { elementary } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
-<span id="cb8-1059"><a href="#cb8-1059"></a><span class="co">// createSketch(elementary(rule, initialCondition), 'elementary-ca');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1177" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1176;"><span id="cb10-1177"><a></a><span class="im">import</span> { elementary } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb10-1178"><a></a><span class="fu">createSketch</span>(<span class="fu">elementary</span>(rule<span class="op">,</span> initialCondition)<span class="op">,</span> <span class="st">'elementary-ca'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-8" data-nodetype="declaration">
+<div>
+<div id="ojs-cell-9-1" data-nodetype="declaration">
 
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-9-2" data-nodetype="expression">
+
+</div>
 </div>
 </div>
 </div>
@@ -1626,10 +1729,10 @@ Reveal.on( 'slidechanged', event => {
 <div id="block" style="display: inline-block; position: relative"></div>
 </figure> -->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1179" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1178;"><span id="cb9-1179"><a href="#cb9-1179"></a><span class="im">import</span> { block } <span class="im">from</span> <span class="st">"./js/block-ca.js"</span><span class="op">;</span></span>
-<span id="cb9-1180"><a href="#cb9-1180"></a><span class="co">// createSketch(block, 'block', 'reversible-ca');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1297" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1296;"><span id="cb11-1297"><a></a><span class="im">import</span> { block } <span class="im">from</span> <span class="st">"./js/block-ca.js"</span><span class="op">;</span></span>
+<span id="cb11-1298"><a></a><span class="co">// createSketch(block, 'block', 'reversible-ca');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="ojs-cell-9" data-nodetype="declaration">
+<div id="ojs-cell-10" data-nodetype="declaration">
 
 </div>
 </div>
@@ -2024,8 +2127,10 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
 <strong>Thank you!</strong>
 </p>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -2053,7 +2158,6 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2221,7 +2325,7 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
       });
     </script>
     <script type="ojs-module-contents">
-    {"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"P5 = require(\"p5\")\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"// Modified from https://observablehq.com/@tmcw/p5\n// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/\n// This helper creates a div and attaches the sketch to it\nfunction* createSketch(sketch, slideId) {\n  \n  const element = DOM.element('div');\n  // element.setAttribute('id', divId);\n  \n  // p5.js really likes its target element to already be in the DOM, not just\n  // floating around detached. So, before we call P5, we yield it, which puts\n  // in the DOM.\n  yield element;\n  \n  // This is ‘instance mode’ in p5 jargon: instead of relying on lots of\n  // globals, we create a sketch that has its own copy of everything under p5.\n  const instance = new P5(sketch, element, true);\n\n  // This detects whether we are on the relevant slide (by slideId) and stops the loop if not\n  Reveal.on('slidechanged', event => {\n    if (!!event.currentSlide.querySelector(\"#\" + slideId)) {\n      instance.loop()\n    }\n    else {\n      instance.noLoop()\n    }\n  } );\n  \n  // I think this next part is only if you use observable to update a sketch...\n\n  // This is the tricky part: when you run P5(sketch, element), it starts a\n  // loop that updates the drawing a bunch of times a second. If we were just\n  // to call P5 repeatedly with different arguments, the loops would all keep\n  // running, one on top of the other. So what we do is we use this cell\n  // as a generator, and then when that generator is interrupted, like\n  // when you update the code in the sketch() method, then we call instance.remove()\n  // to clean it up.\n  try {\n    while (true) {\n      yield element;\n    }\n  } finally {\n    instance.remove();\n  }\n\n}\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"import { life } from \"./js/life.js\";\ncreateSketch(life, 'life');\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"SVG = require(\"svg.js\")\nd3 = require(\"d3@6\")\n"},{"methodName":"interpret","cellName":"ojs-cell-6","inline":false,"source":"import { catMap } from \"./js/cat.js\";\n// createSketch(catMap, 'cat-map');\n"},{"methodName":"interpret","cellName":"ojs-cell-7","inline":false,"source":"viewof rule = Inputs.range([0, 255], {step: 1, label: \"Rule\"})\nviewof initialCondition = Inputs.select([\"single 1\", \"random\"], {label: \"Initial\"})\n"},{"methodName":"interpret","cellName":"ojs-cell-8","inline":false,"source":"import { elementary } from \"./js/elementary-ca.js\";\n// createSketch(elementary(rule, initialCondition), 'elementary-ca');\n"},{"methodName":"interpret","cellName":"ojs-cell-9","inline":false,"source":"import { block } from \"./js/block-ca.js\";\n// createSketch(block, 'block', 'reversible-ca');\n"},{"methodName":"interpretQuiet","source":"shinyInput('rule')"},{"methodName":"interpretQuiet","source":"shinyInput('initialCondition')"}]}
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBNb2RpZmllZCBmcm9tIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy9wNVxuLy8gU2VlIGFsc28gaHR0cHM6Ly9ibG9nLmRqbmF2YXJyby5uZXQvcG9zdHMvMjAyMy0wMS0xNF9wNWpzL1xuLy8gVGhpcyBoZWxwZXIgY3JlYXRlcyBhIGRpdiBhbmQgYXR0YWNoZXMgdGhlIHNrZXRjaCB0byBpdFxuZnVuY3Rpb24qIGNyZWF0ZVNrZXRjaChza2V0Y2gsIHNsaWRlSWQpIHtcbiAgXG4gIGNvbnN0IGVsZW1lbnQgPSBET00uZWxlbWVudCgnZGl2Jyk7XG4gIC8vIGVsZW1lbnQuc2V0QXR0cmlidXRlKCdpZCcsIGRpdklkKTtcbiAgXG4gIC8vIHA1LmpzIHJlYWxseSBsaWtlcyBpdHMgdGFyZ2V0IGVsZW1lbnQgdG8gYWxyZWFkeSBiZSBpbiB0aGUgRE9NLCBub3QganVzdFxuICAvLyBmbG9hdGluZyBhcm91bmQgZGV0YWNoZWQuIFNvLCBiZWZvcmUgd2UgY2FsbCBQNSwgd2UgeWllbGQgaXQsIHdoaWNoIHB1dHNcbiAgLy8gaW4gdGhlIERPTS5cbiAgeWllbGQgZWxlbWVudDtcbiAgXG4gIC8vIFRoaXMgaXMg4oCYaW5zdGFuY2UgbW9kZeKAmSBpbiBwNSBqYXJnb246IGluc3RlYWQgb2YgcmVseWluZyBvbiBsb3RzIG9mXG4gIC8vIGdsb2JhbHMsIHdlIGNyZWF0ZSBhIHNrZXRjaCB0aGF0IGhhcyBpdHMgb3duIGNvcHkgb2YgZXZlcnl0aGluZyB1bmRlciBwNS5cbiAgY29uc3QgaW5zdGFuY2UgPSBuZXcgUDUoc2tldGNoLCBlbGVtZW50LCB0cnVlKTtcblxuICAvLyBUaGlzIGRldGVjdHMgd2hldGhlciB3ZSBhcmUgb24gdGhlIHJlbGV2YW50IHNsaWRlIChieSBzbGlkZUlkKSBhbmQgc3RvcHMgdGhlIGxvb3AgaWYgbm90XG4gIFJldmVhbC5vbignc2xpZGVjaGFuZ2VkJywgZXZlbnQgPT4ge1xuICAgIGlmICghIWV2ZW50LmN1cnJlbnRTbGlkZS5xdWVyeVNlbGVjdG9yKFwiI1wiICsgc2xpZGVJZCkpIHtcbiAgICAgIGluc3RhbmNlLmxvb3AoKVxuICAgIH1cbiAgICBlbHNlIHtcbiAgICAgIGluc3RhbmNlLm5vTG9vcCgpXG4gICAgfVxuICB9ICk7XG4gIFxuICAvLyBJIHRoaW5rIHRoaXMgbmV4dCBwYXJ0IGlzIG9ubHkgaWYgeW91IHVzZSBvYnNlcnZhYmxlIHRvIHVwZGF0ZSBhIHNrZXRjaC4uLlxuXG4gIC8vIFRoaXMgaXMgdGhlIHRyaWNreSBwYXJ0OiB3aGVuIHlvdSBydW4gUDUoc2tldGNoLCBlbGVtZW50KSwgaXQgc3RhcnRzIGFcbiAgLy8gbG9vcCB0aGF0IHVwZGF0ZXMgdGhlIGRyYXdpbmcgYSBidW5jaCBvZiB0aW1lcyBhIHNlY29uZC4gSWYgd2Ugd2VyZSBqdXN0XG4gIC8vIHRvIGNhbGwgUDUgcmVwZWF0ZWRseSB3aXRoIGRpZmZlcmVudCBhcmd1bWVudHMsIHRoZSBsb29wcyB3b3VsZCBhbGwga2VlcFxuICAvLyBydW5uaW5nLCBvbmUgb24gdG9wIG9mIHRoZSBvdGhlci4gU28gd2hhdCB3ZSBkbyBpcyB3ZSB1c2UgdGhpcyBjZWxsXG4gIC8vIGFzIGEgZ2VuZXJhdG9yLCBhbmQgdGhlbiB3aGVuIHRoYXQgZ2VuZXJhdG9yIGlzIGludGVycnVwdGVkLCBsaWtlXG4gIC8vIHdoZW4geW91IHVwZGF0ZSB0aGUgY29kZSBpbiB0aGUgc2tldGNoKCkgbWV0aG9kLCB0aGVuIHdlIGNhbGwgaW5zdGFuY2UucmVtb3ZlKClcbiAgLy8gdG8gY2xlYW4gaXQgdXAuXG4gIHRyeSB7XG4gICAgd2hpbGUgKHRydWUpIHtcbiAgICAgIHlpZWxkIGVsZW1lbnQ7XG4gICAgfVxuICB9IGZpbmFsbHkge1xuICAgIGluc3RhbmNlLnJlbW92ZSgpO1xuICB9XG5cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIFNlZSBodHRwczovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xMjk3NTkyOS9ob3ctdG8tdXNlLXN2Zy1maWxlLWZvci1pbWFnZS1zb3VyY2UtaW4tZDNcbmh0bWxgPGRpdiBpZD1cInN2Zy1jb250YWluZXJcIj48L2Rpdj5gXG5kMy5zdmcoXCIuL2ltYWdlcy9leHBlY3RhdGlvbi5zdmdcIikudGhlbihmdW5jdGlvbih4bWwpIHtcbiAgZDMuc2VsZWN0KFwiI3N2Zy1jb250YWluZXJcIikubm9kZSgpLmFwcGVuZENoaWxkKHhtbC5kb2N1bWVudEVsZW1lbnQpO1xufSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJTVkcgPSByZXF1aXJlKFwic3ZnLmpzXCIpXG5kMyA9IHJlcXVpcmUoXCJkM0A2XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ7XG4gICAgbGV0IGNpcmN1aXQgPSBTVkcoZDMuc2VsZWN0KFwiI3N2Zy1jb250YWluZXJcIikubm9kZSgpLmNoaWxkcmVuWzBdKVxuICAgIGNpcmN1aXQuaGlkZSgpXG4gICAgcmV0dXJuIGNpcmN1aXRcbiAgICBsZXQgZ2F0ZSA9IGNpcmN1aXQuZmluZE9uZSgnI2dhdGUnKVxuXG4gICAgY29uc3QgYmx1ZSA9ICcjNTU5NGMzJ1xuICAgIGNvbnN0IHJlZCA9ICcjZDg0MTQxJ1xuXG4gICAgLy8gSGlkZSBvcmlnaW5hbCBcbiAgICBjb25zdCBnYXRlQW5kQ29udHJhY3Rpb25zID0gY2lyY3VpdC5maW5kT25lKCcjZ2F0ZS1hbmQtY29udHJhY3Rpb25zJykuaGlkZSgpXG4gICAgXG5cbiAgICAvLyBUaGUgZm91ciBjb250cmFjdGlvbnNcbiAgICBjb25zdCB0b3BMZWZ0ID0gY2lyY3VpdC5maW5kT25lKCcjdG9wLWxlZnQnKVxuICAgIGNvbnN0IHRvcFJpZ2h0ID0gY2lyY3VpdC5maW5kT25lKCcjdG9wLXJpZ2h0JylcbiAgICBjb25zdCBib3R0b21MZWZ0ID0gY2lyY3VpdC5maW5kT25lKCcjYm90dG9tLWxlZnQnKVxuICAgIGNvbnN0IGJvdHRvbVJpZ2h0ID0gY2lyY3VpdC5maW5kT25lKCcjYm90dG9tLXJpZ2h0JylcbiAgICBcbiAgICBjb25zdCBnYXRlV2lkdGggPSAyMFxuICAgIGNvbnN0IGdhdGVIZWlnaHQgPSAyMFxuXG4gICAgY29uc3QgY2lyY3VpdFdpZHRoID0gMTBcbiAgICBjb25zdCBjaXJjdWl0RGVwdGggPSAzXG5cbiAgICBnYXRlLnNpemUoZ2F0ZVdpZHRoKVxuXG4gICAgLy8gQnVpbGQgdGhlIGNpcmN1aXRcblxuICAgIGZvciAobGV0IHkgPSAwOyB5IDwgY2lyY3VpdERlcHRoOyB5KyspIHtcbiAgICAgICAgZm9yIChsZXQgeCA9IDA7IHggPCBjaXJjdWl0V2lkdGg7IHgrKykge1xuICAgICAgICAgICAgaWYgKCh4ICsgeSkgJSAyID09PSAwKSB7XG4gICAgICAgICAgICAgICAgZ2F0ZS5maW5kT25lKCcjcmVjdDgyNicpLmNzcyh7ZmlsbDogYmx1ZX0pXG4gICAgICAgICAgICAgICAgZ2F0ZS5jbG9uZSgpLmRtb3ZlKGdhdGVXaWR0aCAqIHgsIGdhdGVIZWlnaHQgKiAoY2lyY3VpdERlcHRoICsgeSkpLmFkZFRvKGNpcmN1aXQpXG4gICAgICAgICAgICAgICAgeSA9PT0gMCAmJiB4ID09PSA0ICYmIHRvcExlZnQuY2xvbmUoKS5kbW92ZShnYXRlV2lkdGggKiB4LCBnYXRlSGVpZ2h0ICogKGNpcmN1aXREZXB0aCArIHkpKS5hZGRUbyhjaXJjdWl0KVxuICAgICAgICAgICAgICAgIGdhdGUuZmluZE9uZSgnI3JlY3Q4MjYnKS5jc3Moe2ZpbGw6IHJlZH0pXG4gICAgICAgICAgICAgICAgZ2F0ZS5jbG9uZSgpLmRtb3ZlKGdhdGVXaWR0aCAqIHgsIGdhdGVIZWlnaHQgKiAoY2lyY3VpdERlcHRoIC0xIC0geSkpLmFkZFRvKGNpcmN1aXQpXG4gICAgICAgICAgICB9XG4gICAgICAgIH1cblxuICAgIH1cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGNhdE1hcCB9IGZyb20gXCIuL2pzL2NhdC5qc1wiO1xuLy8gY3JlYXRlU2tldGNoKGNhdE1hcCwgJ2NhdC1tYXAnKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IHRocmVlRENhdCB9IGZyb20gXCIuL2pzLzNkLWNhdC5qc1wiO1xuY3JlYXRlU2tldGNoKHRocmVlRENhdCwgJ3RocmVlLWRpbWVuc2lvbnMnKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBydWxlID0gSW5wdXRzLnJhbmdlKFswLCAyNTVdLCB7c3RlcDogMSwgbGFiZWw6IFwiUnVsZVwifSlcbnZpZXdvZiBpbml0aWFsQ29uZGl0aW9uID0gSW5wdXRzLnNlbGVjdChbXCJzaW5nbGUgMVwiLCBcInJhbmRvbVwiXSwge2xhYmVsOiBcIkluaXRpYWxcIn0pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJpbXBvcnQgeyBlbGVtZW50YXJ5IH0gZnJvbSBcIi4vanMvZWxlbWVudGFyeS1jYS5qc1wiO1xuY3JlYXRlU2tldGNoKGVsZW1lbnRhcnkocnVsZSwgaW5pdGlhbENvbmRpdGlvbiksICdlbGVtZW50YXJ5LWNhJyk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTEwIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW1wb3J0IHsgYmxvY2sgfSBmcm9tIFwiLi9qcy9ibG9jay1jYS5qc1wiO1xuLy8gY3JlYXRlU2tldGNoKGJsb2NrLCAnYmxvY2snLCAncmV2ZXJzaWJsZS1jYScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdydWxlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2luaXRpYWxDb25kaXRpb24nKSJ9XX0=
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -2307,10 +2411,27 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2320,8 +2441,17 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -2335,7 +2465,11 @@ Df^T \Omega Df &amp;= \Omega\qquad \Omega \equiv\operatorname{diag}(\omega,\omeg
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

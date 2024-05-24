@@ -78,24 +78,31 @@ function* createSketch(sketch, slideId) {
 }
 ```
 
+## Outline
+
+- Review of space-time
+
+- Hadamards
+
+- ZX calculus 
+
+- Recent WW Ho paper on hexagonal lattice. Generalized dual unitarity. Three arrows of time and three light cones
+ 
+- Triunitarity [Jonay, Khemani, Ippoliti](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046)
+
+- Cauchy surfaces and Lorentz symmetry (review of earlier works)
+
+- Cliffords and cats
+
+- Automata
+
 
 
 ## Space-time dual cat and clock maps
 
 Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 
-[austen.uk/#talks]s(https://austen.uk/#talks) for slides
-
-
----
-
-## Life
-
-
-```{ojs}
-import { life } from "./js/life.js";
-createSketch(life, 'life');
-```
+[austen.uk/#talks](https://austen.uk/#talks) for slides
 
 ---
 
@@ -156,47 +163,48 @@ $$
 
 - Evaluate $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ for local $\mathcal{O}$
 
+
+```{ojs}
+// See https://stackoverflow.com/questions/12975929/how-to-use-svg-file-for-image-source-in-d3
+html`<div id="svg-container"></div>`
+d3.svg("./images/expectation.svg").then(function(xml) {
+  d3.select("#svg-container").node().appendChild(xml.documentElement);
+});
+```
+
 ```{ojs}
 SVG = require("svg.js")
 d3 = require("d3@6")
 ```
 
-```{ojs}
-import { expectation } from './js/expectation.js'
-html`<div id="svg-container"></div>`
-d3.xml('./images/expectation.svg')
-  .then(data => {
-    d3.select("#svg-container").node().append(data.documentElement)
-  });
-// graphic = {
-//   const test = await FileAttachment("text.txt").text();
-//   console.log(test)
-//   const data = (new DOMParser).parseFromString(test, "image/svg+xml");
-//   d3.select("#svg-container").node().append(data.documentElement)
-// }
-  circuit = SVG('#gate')
-    gate = circuit.findOne('#gate')
 
-    blue = '#5594c3'
-    red = '#d84141'
+```{ojs}
+{
+    let circuit = SVG(d3.select("#svg-container").node().children[0])
+    circuit.hide()
+    return circuit
+    let gate = circuit.findOne('#gate')
+
+    const blue = '#5594c3'
+    const red = '#d84141'
 
     // Hide original 
-    gateAndContractions = circuit.findOne('#gate-and-contractions').hide()
+    const gateAndContractions = circuit.findOne('#gate-and-contractions').hide()
     
 
     // The four contractions
-    topLeft = circuit.findOne('#top-left')
-    topRight = circuit.findOne('#top-right')
-    bottomLeft = circuit.findOne('#bottom-left')
-    bottomRight = circuit.findOne('#bottom-right')
+    const topLeft = circuit.findOne('#top-left')
+    const topRight = circuit.findOne('#top-right')
+    const bottomLeft = circuit.findOne('#bottom-left')
+    const bottomRight = circuit.findOne('#bottom-right')
     
-    gateWidth = 20
-    gateHeight = 20
+    const gateWidth = 20
+    const gateHeight = 20
 
-    circuitWidth = 10
-    circuitDepth = 3
+    const circuitWidth = 10
+    const circuitDepth = 3
 
-    gate.size(gateWidth);
+    gate.size(gateWidth)
 
     // Build the circuit
 
@@ -212,7 +220,12 @@ d3.xml('./images/expectation.svg')
         }
 
     }
+}
 ```
+
+
+
+
 
 
 
@@ -639,6 +652,95 @@ $$
 
 ---
 
+## ZX Calculus
+
+- Provides alternative view on dual unitarity
+
+- Links to reviews, also books. 
+
+- [van der Wetering (2020)](https://arxiv.org/abs/2012.13966)
+
+---
+
+### Basic ingredients: Z and X tensors ("spiders")
+
+![](images/z-spider.png)
+
+![See [van der Wetering (2020)](https://arxiv.org/abs/2012.13966)](images/x-spider.png)
+
+$$
+|0\rangle=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right) \quad|1\rangle=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right) \quad|+\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right) \quad|-\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+-1
+\end{array}\right)
+$$
+
+---
+
+### Some properties
+
+
+![](images/zx-identity.png)
+
+
+---
+
+### Colour changing 
+
+![](images/zx-hadamard.png)
+
+![](images/zx-color-change.png)
+
+---
+
+### Spider fusion
+
+![](images/zx-fusion.png)
+
+---
+
+### Hopf rule
+
+![](images/hopf-rule.png)
+
+
+---
+
+### Example: [Liu and Ho (2023)](https://arxiv.org/abs/2312.12239)
+
+![](images/liu-ho-circuit.png)
+
+![](images/liu-ho-tensors.png)
+
+---
+
+### Rewrite in ZX language
+
+
+![](images/hexagonal.svg)
+
+- X and Y spiders on A and B sublattices
+
+- Can include arbitary phases on each spider
+
+---
+
+### Unitarity of Liu–Ho gate
+
+![](images/liu-ho-gate.svg)
+
+
+---
+
 ### Generalized Pauli matrices
 
 $$
@@ -991,6 +1093,22 @@ $$
 
 ---
 
+## Three dimensions
+
+
+```{ojs}
+import { threeDCat } from "./js/3d-cat.js";
+createSketch(threeDCat, 'three-dimensions');
+```
+
+---
+
+### Lorentz symmetry
+
+Cauchy surfaces etc.
+
+---
+
 ### Questions
 
 1. Do all integrable dual unitary circuits have "trivial" dynamics?
@@ -1057,7 +1175,7 @@ viewof initialCondition = Inputs.select(["single 1", "random"], {label: "Initial
 
 ```{ojs}
 import { elementary } from "./js/elementary-ca.js";
-// createSketch(elementary(rule, initialCondition), 'elementary-ca');
+createSketch(elementary(rule, initialCondition), 'elementary-ca');
 ```
 
 
