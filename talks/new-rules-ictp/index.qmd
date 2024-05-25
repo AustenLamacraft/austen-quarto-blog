@@ -572,10 +572,10 @@ $$
 
 ---
 
-## Correlation functions
+## No correlations outside light cone
 
 $$
-C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t^\dagger\mathcal{O}_1\mathcal{U}_t\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\mathcal{O}_2\right]
+C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t^\dagger\mathcal{O}_1\mathcal{U}_t\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\right]\operatorname{tr}\left[\mathcal{O}_2\right]
 $$
 
 <figure align="center">
@@ -586,12 +586,22 @@ $$
 
 ## Operator spreading
 
-- Any observable such as $Z_n(t)$ may be expanded
+- Observable $Z_n(t)$ expanded in local products of Paulis
+
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n,\qquad X_n Y_{n+1},\qquad Z_{n-1}Y_n X_{n+1},\cdots
+$$
+
+
+
+
+---
+
+$$
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 $$
-\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
+\mathcal{C}_{\mu_{1:N}}(0)=\begin{cases}
 1 & \mu_j=z, \mu_k=1,\forall k\neq j \\\\
 0 & \text{otherwise}
 \end{cases}
@@ -600,27 +610,324 @@ $$
 ---
 
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}\in\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 
-- Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
+- Since $\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
 
 <figure align="center">
 <img src="images/initial-terminal.png" width="400">
 </figure>
 
-- This represents only one component of operator expansion
+- Represents only one component of operator expansion
 
 ---
 
-Operator spreading....
 
-Best to look at how operators act
+## KIM at $J=b=h=\pi/4$
 
-Notion of operator _pushing_
+- In this case only _one term_ in operator expansion
+
+<figure align="center">
+<img src="images/z2-clifford-z.png" width="50%">
+</figure>
+
+- Fractal pattern of $Z$ operators
 
 ---
 
+$$
+\mathcal{O}_{AB}\equiv\prod_{x=1}^N Z_x^{a_{x}}X_x^{b_{x}}\qquad a_{x}, b_{x}\in \{0,1\}
+$$
+
+$$
+\mathcal{U}^\dagger_t \mathcal{O}_{A_0B_0}\mathcal{U}_t \equiv \mathcal{O}_{A_t B_t}
+$$
+
+- Gives $A_t=(a_{0,t}, \ldots, a_{N,t})$ and $B_t=(b_{0,t}, \ldots, b_{N,t})$
+
+- This is a _Clifford circuit_
+
+---
+
+$$
+\mathcal{O}_{AB}\equiv\prod_{x=1}^N Z_x^{a_{x}}X_x^{b_{x}}\qquad a_{x}, b_{x}\in \{0,1\}
+$$
+
+$$
+\begin{aligned}
+a_{x,t+1} &= \alpha(a_{x,t}-b_{x-1,t}-b_{x+1,t}) + (\alpha\delta -1)b_{x,t}\\
+b_{x,t+1} &= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
+\end{aligned}\mod 2
+$$
+
+$$
+\begin{aligned}
+\left[\Delta b\right]_{x,t} &= (\alpha + \delta - 4)b_{x,t}\\
+\left[\Delta b\right]_{x,t} &\equiv  b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - 4b_{x,t}
+\end{aligned}\mod 2
+$$
+
+
+---
+
+Do also the chaotic one from Sommers...
+
+Notion of scrambling... big spread of operator
+
+How to quantify???
+
+
+---
+
+## Out of time order correlator
+
+$$
+\operatorname{OTOC}_{jk}(t) \equiv \langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\rangle
+$$
+
+- OTOC sometimes written as squared commutator
+
+$$
+\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle
+$$
+
+- Relation between two expressions is (using $Z^2=1$)
+
+$$
+\operatorname{OTOC}_{jk}(t) = \frac{1}{2}\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle + 1
+$$
+
+
+---
+
+$$
+\operatorname{OTOC}_{jk}(t) = \frac{1}{2}\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle + 1
+$$
+
+ - At short times commutator vanishes so $\operatorname{OTOC}_{jk}(t\to 0)=1$
+ 
+$$
+\operatorname{OTOC}\_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right]
+$$
+
+- $\operatorname{OTOC}\_{jk}(t)\neq 1$ after operator $Z_j(t)$ spreads from site $j$ to site $k$ 
+
+- Characteristic speed of propagation of OTOC is "butterfly velocity" $v_\text{B}$
+
+
+- Since OTOC depends on *square* of the coefficients, a nonzero value survives after averaging over random circuits
+
+---
+
+## Google's OTOC experiment
+
+- OTOC measured in 2021 by [Google](https://www.science.org/doi/full/10.1126/science.abg5029?casa_token=TkmMj95XIYoAAAAA:NP67A_aYhL8lSDWtuG99i8oFfx1c79-Lz-UGKYsW1-bee3hQ7weJSxLLQwpPzfSEPvEqt6SPbB4UYA) 
+
+<figure align="center">
+<img src="images/google-otoc.png" width="1000">
+<figcaption> The measured OTOC for $i\operatorname{\operatorname{\mathsf{SWAP}}}$ gates (top) and $\sqrt{i\operatorname{\mathsf{SWAP}}}$ (bottom) after averaging over single qubit gates.</figcaption>
+</figure>
+
+
+---
+
+The term scrambling... what does it mean
+
+Chaos....
+
+---
+
+
+After describing Clifford dynamics and doing entanglement for SWAP, go on to dual unitaries in general 
+
+Picture where entanglement follows from isometry
+
+More generally.... any time MPS gives isometry along bottom
+
+Isometry property shows how correlations are restricted....
+
+
+Triunitarity... just follows from decomposition of CNOT
+
+Then chaos...
+
+Operator entanglement .... magic... non cliffordness
+
+
+Page curve between recurrences??? Goes back down
+
+---
+
+
+## Quantifying entanglement
+
+- RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B
+
+- General state is vector $\in\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B$  
+
+- Write in terms of basis vectors $\ket{a}_A$ and $\ket{b}_B$ for A and B subsystems
+$$
+\ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
+$$
+$n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}$
+
+- Now regard $\psi_{ab}$ as matrix and perform a singular value decomposition
+
+---
+
+- In new bases our state is
+
+$$
+\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
+$$
+
+- Note _single sum_, c.f. double sum earlier. This is [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition) 
+
+- $\sigma_n$ are Schmidt coefficients (singular values of SVD)
+
+- If only one nonzero singular value state we have _product state_,  indicating no correlations between subsystems
+
+---
+
+- Simplest example displaying nontrivial entanglement is [Bell state](https://en.wikipedia.org/wiki/Bell_state) 
+
+$$
+\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
+$$
+
+- Schmidt coefficients both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
+
+- Schmidt decomposition closely related to RDM
+$$
+\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] 
+= \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
+$$
+
+- Eigenvalues of RDM are $p_n=\sigma_n^2$
+
+
+---
+
+- One measure of entanglement is von Neumann entropy of $\rho_A$ (aka **entanglement entropy**)
+
+$$
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
+$$
+
+- $S_A$ vanishes for product state, and is otherwise positive
+
+---
+
+- [Rényi entropies](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) provide more complete information
+$$
+  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
+$$
+$S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A$. $S^{(0)}_A$ is number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement))
+$$
+S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
+$$
+where $\gamma\equiv \tr \rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
+
+---
+
+## Toy model
+
+- Circuit of SWAP gates
+<figure align="center">
+<img src="assets/bell-swap.png" width="80%"/>
+</figure>
+
+- Initial state is product of Bell states
+$$
+\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]
+$$
+$$
+\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1
+$$
+with entanglement entropy of one bit
+
+---
+
+- $\rho_A$ therefore has factor $\mathbb{1}_n$ for each site $n\in A$ with "partner" in $B$
+
+- If _both_ qubits of a Bell pair are at sites  $n,m\in A$ they give a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$: a pure state
+
+- Entanglement entropy has contributions from first case only
+
+$$
+ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+$$
+
+---
+
+$$
+ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+$$
+
+- After time $\sim |A|/2$ subsystem has thermalized. 
+
+<figure align="center">
+<img src="assets/bertini.png" width="400">
+<figcaption> 
+Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al. (2019)</a>
+</figcaption>
+</figure>
+
+
+--- 
+
+- Ramp behaviour in many systems
+
+- In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:
+
+<figure align="center">
+<img src="assets/qp.png" width="300">
+<figcaption> 
+Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
+</figcaption>
+</figure>
+
+---
+
+- Toy model with SWAP gates is rather similar, with qubits playing the role of "noninteracting particles"
+
+- This picture remains true in circuits where there is no quasiparticle interpretation (next lecture) 
+
+
+---
+
+
+## Remark: operator entanglement
+
+- OTOC provides one measure of operator spreading
+
+- Another question: how many nonzero coefficients  $\mathcal{C}\_{\mu_{1:N}}$?
+
+- Introduce Schmidt decomposition _for operators_ 
+$$
+\mathcal{O}\_{AB} = \sum\_{n=1}^{\min(n^2_A, n^2_B)} \Sigma\_n A_n\otimes B_n
+$$
+
+- $\Sigma_n\geq 0$ are operator Schmidt coefficients
+
+- $A_n$ and $B_n$ are orthonormal operators on $\mathcal{H}\_A$ and $\mathcal{H}\_B$ i.e. $\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}$
+
+---
+
+- Same entanglement measures as before be applied to evaluate the operator entanglement
+
+- Simplest example, analogous to Bell state, is SWAP operator
+
+$$
+\operatorname{\mathsf{SWAP}}=\frac{1}{2}\left[X\otimes X+Y\otimes Y+Z\otimes Z + \mathsf{1}\otimes\mathsf{1}\right]
+$$
+
+- All Schmidt coefficients are equal (maximum operator entanglement)
+
+---
+
+---
 
 ## Expectation values
 
@@ -655,7 +962,7 @@ $$
 - Unitarity of two qubit gate expressed as
 
 <figure align="center">
-<img src="assets/diag_unitarity.png" width="70%">
+<img src="images/diag_unitarity.png" width="70%">
 </figure>
 
 - Much better!
@@ -717,142 +1024,6 @@ $$
 <object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
 
 - Initial RDM of bottom part of wedge is all that matters!
-
----
-
-## Quantifying entanglement
-
-- RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B
-
-- General state is vector $\in\mathcal{H}=\mathcal{H}\_A\otimes\mathcal{H}\_B$  
-
-- Write in terms of basis vectors $\ket{a}\_A$ and $\ket{b}\_B$ for A and B subsystems
-$$
-\ket{\Psi}\_{AB} = \sum\_{a=1}^{n\_A}\sum\_{b=1}^{n\_B} \Psi\_{ab}\ket{a}\_A\ket{b}\_B 
-$$
-$n\_{A/B}=\operatorname{dim} \mathcal{H}\_{A/B}$
-
-- Now regard $\psi_{ab}$ as matrix and perform a singular value decomposition
-
----
-
-- In new bases our state is
-
-$$
-\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
-$$
-
-- Note _single sum_, c.f. double sum earlier. This is [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition) 
-
-- $\sigma_n$ are Schmidt coefficients (singular values of SVD)
-
-- If only one nonzero singular value state we have _product state_,  indicating no correlations between subsystems
-
----
-
-- Simplest example displaying nontrivial entanglement is [Bell state](https://en.wikipedia.org/wiki/Bell_state) 
-
-$$
-\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
-$$
-
-- Schmidt coefficients both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
-
-- Schmidt decomposition closely related to RDM
-$$
-\rho_A = \operatorname{tr}\_B\left[\ket{\Psi}\bra{\Psi}\right] 
-= \sum\_n \sigma_n^2 \ket{u\_n}\bra{u\_n}
-$$
-
-- Eigenvalues of RDM are $p_n=\sigma_n^2$
-
-
----
-
-- One measure of entanglement is von Neumann entropy of $\rho_A$ (aka **entanglement entropy**)
-
-$$
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
-$$
-
-- $S_A$ vanishes for product state, and is otherwise positive
-
----
-
-- [Rényi entropies](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) provide more complete information
-$$
-  S^{(\alpha)}\_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum\_n p\_n^\alpha
-$$
-$S^{(\text{vN})}\_A=\lim\_{\alpha\to 1} S^{(\alpha)}\_A$. $S^{(0)}\_A$ is number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement))
-$$
-S^{(2)}\_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
-$$
-where $\gamma\equiv \tr \rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
-
----
-
-## Toy model
-
-- Circuit of SWAP gates
-<figure align="center">
-<img src="assets/bell-swap.png" width="80%"/>
-</figure>
-
-- Initial state is product of Bell states
-$$
-\ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
-$$
-$$
-\operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
-$$
-with entanglement entropy of one bit
-
----
-
-- $\rho_A$ therefore has factor $\mathbb{1}_n$ for each site $n\in A$ with "partner" in $B$
-
-- If _both_ qubits of a Bell pair are at sites  $n,m\in A$ they give a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$: a pure state
-
-- Entanglement entropy has contributions from first case only
-
-$$
- S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
-$$
-
----
-
-$$
- S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
-$$
-
-- After time $\sim |A|/2$ subsystem has thermalized. 
-
-<figure align="center">
-<img src="assets/bertini.png" width="400">
-<figcaption> 
-Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al. (2019)</a>
-</figcaption>
-</figure>
-
-
---- 
-
-- Ramp behaviour in many systems
-
-- In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:
-
-<figure align="center">
-<img src="assets/qp.png" width="300">
-<figcaption> 
-Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
-</figcaption>
-</figure>
-
----
-
-- Toy model with SWAP gates is rather similar, with qubits playing the role of "noninteracting particles"
-
-- This picture remains true in circuits where there is no quasiparticle interpretation (next lecture) 
 
 
 ---
@@ -1034,9 +1205,11 @@ $$
 
 - Operator entanglement
 
--   Temporal entanglement and notion of bath (refer to Gerald stuff)
+-   Temporal entanglement and notion of bath (refer to Gerald stuff). Again follows from isometry property
 
 -   Spectral statistics and quantum chaos
+
+- Random circuits
 
 -   Simple example of Heisenberg circuit maybe?
 
