@@ -5,7 +5,7 @@ author: "Austen Lamacraft (Cambridge)"
 data: 
 format:
   revealjs:
-    theme: default
+    theme: [default, reveal_custom.scss]
     slide-number: true
     hash: true
     center: true
@@ -21,6 +21,7 @@ format:
       throwOnError: false,
     }
 ---
+
 
 ```{ojs}
 P5 = require("p5")
@@ -798,7 +799,7 @@ $$
 
 - Schmidt coefficients both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
 
-- Schmidt decomposition closely related to RDM
+- Schmidt decomposition closely related to _reduced density matrix_
 $$
 \rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] 
 = \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
@@ -809,10 +810,18 @@ $$
 
 ---
 
+## Two important facts
+
+1.  $\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]$ unchanged by _unitary transformation on B_
+
+2. $\operatorname{spec}(\rho_A)$ unchanged by _unitary transformation on A_
+
+---
+
 - One measure of entanglement is von Neumann entropy of $\rho_A$ (aka **entanglement entropy**)
 
 $$
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = \sum_n -p_n \log p_n
 $$
 
 - $S_A$ vanishes for product state, and is otherwise positive
@@ -825,9 +834,11 @@ $$
 $$
 $S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A$. $S^{(0)}_A$ is number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement))
 $$
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
+S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr}
 $$
-where $\gamma\equiv \tr \rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
+where $\gamma\equiv \operatorname{tr}\rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
+
+- Do we need this slide??
 
 ---
 
@@ -835,7 +846,7 @@ where $\gamma\equiv \tr \rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Puri
 
 - Circuit of SWAP gates
 <figure align="center">
-<img src="assets/bell-swap.png" width="80%"/>
+<img src="images/bell-swap.png" width="80%"/>
 </figure>
 
 - Initial state is product of Bell states
@@ -849,9 +860,13 @@ with entanglement entropy of one bit
 
 ---
 
+<figure align="center">
+<img src="images/bell-swap.png" width="80%"/>
+</figure>
+
 - $\rho_A$ therefore has factor $\mathbb{1}_n$ for each site $n\in A$ with "partner" in $B$
 
-- If _both_ qubits of a Bell pair are at sites  $n,m\in A$ they give a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$: a pure state
+- If _both_ qubits of a Bell pair are at sites  $n,m\in A$ they give a factor $\ket{\Phi^+}_{nm}\bra{\Phi^+}_{nm}$: a pure state
 
 - Entanglement entropy has contributions from first case only
 
@@ -868,7 +883,7 @@ $$
 - After time $\sim |A|/2$ subsystem has thermalized. 
 
 <figure align="center">
-<img src="assets/bertini.png" width="400">
+<img src="images/bertini.png" width="400">
 <figcaption> 
 Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al. (2019)</a>
 </figcaption>
@@ -882,7 +897,7 @@ Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.02103
 - In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:
 
 <figure align="center">
-<img src="assets/qp.png" width="300">
+<img src="images/qp.png" width="300">
 <figcaption> 
 Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
 </figcaption>
@@ -892,11 +907,281 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 
 - Toy model with SWAP gates is rather similar, with qubits playing the role of "noninteracting particles"
 
-- This picture remains true in circuits where there is no quasiparticle interpretation (next lecture) 
+- This picture remains true in circuits where there is no quasiparticle interpretation
+
+---
+
+## Dual unitary circuits
+
+---
+
+## Recall: kicked Ising model
+
+- Time dependent Hamiltonian with kicks at $t=0,1,2,\ldots$.
+
+$$
+\begin{align*}
+H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{n}\delta(t-n)H_\text{K}\\\
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &= b\sum_{j=1}^L X_j
+\end{align*}
+$$
+
+---
+
+## Entanglement Growth for KIM
+
+- [Bertini, Kos, Prosen (2019)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033) found that when $|J|=|b|=\pi/4$
+
+$$
+\lim_{L\to\infty} S_A =\min(2t-2,N_A)\log 2,
+$$
+
+- __Any $h_j$__; initial $Z_j$ product state
+
+<p align="center">
+<img src="images/bertini.png" width="500"/>
+</p>
+
+---
+
+## Entanglement Spectrum
+
+
+- Rényi entropies depend on eigenvalues of reduced density matrix
+
+$$
+  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^\alpha\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
+$$
+
+- For SDKIM have $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal
+
+$$
+p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
+$$
+
+---
+
+## Thermalization
+
+- After $N_A/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
+
+- All expectations (with $A$) take on infinite temperature value
+
+---
+
+## Dual unitarity
+
+- Recall KIM has circuit representation
+
+<p align="center">
+<img src="images/kim-circuit.png" width="150"/>
+</p>
+
+$$
+\begin{aligned}
+  \mathcal{K} &= \exp\left[-i b X\right]\\
+  \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right]
+\end{aligned}
+$$
+
+- At $|J|=|b|=\pi/4$ has additional property of __dual unitarity__
+
+---
+
+## Reminder from last lecture
+
+<figure align="center">
+<img src="images/matrix_elements.svg" width="90%">
+</figure>
+
+
+<figure align="center">
+<img src="images/diag_unitarity.png" width="60%">
+</figure>
+
+---
+
+## "Folded" representations
+
+<p align="center">
+<img src="images/diag_folded.png" width="60%">
+</p>
+
+- Unitarity:
+
+<p align="center">
+<img src="images/folded-unitarity.png" width="50%">
+</p>
+
+---
+
+## Dual unitary gates
+
+- Impose additional restriction
+
+<figure align="center">
+<img src="../new-rules-tum/assets/folded-dual-unitarity.png" width="60%">
+</figure>
+
+- [Gopalakrishnan and Lamacraft (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)
+
+---
+
+
+## Isometry
+
+<figure align="center">
+<img src="images/isometry.svg" width="100%">
+</figure>
 
 
 ---
 
+- Observation: if $\Psi_{AB}$ is a unitary matrix
+
+$$
+\ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
+$$
+
+- In new bases our state is
+
+$$
+\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
+$$
+
+---
+
+More general initial states... MPS
+
+---
+
+Quote general result showing converse from Harrow
+
+
+---
+
+Temporal entanglement... Abanin... Fux
+
+---
+
+---
+
+## $\rho_A$ via dual unitarity
+
+- Initial state of NN Bell pairs
+
+- 8 sites; 4 layers
+
+<object data="../new-rules-tum/assets/A-entropy-quantum.svg" type="image/svg+xml"></object>
+
+- $\rho_A$ is unitary transformation of
+  
+$$
+  \mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}
+$$
+
+---
+
+## Shallower...
+
+<object data="../new-rules-tum/assets/A-entropy-quantum-shallower.svg" type="image/svg+xml"></object>
+
+- $\rho_A$ is unitary transformation of 
+  
+$$
+\mathbb{1}\otimes\mathbb{1}\ket{\Phi^+}\bra{\Phi^+}\otimes\ket{\Phi^+}\bra{\Phi^+}\otimes\mathbb{1}\otimes\mathbb{1}
+$$
+
+---
+
+## General case
+
+- RDM is unitary transformation of 
+
+$$
+\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{\ket{\Phi^+}\bra{\Phi^+} \cdots }^{N_A/2-t+1 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
+$$
+
+- RDM has $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal to $\left(\frac{1}{2}\right)^{\min(2t-2,N_A)}$
+
+
+- Converse – maximal entanglement growth implies dual unitary gates – recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
+
+---
+
+## The dual unitary family
+
+- $4\times 4$ unitaries are 16-dimensional
+
+- Family of dual unitaries is 14-dimensional
+ 
+- Includes *kicked Ising model* at particular values of couplings
+  
+- Dual unitaries not "integrable" but have enough structure to allow many calculations
+
+---
+
+## 'KIM' property
+
+<p align="center">
+<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="400"/>
+</p>
+
+- ($q=2$ here) Not satisfied by e.g. $\operatorname{SWAP}$
+
+- Maps product states to maximally entangled (Bell) states
+
+- Product initial states also work for KIM!
+
+- [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) studied more general initial states
+
+- [Foligno and Bertini (2023)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311) study general initial conditions
+
+---
+
+## Correlation functions
+
+- Infinite temperature correlator $\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]$
+
+<figure align="center">
+<img src="assets/correlator.png" width="75%"/>
+</figure>
+
+- [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): dual unitarity means correlations vanish _inside_ light cone!
+
+---
+
+## Quantinuum experiment
+
+- Correlations measured in SDKIM [last year]((https://www.nature.com/articles/s41567-022-01689-7))
+
+<figure align="center">
+<img src="assets/quantinuum.png" width="800">
+</figure>
+
+---
+
+## Other applications of dual unitarity
+
+
+- [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032). $v_\text{B}=1$. OTOC grows at maximum speed, c.f. Google experiment
+
+- [Jonay, Kehmani, Ippoliti (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046). Triunitary circuits (incl. 2+1 dimensions)
+
+- [Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191). Measurement based quantum computation in 1D using dual unitaries 
+
+- [Sommers, Huse, Gullans (2022)](https://arxiv.org/abs/2210.10808). Dual unitary Clifford automata with applications to codes
+
+- [Suzuki, Mitarai, Fujii (2022)](https://quantum-journal.org/papers/q-2022-01-24-631/). Computational power of dual unitaries
+
+- Many more!
+
+- Dual unitary shadows
+
+
+
+
+---
 
 ## Remark: operator entanglement
 
@@ -906,12 +1191,12 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 
 - Introduce Schmidt decomposition _for operators_ 
 $$
-\mathcal{O}\_{AB} = \sum\_{n=1}^{\min(n^2_A, n^2_B)} \Sigma\_n A_n\otimes B_n
+\mathcal{O}_{AB} = \sum_{n=1}^{\min(n^2_A, n^2_B)} \Sigma_n A_n\otimes B_n
 $$
 
 - $\Sigma_n\geq 0$ are operator Schmidt coefficients
 
-- $A_n$ and $B_n$ are orthonormal operators on $\mathcal{H}\_A$ and $\mathcal{H}\_B$ i.e. $\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}$
+- $A_n$ and $B_n$ are orthonormal operators on $\mathcal{H}_A$ and $\mathcal{H}_B$ i.e. $\operatorname{tr}\left[A^\dagger_m A_n\right]=\operatorname{tr}\left[B^\dagger_m B_n\right]=\delta_{mn}$
 
 ---
 
@@ -925,7 +1210,6 @@ $$
 
 - All Schmidt coefficients are equal (maximum operator entanglement)
 
----
 
 ---
 
@@ -985,7 +1269,7 @@ $$
 - Since every $U$ accompanied by $U^\dagger$, include both in single unit by "folding" one on top of the other
 
 <p align="center">
-<img src="assets/diag_folded.png" width="60%">
+<img src="images/diag_folded.png" width="60%">
 </p>
 
 - Lines correspond to two indices, and therefore $2^2=4$ dimensions
@@ -993,7 +1277,7 @@ $$
 - Unitarity condition takes form:
 
 <p align="center">
-<img src="assets/folded-unitarity.png" width="50%">
+<img src="images/folded-unitarity.png" width="50%">
 </p>
 
 ---
@@ -1001,7 +1285,7 @@ $$
 - In folded picture expectation value $\bra{\Psi}\mathcal{O}\ket{\Psi}$ looks like this
 
 <figure align="center">
-<object data="assets/folded-expectation.svg" type="image/svg+xml"></object>
+<object data="images/folded-expectation.svg" type="image/svg+xml"></object>
 <figcaption>
 Click to apply unitary condition!
 </figcaption>
@@ -1152,22 +1436,22 @@ $$
 Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 
-- Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
+- Since $\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
 
 <figure align="center">
-<img src="assets/initial-terminal.png" width="400">
+<img src="images/initial-terminal.png" width="400">
 </figure>
 
 - This represents only one component of operator expansion
 
 ---
 
-- Operator norm $\tr\left[Z\_n^2(t)\right]=2$ is conserved under time evolution
+- Operator norm $\operatorname{tr}\left[Z_n^2(t)\right]=2$ is conserved under time evolution
 
 - This implies the normalization
 
 $$
-\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
+\sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}
 $$
 
 ---

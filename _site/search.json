@@ -2349,7 +2349,7 @@
     "href": "talks/new-rules-ictp/index.html#folded-representations",
     "title": "New Rules",
     "section": "“Folded” representations",
-    "text": "“Folded” representations\n\nSince every U accompanied by U^\\dagger, include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore 2^2=4 dimensions\nUnitarity condition takes form:"
+    "text": "“Folded” representations\n\n\n\n\nUnitarity:"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#reduced-density-matrix",
@@ -2377,7 +2377,7 @@
     "href": "talks/new-rules-ictp/index.html#correlation-functions",
     "title": "New Rules",
     "section": "Correlation functions",
-    "text": "Correlation functions\n\nNatural correlation function to consider is\n\n\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\tr\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\n\nAverage overall all initial states uniformly\nThis is “infinite temperature”, although temperature is not defined"
+    "text": "Correlation functions\n\nInfinite temperature correlator \\operatorname{tr}\\left[\\sigma^\\alpha_x(x,t)\\sigma^\\beta(y,0)\\right]\n\n\n\n\n\nBertini, Kos, and Prosen (2019): dual unitarity means correlations vanish inside light cone!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#graphical-representation",
@@ -2496,7 +2496,7 @@
     "href": "talks/new-rules-ictp/index.html#remark-operator-entanglement",
     "title": "New Rules",
     "section": "Remark: operator entanglement",
-    "text": "Remark: operator entanglement\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\mathcal{C}\\_{\\mu_{1:N}}?\nIntroduce Schmidt decomposition for operators \n\\mathcal{O}\\_{AB} = \\sum\\_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma\\_n A_n\\otimes B_n\n\n\\Sigma_n\\geq 0 are operator Schmidt coefficients\nA_n and B_n are orthonormal operators on \\mathcal{H}\\_A and \\mathcal{H}\\_B i.e. \\tr\\left[A^\\dagger_m A_n\\right]=\\tr\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}"
+    "text": "Remark: operator entanglement\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\mathcal{C}\\_{\\mu_{1:N}}?\nIntroduce Schmidt decomposition for operators \n\\mathcal{O}_{AB} = \\sum_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma_n A_n\\otimes B_n\n\n\\Sigma_n\\geq 0 are operator Schmidt coefficients\nA_n and B_n are orthonormal operators on \\mathcal{H}_A and \\mathcal{H}_B i.e. \\operatorname{tr}\\left[A^\\dagger_m A_n\\right]=\\operatorname{tr}\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#example-kicked-ising",
@@ -2546,5 +2546,145 @@
     "title": "New Rules",
     "section": "KIM at J=b=h=\\pi/4",
     "text": "KIM at J=b=h=\\pi/4\n\nIn this case only one term in operator expansion\n\n\n\n\n\nFractal pattern of Z operators"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/notebooks/clifford_brickwork.html",
+    "href": "talks/new-rules-ictp/notebooks/clifford_brickwork.html",
+    "title": "Austen Lamacraft",
+    "section": "",
+    "text": "Simulate brickwork Clifford cellular automata\n\n#Load necessary packages\n%matplotlib inline\nimport math\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport os\n\n\n#Parameters for matplotlib\nfig_size = [6.9185, 3.4207]\nparams = {'backend': 'ps',\n      'axes.labelsize': 18,\n      'font.size': 16,\n      'legend.fontsize': 12,\n      'axes.titlesize' : 16,\n      'xtick.labelsize': 14,\n      'ytick.labelsize': 14,\n      'xtick.direction': 'in',\n      'ytick.direction': 'in',\n      'xtick.top' : True,\n      'ytick.right' : True,\n      'legend.frameon' : False,\n      'axes.linewidth' : 1.,\n      'lines.linewidth' : 1.3,\n      'figure.figsize': fig_size}\n      \nplt.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})\nplt.rc('text', usetex=True)\nplt.style.use('seaborn-dark-palette')\nplt.rcParams.update(params)\n\n/var/folders/xs/y8sn45v943s2_62flnxw0p940000gn/T/ipykernel_77959/4135101326.py:21: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-&lt;style&gt;'. Alternatively, directly use the seaborn API instead.\n  plt.style.use('seaborn-dark-palette')\n\n\n\n#Set printing precision\nnp.set_printoptions(precision=4)\n\n#Cast tensors to matrices\ndef tensor_to_matrix(tensor):\n    #Given tensor T_abcd...efgh... returns matrix M_{abcd..., efgh...}\n    num_row_indices = len(tensor.shape) // 2\n    q = tensor.shape[0]\n    return tensor.reshape(2 * [q ** num_row_indices])\n\nSection VC of Sommers tells us how to translate the gates to their action on Paulis. We have the iSWAP in Eq. (19), \\(\\pi/2\\) rotation about the \\(X\\) axis in (21a), and \\(-2\\pi/3\\) rotation about \\((1,1,1)\\) in (23b).\n\ndef iSWAP(a, b):\n    # a and b are tuples of length 2\n    # This is the iSWAP update\n    a1, a2 = a\n    b1, b2 = b\n    b1, b2 = b2, b1\n    a1, a2 = a2 + b1 + b2, a1 + b1 + b2\n    a1 = a1 % 2\n    a2 = a2 % 2\n    b1 = b1 % 2\n    b2 = b2 % 2\n    return (a1, a2), (b1, b2)\n\n\ndef RX(a, b):\n    # Pi / 2 rotation about the X axis\n    b = (a + b) % 2\n    return a, b\n\n\ndef R111(a, b):\n    # -2Pi / 3 rotation about (1,1,1)\n    a, b = (a + b) % 2 , a\n    return a, b\n\n\nL = 200\n#row_init = [0,0]*(L//2)\n#row_init[L//2] = 1\n# a = -np.array(L // 2 * [1] + L // 2 * [0]) % d\n# b = np.array(((L // 2) + 1) * [1] + ((L // 2) - 1) * [0])\na = np.zeros(L)\nb = np.zeros(L)\na[L // 2 - 1] = 1\nb[L // 2] = 1\n\n# a = np.random.choice(d, L)\n# b = np.random.choice(d, L)\n\nn_t = 100\n\nsim_a = np.zeros([n_t,L],dtype=np.uint8)\nsim_b = np.zeros([n_t,L],dtype=np.uint8)\nsim_a[0,:] = a\nsim_b[0,:] = b\n\nfor i in range(1, n_t):\n    a[::2], b[::2] = RX(a[::2], b[::2])\n    a[1::2], b[1::2] = RX(a[1::2], b[1::2])\n    for x in range(i % 2, L - i % 2, 2):\n        # 2 qubit gate\n        a[x:x+2], b[x:x+2] = iSWAP(a[x:x+2], b[x:x+2]) \n        \n    sim_a[i,:] = a.astype(int)\n    sim_b[i,:] = b.astype(int)\n    \n\n\nplt.figure(figsize = (18,10))\nplt.imshow(sim_a, cmap='Greys',interpolation='nearest', aspect='equal', origin='lower')\nplt.xlabel(r'$x$', fontsize=36)\nplt.ylabel(r'$t$', fontsize=36, rotation=0)\nplt.xticks(fontsize=36, rotation=0)\nplt.yticks(fontsize=36, rotation=0)\nplt.savefig(f'z2-clifford-z.png')\nplt.show()\n\n\n\n\n\n\n\n\n\nplt.figure(figsize = (18,10))\nplt.imshow(sim_b, cmap='Greys', aspect='equal', origin='lower')\nplt.xlabel(r'$x$', fontsize=36)\nplt.ylabel(r'$t$', fontsize=36, rotation=0)\nplt.xticks(fontsize=36, rotation=0)\nplt.yticks(fontsize=36, rotation=0)\nplt.savefig('z2-clifford-x.png')\nplt.show()"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#isometry",
+    "href": "talks/new-rules-ictp/index.html#isometry",
+    "title": "New Rules",
+    "section": "Isometry",
+    "text": "Isometry"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#two-important-facts",
+    "href": "talks/new-rules-ictp/index.html#two-important-facts",
+    "title": "New Rules",
+    "section": "Two important facts",
+    "text": "Two important facts\n\n\\rho_A = \\operatorname{tr}_B\\left[\\ket{\\Psi}\\bra{\\Psi}\\right] unchanged by unitary transformation on B\n\\operatorname{spec}(\\rho_A) unchanged by unitary transformation on A"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#dual-unitary-circuits",
+    "href": "talks/new-rules-ictp/index.html#dual-unitary-circuits",
+    "title": "New Rules",
+    "section": "Dual unitary circuits",
+    "text": "Dual unitary circuits"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#recall-kicked-ising-model",
+    "href": "talks/new-rules-ictp/index.html#recall-kicked-ising-model",
+    "title": "New Rules",
+    "section": "Recall: kicked Ising model",
+    "text": "Recall: kicked Ising model\n\nTime dependent Hamiltonian with kicks at t=0,1,2,\\ldots.\n\n\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j\n\\end{align*}"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#entanglement-growth-for-kim",
+    "href": "talks/new-rules-ictp/index.html#entanglement-growth-for-kim",
+    "title": "New Rules",
+    "section": "Entanglement Growth for KIM",
+    "text": "Entanglement Growth for KIM\n\nBertini, Kos, Prosen (2019) found that when |J|=|b|=\\pi/4\n\n\n\\lim_{L\\to\\infty} S_A =\\min(2t-2,N_A)\\log 2,\n\n\nAny h_j; initial Z_j product state"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#entanglement-spectrum",
+    "href": "talks/new-rules-ictp/index.html#entanglement-spectrum",
+    "title": "New Rules",
+    "section": "Entanglement Spectrum",
+    "text": "Entanglement Spectrum\n\nRényi entropies depend on eigenvalues of reduced density matrix\n\n\n  S^{(\\alpha)}_A = \\frac{1}{1-\\alpha}\\log \\text{tr}\\left[\\rho^\\alpha\\right]=\\frac{1}{1-\\alpha}\\sum_n p_n^\\alpha\n\n\nFor SDKIM have 2^{\\min(2t-2,N_A)} non-zero eigenvalues all equal\n\n\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#thermalization",
+    "href": "talks/new-rules-ictp/index.html#thermalization",
+    "title": "New Rules",
+    "section": "Thermalization",
+    "text": "Thermalization\n\nAfter N_A/2 + 1 steps, reduced density matrix is \\propto \\mathbb{1}\nAll expectations (with A) take on infinite temperature value"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#dual-unitarity",
+    "href": "talks/new-rules-ictp/index.html#dual-unitarity",
+    "title": "New Rules",
+    "section": "Dual unitarity",
+    "text": "Dual unitarity\n\nRecall KIM has circuit representation\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}\n\n\nAt |J|=|b|=\\pi/4 has additional property of dual unitarity"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#reminder-from-last-lecture",
+    "href": "talks/new-rules-ictp/index.html#reminder-from-last-lecture",
+    "title": "New Rules",
+    "section": "Reminder from last lecture",
+    "text": "Reminder from last lecture"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#dual-unitary-gates",
+    "href": "talks/new-rules-ictp/index.html#dual-unitary-gates",
+    "title": "New Rules",
+    "section": "Dual unitary gates",
+    "text": "Dual unitary gates\n\nImpose additional restriction\n\n\n\n\n\nGopalakrishnan and Lamacraft (2019), Bertini, Kos, and Prosen (2019)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#rho_a-via-dual-unitarity",
+    "href": "talks/new-rules-ictp/index.html#rho_a-via-dual-unitarity",
+    "title": "New Rules",
+    "section": "\\rho_A via dual unitarity",
+    "text": "\\rho_A via dual unitarity\n\nInitial state of NN Bell pairs\n8 sites; 4 layers\n\n\n\n\n\\rho_A is unitary transformation of\n\n\n  \\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#shallower",
+    "href": "talks/new-rules-ictp/index.html#shallower",
+    "title": "New Rules",
+    "section": "Shallower…",
+    "text": "Shallower…\n\n\n\n\\rho_A is unitary transformation of\n\n\n\\mathbb{1}\\otimes\\mathbb{1}\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\mathbb{1}\\otimes\\mathbb{1}"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#general-case",
+    "href": "talks/new-rules-ictp/index.html#general-case",
+    "title": "New Rules",
+    "section": "General case",
+    "text": "General case\n\nRDM is unitary transformation of\n\n\n\\rho_0=\\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1} \\otimes\\overbrace{\\ket{\\Phi^+}\\bra{\\Phi^+} \\cdots }^{N_A/2-t+1 } \\otimes \\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1}\n\n\nRDM has 2^{\\min(2t-2,N_A)} non-zero eigenvalues all equal to \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#the-dual-unitary-family",
+    "href": "talks/new-rules-ictp/index.html#the-dual-unitary-family",
+    "title": "New Rules",
+    "section": "The dual unitary family",
+    "text": "The dual unitary family\n\n4\\times 4 unitaries are 16-dimensional\nFamily of dual unitaries is 14-dimensional\nIncludes kicked Ising model at particular values of couplings\nDual unitaries not “integrable” but have enough structure to allow many calculations"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#kim-property",
+    "href": "talks/new-rules-ictp/index.html#kim-property",
+    "title": "New Rules",
+    "section": "‘KIM’ property",
+    "text": "‘KIM’ property\n\n\n\n\n(q=2 here) Not satisfied by e.g. \\operatorname{SWAP}\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#quantinuum-experiment",
+    "href": "talks/new-rules-ictp/index.html#quantinuum-experiment",
+    "title": "New Rules",
+    "section": "Quantinuum experiment",
+    "text": "Quantinuum experiment\n\nCorrelations measured in SDKIM last year"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#other-applications-of-dual-unitarity",
+    "href": "talks/new-rules-ictp/index.html#other-applications-of-dual-unitarity",
+    "title": "New Rules",
+    "section": "Other applications of dual unitarity",
+    "text": "Other applications of dual unitarity\n\nClaeys and Lamacraft (2020). v_\\text{B}=1. OTOC grows at maximum speed, c.f. Google experiment\nJonay, Kehmani, Ippoliti (2021). Triunitary circuits (incl. 2+1 dimensions)\nStephen et al (2022). Measurement based quantum computation in 1D using dual unitaries\nSommers, Huse, Gullans (2022). Dual unitary Clifford automata with applications to codes\nSuzuki, Mitarai, Fujii (2022). Computational power of dual unitaries\nMany more!\nDual unitary shadows"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#folded-representations-1",
+    "href": "talks/new-rules-ictp/index.html#folded-representations-1",
+    "title": "New Rules",
+    "section": "“Folded” representations",
+    "text": "“Folded” representations\n\nSince every U accompanied by U^\\dagger, include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore 2^2=4 dimensions\nUnitarity condition takes form:"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#folded-representationsss",
+    "href": "talks/new-rules-ictp/index.html#folded-representationsss",
+    "title": "New Rules",
+    "section": "“Folded” representationsss",
+    "text": "“Folded” representationsss\n\nSince every U accompanied by U^\\dagger, include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore 2^2=4 dimensions\nUnitarity condition takes form:"
   }
 ]

@@ -424,7 +424,7 @@ Austen Lamacraft (Cambridge)
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="25" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 24;"><span id="cb1-25"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="26" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb1-26"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -433,51 +433,51 @@ Austen Lamacraft (Cambridge)
 </div>
 <p>Add cover image</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="31" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 30;"><span id="cb2-31"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
-<span id="cb2-32"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
-<span id="cb2-33"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
-<span id="cb2-34"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
-<span id="cb2-35"><a></a>  </span>
-<span id="cb2-36"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-37"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
-<span id="cb2-38"><a></a>  </span>
-<span id="cb2-39"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
-<span id="cb2-40"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
-<span id="cb2-41"><a></a>  <span class="co">// in the DOM.</span></span>
-<span id="cb2-42"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-43"><a></a>  </span>
-<span id="cb2-44"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
-<span id="cb2-45"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
-<span id="cb2-46"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
-<span id="cb2-47"><a></a></span>
-<span id="cb2-48"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
-<span id="cb2-49"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb2-50"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
-<span id="cb2-51"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
-<span id="cb2-52"><a></a>    }</span>
-<span id="cb2-53"><a></a>    <span class="cf">else</span> {</span>
-<span id="cb2-54"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
-<span id="cb2-55"><a></a>    }</span>
-<span id="cb2-56"><a></a>  } )<span class="op">;</span></span>
-<span id="cb2-57"><a></a>  </span>
-<span id="cb2-58"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
-<span id="cb2-59"><a></a></span>
-<span id="cb2-60"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
-<span id="cb2-61"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
-<span id="cb2-62"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
-<span id="cb2-63"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
-<span id="cb2-64"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
-<span id="cb2-65"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
-<span id="cb2-66"><a></a>  <span class="co">// to clean it up.</span></span>
-<span id="cb2-67"><a></a>  <span class="cf">try</span> {</span>
-<span id="cb2-68"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
-<span id="cb2-69"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-70"><a></a>    }</span>
-<span id="cb2-71"><a></a>  } <span class="cf">finally</span> {</span>
-<span id="cb2-72"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb2-73"><a></a>  }</span>
-<span id="cb2-74"><a></a></span>
-<span id="cb2-75"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="32" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb2-32"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
+<span id="cb2-33"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
+<span id="cb2-34"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
+<span id="cb2-35"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
+<span id="cb2-36"><a></a>  </span>
+<span id="cb2-37"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-38"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
+<span id="cb2-39"><a></a>  </span>
+<span id="cb2-40"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
+<span id="cb2-41"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
+<span id="cb2-42"><a></a>  <span class="co">// in the DOM.</span></span>
+<span id="cb2-43"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-44"><a></a>  </span>
+<span id="cb2-45"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
+<span id="cb2-46"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
+<span id="cb2-47"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-48"><a></a></span>
+<span id="cb2-49"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
+<span id="cb2-50"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb2-51"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
+<span id="cb2-52"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
+<span id="cb2-53"><a></a>    }</span>
+<span id="cb2-54"><a></a>    <span class="cf">else</span> {</span>
+<span id="cb2-55"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
+<span id="cb2-56"><a></a>    }</span>
+<span id="cb2-57"><a></a>  } )<span class="op">;</span></span>
+<span id="cb2-58"><a></a>  </span>
+<span id="cb2-59"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
+<span id="cb2-60"><a></a></span>
+<span id="cb2-61"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
+<span id="cb2-62"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
+<span id="cb2-63"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
+<span id="cb2-64"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
+<span id="cb2-65"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
+<span id="cb2-66"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
+<span id="cb2-67"><a></a>  <span class="co">// to clean it up.</span></span>
+<span id="cb2-68"><a></a>  <span class="cf">try</span> {</span>
+<span id="cb2-69"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-70"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-71"><a></a>    }</span>
+<span id="cb2-72"><a></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-73"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-74"><a></a>  }</span>
+<span id="cb2-75"><a></a></span>
+<span id="cb2-76"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -493,8 +493,8 @@ Austen Lamacraft (Cambridge)
 <section id="game-of-life" class="slide level2 center">
 <h2>Game of life</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="90" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 89;"><span id="cb3-90"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-91"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="91" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 90;"><span id="cb3-91"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
+<span id="cb3-92"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -1135,12 +1135,19 @@ The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\ma
 </span></p>
 <ul>
 <li><p>Schmidt coefficients both <span class="math inline">\frac{1}{\sqrt{2}}</span>, indicating maximal entanglement</p></li>
-<li><p>Schmidt decomposition closely related to RDM <span class="math display">
+<li><p>Schmidt decomposition closely related to <em>reduced density matrix</em> <span class="math display">
 \rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]
 = \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
 </span></p></li>
 <li><p>Eigenvalues of RDM are <span class="math inline">p_n=\sigma_n^2</span></p></li>
 </ul>
+</section>
+<section id="two-important-facts" class="slide level2 center">
+<h2>Two important facts</h2>
+<ol type="1">
+<li><p><span class="math inline">\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]</span> unchanged by <em>unitary transformation on B</em></p></li>
+<li><p><span class="math inline">\operatorname{spec}(\rho_A)</span> unchanged by <em>unitary transformation on A</em></p></li>
+</ol>
 </section>
 <section class="slide level2 center">
 
@@ -1148,7 +1155,7 @@ The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\ma
 <li>One measure of entanglement is von Neumann entropy of <span class="math inline">\rho_A</span> (aka <strong>entanglement entropy</strong>)</li>
 </ul>
 <p><span class="math display">
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = \sum_n -p_n \log p_n
 </span></p>
 <ul>
 <li><span class="math inline">S_A</span> vanishes for product state, and is otherwise positive</li>
@@ -1157,11 +1164,12 @@ S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
 <section class="slide level2 center">
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">Rényi entropies</a> provide more complete information <span class="math display">
+<li><p><a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">Rényi entropies</a> provide more complete information <span class="math display">
 S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
 </span> <span class="math inline">S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A</span>. <span class="math inline">S^{(0)}_A</span> is number of nonzero Schmidt coefficients (aka <a href="https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement">Schmidt rank</a>) <span class="math display">
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
-</span> where <span class="math inline">\gamma\equiv \tr \rho_A^2</span> is <a href="https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)">purity</a></li>
+S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr}
+</span> where <span class="math inline">\gamma\equiv \operatorname{tr}\rho_A^2</span> is <a href="https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)">purity</a></p></li>
+<li><p>Do we need this slide??</p></li>
 </ul>
 </section>
 <section id="toy-model" class="slide level2 center">
@@ -1169,7 +1177,7 @@ S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
 <ul>
 <li>Circuit of SWAP gates
 <figure align="center">
-<img src="assets/bell-swap.png" width="80%">
+<img src="images/bell-swap.png" width="80%">
 </figure></li>
 <li>Initial state is product of Bell states <span class="math display">
 \ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]
@@ -1180,9 +1188,12 @@ S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\tr \rho_A^2
 </section>
 <section class="slide level2 center">
 
+<figure align="center">
+<img src="images/bell-swap.png" width="80%">
+</figure>
 <ul>
 <li><p><span class="math inline">\rho_A</span> therefore has factor <span class="math inline">\mathbb{1}_n</span> for each site <span class="math inline">n\in A</span> with “partner” in <span class="math inline">B</span></p></li>
-<li><p>If <em>both</em> qubits of a Bell pair are at sites <span class="math inline">n,m\in A</span> they give a factor <span class="math inline">\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}</span>: a pure state</p></li>
+<li><p>If <em>both</em> qubits of a Bell pair are at sites <span class="math inline">n,m\in A</span> they give a factor <span class="math inline">\ket{\Phi^+}_{nm}\bra{\Phi^+}_{nm}</span>: a pure state</p></li>
 <li><p>Entanglement entropy has contributions from first case only</p></li>
 </ul>
 <p><span class="math display">
@@ -1198,7 +1209,7 @@ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <li>After time <span class="math inline">\sim |A|/2</span> subsystem has thermalized.</li>
 </ul>
 <figure align="center">
-<img src="assets/bertini.png" width="400">
+<img src="images/bertini.png" width="400">
 <figcaption>
 Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al.&nbsp;(2019)</a>
 </figcaption>
@@ -1211,7 +1222,7 @@ Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033
 <li><p>In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:</p></li>
 </ul>
 <figure align="center">
-<img src="assets/qp.png" width="300">
+<img src="images/qp.png" width="300">
 <figcaption>
 Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
 </figcaption>
@@ -1221,7 +1232,240 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 
 <ul>
 <li><p>Toy model with SWAP gates is rather similar, with qubits playing the role of “noninteracting particles”</p></li>
-<li><p>This picture remains true in circuits where there is no quasiparticle interpretation (next lecture)</p></li>
+<li><p>This picture remains true in circuits where there is no quasiparticle interpretation</p></li>
+</ul>
+</section>
+<section id="dual-unitary-circuits" class="slide level2 center">
+<h2>Dual unitary circuits</h2>
+</section>
+<section id="recall-kicked-ising-model" class="slide level2 center">
+<h2>Recall: kicked Ising model</h2>
+<ul>
+<li>Time dependent Hamiltonian with kicks at <span class="math inline">t=0,1,2,\ldots</span>.</li>
+</ul>
+<p><span class="math display">
+\begin{align*}
+H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{n}\delta(t-n)H_\text{K}\\\
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &amp;= b\sum_{j=1}^L X_j
+\end{align*}
+</span></p>
+</section>
+<section id="entanglement-growth-for-kim" class="slide level2 center">
+<h2>Entanglement Growth for KIM</h2>
+<ul>
+<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini, Kos, Prosen (2019)</a> found that when <span class="math inline">|J|=|b|=\pi/4</span></li>
+</ul>
+<p><span class="math display">
+\lim_{L\to\infty} S_A =\min(2t-2,N_A)\log 2,
+</span></p>
+<ul>
+<li><strong>Any <span class="math inline">h_j</span></strong>; initial <span class="math inline">Z_j</span> product state</li>
+</ul>
+<p align="center">
+<img src="images/bertini.png" width="500">
+</p>
+</section>
+<section id="entanglement-spectrum" class="slide level2 center">
+<h2>Entanglement Spectrum</h2>
+<ul>
+<li>Rényi entropies depend on eigenvalues of reduced density matrix</li>
+</ul>
+<p><span class="math display">
+  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^\alpha\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
+</span></p>
+<ul>
+<li>For SDKIM have <span class="math inline">2^{\min(2t-2,N_A)}</span> non-zero eigenvalues all equal</li>
+</ul>
+<p><span class="math display">
+p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
+</span></p>
+</section>
+<section id="thermalization" class="slide level2 center">
+<h2>Thermalization</h2>
+<ul>
+<li><p>After <span class="math inline">N_A/2 + 1</span> steps, reduced density matrix is <span class="math inline">\propto \mathbb{1}</span></p></li>
+<li><p>All expectations (with <span class="math inline">A</span>) take on infinite temperature value</p></li>
+</ul>
+</section>
+<section id="dual-unitarity" class="slide level2 center">
+<h2>Dual unitarity</h2>
+<ul>
+<li>Recall KIM has circuit representation</li>
+</ul>
+<p align="center">
+<img src="images/kim-circuit.png" width="150">
+</p>
+<p><span class="math display">
+\begin{aligned}
+  \mathcal{K} &amp;= \exp\left[-i b X\right]\\
+  \mathcal{I} &amp;= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right]
+\end{aligned}
+</span></p>
+<ul>
+<li>At <span class="math inline">|J|=|b|=\pi/4</span> has additional property of <strong>dual unitarity</strong></li>
+</ul>
+</section>
+<section id="reminder-from-last-lecture" class="slide level2 center">
+<h2>Reminder from last lecture</h2>
+<figure align="center">
+<img src="images/matrix_elements.svg" width="90%">
+</figure>
+<figure align="center">
+<img src="images/diag_unitarity.png" width="60%">
+</figure>
+</section>
+<section id="folded-representations" class="slide level2 center">
+<h2>“Folded” representations</h2>
+<p align="center">
+<img src="images/diag_folded.png" width="60%">
+</p>
+<ul>
+<li>Unitarity:</li>
+</ul>
+<p align="center">
+<img src="images/folded-unitarity.png" width="50%">
+</p>
+</section>
+<section id="dual-unitary-gates" class="slide level2 center">
+<h2>Dual unitary gates</h2>
+<ul>
+<li>Impose additional restriction</li>
+</ul>
+<figure align="center">
+<img src="../new-rules-tum/assets/folded-dual-unitarity.png" width="60%">
+</figure>
+<ul>
+<li><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309">Gopalakrishnan and Lamacraft (2019)</a>, <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601">Bertini, Kos, and Prosen (2019)</a></li>
+</ul>
+</section>
+<section id="isometry" class="slide level2 center">
+<h2>Isometry</h2>
+<figure align="center">
+<img src="images/isometry.svg" width="100%">
+</figure>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Observation: if <span class="math inline">\Psi_{AB}</span> is a unitary matrix</li>
+</ul>
+<p><span class="math display">
+\ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
+</span></p>
+<ul>
+<li>In new bases our state is</li>
+</ul>
+<p><span class="math display">
+\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
+</span></p>
+</section>
+<section class="slide level2 center">
+
+<p>More general initial states… MPS</p>
+</section>
+<section class="slide level2 center">
+
+<p>Quote general result showing converse from Harrow</p>
+</section>
+<section class="slide level2 center">
+
+<p>Temporal entanglement… Abanin… Fux</p>
+</section>
+<section class="slide level2 center">
+
+</section>
+<section id="rho_a-via-dual-unitarity" class="slide level2 center">
+<h2><span class="math inline">\rho_A</span> via dual unitarity</h2>
+<ul>
+<li><p>Initial state of NN Bell pairs</p></li>
+<li><p>8 sites; 4 layers</p></li>
+</ul>
+<object data="../new-rules-tum/assets/A-entropy-quantum.svg" type="image/svg+xml">
+</object>
+<ul>
+<li><span class="math inline">\rho_A</span> is unitary transformation of</li>
+</ul>
+<p><span class="math display">
+  \mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}
+</span></p>
+</section>
+<section id="shallower" class="slide level2 center">
+<h2>Shallower…</h2>
+<object data="../new-rules-tum/assets/A-entropy-quantum-shallower.svg" type="image/svg+xml">
+</object>
+<ul>
+<li><span class="math inline">\rho_A</span> is unitary transformation of</li>
+</ul>
+<p><span class="math display">
+\mathbb{1}\otimes\mathbb{1}\ket{\Phi^+}\bra{\Phi^+}\otimes\ket{\Phi^+}\bra{\Phi^+}\otimes\mathbb{1}\otimes\mathbb{1}
+</span></p>
+</section>
+<section id="general-case" class="slide level2 center">
+<h2>General case</h2>
+<ul>
+<li>RDM is unitary transformation of</li>
+</ul>
+<p><span class="math display">
+\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{\ket{\Phi^+}\bra{\Phi^+} \cdots }^{N_A/2-t+1 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
+</span></p>
+<ul>
+<li><p>RDM has <span class="math inline">2^{\min(2t-2,N_A)}</span> non-zero eigenvalues all equal to <span class="math inline">\left(\frac{1}{2}\right)^{\min(2t-2,N_A)}</span></p></li>
+<li><p>Converse – maximal entanglement growth implies dual unitary gates – recently proved by <a href="https://arxiv.org/abs/2204.10341">Zhou and Harrow (2022)</a></p></li>
+</ul>
+</section>
+<section id="the-dual-unitary-family" class="slide level2 center">
+<h2>The dual unitary family</h2>
+<ul>
+<li><p><span class="math inline">4\times 4</span> unitaries are 16-dimensional</p></li>
+<li><p>Family of dual unitaries is 14-dimensional</p></li>
+<li><p>Includes <em>kicked Ising model</em> at particular values of couplings</p></li>
+<li><p>Dual unitaries not “integrable” but have enough structure to allow many calculations</p></li>
+</ul>
+</section>
+<section id="kim-property" class="slide level2 center">
+<h2>‘KIM’ property</h2>
+<p align="center">
+<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="400">
+</p>
+<ul>
+<li><p>(<span class="math inline">q=2</span> here) Not satisfied by e.g.&nbsp;<span class="math inline">\operatorname{SWAP}</span></p></li>
+<li><p>Maps product states to maximally entangled (Bell) states</p></li>
+<li><p>Product initial states also work for KIM!</p></li>
+<li><p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304">Piroli <em>et al</em> (2020)</a> studied more general initial states</p></li>
+<li><p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311">Foligno and Bertini (2023)</a> study general initial conditions</p></li>
+</ul>
+</section>
+<section id="correlation-functions" class="slide level2 center">
+<h2>Correlation functions</h2>
+<ul>
+<li>Infinite temperature correlator <span class="math inline">\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]</span></li>
+</ul>
+<figure align="center">
+<img src="assets/correlator.png" width="75%">
+</figure>
+<ul>
+<li><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601">Bertini, Kos, and Prosen (2019)</a>: dual unitarity means correlations vanish <em>inside</em> light cone!</li>
+</ul>
+</section>
+<section id="quantinuum-experiment" class="slide level2 center">
+<h2>Quantinuum experiment</h2>
+<ul>
+<li>Correlations measured in SDKIM <a href="(https://www.nature.com/articles/s41567-022-01689-7)">last year</a></li>
+</ul>
+<figure align="center">
+<img src="assets/quantinuum.png" width="800">
+</figure>
+</section>
+<section id="other-applications-of-dual-unitarity" class="slide level2 center">
+<h2>Other applications of dual unitarity</h2>
+<ul>
+<li><p><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>. <span class="math inline">v_\text{B}=1</span>. OTOC grows at maximum speed, c.f. Google experiment</p></li>
+<li><p><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay, Kehmani, Ippoliti (2021)</a>. Triunitary circuits (incl.&nbsp;2+1 dimensions)</p></li>
+<li><p><a href="https://arxiv.org/abs/2209.06191">Stephen <em>et al</em> (2022)</a>. Measurement based quantum computation in 1D using dual unitaries</p></li>
+<li><p><a href="https://arxiv.org/abs/2210.10808">Sommers, Huse, Gullans (2022)</a>. Dual unitary Clifford automata with applications to codes</p></li>
+<li><p><a href="https://quantum-journal.org/papers/q-2022-01-24-631/">Suzuki, Mitarai, Fujii (2022)</a>. Computational power of dual unitaries</p></li>
+<li><p>Many more!</p></li>
+<li><p>Dual unitary shadows</p></li>
 </ul>
 </section>
 <section id="remark-operator-entanglement" class="slide level2 center">
@@ -1230,10 +1474,10 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <li><p>OTOC provides one measure of operator spreading</p></li>
 <li><p>Another question: how many nonzero coefficients <span class="math inline">\mathcal{C}\_{\mu_{1:N}}</span>?</p></li>
 <li><p>Introduce Schmidt decomposition <em>for operators</em> <span class="math display">
-\mathcal{O}\_{AB} = \sum\_{n=1}^{\min(n^2_A, n^2_B)} \Sigma\_n A_n\otimes B_n
+\mathcal{O}_{AB} = \sum_{n=1}^{\min(n^2_A, n^2_B)} \Sigma_n A_n\otimes B_n
 </span></p></li>
 <li><p><span class="math inline">\Sigma_n\geq 0</span> are operator Schmidt coefficients</p></li>
-<li><p><span class="math inline">A_n</span> and <span class="math inline">B_n</span> are orthonormal operators on <span class="math inline">\mathcal{H}\_A</span> and <span class="math inline">\mathcal{H}\_B</span> i.e.&nbsp;<span class="math inline">\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}</span></p></li>
+<li><p><span class="math inline">A_n</span> and <span class="math inline">B_n</span> are orthonormal operators on <span class="math inline">\mathcal{H}_A</span> and <span class="math inline">\mathcal{H}_B</span> i.e.&nbsp;<span class="math inline">\operatorname{tr}\left[A^\dagger_m A_n\right]=\operatorname{tr}\left[B^\dagger_m B_n\right]=\delta_{mn}</span></p></li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -1248,9 +1492,6 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <ul>
 <li>All Schmidt coefficients are equal (maximum operator entanglement)</li>
 </ul>
-</section>
-<section class="slide level2 center">
-
 </section>
 <section id="expectation-values" class="slide level2 center">
 <h2>Expectation values</h2>
@@ -1301,20 +1542,20 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <li>(leave initial state <span class="math inline">\ket{\Psi}</span> unspecified for the moment)</li>
 </ul>
 </section>
-<section id="folded-representations" class="slide level2 center">
+<section id="folded-representations-1" class="slide level2 center">
 <h2>“Folded” representations</h2>
 <ul>
 <li>Since every <span class="math inline">U</span> accompanied by <span class="math inline">U^\dagger</span>, include both in single unit by “folding” one on top of the other</li>
 </ul>
 <p align="center">
-<img src="assets/diag_folded.png" width="60%">
+<img src="images/diag_folded.png" width="60%">
 </p>
 <ul>
 <li><p>Lines correspond to two indices, and therefore <span class="math inline">2^2=4</span> dimensions</p></li>
 <li><p>Unitarity condition takes form:</p></li>
 </ul>
 <p align="center">
-<img src="assets/folded-unitarity.png" width="50%">
+<img src="images/folded-unitarity.png" width="50%">
 </p>
 </section>
 <section class="slide level2 center">
@@ -1323,7 +1564,7 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <li>In folded picture expectation value <span class="math inline">\bra{\Psi}\mathcal{O}\ket{\Psi}</span> looks like this</li>
 </ul>
 <figure align="center">
-<object data="assets/folded-expectation.svg" type="image/svg+xml">
+<object data="images/folded-expectation.svg" type="image/svg+xml">
 </object>
 <figcaption>
 Click to apply unitary condition!
@@ -1349,7 +1590,7 @@ Click to apply unitary condition!
 <li>Initial RDM of bottom part of wedge is all that matters!</li>
 </ul>
 </section>
-<section id="correlation-functions" class="slide level2 center">
+<section id="correlation-functions-1" class="slide level2 center">
 <h2>Correlation functions</h2>
 <ul>
 <li>Natural correlation function to consider is</li>
@@ -1465,10 +1706,10 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\
 Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 </span></p>
 <ul>
-<li>Since <span class="math inline">\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}</span>, can extract spin correlations from <span class="math inline">\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)</span></li>
+<li>Since <span class="math inline">\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}</span>, can extract spin correlations from <span class="math inline">\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)</span></li>
 </ul>
 <figure align="center">
-<img src="assets/initial-terminal.png" width="400">
+<img src="images/initial-terminal.png" width="400">
 </figure>
 <ul>
 <li>This represents only one component of operator expansion</li>
@@ -1477,11 +1718,11 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\
 <section class="slide level2 center">
 
 <ul>
-<li><p>Operator norm <span class="math inline">\tr\left[Z\_n^2(t)\right]=2</span> is conserved under time evolution</p></li>
+<li><p>Operator norm <span class="math inline">\operatorname{tr}\left[Z_n^2(t)\right]=2</span> is conserved under time evolution</p></li>
 <li><p>This implies the normalization</p></li>
 </ul>
 <p><span class="math display">
-\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
+\sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}
 </span></p>
 </section>
 <section id="example-su2-preserving-gate" class="slide level2 center">
