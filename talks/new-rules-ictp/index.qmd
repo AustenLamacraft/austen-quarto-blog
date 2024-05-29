@@ -122,7 +122,7 @@ Motivated by quantum computation, physicists have in recent years begun to study
 
 ```{ojs}
 import { life } from "./js/life.js";
-createSketch(life, 'life');
+createSketch(life, 'game of life');
 ```
 
 ---
@@ -202,19 +202,90 @@ https://oimo.io/works/life/
 
 ---
 
+### Elementary cellular automata
 
+- "Space" is one dimension with cells $x_n=0,1$ $n\in\mathbb{Z}$
 
-Outline comments on cellular automata, Wolfram, Cambridge train station etc.
+- Update cells every time step depending on cells in **neighborhood** 
+  - Neighborhood is cell and two neighbors for elementary CA
 
 ---
 
-Appearance of casuality
+- Update specified by function 
+
+$$
+f:\{0,1\}^3\longrightarrow \{0,1\}.
+$$
+
+$$
+x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
+$$
+
+- How many possible functions?
 
 ---
 
-## Tools
+### Wolfram's rules 
 
-Intro to Penrose diagram notation
+- Domain of $f$ is $2^3=8$ possible values for three cells
+
+- $2^8=256$ possible choices for the function $f$
+
+- List outputs corresponding to inputs: 111, 110, ... 000
+
+|111	| 110 |	101	| 100 |	011 |	010 |	001 |	000	|
+|---	| --- |	---	| --- |	--- |	--- |	--- |	---	|
+| 0   |	1   | 	1 | 	0 | 	1	|   1 | 	1 | 	0 |	
+
+- Interpret as binary number: this one is [Rule 110](https://en.wikipedia.org/wiki/Rule_110)
+
+---
+
+## Elementary cellular automata
+
+- Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)
+
+```{ojs}
+//| panel: input
+viewof rule = Inputs.range(
+  [0, 255], 
+  {value: 30, step: 1, label: "Rule number:"}
+)
+viewof initial = Inputs.select(
+  ["single 1", "random"], 
+  { value: "single 1", 
+    label: "Initial conditions:"
+  }
+)
+```
+
+
+```{ojs}
+import { elementaryParam } from "./js/elementary-ca.js";
+createSketch(elementaryParam(rule, initial), 'elementary cellular automata');
+```
+
+- Rule 110 is capable of universal computation!
+
+----
+
+### CAs as model physics
+
+- Notion of a causal "light cone" (45 degree lines)
+
+- Variety of possible behaviors: chaos, periodicity, ...
+
+---
+
+## Outline
+
+
+- Quantum gates and circuits
+
+- What would we like to know?
+
+- Case study: space-time duality
+
 
 ---
 
@@ -371,43 +442,17 @@ $$
 
 ## General two qubit unitary
 
-- Need this???
-
-- Any two-qubit unitary $U\in \mathcal{U(4)}$ can be written
-
-$$
-U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+)
-$$
-
-- $u_{\pm}, v_{\pm} \in SU(2)$
-
-$$
-\begin{align*}
- V[J_x, J_y, J_z] &= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\\\
- &= \begin{bmatrix}
-e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
-0 & e^{iJ_z} \cos(J_+) & -ie^{i J_z} \sin(J_+) & 0 \\\\
-0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\\\
--i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\\\
-\end{bmatrix}
-\end{align*}
-$$
-
-- 16 parameters!
-
----
-
-## Unitarity in graphical notation
-
 - Have to consider both unitaries and conjugates
-
 - Introduce color-coded notation 
 
 <figure align="center">
-<img src="images/matrix_elements.svg" width="70%">
+<img src="images/matrix_elements.svg" width="80%">
 </figure>
 
 ---
+
+
+## Unitarity in graphical notation
 
 - Condition of unitarity $U^\dagger U = U U^\dagger = \mathsf{1}$
 
@@ -425,9 +470,7 @@ $$
 
 ---
 
-## Time evolution
-
-#### Single qubit gates
+## Time evolution: single qubit gates
 
 - Time evolution operator $U=\exp(-iHt)$
 
@@ -442,7 +485,7 @@ $$
 
 ---
 
-#### Two qubit gates
+## Two qubit gates
 
 - Simplest example of two qubit interaction is __exchange Hamiltonian__
 
@@ -496,15 +539,9 @@ $$
 e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 $$
 
----
-
-Introduce notion of brickwall circuit
-
 <p align="center">
-<img src="images/brickwall.png" width="450"/>
+<img src="images/circuit.svg" width="450"/>
 </p>
-
-
 
 ---
 
@@ -515,7 +552,7 @@ Introduce notion of brickwall circuit
 $$
 \begin{align*}
 H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{n}\delta(t-n)H_\text{K}\\\
-H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &= b\sum_{j=1}^L X_j,
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &= b\sum_{j=1}^L X_j
 \end{align*}
 $$
 
@@ -585,7 +622,11 @@ $$
 
 ---
 
-## What are the quantities of interest?
+# What would we like to know?
+
+<p align="center">
+<img src="images/circuit.svg" width="450"/>
+</p>
 
 ---
 
@@ -618,7 +659,7 @@ $$
 
 ---
 
-- Single qubit operator pushes to two qubit opertor
+- Single qubit operator pushes to two qubit operator
 
 <figure align="center">
 <img src="images/operator_pushing_two_qubit.svg" width="50%">
@@ -708,7 +749,7 @@ $$
 
 - Gives $A_t=(a_{0,t}, \ldots, a_{N,t})$ and $B_t=(b_{0,t}, \ldots, b_{N,t})$
 
-- This is a _Clifford circuit_
+- This is a _Clifford circuit_... actually a [Clifford cellular automaton](https://pubs.aip.org/aip/jmp/article-abstract/49/11/112104/954171/On-the-structure-of-Clifford-quantum-cellular?redirectedFrom=fulltext)
 
 ---
 
@@ -716,25 +757,20 @@ $$
 \mathcal{O}_{AB}\equiv\prod_{x=1}^N Z_x^{a_{x}}X_x^{b_{x}}\qquad a_{x}, b_{x}\in \{0,1\}
 $$
 
-$$
-\begin{aligned}
-a_{x,t+1} &= \alpha(a_{x,t}-b_{x-1,t}-b_{x+1,t}) + (\alpha\delta -1)b_{x,t}\\
-b_{x,t+1} &= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
-\end{aligned}\mod 2
-$$
+- "Hamiltonian" form
 
 $$
 \begin{aligned}
-\left[\Delta b\right]_{x,t} &= (\alpha + \delta - 4)b_{x,t}\\
-\left[\Delta b\right]_{x,t} &\equiv  b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - 4b_{x,t}
+a_{x,t+1} &= a_{x,t}-b_{x-1,t}-b_{x+1,t}-b_{x,t}\\
+b_{x,t+1} &= a_{x,t} - b_{x-1,t} - b_{x+1,t}
 \end{aligned}\mod 2
 $$
 
-- Spatiotemporal cat maps!
+- Or eliminate $a_{x,t}$ for "Lagrangian" form
 
-- Pictures (I have)
-
-- Include 2+1D simulations of KIM (animate)
+$$
+b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - b_{x,t}=0\qquad \mod 2
+$$
 
 ---
 
@@ -747,16 +783,14 @@ createSketch(threeDCat, '3d cat');
 
 ---
 
-Relate to automata
+<figure align="center">
+<img src="images/sommers-fractal.png" width="80%">
+<figcaption> Source:  <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.4.030313">Sommers, Huse, Gullans (2022)</a>.</figcaption>
+</figure>
 
----
+- KIM at $J=b=\pi/4$, $h=0$ has _gliders_: propagation without spreading
 
-Do also the chaotic one from Sommers... (refer to Sommers)
-
-Notion of scrambling... big spread of operator
-
-How to quantify???
-
+- Operator spread sometimes called _scrambling_: how to quantify in general?
 
 ---
 
@@ -795,12 +829,41 @@ $$
 
 - Characteristic speed of propagation of OTOC is "butterfly velocity" $v_\text{B}$
 
-
 - Since OTOC depends on *square* of the coefficients, a nonzero value survives after averaging over random circuits
 
 ---
 
 ## Phenomenology of spreading
+
+- [von Keyserlingk _et al_ (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013) and 
+[Nahum, Vijay, Haar (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014)
+
+<figure align="center">
+<img src="images/spreading.png" width="70%">
+<figcaption> Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.</figcaption>
+</figure>
+
+---
+
+### Classical analogue
+
+- Rapid growth of small differences between two trajectories
+
+```{ojs}
+//| panel: input
+viewof ruleDifference = Inputs.range(
+  [0, 255], 
+  {value: 110, step: 1, label: "Rule number:"}
+)
+```
+
+
+```{ojs}
+import { differenceParam } from "./js/ca-difference.js";
+createSketch(differenceParam(ruleDifference), 'difference');
+```
+
+- Smallest change: flip one site and monitor $z^t\equiv x^t\oplus y^t$
 
 ---
 
@@ -816,36 +879,6 @@ $$
 
 ---
 
-The term scrambling... what does it mean
-
-Chaos....
-
-Relation to bitstring difference in automata (use simulation)
-
----
-
-
-After describing Clifford dynamics and doing entanglement for SWAP, go on to dual unitaries in general 
-
-Picture where entanglement follows from isometry
-
-More generally.... any time MPS gives isometry along bottom
-
-Isometry property shows how correlations are restricted....
-
-
-Triunitarity... just follows from decomposition of CNOT
-
-Then chaos...
-
-Operator entanglement .... magic... non cliffordness
-
-
-Page curve between recurrences??? Goes back down
-
----
-
-
 ## Quantifying entanglement
 
 - RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B
@@ -858,7 +891,7 @@ $$
 $$
 $n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}$
 
-- Now regard $\psi_{ab}$ as matrix and perform a singular value decomposition
+- Now regard $\Psi_{ab}$ as matrix and perform a singular value decomposition
 
 ---
 
@@ -884,7 +917,7 @@ $$
 
 - Schmidt coefficients both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
 
-- Schmidt decomposition closely related to _reduced density matrix_
+- Schmidt decomposition closely related to _reduced density matrix_ (RDM)
 $$
 \rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] 
 = \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
@@ -910,20 +943,6 @@ S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\su
 $$
 
 - $S_A$ vanishes for product state, and is otherwise positive
-
----
-
-- [Rényi entropies](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) provide more complete information
-$$
-  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
-$$
-$S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A$. $S^{(0)}_A$ is number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement))
-$$
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr}
-$$
-where $\gamma\equiv \operatorname{tr}\rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
-
-- Do we need this slide??
 
 ---
 
@@ -965,7 +984,7 @@ $$
  S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 $$
 
-- After time $\sim |A|/2$ subsystem has thermalized. 
+- After time $\sim |A|/2$ subsystem has thermalized
 
 <figure align="center">
 <img src="images/bertini.png" width="400">
@@ -979,10 +998,10 @@ Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.02103
 
 - Ramp behaviour in many systems
 
-- Often explained in terms of causal propagation of (quasi-)particles (where they exist)
+- Explained by causal propagation of (quasi-)particles (where they exist)
 
 <figure align="center">
-<img src="images/qp.png" width="300">
+<img src="images/qp.png" width="40%">
 <figcaption> 
 Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
 </figcaption>
@@ -994,9 +1013,8 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 
 - This picture remains true in circuits where there is no quasiparticle interpretation
 
----
 
-## Dual unitary circuits
+# Dual unitary circuits
 
 ---
 
@@ -1029,24 +1047,14 @@ $$
 
 ---
 
-## Entanglement Spectrum
+## RDM and thermalization
 
 
-- Rényi entropies depend on eigenvalues of reduced density matrix
-
-$$
-  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^\alpha\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
-$$
-
-- For SDKIM have $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal
+- For SDKIM have $2^{\min(2t-2,N_A)}$ non-zero eigenvalues of RDM all equal
 
 $$
 p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 $$
-
----
-
-## Thermalization
 
 - After $N_A/2 + 1$ steps, reduced density matrix is $\propto \mathbb{1}$
 
@@ -1076,6 +1084,8 @@ $$
 <p align="center">
 <img src="images/space-time-circuit.svg" width="60%"/>
 </p>
+
+- Gates are unitary from left to right, not just up to down!
 
 ---
 
@@ -1146,31 +1156,15 @@ $$
 
 ---
 
-- Any initial state with this representation works!
+- Any initial state with this (MPS) representation works! [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304)
 
 <figure align="center">
 <img src="images/initial_conditions_3.svg" width="100%">
 </figure>
 
-- Two site MPS with additional property  [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304)
-
-- See also [Foligno and Bertini (2023)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311)
-
 - Converse – maximal entanglement growth implies dual unitary gates – proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
 
----
-
-## 'KIM' property
-
-<p align="center">
-<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="400"/>
-</p>
-
-- ($q=2$ here) Not satisfied by e.g. $\operatorname{SWAP}$
-
-- Maps product states to maximally entangled (Bell) states
-
-- Product initial states also work for KIM!
+- KIM is special: maps product states to maximally entangled (Bell) states
 
 ---
 
@@ -1213,7 +1207,7 @@ Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article
 </figcaption>
 </figure>
 
-See also _process tensor_ of [Pollock _et al._ (2018)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127)
+Earlier named _process tensor_ by [Pollock _et al._ (2018)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127)
 
 ---
 
@@ -1272,14 +1266,6 @@ Happens precisely for bath of size $t$
 
 ---
 
-Go on to correlation functions..
-
-- Don't need details... just DU property and range of behaviour 
-
-- Then go on to honeycomb circuit
-
----
-
 ## Reminder: no correlations outside light cone
 
 $$
@@ -1287,35 +1273,12 @@ C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t
 $$
 
 <figure align="center">
-<img src="images/outside_lightcone.svg" width="100%">
+<img src="images/outside_lightcone.svg" width="80%">
 </figure>
 
----
+- [Bertini, Kos, Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): DU means correlations vanish _inside_ light cone!
 
----
-
-## Reminder...
-
-<figure align="center">
-<img src="images/matrix_elements.svg" width="90%">
-</figure>
-
-
-<figure align="center">
-<img src="images/diag_unitarity.png" width="60%">
-</figure>
-
----
-
-## Correlation functions
-
-- Infinite temperature correlator $\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]$
-
-<figure align="center">
-<img src="images/correlator.png" width="75%"/>
-</figure>
-
-- [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): dual unitarity means correlations vanish _inside_ light cone!
+- DU family spans ergodic to integrable behaviour of correlations
 
 ---
 
@@ -1380,6 +1343,8 @@ $$
 \end{array}\right)
 $$
 
+- Obey many identities upon contraction
+
 ---
 
 ### Simplest examples
@@ -1413,7 +1378,7 @@ $$
 
 ---
 
-- _Not_ dual unitary but overall circuit triunitary ([Jonay _et al._ (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046))
+- _Not_ dual unitary but overall circuit _triunitary_ ([Jonay _et al._ (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046))
 
 <figure align="center">
 <img src="images/hexagonal-triunitary.svg" width="50%"/>
@@ -1432,11 +1397,7 @@ Source:  <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRe
 
 - Correlations nonzero in three directions!
 
-
----
-
-- Refer to higher order DU (Pavel Kos work)
-
+- See [Yu, Wang, Kos (2024)](https://quantum-journal.org/papers/q-2024-02-20-1260/): hierarchical generalizations of dual unitarity
 
 ---
 
@@ -1461,106 +1422,27 @@ Source:  <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRe
 ---
 
 
-## Correlation functions
+## Last thing: Lorentz symmetry
 
-- Natural correlation function to consider is
+![](images/lorentz-circuit.svg)
 
 $$
-c_{\alpha \beta}(x,t) = \frac{1}{2^N}\operatorname{tr}\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
+\color{red}{\Lambda}\color{green}{\mathcal{T}} \color{black}{=}\color{green}{\mathcal{T}'}\color{red}{\Lambda}
 $$
 
-- Average overall all initial states uniformly
+$$
+\color{red}\Lambda\color{green}\mathcal{T}\color{red}\Lambda^\dagger \color{black}=\color{green} \mathcal{T}'
+$$
 
-- This is "infinite temperature", although temperature is not defined
+- Masanes suggests ([arXiv:2301.02825](https://arxiv.org/abs/2301.02825)) DU circuits connected to CFTs
 
 ---
 
-## Graphical representation
+## Summary
 
-$$
-c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
-$$
+- Further reading...
 
-<figure align="center">
-<img src="images/correlator.png" width="800">
-</figure>
-
----
-
-- When $|x|>t$ unitarity condition leads to removal of _all_ $U$s and $U^\dagger$s 
-$$
-c_{\alpha \beta}(x,t) = \frac{1}{4}\tr\left[\sigma_{\alpha}\right]\tr\left[\sigma_{\beta}\right]=0,
-$$
-and correlations vanish (if operators are traceless)
-
-- Correlations only nonzero inside "light cone"
-
----
-
-- When $|x|=t$ remaining tensor network is particularly simple:
-
-<figure align="center">
-<img src="assets/diag_corr_2.png" width="400">
-</figure>
-
----
-
-- Rewrite in several ways, including in folded representation:
-
-<figure align="center">
-<img src="assets/diag_corr_channel.png" width="400">
-</figure>
-
-- $q$ is local Hilbert space dimension ($q=2$ up to now)
-
-- Normalization factor by comparing with $\sigma_\alpha=\sigma_\beta=\mathsf{1}$ (here $t=4$)
-
----
-
-- Evaluate by iteratively applying operator map $\mathcal{M}_+$ or $\mathcal{M}_-$
-
-<figure align="center">
-<img src="assets/diag_M_plus.png" width="400">
-<img src="assets/diag_M_min.png" width="400">
-</figure>
-
-$$
-\begin{align*}
-\langle \sigma_{\alpha}(t,t) \sigma_{\beta}(0,0) \rangle &= \tr \left[\sigma_{\beta}\mathcal{M}_{-}^t(\sigma_{\alpha})\right] / q \\\
-&=  \tr \left[ \sigma_{\alpha}\mathcal{M}_{+}^{t}(\sigma_{\beta})\right] / q
-\end{align*}
-$$
-
-- $\mathcal{M}_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators
-
-- $\mathcal{M}_\pm$ have the additional property of being _unital_: $\mathcal{M}_\pm(\mathsf{1})=\mathsf{1}$
-
----
-
-## Typical behaviour of correlations
-
-<figure align="center">
-<img src="assets/corr.png" width="500">
-<figcaption>
-Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>
-</figcaption>
-</figure>
-
----
-
-- Can evaluate correlation inside light cone
-
-<figure align="center">
-<img src="assets/correlator.png" width="600">
-</figure>
-
-- "One step inside" involves quantum channel acting on two-site operators: a space of dimension $q^4$. 
-
-- Taking $s$ steps inside channel acting on $q^{2s}$-dimensional space
-
-- General situation is really exponentially hard, as we'd expect
-
----
+- Measurements etc.
 
 
 

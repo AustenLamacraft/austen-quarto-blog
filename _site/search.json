@@ -2153,7 +2153,7 @@
     "href": "talks/new-rules-ictp/index.html#game-of-life",
     "title": "New Rules",
     "section": "Game of life",
-    "text": "Game of life\n\nimport { life } from \"./js/life.js\";\ncreateSketch(life, 'life');"
+    "text": "Game of life\n\nimport { life } from \"./js/life.js\";\ncreateSketch(life, 'game of life');"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#abstract",
@@ -2272,7 +2272,7 @@
     "href": "talks/new-rules-ictp/index.html#general-two-qubit-unitary",
     "title": "New Rules",
     "section": "General two qubit unitary",
-    "text": "General two qubit unitary\n\nNeed this???\nAny two-qubit unitary U\\in \\mathcal{U(4)} can be written\n\n\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\n\nu_{\\pm}, v_{\\pm} \\in SU(2)\n\n\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n\\end{bmatrix}\n\\end{align*}\n\n\n16 parameters!"
+    "text": "General two qubit unitary\n\nHave to consider both unitaries and conjugates\nIntroduce color-coded notation"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#time-evolution",
@@ -2286,7 +2286,7 @@
     "href": "talks/new-rules-ictp/index.html#floquet-theory-kicked-ising-model",
     "title": "New Rules",
     "section": "Floquet theory: kicked Ising model",
-    "text": "Floquet theory: kicked Ising model\n\nTime dependent Hamiltonian with kicks at t=0,1,2,\\ldots.\n\n\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j,\n\\end{align*}\n\n\n“Stroboscopic” form of \\mathcal{U}(t)=\\mathcal{T}\\exp\\left[-i\\int^t H_{\\text{KIM}}(t') dt'\\right]\n\n\n\\begin{aligned}\n  \\mathcal{U}(n_+) &= \\left[\\mathcal{U}(1_+)\\right]^n,\\qquad U(1_-) = K I_\\mathbf{h}\\\\\\\n  I_\\mathbf{h} &= e^{-iH_\\text{I}[\\mathbf{h}]}, \\qquad K = e^{-iH_\\text{K}}\n\\end{aligned}"
+    "text": "Floquet theory: kicked Ising model\n\nTime dependent Hamiltonian with kicks at t=0,1,2,\\ldots.\n\n\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j\n\\end{align*}\n\n\n“Stroboscopic” form of \\mathcal{U}(t)=\\mathcal{T}\\exp\\left[-i\\int^t H_{\\text{KIM}}(t') dt'\\right]\n\n\n\\begin{aligned}\n  \\mathcal{U}(n_+) &= \\left[\\mathcal{U}(1_+)\\right]^n,\\qquad U(1_-) = K I_\\mathbf{h}\\\\\\\n  I_\\mathbf{h} &= e^{-iH_\\text{I}[\\mathbf{h}]}, \\qquad K = e^{-iH_\\text{K}}\n\\end{aligned}"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#kim-as-a-circuit",
@@ -2335,7 +2335,7 @@
     "href": "talks/new-rules-ictp/index.html#unitarity-in-graphical-notation",
     "title": "New Rules",
     "section": "Unitarity in graphical notation",
-    "text": "Unitarity in graphical notation\n\nHave to consider both unitaries and conjugates\nIntroduce color-coded notation"
+    "text": "Unitarity in graphical notation\n\nCondition of unitarity U^\\dagger U = U U^\\dagger = \\mathsf{1}\n\n\n\\sum_{\\alpha,\\beta}U^{\\vphantom{\\dagger}}_{a,b,\\alpha,\\beta} U^\\dagger_{\\alpha,\\beta,c,d}=\\delta_{ac}\\delta_{bd}\n\n\nUnitarity of two qubit gate expressed as\n\n\n\n\n\nMuch better!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#using-unitarity",
@@ -2363,7 +2363,7 @@
     "href": "talks/new-rules-ictp/index.html#quantifying-entanglement",
     "title": "New Rules",
     "section": "Quantifying entanglement",
-    "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\psi_{ab} as matrix and perform a singular value decomposition"
+    "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\Psi_{ab} as matrix and perform a singular value decomposition"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#toy-model",
@@ -2377,7 +2377,7 @@
     "href": "talks/new-rules-ictp/index.html#correlation-functions",
     "title": "New Rules",
     "section": "Correlation functions",
-    "text": "Correlation functions\n\nInfinite temperature correlator \\operatorname{tr}\\left[\\sigma^\\alpha_x(x,t)\\sigma^\\beta(y,0)\\right]\n\n\n\n\n\nBertini, Kos, and Prosen (2019): dual unitarity means correlations vanish inside light cone!"
+    "text": "Correlation functions\n\nNatural correlation function to consider is\n\n\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\operatorname{tr}\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\n\nAverage overall all initial states uniformly\nThis is “infinite temperature”, although temperature is not defined"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#graphical-representation",
@@ -2713,7 +2713,7 @@
     "href": "talks/new-rules-ictp/index.html#influence-functional",
     "title": "New Rules",
     "section": "Influence functional",
-    "text": "Influence functional\n\n\n\nSource: Sonner, Lerose, Abanin (2021)\n\n\nSee also process tensor of Pollock et al. (2018)"
+    "text": "Influence functional\n\n\n\nSource: Sonner, Lerose, Abanin (2021)\n\n\nEarlier named process tensor by Pollock et al. (2018)"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#isometries",
@@ -2769,7 +2769,7 @@
     "href": "talks/new-rules-ictp/index.html#phenomenology-of-spreading",
     "title": "New Rules",
     "section": "Phenomenology of spreading",
-    "text": "Phenomenology of spreading"
+    "text": "Phenomenology of spreading\n\nvon Keyserlingk et al (2018) and Nahum, Vijay, Haar (2018)\n\n\n\n\nSource: Nahum, Vijay, Haar (2018)."
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#cnot-circuit-floquet-east-model",
@@ -2797,7 +2797,7 @@
     "href": "talks/new-rules-ictp/index.html#reminder-no-correlations-outside-light-cone",
     "title": "New Rules",
     "section": "Reminder: no correlations outside light cone",
-    "text": "Reminder: no correlations outside light cone\n\nC(\\mathcal{O}_1(t),\\mathcal{O}_2(0)) \\equiv \\operatorname{tr}\\left[\\mathcal{U}_t^\\dagger\\mathcal{O}_1\\mathcal{U}_t\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\right]\\operatorname{tr}\\left[\\mathcal{O}_2\\right]"
+    "text": "Reminder: no correlations outside light cone\n\nC(\\mathcal{O}_1(t),\\mathcal{O}_2(0)) \\equiv \\operatorname{tr}\\left[\\mathcal{U}_t^\\dagger\\mathcal{O}_1\\mathcal{U}_t\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\right]\\operatorname{tr}\\left[\\mathcal{O}_2\\right]\n\n\n\n\n\nBertini, Kos, Prosen (2019): DU means correlations vanish inside light cone!\nDU family spans ergodic to integrable behaviour of correlations"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#dimensional-kim",
@@ -2805,5 +2805,54 @@
     "title": "New Rules",
     "section": "2+1 dimensional KIM",
     "text": "2+1 dimensional KIM\n\nimport { threeDCat } from \"./js/3d-cat.js\";\ncreateSketch(threeDCat, '3d cat');"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#last-thing-lorentz-symmetry",
+    "href": "talks/new-rules-ictp/index.html#last-thing-lorentz-symmetry",
+    "title": "New Rules",
+    "section": "Last thing: Lorentz symmetry",
+    "text": "Last thing: Lorentz symmetry\n\n\n\\color{red}{\\Lambda}\\color{green}{\\mathcal{T}} \\color{black}{=}\\color{green}{\\mathcal{T}'}\\color{red}{\\Lambda}\n\n\n\\color{red}\\Lambda\\color{green}\\mathcal{T}\\color{red}\\Lambda^\\dagger \\color{black}=\\color{green} \\mathcal{T}'\n\n\nMasanes suggests (arXiv:2301.02825) DU circuits connected to CFTs"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#time-evolution-single-qubit-gates",
+    "href": "talks/new-rules-ictp/index.html#time-evolution-single-qubit-gates",
+    "title": "New Rules",
+    "section": "Time evolution: single qubit gates",
+    "text": "Time evolution: single qubit gates\n\nTime evolution operator U=\\exp(-iHt)\nIf H=\\sum_j h_j a sum of single qubit terms\n\n\n\\mathcal{U} = \\exp(-iHt) = \\prod_j \\exp(-ih_j) = \\prod_j U_j\n \nU_j=\\mathbb{1}\\otimes \\ldots \\otimes\\mathbb{1} \\otimes \\overbrace{u_j}^{j\\text{th factor}} \\ldots \\otimes\\mathbb{1}"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#two-qubit-gates",
+    "href": "talks/new-rules-ictp/index.html#two-qubit-gates",
+    "title": "New Rules",
+    "section": "Two qubit gates",
+    "text": "Two qubit gates\n\nSimplest example of two qubit interaction is exchange Hamiltonian\n\n\n\\begin{align*}\nh_{12} &= J\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z\\right] =J\\left[X_1X_2+Y_1Y_2 + Z_1Z_2\\right]\\\\\\\n&=2\\operatorname{SWAP} - 1\n\\end{align*}\n \nU(J) = \\exp(-ih_{12}) = e^{iJ}\\left[\\cos (2J) \\mathbb{1} - i\\sin (2J) \\operatorname{SWAP}\\right]\n\n\nSpecial cases\n\n\nU(\\pi/4)=\\operatorname{SWAP}\n \nU(\\pi/8)=\\sqrt{\\operatorname{SWAP}}\n\n\nFully rotationally invariant"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#outline",
+    "href": "talks/new-rules-ictp/index.html#outline",
+    "title": "New Rules",
+    "section": "Outline",
+    "text": "Outline\n\nQuantum gates and circuits\nWhat would we like to know?\nCase study: space-time duality"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#summary",
+    "href": "talks/new-rules-ictp/index.html#summary",
+    "title": "New Rules",
+    "section": "Summary",
+    "text": "Summary\n\nFurther reading…\nMeasurements etc."
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#kim-at-jbpi4-h0",
+    "href": "talks/new-rules-ictp/index.html#kim-at-jbpi4-h0",
+    "title": "New Rules",
+    "section": "KIM at J=b=\\pi/4, h=0",
+    "text": "KIM at J=b=\\pi/4, h=0\n\nGlider"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#rdm-and-thermalization",
+    "href": "talks/new-rules-ictp/index.html#rdm-and-thermalization",
+    "title": "New Rules",
+    "section": "RDM and thermalization",
+    "text": "RDM and thermalization\n\nFor SDKIM have 2^{\\min(2t-2,N_A)} non-zero eigenvalues of RDM all equal\n\n\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\n\n\nAfter N_A/2 + 1 steps, reduced density matrix is \\propto \\mathbb{1}\nAll expectations (with A) take on infinite temperature value"
   }
 ]

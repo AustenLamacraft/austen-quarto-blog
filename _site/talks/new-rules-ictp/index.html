@@ -522,7 +522,7 @@ Austen Lamacraft (Cambridge)
 <h2>Game of life</h2>
 <div class="cell">
 <div class="sourceCode cell-code hidden" id="cb3" data-startfrom="124" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 123;"><span id="cb3-124"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-125"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-125"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game of life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -607,15 +607,137 @@ A schematic view of the Google Sycamore processor.
 </section>
 <section class="slide level2 center">
 
-<p>Outline comments on cellular automata, Wolfram, Cambridge train station etc.</p>
+<h3 id="elementary-cellular-automata">Elementary cellular automata</h3>
+<ul>
+<li><p>“Space” is one dimension with cells <span class="math inline">x_n=0,1</span> <span class="math inline">n\in\mathbb{Z}</span></p></li>
+<li><p>Update cells every time step depending on cells in <strong>neighborhood</strong></p>
+<ul>
+<li>Neighborhood is cell and two neighbors for elementary CA</li>
+</ul></li>
+</ul>
 </section>
 <section class="slide level2 center">
 
-<p>Appearance of casuality</p>
+<ul>
+<li>Update specified by function</li>
+</ul>
+<p><span class="math display">
+f:\{0,1\}^3\longrightarrow \{0,1\}.
+</span></p>
+<p><span class="math display">
+x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
+</span></p>
+<ul>
+<li>How many possible functions?</li>
+</ul>
 </section>
-<section id="tools" class="slide level2 center">
-<h2>Tools</h2>
-<p>Intro to Penrose diagram notation</p>
+<section class="slide level2 center">
+
+<h3 id="wolframs-rules">Wolfram’s rules</h3>
+<ul>
+<li><p>Domain of <span class="math inline">f</span> is <span class="math inline">2^3=8</span> possible values for three cells</p></li>
+<li><p><span class="math inline">2^8=256</span> possible choices for the function <span class="math inline">f</span></p></li>
+<li><p>List outputs corresponding to inputs: 111, 110, … 000</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>111</th>
+<th>110</th>
+<th>101</th>
+<th>100</th>
+<th>011</th>
+<th>010</th>
+<th>001</th>
+<th>000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Interpret as binary number: this one is <a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Elementary cellular automata</p>
+<ul>
+<li>Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)</li>
+</ul>
+<div class="cell panel-input">
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="250" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 249;"><span id="cb4-250"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-251"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb4-252"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb4-253"><a></a>)</span>
+<span id="cb4-254"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-255"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
+<span id="cb4-256"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
+<span id="cb4-257"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
+<span id="cb4-258"><a></a>  }</span>
+<span id="cb4-259"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-4-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="264" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 263;"><span id="cb5-264"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb5-265"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'elementary cellular automata'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-5-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Rule 110 is capable of universal computation!</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h3 id="cas-as-model-physics">CAs as model physics</h3>
+<ul>
+<li><p>Notion of a causal “light cone” (45 degree lines)</p></li>
+<li><p>Variety of possible behaviors: chaos, periodicity, …</p></li>
+</ul>
+</section>
+<section id="outline" class="slide level2 center">
+<h2>Outline</h2>
+<ul>
+<li><p>Quantum gates and circuits</p></li>
+<li><p>What would we like to know?</p></li>
+<li><p>Case study: space-time duality</p></li>
+</ul>
 </section>
 <section id="what-is-a-quantum-circuit" class="slide level2 center">
 <h2>What is a quantum circuit?</h2>
@@ -758,42 +880,15 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 <section id="general-two-qubit-unitary" class="slide level2 center">
 <h2>General two qubit unitary</h2>
 <ul>
-<li><p>Need this???</p></li>
-<li><p>Any two-qubit unitary <span class="math inline">U\in \mathcal{U(4)}</span> can be written</p></li>
+<li>Have to consider both unitaries and conjugates</li>
+<li>Introduce color-coded notation</li>
 </ul>
-<p><span class="math display">
-U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+)
-</span></p>
-<ul>
-<li><span class="math inline">u_{\pm}, v_{\pm} \in SU(2)</span></li>
-</ul>
-<p><span class="math display">
-\begin{align*}
-V[J_x, J_y, J_z] &amp;= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\\\
-&amp;= \begin{bmatrix}
-e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
-0 &amp; e^{iJ_z} \cos(J_+) &amp; -ie^{i J_z} \sin(J_+) &amp; 0 \\\\
-0 &amp; -ie^{i J_z} \sin(J_+) &amp; e^{iJ_z} \cos(J_+) &amp; 0 \\\\
--i e^{-i J_z \sin(J_-)} &amp; 0 &amp; 0 &amp; e^{-i J_z} \cos(J_-) \\\\
-\end{bmatrix}
-\end{align*}
-</span></p>
-<ul>
-<li>16 parameters!</li>
-</ul>
+<figure align="center">
+<img src="images/matrix_elements.svg" width="80%">
+</figure>
 </section>
 <section id="unitarity-in-graphical-notation" class="slide level2 center">
 <h2>Unitarity in graphical notation</h2>
-<ul>
-<li><p>Have to consider both unitaries and conjugates</p></li>
-<li><p>Introduce color-coded notation</p></li>
-</ul>
-<figure align="center">
-<img src="images/matrix_elements.svg" width="70%">
-</figure>
-</section>
-<section class="slide level2 center">
-
 <ul>
 <li>Condition of unitarity <span class="math inline">U^\dagger U = U U^\dagger = \mathsf{1}</span></li>
 </ul>
@@ -810,9 +905,8 @@ e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
 <li>Much better!</li>
 </ul>
 </section>
-<section id="time-evolution" class="slide level2 center">
-<h2>Time evolution</h2>
-<h4 id="single-qubit-gates">Single qubit gates</h4>
+<section id="time-evolution-single-qubit-gates" class="slide level2 center">
+<h2>Time evolution: single qubit gates</h2>
 <ul>
 <li><p>Time evolution operator <span class="math inline">U=\exp(-iHt)</span></p></li>
 <li><p>If <span class="math inline">H=\sum_j h_j</span> a sum of single qubit terms</p></li>
@@ -823,9 +917,8 @@ e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
 U_j=\mathbb{1}\otimes \ldots \otimes\mathbb{1} \otimes \overbrace{u_j}^{j\text{th factor}} \ldots \otimes\mathbb{1}
 </span></p>
 </section>
-<section class="slide level2 center">
-
-<h4 id="two-qubit-gates">Two qubit gates</h4>
+<section id="two-qubit-gates" class="slide level2 center">
+<h2>Two qubit gates</h2>
 <ul>
 <li>Simplest example of two qubit interaction is <strong>exchange Hamiltonian</strong></li>
 </ul>
@@ -877,12 +970,8 @@ H_A = \sum_j h_{2j, 2j+1}\qquad H_B = \sum_j h_{2j-1, 2j}
 </span> <span class="math display">
 e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 </span></p>
-</section>
-<section class="slide level2 center">
-
-<p>Introduce notion of brickwall circuit</p>
 <p align="center">
-<img src="images/brickwall.png" width="450">
+<img src="images/circuit.svg" width="450">
 </p>
 </section>
 <section id="floquet-theory-kicked-ising-model" class="slide level2 center">
@@ -893,7 +982,7 @@ e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 <p><span class="math display">
 \begin{align*}
 H_{\text{KIM}}(t) = H_\text{I}[\mathbf{h}] + \sum_{n}\delta(t-n)H_\text{K}\\\
-H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &amp;= b\sum_{j=1}^L X_j,
+H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H_\text{K} &amp;= b\sum_{j=1}^L X_j
 \end{align*}
 </span></p>
 <ul>
@@ -950,8 +1039,15 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <li><p><a href="https://www.nature.com/articles/s41586-019-1666-5">Google’s initial claim</a> of supremacy disputed by supercomputer optimizations, followed by improved tensor network methods: <a href="https://arxiv.org/abs/2005.06787">Huang <em>et al.</em> (2020)</a>, <a href="https://quantum-journal.org/papers/q-2021-03-15-410/">Gray and Kourtis (2021)</a>, <a href="https://arxiv.org/abs/2103.03074">Pan and Zhang (2021)</a>, <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021021">Napp <em>et al.</em> (2022)</a></p></li>
 </ul>
 </section>
-<section id="what-are-the-quantities-of-interest" class="slide level2 center">
-<h2>What are the quantities of interest?</h2>
+<section class="slide level2 center">
+
+</section>
+<section>
+<section id="what-would-we-like-to-know" class="title-slide slide level1 center">
+<h1>What would we like to know?</h1>
+<p align="center">
+<img src="images/circuit.svg" width="450">
+</p>
 </section>
 <section id="causality" class="slide level2 center">
 <h2>Causality</h2>
@@ -980,7 +1076,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <section class="slide level2 center">
 
 <ul>
-<li>Single qubit operator pushes to two qubit opertor</li>
+<li>Single qubit operator pushes to two qubit operator</li>
 </ul>
 <figure align="center">
 <img src="images/operator_pushing_two_qubit.svg" width="50%">
@@ -1061,7 +1157,7 @@ Z_n(t)= \sum_{\mu_{1:N}\in\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\m
 </span></p>
 <ul>
 <li><p>Gives <span class="math inline">A_t=(a_{0,t}, \ldots, a_{N,t})</span> and <span class="math inline">B_t=(b_{0,t}, \ldots, b_{N,t})</span></p></li>
-<li><p>This is a <em>Clifford circuit</em></p></li>
+<li><p>This is a <em>Clifford circuit</em>… actually a <a href="https://pubs.aip.org/aip/jmp/article-abstract/49/11/112104/954171/On-the-structure-of-Clifford-quantum-cellular?redirectedFrom=fulltext">Clifford cellular automaton</a></p></li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -1069,39 +1165,37 @@ Z_n(t)= \sum_{\mu_{1:N}\in\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\m
 <p><span class="math display">
 \mathcal{O}_{AB}\equiv\prod_{x=1}^N Z_x^{a_{x}}X_x^{b_{x}}\qquad a_{x}, b_{x}\in \{0,1\}
 </span></p>
+<ul>
+<li>“Hamiltonian” form</li>
+</ul>
 <p><span class="math display">
 \begin{aligned}
-a_{x,t+1} &amp;= \alpha(a_{x,t}-b_{x-1,t}-b_{x+1,t}) + (\alpha\delta -1)b_{x,t}\\
-b_{x,t+1} &amp;= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
-\end{aligned}\mod 2
-</span></p>
-<p><span class="math display">
-\begin{aligned}
-\left[\Delta b\right]_{x,t} &amp;= (\alpha + \delta - 4)b_{x,t}\\
-\left[\Delta b\right]_{x,t} &amp;\equiv  b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - 4b_{x,t}
+a_{x,t+1} &amp;= a_{x,t}-b_{x-1,t}-b_{x+1,t}-b_{x,t}\\
+b_{x,t+1} &amp;= a_{x,t} - b_{x-1,t} - b_{x+1,t}
 \end{aligned}\mod 2
 </span></p>
 <ul>
-<li><p>Spatiotemporal cat maps!</p></li>
-<li><p>Pictures (I have)</p></li>
-<li><p>Include 2+1D simulations of KIM (animate)</p></li>
+<li>Or eliminate <span class="math inline">a_{x,t}</span> for “Lagrangian” form</li>
 </ul>
+<p><span class="math display">
+b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - b_{x,t}=0\qquad \mod 2
+</span></p>
 </section>
 <section id="dimensional-kim" class="slide level2 center">
 <h2><span class="math inline">2+1</span> dimensional KIM</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="744" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 743;"><span id="cb4-744"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
-<span id="cb4-745"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'3d cat'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="780" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 779;"><span id="cb6-780"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb6-781"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'3d cat'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-4-1" data-nodetype="declaration">
+<div id="ojs-cell-6-1" data-nodetype="declaration">
 
 </div>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
-<div id="ojs-cell-4-2" data-nodetype="expression">
+<div id="ojs-cell-6-2" data-nodetype="expression">
 
 </div>
 </div>
@@ -1110,13 +1204,16 @@ b_{x,t+1} &amp;= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
 </section>
 <section class="slide level2 center">
 
-<p>Relate to automata</p>
-</section>
-<section class="slide level2 center">
-
-<p>Do also the chaotic one from Sommers… (refer to Sommers)</p>
-<p>Notion of scrambling… big spread of operator</p>
-<p>How to quantify???</p>
+<figure align="center">
+<img src="images/sommers-fractal.png" width="80%">
+<figcaption>
+Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.4.030313">Sommers, Huse, Gullans (2022)</a>.
+</figcaption>
+</figure>
+<ul>
+<li><p>KIM at <span class="math inline">J=b=\pi/4</span>, <span class="math inline">h=0</span> has <em>gliders</em>: propagation without spreading</p></li>
+<li><p>Operator spread sometimes called <em>scrambling</em>: how to quantify in general?</p></li>
+</ul>
 </section>
 <section id="out-of-time-order-correlator" class="slide level2 center">
 <h2>Out of time order correlator</h2>
@@ -1155,6 +1252,54 @@ b_{x,t+1} &amp;= a_{x,t} - b_{x-1,t} - b_{x+1,t}+\delta b_{x,t}
 </section>
 <section id="phenomenology-of-spreading" class="slide level2 center">
 <h2>Phenomenology of spreading</h2>
+<ul>
+<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013">von Keyserlingk <em>et al</em> (2018)</a> and <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a></li>
+</ul>
+<figure align="center">
+<img src="images/spreading.png" width="70%">
+<figcaption>
+Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.
+</figcaption>
+</figure>
+</section>
+<section class="slide level2 center">
+
+<h3 id="classical-analogue">Classical analogue</h3>
+<ul>
+<li>Rapid growth of small differences between two trajectories</li>
+</ul>
+<div class="cell panel-input">
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="853" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 852;"><span id="cb7-853"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb7-854"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb7-855"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb7-856"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-7" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="862" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 861;"><span id="cb8-862"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
+<span id="cb8-863"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'difference'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-8-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li>Smallest change: flip one site and monitor <span class="math inline">z^t\equiv x^t\oplus y^t</span></li>
+</ul>
 </section>
 <section id="googles-otoc-experiment" class="slide level2 center">
 <h2>Google’s OTOC experiment</h2>
@@ -1168,23 +1313,6 @@ The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\ma
 </figcaption>
 </figure>
 </section>
-<section class="slide level2 center">
-
-<p>The term scrambling… what does it mean</p>
-<p>Chaos….</p>
-<p>Relation to bitstring difference in automata (use simulation)</p>
-</section>
-<section class="slide level2 center">
-
-<p>After describing Clifford dynamics and doing entanglement for SWAP, go on to dual unitaries in general</p>
-<p>Picture where entanglement follows from isometry</p>
-<p>More generally…. any time MPS gives isometry along bottom</p>
-<p>Isometry property shows how correlations are restricted….</p>
-<p>Triunitarity… just follows from decomposition of CNOT</p>
-<p>Then chaos…</p>
-<p>Operator entanglement …. magic… non cliffordness</p>
-<p>Page curve between recurrences??? Goes back down</p>
-</section>
 <section id="quantifying-entanglement" class="slide level2 center">
 <h2>Quantifying entanglement</h2>
 <ul>
@@ -1193,7 +1321,7 @@ The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\ma
 <li><p>Write in terms of basis vectors <span class="math inline">\ket{a}_A</span> and <span class="math inline">\ket{b}_B</span> for A and B subsystems <span class="math display">
 \ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
 </span> <span class="math inline">n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}</span></p></li>
-<li><p>Now regard <span class="math inline">\psi_{ab}</span> as matrix and perform a singular value decomposition</p></li>
+<li><p>Now regard <span class="math inline">\Psi_{ab}</span> as matrix and perform a singular value decomposition</p></li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -1220,7 +1348,7 @@ The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\ma
 </span></p>
 <ul>
 <li><p>Schmidt coefficients both <span class="math inline">\frac{1}{\sqrt{2}}</span>, indicating maximal entanglement</p></li>
-<li><p>Schmidt decomposition closely related to <em>reduced density matrix</em> <span class="math display">
+<li><p>Schmidt decomposition closely related to <em>reduced density matrix</em> (RDM) <span class="math display">
 \rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]
 = \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
 </span></p></li>
@@ -1244,17 +1372,6 @@ S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\su
 </span></p>
 <ul>
 <li><span class="math inline">S_A</span> vanishes for product state, and is otherwise positive</li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li><p><a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">Rényi entropies</a> provide more complete information <span class="math display">
-S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
-</span> <span class="math inline">S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A</span>. <span class="math inline">S^{(0)}_A</span> is number of nonzero Schmidt coefficients (aka <a href="https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement">Schmidt rank</a>) <span class="math display">
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr}
-</span> where <span class="math inline">\gamma\equiv \operatorname{tr}\rho_A^2</span> is <a href="https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)">purity</a></p></li>
-<li><p>Do we need this slide??</p></li>
 </ul>
 </section>
 <section id="toy-model" class="slide level2 center">
@@ -1291,7 +1408,7 @@ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 </span></p>
 <ul>
-<li>After time <span class="math inline">\sim |A|/2</span> subsystem has thermalized.</li>
+<li>After time <span class="math inline">\sim |A|/2</span> subsystem has thermalized</li>
 </ul>
 <figure align="center">
 <img src="images/bertini.png" width="400">
@@ -1304,10 +1421,10 @@ Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033
 
 <ul>
 <li><p>Ramp behaviour in many systems</p></li>
-<li><p>Often explained in terms of causal propagation of (quasi-)particles (where they exist)</p></li>
+<li><p>Explained by causal propagation of (quasi-)particles (where they exist)</p></li>
 </ul>
 <figure align="center">
-<img src="images/qp.png" width="300">
+<img src="images/qp.png" width="40%">
 <figcaption>
 Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
 </figcaption>
@@ -1319,9 +1436,11 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <li><p>Toy model with SWAP gates is rather similar, with qubits playing the role of “noninteracting particles”</p></li>
 <li><p>This picture remains true in circuits where there is no quasiparticle interpretation</p></li>
 </ul>
-</section>
-<section id="dual-unitary-circuits" class="slide level2 center">
-<h2>Dual unitary circuits</h2>
+</section></section>
+<section>
+<section id="dual-unitary-circuits" class="title-slide slide level1 center">
+<h1>Dual unitary circuits</h1>
+
 </section>
 <section id="recall-kicked-ising-model" class="slide level2 center">
 <h2>Recall: kicked Ising model</h2>
@@ -1350,23 +1469,14 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <img src="images/bertini.png" width="500">
 </p>
 </section>
-<section id="entanglement-spectrum" class="slide level2 center">
-<h2>Entanglement Spectrum</h2>
+<section id="rdm-and-thermalization" class="slide level2 center">
+<h2>RDM and thermalization</h2>
 <ul>
-<li>Rényi entropies depend on eigenvalues of reduced density matrix</li>
-</ul>
-<p><span class="math display">
-  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^\alpha\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
-</span></p>
-<ul>
-<li>For SDKIM have <span class="math inline">2^{\min(2t-2,N_A)}</span> non-zero eigenvalues all equal</li>
+<li>For SDKIM have <span class="math inline">2^{\min(2t-2,N_A)}</span> non-zero eigenvalues of RDM all equal</li>
 </ul>
 <p><span class="math display">
 p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 </span></p>
-</section>
-<section id="thermalization" class="slide level2 center">
-<h2>Thermalization</h2>
 <ul>
 <li><p>After <span class="math inline">N_A/2 + 1</span> steps, reduced density matrix is <span class="math inline">\propto \mathbb{1}</span></p></li>
 <li><p>All expectations (with <span class="math inline">A</span>) take on infinite temperature value</p></li>
@@ -1395,6 +1505,9 @@ p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 <p align="center">
 <img src="images/space-time-circuit.svg" width="60%">
 </p>
+<ul>
+<li>Gates are unitary from left to right, not just up to down!</li>
+</ul>
 </section>
 <section id="the-dual-unitary-family" class="slide level2 center">
 <h2>The dual unitary family</h2>
@@ -1461,26 +1574,14 @@ S^{(\text{vN})}_A = -\sum_n p_n \log p_n = \log n_A = t\text{ bits}
 <section class="slide level2 center">
 
 <ul>
-<li>Any initial state with this representation works!</li>
+<li>Any initial state with this (MPS) representation works! <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304">Piroli <em>et al</em> (2020)</a></li>
 </ul>
 <figure align="center">
 <img src="images/initial_conditions_3.svg" width="100%">
 </figure>
 <ul>
-<li><p>Two site MPS with additional property <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304">Piroli <em>et al</em> (2020)</a></p></li>
-<li><p>See also <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311">Foligno and Bertini (2023)</a></p></li>
 <li><p>Converse – maximal entanglement growth implies dual unitary gates – proved by <a href="https://arxiv.org/abs/2204.10341">Zhou and Harrow (2022)</a></p></li>
-</ul>
-</section>
-<section id="kim-property" class="slide level2 center">
-<h2>‘KIM’ property</h2>
-<p align="center">
-<img src="../new-rules-tum/assets/fig_KIMidentity.png" width="400">
-</p>
-<ul>
-<li><p>(<span class="math inline">q=2</span> here) Not satisfied by e.g.&nbsp;<span class="math inline">\operatorname{SWAP}</span></p></li>
-<li><p>Maps product states to maximally entangled (Bell) states</p></li>
-<li><p>Product initial states also work for KIM!</p></li>
+<li><p>KIM is special: maps product states to maximally entangled (Bell) states</p></li>
 </ul>
 </section>
 <section id="remark-operator-entanglement" class="slide level2 center">
@@ -1516,7 +1617,7 @@ S^{(\text{vN})}_A = -\sum_n p_n \log p_n = \log n_A = t\text{ bits}
 Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article/pii/S0003491621002797">Sonner, Lerose, Abanin (2021)</a>
 </figcaption>
 </figure>
-<p>See also <em>process tensor</em> of <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127">Pollock <em>et al.</em> (2018)</a></p>
+<p>Earlier named <em>process tensor</em> by <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127">Pollock <em>et al.</em> (2018)</a></p>
 </section>
 <section class="slide level2 center">
 
@@ -1562,45 +1663,17 @@ Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article
 <h2>Temporal entanglement</h2>
 <p>.. Abanin… Fux… recent Pieter work</p>
 </section>
-<section class="slide level2 center">
-
-<p>Go on to correlation functions..</p>
-<ul>
-<li><p>Don’t need details… just DU property and range of behaviour</p></li>
-<li><p>Then go on to honeycomb circuit</p></li>
-</ul>
-</section>
 <section id="reminder-no-correlations-outside-light-cone" class="slide level2 center">
 <h2>Reminder: no correlations outside light cone</h2>
 <p><span class="math display">
 C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t^\dagger\mathcal{O}_1\mathcal{U}_t\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\right]\operatorname{tr}\left[\mathcal{O}_2\right]
 </span></p>
 <figure align="center">
-<img src="images/outside_lightcone.svg" width="100%">
-</figure>
-</section>
-<section class="slide level2 center">
-
-</section>
-<section id="reminder" class="slide level2 center">
-<h2>Reminder…</h2>
-<figure align="center">
-<img src="images/matrix_elements.svg" width="90%">
-</figure>
-<figure align="center">
-<img src="images/diag_unitarity.png" width="60%">
-</figure>
-</section>
-<section id="correlation-functions" class="slide level2 center">
-<h2>Correlation functions</h2>
-<ul>
-<li>Infinite temperature correlator <span class="math inline">\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]</span></li>
-</ul>
-<figure align="center">
-<img src="images/correlator.png" width="75%">
+<img src="images/outside_lightcone.svg" width="80%">
 </figure>
 <ul>
-<li><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601">Bertini, Kos, and Prosen (2019)</a>: dual unitarity means correlations vanish <em>inside</em> light cone!</li>
+<li><p><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601">Bertini, Kos, Prosen (2019)</a>: DU means correlations vanish <em>inside</em> light cone!</p></li>
+<li><p>DU family spans ergodic to integrable behaviour of correlations</p></li>
 </ul>
 </section>
 <section id="quantinuum-experiment" class="slide level2 center">
@@ -1657,6 +1730,9 @@ Source: <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a>
 -1
 \end{array}\right)
 </span></p>
+<ul>
+<li>Obey many identities upon contraction</li>
+</ul>
 </section>
 <section class="slide level2 center">
 
@@ -1690,7 +1766,7 @@ Source: <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a>
 <section class="slide level2 center">
 
 <ul>
-<li><em>Not</em> dual unitary but overall circuit triunitary (<a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay <em>et al.</em> (2021)</a>)</li>
+<li><em>Not</em> dual unitary but overall circuit <em>triunitary</em> (<a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay <em>et al.</em> (2021)</a>)</li>
 </ul>
 <figure align="center">
 <img src="images/hexagonal-triunitary.svg" width="50%">
@@ -1706,13 +1782,8 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
 <figcaption>
 </figcaption></figcaption></figure>
 <ul>
-<li>Correlations nonzero in three directions!</li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>Refer to higher order DU (Pavel Kos work)</li>
+<li><p>Correlations nonzero in three directions!</p></li>
+<li><p>See <a href="https://quantum-journal.org/papers/q-2024-02-20-1260/">Yu, Wang, Kos (2024)</a>: hierarchical generalizations of dual unitarity</p></li>
 </ul>
 </section>
 <section id="other-applications-of-dual-unitarity" class="slide level2 center">
@@ -1727,103 +1798,25 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
 <li><p>Dual unitary shadows</p></li>
 </ul>
 </section>
-<section id="correlation-functions-1" class="slide level2 center">
-<h2>Correlation functions</h2>
-<ul>
-<li>Natural correlation function to consider is</li>
-</ul>
+<section id="last-thing-lorentz-symmetry" class="slide level2 center">
+<h2>Last thing: Lorentz symmetry</h2>
+<p><img data-src="images/lorentz-circuit.svg"></p>
 <p><span class="math display">
-c_{\alpha \beta}(x,t) = \frac{1}{2^N}\operatorname{tr}\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
+\color{red}{\Lambda}\color{green}{\mathcal{T}} \color{black}{=}\color{green}{\mathcal{T}'}\color{red}{\Lambda}
+</span></p>
+<p><span class="math display">
+\color{red}\Lambda\color{green}\mathcal{T}\color{red}\Lambda^\dagger \color{black}=\color{green} \mathcal{T}'
 </span></p>
 <ul>
-<li><p>Average overall all initial states uniformly</p></li>
-<li><p>This is “infinite temperature”, although temperature is not defined</p></li>
+<li>Masanes suggests (<a href="https://arxiv.org/abs/2301.02825">arXiv:2301.02825</a>) DU circuits connected to CFTs</li>
 </ul>
 </section>
-<section id="graphical-representation" class="slide level2 center">
-<h2>Graphical representation</h2>
-<p><span class="math display">
-c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
-</span></p>
-<figure align="center">
-<img src="images/correlator.png" width="800">
-</figure>
-</section>
-<section class="slide level2 center">
-
+<section id="summary" class="slide level2 center">
+<h2>Summary</h2>
 <ul>
-<li><p>When <span class="math inline">|x|&gt;t</span> unitarity condition leads to removal of <em>all</em> <span class="math inline">U</span>s and <span class="math inline">U^\dagger</span>s <span class="math display">
-c_{\alpha \beta}(x,t) = \frac{1}{4}\tr\left[\sigma_{\alpha}\right]\tr\left[\sigma_{\beta}\right]=0,
-</span> and correlations vanish (if operators are traceless)</p></li>
-<li><p>Correlations only nonzero inside “light cone”</p></li>
+<li><p>Further reading…</p></li>
+<li><p>Measurements etc.</p></li>
 </ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>When <span class="math inline">|x|=t</span> remaining tensor network is particularly simple:</li>
-</ul>
-<figure align="center">
-<img src="assets/diag_corr_2.png" width="400">
-</figure>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>Rewrite in several ways, including in folded representation:</li>
-</ul>
-<figure align="center">
-<img src="assets/diag_corr_channel.png" width="400">
-</figure>
-<ul>
-<li><p><span class="math inline">q</span> is local Hilbert space dimension (<span class="math inline">q=2</span> up to now)</p></li>
-<li><p>Normalization factor by comparing with <span class="math inline">\sigma_\alpha=\sigma_\beta=\mathsf{1}</span> (here <span class="math inline">t=4</span>)</p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>Evaluate by iteratively applying operator map <span class="math inline">\mathcal{M}_+</span> or <span class="math inline">\mathcal{M}_-</span></li>
-</ul>
-<figure align="center">
-<img src="assets/diag_M_plus.png" width="400"> <img src="assets/diag_M_min.png" width="400">
-</figure>
-<p><span class="math display">
-\begin{align*}
-\langle \sigma_{\alpha}(t,t) \sigma_{\beta}(0,0) \rangle &amp;= \tr \left[\sigma_{\beta}\mathcal{M}_{-}^t(\sigma_{\alpha})\right] / q \\\
-&amp;=  \tr \left[ \sigma_{\alpha}\mathcal{M}_{+}^{t}(\sigma_{\beta})\right] / q
-\end{align*}
-</span></p>
-<ul>
-<li><p><span class="math inline">\mathcal{M}_\pm</span> are examples of <a href="https://en.wikipedia.org/wiki/Quantum_channel">quantum channels</a>: completely positive trace preserving maps between spaces of operators</p></li>
-<li><p><span class="math inline">\mathcal{M}_\pm</span> have the additional property of being <em>unital</em>: <span class="math inline">\mathcal{M}_\pm(\mathsf{1})=\mathsf{1}</span></p></li>
-</ul>
-</section>
-<section id="typical-behaviour-of-correlations" class="slide level2 center">
-<h2>Typical behaviour of correlations</h2>
-<figure align="center">
-<img src="assets/corr.png" width="500">
-<figcaption>
-Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>
-</figcaption>
-</figure>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>Can evaluate correlation inside light cone</li>
-</ul>
-<figure align="center">
-<img src="assets/correlator.png" width="600">
-</figure>
-<ul>
-<li><p>“One step inside” involves quantum channel acting on two-site operators: a space of dimension <span class="math inline">q^4</span>.</p></li>
-<li><p>Taking <span class="math inline">s</span> steps inside channel acting on <span class="math inline">q^{2s}</span>-dimensional space</p></li>
-<li><p>General situation is really exponentially hard, as we’d expect</p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
 </section>
 <section id="physical-quantites" class="slide level2 center">
 <h2>Physical quantites</h2>
@@ -1886,7 +1879,7 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -2079,7 +2072,7 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
       });
     </script>
     <script type="ojs-module-contents">
-    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBNb2RpZmllZCBmcm9tIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy9wNVxuLy8gU2VlIGFsc28gaHR0cHM6Ly9ibG9nLmRqbmF2YXJyby5uZXQvcG9zdHMvMjAyMy0wMS0xNF9wNWpzL1xuLy8gVGhpcyBoZWxwZXIgY3JlYXRlcyBhIGRpdiBhbmQgYXR0YWNoZXMgdGhlIHNrZXRjaCB0byBpdFxuZnVuY3Rpb24qIGNyZWF0ZVNrZXRjaChza2V0Y2gsIHNsaWRlSWQpIHtcbiAgXG4gIGNvbnN0IGVsZW1lbnQgPSBET00uZWxlbWVudCgnZGl2Jyk7XG4gIC8vIGVsZW1lbnQuc2V0QXR0cmlidXRlKCdpZCcsIGRpdklkKTtcbiAgXG4gIC8vIHA1LmpzIHJlYWxseSBsaWtlcyBpdHMgdGFyZ2V0IGVsZW1lbnQgdG8gYWxyZWFkeSBiZSBpbiB0aGUgRE9NLCBub3QganVzdFxuICAvLyBmbG9hdGluZyBhcm91bmQgZGV0YWNoZWQuIFNvLCBiZWZvcmUgd2UgY2FsbCBQNSwgd2UgeWllbGQgaXQsIHdoaWNoIHB1dHNcbiAgLy8gaW4gdGhlIERPTS5cbiAgeWllbGQgZWxlbWVudDtcbiAgXG4gIC8vIFRoaXMgaXMg4oCYaW5zdGFuY2UgbW9kZeKAmSBpbiBwNSBqYXJnb246IGluc3RlYWQgb2YgcmVseWluZyBvbiBsb3RzIG9mXG4gIC8vIGdsb2JhbHMsIHdlIGNyZWF0ZSBhIHNrZXRjaCB0aGF0IGhhcyBpdHMgb3duIGNvcHkgb2YgZXZlcnl0aGluZyB1bmRlciBwNS5cbiAgY29uc3QgaW5zdGFuY2UgPSBuZXcgUDUoc2tldGNoLCBlbGVtZW50LCB0cnVlKTtcblxuICAvLyBUaGlzIGRldGVjdHMgd2hldGhlciB3ZSBhcmUgb24gdGhlIHJlbGV2YW50IHNsaWRlIChieSBzbGlkZUlkKSBhbmQgc3RvcHMgdGhlIGxvb3AgaWYgbm90XG4gIFJldmVhbC5vbignc2xpZGVjaGFuZ2VkJywgZXZlbnQgPT4ge1xuICAgIGlmICghIWV2ZW50LmN1cnJlbnRTbGlkZS5xdWVyeVNlbGVjdG9yKFwiI1wiICsgc2xpZGVJZCkpIHtcbiAgICAgIGluc3RhbmNlLmxvb3AoKVxuICAgIH1cbiAgICBlbHNlIHtcbiAgICAgIGluc3RhbmNlLm5vTG9vcCgpXG4gICAgfVxuICB9ICk7XG4gIFxuICAvLyBJIHRoaW5rIHRoaXMgbmV4dCBwYXJ0IGlzIG9ubHkgaWYgeW91IHVzZSBvYnNlcnZhYmxlIHRvIHVwZGF0ZSBhIHNrZXRjaC4uLlxuXG4gIC8vIFRoaXMgaXMgdGhlIHRyaWNreSBwYXJ0OiB3aGVuIHlvdSBydW4gUDUoc2tldGNoLCBlbGVtZW50KSwgaXQgc3RhcnRzIGFcbiAgLy8gbG9vcCB0aGF0IHVwZGF0ZXMgdGhlIGRyYXdpbmcgYSBidW5jaCBvZiB0aW1lcyBhIHNlY29uZC4gSWYgd2Ugd2VyZSBqdXN0XG4gIC8vIHRvIGNhbGwgUDUgcmVwZWF0ZWRseSB3aXRoIGRpZmZlcmVudCBhcmd1bWVudHMsIHRoZSBsb29wcyB3b3VsZCBhbGwga2VlcFxuICAvLyBydW5uaW5nLCBvbmUgb24gdG9wIG9mIHRoZSBvdGhlci4gU28gd2hhdCB3ZSBkbyBpcyB3ZSB1c2UgdGhpcyBjZWxsXG4gIC8vIGFzIGEgZ2VuZXJhdG9yLCBhbmQgdGhlbiB3aGVuIHRoYXQgZ2VuZXJhdG9yIGlzIGludGVycnVwdGVkLCBsaWtlXG4gIC8vIHdoZW4geW91IHVwZGF0ZSB0aGUgY29kZSBpbiB0aGUgc2tldGNoKCkgbWV0aG9kLCB0aGVuIHdlIGNhbGwgaW5zdGFuY2UucmVtb3ZlKClcbiAgLy8gdG8gY2xlYW4gaXQgdXAuXG4gIHRyeSB7XG4gICAgd2hpbGUgKHRydWUpIHtcbiAgICAgIHlpZWxkIGVsZW1lbnQ7XG4gICAgfVxuICB9IGZpbmFsbHkge1xuICAgIGluc3RhbmNlLnJlbW92ZSgpO1xuICB9XG5cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGxpZmUgfSBmcm9tIFwiLi9qcy9saWZlLmpzXCI7XG5jcmVhdGVTa2V0Y2gobGlmZSwgJ2xpZmUnKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IHRocmVlRENhdCB9IGZyb20gXCIuL2pzLzNkLWNhdC5qc1wiO1xuY3JlYXRlU2tldGNoKHRocmVlRENhdCwgJzNkIGNhdCcpO1xuIn1dfQ==
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBNb2RpZmllZCBmcm9tIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy9wNVxuLy8gU2VlIGFsc28gaHR0cHM6Ly9ibG9nLmRqbmF2YXJyby5uZXQvcG9zdHMvMjAyMy0wMS0xNF9wNWpzL1xuLy8gVGhpcyBoZWxwZXIgY3JlYXRlcyBhIGRpdiBhbmQgYXR0YWNoZXMgdGhlIHNrZXRjaCB0byBpdFxuZnVuY3Rpb24qIGNyZWF0ZVNrZXRjaChza2V0Y2gsIHNsaWRlSWQpIHtcbiAgXG4gIGNvbnN0IGVsZW1lbnQgPSBET00uZWxlbWVudCgnZGl2Jyk7XG4gIC8vIGVsZW1lbnQuc2V0QXR0cmlidXRlKCdpZCcsIGRpdklkKTtcbiAgXG4gIC8vIHA1LmpzIHJlYWxseSBsaWtlcyBpdHMgdGFyZ2V0IGVsZW1lbnQgdG8gYWxyZWFkeSBiZSBpbiB0aGUgRE9NLCBub3QganVzdFxuICAvLyBmbG9hdGluZyBhcm91bmQgZGV0YWNoZWQuIFNvLCBiZWZvcmUgd2UgY2FsbCBQNSwgd2UgeWllbGQgaXQsIHdoaWNoIHB1dHNcbiAgLy8gaW4gdGhlIERPTS5cbiAgeWllbGQgZWxlbWVudDtcbiAgXG4gIC8vIFRoaXMgaXMg4oCYaW5zdGFuY2UgbW9kZeKAmSBpbiBwNSBqYXJnb246IGluc3RlYWQgb2YgcmVseWluZyBvbiBsb3RzIG9mXG4gIC8vIGdsb2JhbHMsIHdlIGNyZWF0ZSBhIHNrZXRjaCB0aGF0IGhhcyBpdHMgb3duIGNvcHkgb2YgZXZlcnl0aGluZyB1bmRlciBwNS5cbiAgY29uc3QgaW5zdGFuY2UgPSBuZXcgUDUoc2tldGNoLCBlbGVtZW50LCB0cnVlKTtcblxuICAvLyBUaGlzIGRldGVjdHMgd2hldGhlciB3ZSBhcmUgb24gdGhlIHJlbGV2YW50IHNsaWRlIChieSBzbGlkZUlkKSBhbmQgc3RvcHMgdGhlIGxvb3AgaWYgbm90XG4gIFJldmVhbC5vbignc2xpZGVjaGFuZ2VkJywgZXZlbnQgPT4ge1xuICAgIGlmICghIWV2ZW50LmN1cnJlbnRTbGlkZS5xdWVyeVNlbGVjdG9yKFwiI1wiICsgc2xpZGVJZCkpIHtcbiAgICAgIGluc3RhbmNlLmxvb3AoKVxuICAgIH1cbiAgICBlbHNlIHtcbiAgICAgIGluc3RhbmNlLm5vTG9vcCgpXG4gICAgfVxuICB9ICk7XG4gIFxuICAvLyBJIHRoaW5rIHRoaXMgbmV4dCBwYXJ0IGlzIG9ubHkgaWYgeW91IHVzZSBvYnNlcnZhYmxlIHRvIHVwZGF0ZSBhIHNrZXRjaC4uLlxuXG4gIC8vIFRoaXMgaXMgdGhlIHRyaWNreSBwYXJ0OiB3aGVuIHlvdSBydW4gUDUoc2tldGNoLCBlbGVtZW50KSwgaXQgc3RhcnRzIGFcbiAgLy8gbG9vcCB0aGF0IHVwZGF0ZXMgdGhlIGRyYXdpbmcgYSBidW5jaCBvZiB0aW1lcyBhIHNlY29uZC4gSWYgd2Ugd2VyZSBqdXN0XG4gIC8vIHRvIGNhbGwgUDUgcmVwZWF0ZWRseSB3aXRoIGRpZmZlcmVudCBhcmd1bWVudHMsIHRoZSBsb29wcyB3b3VsZCBhbGwga2VlcFxuICAvLyBydW5uaW5nLCBvbmUgb24gdG9wIG9mIHRoZSBvdGhlci4gU28gd2hhdCB3ZSBkbyBpcyB3ZSB1c2UgdGhpcyBjZWxsXG4gIC8vIGFzIGEgZ2VuZXJhdG9yLCBhbmQgdGhlbiB3aGVuIHRoYXQgZ2VuZXJhdG9yIGlzIGludGVycnVwdGVkLCBsaWtlXG4gIC8vIHdoZW4geW91IHVwZGF0ZSB0aGUgY29kZSBpbiB0aGUgc2tldGNoKCkgbWV0aG9kLCB0aGVuIHdlIGNhbGwgaW5zdGFuY2UucmVtb3ZlKClcbiAgLy8gdG8gY2xlYW4gaXQgdXAuXG4gIHRyeSB7XG4gICAgd2hpbGUgKHRydWUpIHtcbiAgICAgIHlpZWxkIGVsZW1lbnQ7XG4gICAgfVxuICB9IGZpbmFsbHkge1xuICAgIGluc3RhbmNlLnJlbW92ZSgpO1xuICB9XG5cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGxpZmUgfSBmcm9tIFwiLi9qcy9saWZlLmpzXCI7XG5jcmVhdGVTa2V0Y2gobGlmZSwgJ2dhbWUgb2YgbGlmZScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHJ1bGUgPSBJbnB1dHMucmFuZ2UoXG4gIFswLCAyNTVdLCBcbiAge3ZhbHVlOiAzMCwgc3RlcDogMSwgbGFiZWw6IFwiUnVsZSBudW1iZXI6XCJ9XG4pXG52aWV3b2YgaW5pdGlhbCA9IElucHV0cy5zZWxlY3QoXG4gIFtcInNpbmdsZSAxXCIsIFwicmFuZG9tXCJdLCBcbiAgeyB2YWx1ZTogXCJzaW5nbGUgMVwiLCBcbiAgICBsYWJlbDogXCJJbml0aWFsIGNvbmRpdGlvbnM6XCJcbiAgfVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW1wb3J0IHsgZWxlbWVudGFyeVBhcmFtIH0gZnJvbSBcIi4vanMvZWxlbWVudGFyeS1jYS5qc1wiO1xuY3JlYXRlU2tldGNoKGVsZW1lbnRhcnlQYXJhbShydWxlLCBpbml0aWFsKSwgJ2VsZW1lbnRhcnkgY2VsbHVsYXIgYXV0b21hdGEnKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IHRocmVlRENhdCB9IGZyb20gXCIuL2pzLzNkLWNhdC5qc1wiO1xuY3JlYXRlU2tldGNoKHRocmVlRENhdCwgJzNkIGNhdCcpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHJ1bGVEaWZmZXJlbmNlID0gSW5wdXRzLnJhbmdlKFxuICBbMCwgMjU1XSwgXG4gIHt2YWx1ZTogMTEwLCBzdGVwOiAxLCBsYWJlbDogXCJSdWxlIG51bWJlcjpcIn1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGRpZmZlcmVuY2VQYXJhbSB9IGZyb20gXCIuL2pzL2NhLWRpZmZlcmVuY2UuanNcIjtcbmNyZWF0ZVNrZXRjaChkaWZmZXJlbmNlUGFyYW0ocnVsZURpZmZlcmVuY2UpLCAnZGlmZmVyZW5jZScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdydWxlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2luaXRpYWwnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncnVsZURpZmZlcmVuY2UnKSJ9XX0=
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
