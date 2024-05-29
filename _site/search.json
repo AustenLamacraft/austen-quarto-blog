@@ -2188,7 +2188,7 @@
     "href": "talks/new-rules-ictp/index.html#frontiers",
     "title": "New Rules",
     "section": "Frontiers",
-    "text": "Frontiers\n\nMeasurements\nPieter recent measurement work\nHayden Preskill\nLorentz symmetry\nSimple examples of rules for CAs\nConnections to nontrivial geometries eg. HaPPY code\nRecent Kos work on stabilizer entropy for kicked XY\nRecent Luca work on emergent dual unitarity\n\nExperiments – Quantinuum and recent paper https://arxiv.org/abs/2405.07613. Also holographic paper"
+    "text": "Frontiers\n\nMeasurements\nPieter recent measurement work\nHayden Preskill\nLorentz symmetry\nSimple examples of rules for CAs\nConnections to nontrivial geometries eg. HaPPY code\nRecent Kos work on stabilizer entropy for kicked XY\nRecent Luca work on emergent dual unitarity… has no appeared and can be cited…\n\nExperiments – Quantinuum and recent paper https://arxiv.org/abs/2405.07613. Also holographic paper"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#quantum-models",
@@ -2230,7 +2230,7 @@
     "href": "talks/new-rules-ictp/index.html#why-consider-circuits",
     "title": "New Rules",
     "section": "Why consider circuits?",
-    "text": "Why consider circuits?\n\nFor this program: example of discrete time, many body dynamics\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nThey exist! Companies (Google, IBM, etc.) have built platforms for gate-based QC"
+    "text": "Why consider circuits?\n\nExample of discrete time, many body dynamics\nMay be used to simulate continuous time evolution\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nThey exist! Companies (Google, IBM, etc.) have built platforms for gate-based QC"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#unitary-circuits",
@@ -2272,7 +2272,7 @@
     "href": "talks/new-rules-ictp/index.html#general-two-qubit-unitary",
     "title": "New Rules",
     "section": "General two qubit unitary",
-    "text": "General two qubit unitary\n\nAny two-qubit unitary U\\in \\mathcal{U(4)} can be written\n\n\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\n\nu_{\\pm}, v_{\\pm} \\in SU(2)\n\n\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n\\end{bmatrix}\n\\end{align*}\n\n\n16 parameters!"
+    "text": "General two qubit unitary\n\nNeed this???\nAny two-qubit unitary U\\in \\mathcal{U(4)} can be written\n\n\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\n\nu_{\\pm}, v_{\\pm} \\in SU(2)\n\n\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n\\end{bmatrix}\n\\end{align*}\n\n\n16 parameters!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#time-evolution",
@@ -2349,14 +2349,14 @@
     "href": "talks/new-rules-ictp/index.html#folded-representations",
     "title": "New Rules",
     "section": "“Folded” representations",
-    "text": "“Folded” representations\n\n\n\n\nUnitarity:"
+    "text": "“Folded” representations\n\nSince every U accompanied by U^\\dagger, include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore 2^2=4 dimensions\nUnitarity condition takes form:"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#reduced-density-matrix",
     "href": "talks/new-rules-ictp/index.html#reduced-density-matrix",
     "title": "New Rules",
     "section": "Reduced density matrix",
-    "text": "Reduced density matrix\n\nExpectation value of operator in region A can be computed from reduced density matrix \\rho_A for region A \n\\rho_A = \\operatorname{tr}\\_{B}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{B}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n (B is complement of A)"
+    "text": "Reduced density matrix\n\nExpectation value of operator in region A can be computed from reduced density matrix \\rho_A for region A \n\\rho_A = \\operatorname{tr}_{B}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{B}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n (B is complement of A)"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#quantifying-entanglement",
@@ -2405,7 +2405,7 @@
     "href": "talks/new-rules-ictp/index.html#example-su2-preserving-gate",
     "title": "New Rules",
     "section": "Example: SU(2) preserving gate",
-    "text": "Example: SU(2) preserving gate\n\nConsider gate generated by exchange Hamiltonian: \nU\\_{j,j+1} = \\cos\\theta \\mathbb{1}\\_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}\\_{j.j+1}\n \\operatorname{\\mathsf{S}}_{j,j+1} denotes \\operatorname{\\mathsf{SWAP}} gate on sites j and j+1\nAction of this gate on an operator is\n\n\n\\mathcal{O} \\longrightarrow U^\\dagger\\_{j,j+1}\\mathcal{O}U\\_{j,j+1} = \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta \\operatorname{\\mathsf{S}}\\_{j.j+1}\\mathcal{O} \\operatorname{\\mathsf{S}}\\_{j.j+1} \\\\\\\n-i\\sin\\theta\\cos\\theta \\left[\\operatorname{\\mathsf{S}}\\_{j.j+1}, \\mathcal{O}\\right]"
+    "text": "Example: SU(2) preserving gate\n\nConsider gate generated by exchange Hamiltonian: \nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}_{j.j+1}\n \\operatorname{\\mathsf{S}}_{j,j+1} denotes \\operatorname{\\mathsf{SWAP}} gate on sites j and j+1\nAction of this gate on an operator is\n\n\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta \\operatorname{\\mathsf{S}}_{j.j+1}\\mathcal{O} \\operatorname{\\mathsf{S}}_{j.j+1} \\\\\\\n-i\\sin\\theta\\cos\\theta \\left[\\operatorname{\\mathsf{S}}_{j.j+1}, \\mathcal{O}\\right]"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#causality-and-light-cones",
@@ -2433,7 +2433,7 @@
     "href": "talks/new-rules-ictp/index.html#operator-spreading-1",
     "title": "New Rules",
     "section": "Operator spreading",
-    "text": "Operator spreading\n\nHow does a local operator “look” as it evolves in Heisenberg picture?\nZ_n(t)=\\mathcal{U}^\\dagger(t)Z_n \\mathcal{U}(t) appears in \\langle Z_n(t)Z_m(0) \\rangle, but this is only one “component” of Z_n(t)\nAny observable such as Z_n(t) can be expressed as expansion \nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}\\_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n \n\\mathcal{C}\\_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=1,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise}\n\\end{cases}"
+    "text": "Operator spreading\n\nHow does a local operator “look” as it evolves in Heisenberg picture?\nZ_n(t)=\\mathcal{U}^\\dagger(t)Z_n \\mathcal{U}(t) appears in \\langle Z_n(t)Z_m(0) \\rangle, but this is only one “component” of Z_n(t)\nAny observable such as Z_n(t) can be expressed as expansion \nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n \n\\mathcal{C}_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=1,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise}\n\\end{cases}"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#operator-spreadingss",
@@ -2447,7 +2447,7 @@
     "href": "talks/new-rules-ictp/index.html#correlation-functions-1",
     "title": "New Rules",
     "section": "Correlation functions",
-    "text": "Correlation functions\n\nNatural correlation function to consider is\n\n\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\tr\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\n\nAverage overall all initial states uniformly\nThis is “infinite temperature”, although temperature is not defined"
+    "text": "Correlation functions\n\nNatural correlation function to consider is\n\n\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\operatorname{tr}\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\n\nAverage overall all initial states uniformly\nThis is “infinite temperature”, although temperature is not defined"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#correlation-functions-outside-light-cone",
@@ -2496,7 +2496,7 @@
     "href": "talks/new-rules-ictp/index.html#remark-operator-entanglement",
     "title": "New Rules",
     "section": "Remark: operator entanglement",
-    "text": "Remark: operator entanglement\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\mathcal{C}\\_{\\mu_{1:N}}?\nIntroduce Schmidt decomposition for operators \n\\mathcal{O}_{AB} = \\sum_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma_n A_n\\otimes B_n\n\n\\Sigma_n\\geq 0 are operator Schmidt coefficients\nA_n and B_n are orthonormal operators on \\mathcal{H}_A and \\mathcal{H}_B i.e. \\operatorname{tr}\\left[A^\\dagger_m A_n\\right]=\\operatorname{tr}\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}"
+    "text": "Remark: operator entanglement\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\mathcal{C}_{\\mu_{1:N}}?\nIntroduce Schmidt decomposition for operators \n\\mathcal{O}_{AB} = \\sum_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma_n A_n\\otimes B_n\n\n\\Sigma_n\\geq 0 are operator Schmidt coefficients\nA_n and B_n are orthonormal operators on \\mathcal{H}_A and \\mathcal{H}_B i.e. \\operatorname{tr}\\left[A^\\dagger_m A_n\\right]=\\operatorname{tr}\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#example-kicked-ising",
@@ -2559,7 +2559,7 @@
     "href": "talks/new-rules-ictp/index.html#isometry",
     "title": "New Rules",
     "section": "Isometry",
-    "text": "Isometry"
+    "text": "Isometry\n\nLinear map \\mathcal{I}:\\mathcal{H}_A\\longrightarrow \\mathcal{H}_B that preserves distance i.e.  \n\\braket{a|a} = \\braket{a|\\mathcal{I}^\\dagger \\mathcal{I}|a}\\text{  or  } \\mathcal{I}^\\dagger \\mathcal{I} = \\mathbb{1}_A\n\nIf system described by wavefunction \n\\ket{\\Psi}_{AB}=\\sum_{a,b} \\mathcal{I}_{ab}\\ket{a}\\otimes \\ket{b}\n\nRDM of A is\n\n\n\\rho_A = \\operatorname{tr}_B\\left[\\ket{\\Psi}_{AB}\\bra{\\Psi}_{AB}\\right]\\propto \\mathbb{1}_A"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#two-important-facts",
@@ -2608,7 +2608,7 @@
     "href": "talks/new-rules-ictp/index.html#dual-unitarity",
     "title": "New Rules",
     "section": "Dual unitarity",
-    "text": "Dual unitarity\n\nRecall KIM has circuit representation\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}\n\n\nAt |J|=|b|=\\pi/4 has additional property of dual unitarity"
+    "text": "Dual unitarity\n\nRecall KIM has circuit representation\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#reminder-from-last-lecture",
@@ -2657,7 +2657,7 @@
     "href": "talks/new-rules-ictp/index.html#kim-property",
     "title": "New Rules",
     "section": "‘KIM’ property",
-    "text": "‘KIM’ property\n\n\n\n\n(q=2 here) Not satisfied by e.g. \\operatorname{SWAP}\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions"
+    "text": "‘KIM’ property\n\n\n\n\n(q=2 here) Not satisfied by e.g. \\operatorname{SWAP}\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#quantinuum-experiment",
@@ -2686,5 +2686,124 @@
     "title": "New Rules",
     "section": "“Folded” representationsss",
     "text": "“Folded” representationsss\n\nSince every U accompanied by U^\\dagger, include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore 2^2=4 dimensions\nUnitarity condition takes form:"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#isometryss",
+    "href": "talks/new-rules-ictp/index.html#isometryss",
+    "title": "New Rules",
+    "section": "Isometryss",
+    "text": "Isometryss"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#entanglement-from-space-time-duality",
+    "href": "talks/new-rules-ictp/index.html#entanglement-from-space-time-duality",
+    "title": "New Rules",
+    "section": "Entanglement from space-time duality",
+    "text": "Entanglement from space-time duality\n\nStart from neighbouring Bell states\n\n\n\n\n\nCircuit above the dotted line =\\mathcal{U}_A\\otimes\\mathcal{U}_B: doesn’t change entanglement!"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#kim-property-1",
+    "href": "talks/new-rules-ictp/index.html#kim-property-1",
+    "title": "New Rules",
+    "section": "‘KIM’ property",
+    "text": "‘KIM’ property\n\n\n\n\n(q=2 here) Not satisfied by e.g. \\operatorname{SWAP}\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#influence-functional",
+    "href": "talks/new-rules-ictp/index.html#influence-functional",
+    "title": "New Rules",
+    "section": "Influence functional",
+    "text": "Influence functional\n\n\n\nSource: Sonner, Lerose, Abanin (2021)\n\n\nSee also process tensor of Pollock et al. (2018)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#isometries",
+    "href": "talks/new-rules-ictp/index.html#isometries",
+    "title": "New Rules",
+    "section": "Isometries",
+    "text": "Isometries"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#pure-markov-bath",
+    "href": "talks/new-rules-ictp/index.html#pure-markov-bath",
+    "title": "New Rules",
+    "section": "Pure Markov bath",
+    "text": "Pure Markov bath\n\n\n\n\nMove to leftmost spin??"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#temporal-entanglement",
+    "href": "talks/new-rules-ictp/index.html#temporal-entanglement",
+    "title": "New Rules",
+    "section": "Temporal entanglement",
+    "text": "Temporal entanglement\n.. Abanin… Fux… recent Pieter work"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#influence-functional-is-rdm-in-time",
+    "href": "talks/new-rules-ictp/index.html#influence-functional-is-rdm-in-time",
+    "title": "New Rules",
+    "section": "Influence functional is RDM in time!",
+    "text": "Influence functional is RDM in time!\n\n\n\n\nFor DU circuit map from vertical to horizontal is isometry\nHappens precisely for bath of size t\nProcess tensor"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#structure",
+    "href": "talks/new-rules-ictp/index.html#structure",
+    "title": "New Rules",
+    "section": "Structure",
+    "text": "Structure\n\nCellular automata and introduce idea of QCs as a quantum analogue\nIdea of gates and circuits. Some examples\nBrickwork arises naturally by trotterizing\nMaybe used to do approximate continuous time evolution\nOr exactly do stroboscopic (Floquet) evolution\nExample of Ising\nImportance of locality in real platforms\nOperator pushing and causality. No correlations outside light cone\nOperator spreading and how to describe\nExample of Clifford circuits (KIM at special points)\nRelate to cellular automata. Intro to rules. Relate to spatiotemporal cat\nIdea of OTOC and illustrate with simulation. Google experiment\nQuantifying entanglement\nExample of SWAP circuit\nIntroduce dual unitarity\nSpecial initial states\nIntroduce influence functional (process tensor)\nDU’s give pure Markov influence functional. Notion of temporal entanglement\nCorrelations in circuits\nQuantinuum experiment\nTriunitarity and example of SWAP circuit\nChaos and solvability…. operator entanglement\nAdd thoughts on Lorentz invariance at the end.. Luca work too"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#unitarity-in-graphical-notation-1",
+    "href": "talks/new-rules-ictp/index.html#unitarity-in-graphical-notation-1",
+    "title": "New Rules",
+    "section": "Unitarity in graphical notation",
+    "text": "Unitarity in graphical notation\n\nHave to consider both unitaries and conjugates\nIntroduce color-coded notation"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#reminder",
+    "href": "talks/new-rules-ictp/index.html#reminder",
+    "title": "New Rules",
+    "section": "Reminder…",
+    "text": "Reminder…"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#phenomenology-of-spreading",
+    "href": "talks/new-rules-ictp/index.html#phenomenology-of-spreading",
+    "title": "New Rules",
+    "section": "Phenomenology of spreading",
+    "text": "Phenomenology of spreading"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#cnot-circuit-floquet-east-model",
+    "href": "talks/new-rules-ictp/index.html#cnot-circuit-floquet-east-model",
+    "title": "New Rules",
+    "section": "CNOT circuit (Floquet East model)",
+    "text": "CNOT circuit (Floquet East model)\n\n \n\nSource: Gopalakrishnan and Zakirov (2018)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#zx-representation",
+    "href": "talks/new-rules-ictp/index.html#zx-representation",
+    "title": "New Rules",
+    "section": "ZX representation",
+    "text": "ZX representation"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#zx-calculus",
+    "href": "talks/new-rules-ictp/index.html#zx-calculus",
+    "title": "New Rules",
+    "section": "ZX Calculus",
+    "text": "ZX Calculus\n\nCalculus of “special” tensors\n\n\n \n\n\nSee also van der Wetering (2020)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#reminder-no-correlations-outside-light-cone",
+    "href": "talks/new-rules-ictp/index.html#reminder-no-correlations-outside-light-cone",
+    "title": "New Rules",
+    "section": "Reminder: no correlations outside light cone",
+    "text": "Reminder: no correlations outside light cone\n\nC(\\mathcal{O}_1(t),\\mathcal{O}_2(0)) \\equiv \\operatorname{tr}\\left[\\mathcal{U}_t^\\dagger\\mathcal{O}_1\\mathcal{U}_t\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\mathcal{O}_2\\right] = \\operatorname{tr}\\left[\\mathcal{O}'_1\\right]\\operatorname{tr}\\left[\\mathcal{O}_2\\right]"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#dimensional-kim",
+    "href": "talks/new-rules-ictp/index.html#dimensional-kim",
+    "title": "New Rules",
+    "section": "2+1 dimensional KIM",
+    "text": "2+1 dimensional KIM\n\nimport { threeDCat } from \"./js/3d-cat.js\";\ncreateSketch(threeDCat, '3d cat');"
   }
 ]

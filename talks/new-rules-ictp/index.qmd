@@ -85,6 +85,39 @@ Motivated by quantum computation, physicists have in recent years begun to study
 
 ---
 
+## Structure
+
+1. Cellular automata and introduce idea of QCs as a quantum analogue
+2. Idea of gates and circuits. Some examples
+3. Brickwork arises naturally by trotterizing
+  1. Maybe used to do approximate continuous time evolution
+  2. Or exactly do stroboscopic (Floquet) evolution
+4. Example of Ising
+5. Importance of locality in real platforms
+6. Operator pushing and causality. No correlations outside light cone
+7. Operator spreading and how to describe
+8. Example of Clifford circuits (KIM at special points)
+9. Relate to cellular automata. Intro to rules. Relate to spatiotemporal cat
+10. Idea of OTOC and illustrate with simulation. Google experiment
+11. Quantifying entanglement
+12. Example of SWAP circuit
+13. Introduce dual unitarity
+14. Special initial states
+15. Introduce influence functional (process tensor)
+16. DU's give pure Markov influence functional. Notion of temporal entanglement
+17. Correlations in circuits
+18. Quantinuum experiment
+19. Triunitarity and example of SWAP circuit
+20. Chaos and solvability.... operator entanglement
+21. Add thoughts on Lorentz invariance at the end.. Luca work too
+
+
+
+
+
+
+---
+
 ## Game of life
 
 ```{ojs}
@@ -114,7 +147,11 @@ as a longtime fan of Conway's "Game of Life" algorithm i never once considered v
 
 ---
 
+Recursive life
 
+https://oimo.io/works/life/
+
+---
 
 ### Rules of Life
 
@@ -175,14 +212,6 @@ Appearance of casuality
 
 ---
 
-# Outline
-
--   Isometries and maximal entanglement
-
-The following result may be useful: if the state of two systems is described by a wavefunction $\Psi_{AB}$ such as the associated map is an isometry, the two systems are maximally entangled.
-
-This is useful for seeing maximal entanglement due to dual unitarity, as we just have to be able to argue that the wedge is a unitary
-
 ## Tools
 
 Intro to Penrose diagram notation
@@ -220,7 +249,9 @@ Intro to Penrose diagram notation
 
 ## Why consider circuits?
 
-- __For this program:__ example of discrete time, many body dynamics
+- Example of discrete time, many body dynamics
+
+- May be used to simulate continuous time evolution
 
 - Model of universal quantum computation 
   - How to generate an arbitrary quantum state
@@ -340,6 +371,8 @@ $$
 
 ## General two qubit unitary
 
+- Need this???
+
 - Any two-qubit unitary $U\in \mathcal{U(4)}$ can be written
 
 $$
@@ -361,6 +394,34 @@ e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
 $$
 
 - 16 parameters!
+
+---
+
+## Unitarity in graphical notation
+
+- Have to consider both unitaries and conjugates
+
+- Introduce color-coded notation 
+
+<figure align="center">
+<img src="images/matrix_elements.svg" width="70%">
+</figure>
+
+---
+
+- Condition of unitarity $U^\dagger U = U U^\dagger = \mathsf{1}$
+
+$$
+\sum_{\alpha,\beta}U^{\vphantom{\dagger}}_{a,b,\alpha,\beta} U^\dagger_{\alpha,\beta,c,d}=\delta_{ac}\delta_{bd}
+$$
+
+- Unitarity of two qubit gate expressed as
+
+<figure align="center">
+<img src="images/diag_unitarity.png" width="70%">
+</figure>
+
+- Much better!
 
 ---
 
@@ -669,10 +730,28 @@ $$
 \end{aligned}\mod 2
 $$
 
+- Spatiotemporal cat maps!
+
+- Pictures (I have)
+
+- Include 2+1D simulations of KIM (animate)
 
 ---
 
-Do also the chaotic one from Sommers...
+## $2+1$ dimensional KIM
+
+```{ojs}
+import { threeDCat } from "./js/3d-cat.js";
+createSketch(threeDCat, '3d cat');
+```
+
+---
+
+Relate to automata
+
+---
+
+Do also the chaotic one from Sommers... (refer to Sommers)
 
 Notion of scrambling... big spread of operator
 
@@ -709,15 +788,19 @@ $$
  - At short times commutator vanishes so $\operatorname{OTOC}_{jk}(t\to 0)=1$
  
 $$
-\operatorname{OTOC}\_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right]
+\operatorname{OTOC}_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right]
 $$
 
-- $\operatorname{OTOC}\_{jk}(t)\neq 1$ after operator $Z_j(t)$ spreads from site $j$ to site $k$ 
+- $\operatorname{OTOC}_{jk}(t)\neq 1$ after operator $Z_j(t)$ spreads from site $j$ to site $k$ 
 
 - Characteristic speed of propagation of OTOC is "butterfly velocity" $v_\text{B}$
 
 
 - Since OTOC depends on *square* of the coefficients, a nonzero value survives after averaging over random circuits
+
+---
+
+## Phenomenology of spreading
 
 ---
 
@@ -736,6 +819,8 @@ $$
 The term scrambling... what does it mean
 
 Chaos....
+
+Relation to bitstring difference in automata (use simulation)
 
 ---
 
@@ -777,7 +862,7 @@ $n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}$
 
 ---
 
-- In new bases our state is
+- In new basis our state is
 
 $$
 \ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
@@ -821,7 +906,7 @@ $$
 - One measure of entanglement is von Neumann entropy of $\rho_A$ (aka **entanglement entropy**)
 
 $$
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = \sum_n -p_n \log p_n
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\sum_n p_n \log p_n
 $$
 
 - $S_A$ vanishes for product state, and is otherwise positive
@@ -894,7 +979,7 @@ Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.02103
 
 - Ramp behaviour in many systems
 
-- In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:
+- Often explained in terms of causal propagation of (quasi-)particles (where they exist)
 
 <figure align="center">
 <img src="images/qp.png" width="300">
@@ -984,130 +1069,16 @@ $$
 \end{aligned}
 $$
 
-- At $|J|=|b|=\pi/4$ has additional property of __dual unitarity__
-
 ---
 
-## Reminder from last lecture
-
-<figure align="center">
-<img src="images/matrix_elements.svg" width="90%">
-</figure>
-
-
-<figure align="center">
-<img src="images/diag_unitarity.png" width="60%">
-</figure>
-
----
-
-## "Folded" representations
+- At $|J|=|b|=\pi/4$ has property of __dual unitarity__ or __space-time duality__ ([Gopalakrishnan and Lamacraft (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601))
 
 <p align="center">
-<img src="images/diag_folded.png" width="60%">
-</p>
-
-- Unitarity:
-
-<p align="center">
-<img src="images/folded-unitarity.png" width="50%">
+<img src="images/space-time-circuit.svg" width="60%"/>
 </p>
 
 ---
 
-## Dual unitary gates
-
-- Impose additional restriction
-
-<figure align="center">
-<img src="../new-rules-tum/assets/folded-dual-unitarity.png" width="60%">
-</figure>
-
-- [Gopalakrishnan and Lamacraft (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)
-
----
-
-
-## Isometry
-
-<figure align="center">
-<img src="images/isometry.svg" width="100%">
-</figure>
-
-
----
-
-- Observation: if $\Psi_{AB}$ is a unitary matrix
-
-$$
-\ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
-$$
-
-- In new bases our state is
-
-$$
-\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
-$$
-
----
-
-More general initial states... MPS
-
----
-
-Quote general result showing converse from Harrow
-
-
----
-
-Temporal entanglement... Abanin... Fux
-
----
-
----
-
-## $\rho_A$ via dual unitarity
-
-- Initial state of NN Bell pairs
-
-- 8 sites; 4 layers
-
-<object data="../new-rules-tum/assets/A-entropy-quantum.svg" type="image/svg+xml"></object>
-
-- $\rho_A$ is unitary transformation of
-  
-$$
-  \mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}\otimes\mathbb{1}
-$$
-
----
-
-## Shallower...
-
-<object data="../new-rules-tum/assets/A-entropy-quantum-shallower.svg" type="image/svg+xml"></object>
-
-- $\rho_A$ is unitary transformation of 
-  
-$$
-\mathbb{1}\otimes\mathbb{1}\ket{\Phi^+}\bra{\Phi^+}\otimes\ket{\Phi^+}\bra{\Phi^+}\otimes\mathbb{1}\otimes\mathbb{1}
-$$
-
----
-
-## General case
-
-- RDM is unitary transformation of 
-
-$$
-\rho_0=\overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1} \otimes\overbrace{\ket{\Phi^+}\bra{\Phi^+} \cdots }^{N_A/2-t+1 } \otimes \overbrace{\frac{\mathbb{1}}{2}\otimes \frac{\mathbb{1}}{2} \cdots }^{t-1}
-$$
-
-- RDM has $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal to $\left(\frac{1}{2}\right)^{\min(2t-2,N_A)}$
-
-
-- Converse – maximal entanglement growth implies dual unitary gates – recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
-
----
 
 ## The dual unitary family
 
@@ -1118,6 +1089,74 @@ $$
 - Includes *kicked Ising model* at particular values of couplings
   
 - Dual unitaries not "integrable" but have enough structure to allow many calculations
+
+
+
+---
+
+## Entanglement from space-time duality
+
+- Start from neighbouring Bell states
+
+<figure align="center">
+<img src="images/isometry.svg" width="90%">
+</figure>
+
+- Circuit above the dotted line $=\mathcal{U}_A\otimes\mathcal{U}_B$: doesn't change entanglement!
+
+---
+
+<figure align="center">
+<img src="images/isometry-trimmed.svg" width="100%">
+</figure>
+
+- Entanglement from "wedge": for DU gates have unitary $\mathcal{U}_{AB}:\mathcal{H}_A\longrightarrow \mathcal{H}_B$
+
+---
+
+- Observation: if $\Psi_{ab}$ is $\propto$ unitary matrix ($n_A=n_B=2^t$)
+
+
+\begin{align*}
+\ket{\Psi}_{AB} &= \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B \\
+&=\sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
+\end{align*}
+
+- All Schmidt coefficients are $e^{i\theta_n}/\sqrt{n_A}$
+
+- Nonzero eigenvalues of RDM are $p_n = 1/n_A$
+
+$$
+S^{(\text{vN})}_A = -\sum_n p_n \log p_n = \log n_A = t\text{ bits}
+$$
+
+---
+
+- Initial states were special
+
+<figure align="center">
+<img src="images/initial_conditions.svg" width="100%">
+</figure>
+
+---
+
+<figure align="center">
+<img src="images/initial_conditions_2.svg" width="100%">
+</figure>
+
+---
+
+- Any initial state with this representation works!
+
+<figure align="center">
+<img src="images/initial_conditions_3.svg" width="100%">
+</figure>
+
+- Two site MPS with additional property  [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304)
+
+- See also [Foligno and Bertini (2023)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311)
+
+- Converse – maximal entanglement growth implies dual unitary gates – proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
 
 ---
 
@@ -1133,61 +1172,13 @@ $$
 
 - Product initial states also work for KIM!
 
-- [Piroli _et al_ (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) studied more general initial states
-
-- [Foligno and Bertini (2023)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.107.174311) study general initial conditions
-
----
-
-## Correlation functions
-
-- Infinite temperature correlator $\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]$
-
-<figure align="center">
-<img src="assets/correlator.png" width="75%"/>
-</figure>
-
-- [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): dual unitarity means correlations vanish _inside_ light cone!
-
----
-
-## Quantinuum experiment
-
-- Correlations measured in SDKIM [last year]((https://www.nature.com/articles/s41567-022-01689-7))
-
-<figure align="center">
-<img src="assets/quantinuum.png" width="800">
-</figure>
-
----
-
-## Other applications of dual unitarity
-
-
-- [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032). $v_\text{B}=1$. OTOC grows at maximum speed, c.f. Google experiment
-
-- [Jonay, Kehmani, Ippoliti (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046). Triunitary circuits (incl. 2+1 dimensions)
-
-- [Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191). Measurement based quantum computation in 1D using dual unitaries 
-
-- [Sommers, Huse, Gullans (2022)](https://arxiv.org/abs/2210.10808). Dual unitary Clifford automata with applications to codes
-
-- [Suzuki, Mitarai, Fujii (2022)](https://quantum-journal.org/papers/q-2022-01-24-631/). Computational power of dual unitaries
-
-- Many more!
-
-- Dual unitary shadows
-
-
-
-
 ---
 
 ## Remark: operator entanglement
 
 - OTOC provides one measure of operator spreading
 
-- Another question: how many nonzero coefficients  $\mathcal{C}\_{\mu_{1:N}}$?
+- Another question: how many nonzero coefficients  $\mathcal{C}_{\mu_{1:N}}$?
 
 - Introduce Schmidt decomposition _for operators_ 
 $$
@@ -1213,111 +1204,269 @@ $$
 
 ---
 
-## Expectation values
-
-- Evaluate $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ for local operator $\mathcal{O}$
-
-  - Simplest example: $X$, $Y$, or $Z$ for one qubit
-
-
-  - $\mathcal{U}$ is *overall* unitary operator describing whole circuit
-
-
----
-
-## Unitarity in graphical notation
-
-- Have to consider both unitaries and conjugates
-
-- Introduce color-coded notation 
+## Influence functional
 
 <figure align="center">
-<img src="images/matrix_elements.svg" width="70%">
-</figure>
-
----
-
-- Condition of unitarity $U^\dagger U = U U^\dagger = \mathsf{1}$
-
-$$
-\sum\_{\alpha,\beta}U^{\vphantom{\dagger}}_{a,b,\alpha,\beta} U^\dagger\_{\alpha,\beta,c,d}=\delta\_{ac}\delta\_{bd}
-$$
-
-- Unitarity of two qubit gate expressed as
-
-<figure align="center">
-<img src="images/diag_unitarity.png" width="70%">
-</figure>
-
-- Much better!
-
----
-
-## Using unitarity
-
-- $\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}$ has diagrammatic representation
-<div align="center"> 
-<object data="assets/expectation.svg" type="image/svg+xml" width='600'></object>
-</div>
-
-- (leave initial state $\ket{\Psi}$ unspecified for the moment)
-
----
-
-## "Folded" representations
-
-- Since every $U$ accompanied by $U^\dagger$, include both in single unit by "folding" one on top of the other
-
-<p align="center">
-<img src="images/diag_folded.png" width="60%">
-</p>
-
-- Lines correspond to two indices, and therefore $2^2=4$ dimensions
-
-- Unitarity condition takes form:
-
-<p align="center">
-<img src="images/folded-unitarity.png" width="50%">
-</p>
-
----
-
-- In folded picture expectation value $\bra{\Psi}\mathcal{O}\ket{\Psi}$ looks like this
-
-<figure align="center">
-<object data="images/folded-expectation.svg" type="image/svg+xml"></object>
+<img src="images/sonner-influence.png" width="100%">
 <figcaption>
-Click to apply unitary condition!
+Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article/pii/S0003491621002797">Sonner, Lerose, Abanin (2021)</a>
 </figcaption>
 </figure>
 
-- "Light cone" emerges, reflecting region of circuit that affects expectation value
+See also _process tensor_ of [Pollock _et al._ (2018)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127)
 
 ---
 
-## Reduced density matrix
+- Describe the effect of the other qubits on a particular site
 
-- Expectation value of operator in region $A$ can be computed from *reduced density matrix* $\rho_A$ for region $A$
+<figure align="center">
+<img src="images/influence_functional.svg" width="100%">
+</figure>
+
+---
+
+## [Isometry](https://en.wikipedia.org/wiki/Isometry)
+
+- Linear map $\mathcal{I}:\mathcal{H}_A\longrightarrow \mathcal{H}_B$ that preserves distance i.e. 
 $$
-\rho_A = \operatorname{tr}\_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\braket{a|a} = \braket{a|\mathcal{I}^\dagger \mathcal{I}|a}\text{  or  } \mathcal{I}^\dagger \mathcal{I} = \mathbb{1}_A
 $$
-($B$ is complement of $A$)
+
+- If system described by wavefunction
+$$
+\ket{\Psi}_{AB}=\sum_{a,b} \mathcal{I}_{ab}\ket{a}\otimes \ket{b}
+$$
+
+- RDM of A is
+
+$$
+\rho_A = \operatorname{tr}_B\left[\ket{\Psi}_{AB}\bra{\Psi}_{AB}\right]\propto \mathbb{1}_A
+$$
+
 
 ---
 
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
+## Influence functional is RDM in time!
 
-- Initial RDM of bottom part of wedge is all that matters!
+<figure align="center">
+<img src="images/influence_functional_2.svg" width="100%">
+</figure>
+
+- For DU circuit map from vertical to horizontal is isometry
+
+- Happens precisely for bath of size $t$
+
+- Process tensor
+
+---
+
+Pure Markov bath (no approximation)
+
+Happens precisely for bath of size $t$
+
+---
+
+## Temporal entanglement
+
+.. Abanin... Fux... recent Pieter work
+
+---
+
+Go on to correlation functions..
+
+- Don't need details... just DU property and range of behaviour 
+
+- Then go on to honeycomb circuit
+
+---
+
+## Reminder: no correlations outside light cone
+
+$$
+C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t^\dagger\mathcal{O}_1\mathcal{U}_t\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\mathcal{O}_2\right] = \operatorname{tr}\left[\mathcal{O}'_1\right]\operatorname{tr}\left[\mathcal{O}_2\right]
+$$
+
+<figure align="center">
+<img src="images/outside_lightcone.svg" width="100%">
+</figure>
+
+---
+
+---
+
+## Reminder...
+
+<figure align="center">
+<img src="images/matrix_elements.svg" width="90%">
+</figure>
+
+
+<figure align="center">
+<img src="images/diag_unitarity.png" width="60%">
+</figure>
+
+---
+
+## Correlation functions
+
+- Infinite temperature correlator $\operatorname{tr}\left[\sigma^\alpha_x(x,t)\sigma^\beta(y,0)\right]$
+
+<figure align="center">
+<img src="images/correlator.png" width="75%"/>
+</figure>
+
+- [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601): dual unitarity means correlations vanish _inside_ light cone!
+
+---
+
+## Quantinuum experiment
+
+- Correlations measured in SDKIM [last year]((https://www.nature.com/articles/s41567-022-01689-7))
+
+<figure align="center">
+<img src="images/quantinuum.png" width="800">
+</figure>
+
+---
+
+## CNOT circuit (Floquet East model)
+
+<figure align="center">
+<img src="images/cnot.svg" width="40%">
+<img src="images/gopalakrishnan-zakirov.png" width="80%">
+<figcaption>
+Source:  <a href="https://iopscience.iop.org/article/10.1088/2058-9565/aad759">Gopalakrishnan and Zakirov (2018)</a> 
+<figcaption>
+</figure>
+
+---
+
+## ZX Calculus
+
+- Calculus of "special" tensors
+
+<figure align="center">
+<img src="images/picturing-quantum.png" width="30%"/>
+<img src="images/quantum-in-pictures.png" width="30%"/>
+</figure>
+
+- See also [van der Wetering (2020)](https://arxiv.org/abs/2012.13966)
+
+---
+
+### Basic ingredients: Z and X tensors ("spiders")
+
+<figure align="center">
+<img src="images/z-spider.png" width="100%"/>
+<img src="images/x-spider.png" width="100%"/>
+<figcaption>
+Source:  <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a> 
+<figcaption>
+</figure>
+
+$$
+|0\rangle=\left(\begin{array}{l}
+1 \\
+0
+\end{array}\right) \quad|1\rangle=\left(\begin{array}{l}
+0 \\
+1
+\end{array}\right) \quad|+\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{l}
+1 \\
+1
+\end{array}\right) \quad|-\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+1 \\
+-1
+\end{array}\right)
+$$
+
+---
+
+### Simplest examples
+
+- Identity
+
+![](images/zx-identity.png)
+
+- CNOT
+
+![](images/cnot.svg)
+
+---
+
+### Example: [Liu and Ho (2023)](https://arxiv.org/abs/2312.12239)
+
+<figure align="center">
+<img src="images/liu-ho-circuit.png" width="80%"/>
+<img src="images/liu-ho-tensors.png" width="80%"/>
+</figure>
+
+---
+
+### Rewrite in ZX language
+
+<figure align="center">
+<img src="images/hexagonal-bare.svg" width="50%"/>
+</figure>
+
+- CNOTs (East model, see [Bertini _et al._ (2023)](https://arxiv.org/abs/2310.06128)) + phases on each spider
+
+---
+
+- _Not_ dual unitary but overall circuit triunitary ([Jonay _et al._ (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046))
+
+<figure align="center">
+<img src="images/hexagonal-triunitary.svg" width="50%"/>
+</figure>
+
+---
+
+## Three light rays / null directions
+
+<figure align="center">
+<img src="images/jonay.png" width="100%"/>
+<figcaption>
+Source:  <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay <it>et al.</it> (2021)</a> 
+<figcaption>
+</figure>
+
+- Correlations nonzero in three directions!
 
 
 ---
+
+- Refer to higher order DU (Pavel Kos work)
+
+
+---
+
+## Other applications of dual unitarity
+
+
+- [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032). $v_\text{B}=1$. OTOC grows at maximum speed, c.f. Google experiment
+
+- [Jonay, Kehmani, Ippoliti (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046). Triunitary circuits (incl. 2+1 dimensions)
+
+- [Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191). Measurement based quantum computation in 1D using dual unitaries 
+
+- [Sommers, Huse, Gullans (2022)](https://arxiv.org/abs/2210.10808). Dual unitary Clifford automata with applications to codes
+
+- [Suzuki, Mitarai, Fujii (2022)](https://quantum-journal.org/papers/q-2022-01-24-631/). Computational power of dual unitaries
+
+- Many more!
+
+- Dual unitary shadows
+
+
+---
+
 
 ## Correlation functions
 
 - Natural correlation function to consider is
 
 $$
-c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
+c_{\alpha \beta}(x,t) = \frac{1}{2^N}\operatorname{tr}\left[\sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \right],\qquad \sigma_\alpha(x,t)=\mathcal{U}^\dagger(t)\sigma_\alpha(x)\mathcal{U}(t)
 $$
 
 - Average overall all initial states uniformly
@@ -1333,7 +1482,7 @@ c_{\alpha \beta}(x,t) = \frac{1}{2^N}\tr\left[\sigma_{\alpha}(x,t) \sigma_{\beta
 $$
 
 <figure align="center">
-<img src="assets/correlator.png" width="800">
+<img src="images/correlator.png" width="800">
 </figure>
 
 ---
@@ -1368,7 +1517,7 @@ and correlations vanish (if operators are traceless)
 
 ---
 
-- Evaluate by iteratively applying operator map $\mathcal{M}\_+$ or $\mathcal{M}\_-$
+- Evaluate by iteratively applying operator map $\mathcal{M}_+$ or $\mathcal{M}_-$
 
 <figure align="center">
 <img src="assets/diag_M_plus.png" width="400">
@@ -1377,14 +1526,14 @@ and correlations vanish (if operators are traceless)
 
 $$
 \begin{align*}
-\langle \sigma\_{\alpha}(t,t) \sigma\_{\beta}(0,0) \rangle &= \tr \left[\sigma\_{\beta}\mathcal{M}\_{-}^t(\sigma\_{\alpha})\right] / q \\\
-&=  \tr \left[ \sigma\_{\alpha}\mathcal{M}\_{+}^{t}(\sigma\_{\beta})\right] / q
+\langle \sigma_{\alpha}(t,t) \sigma_{\beta}(0,0) \rangle &= \tr \left[\sigma_{\beta}\mathcal{M}_{-}^t(\sigma_{\alpha})\right] / q \\\
+&=  \tr \left[ \sigma_{\alpha}\mathcal{M}_{+}^{t}(\sigma_{\beta})\right] / q
 \end{align*}
 $$
 
-- $\mathcal{M}\_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators
+- $\mathcal{M}_\pm$ are examples of [quantum channels](https://en.wikipedia.org/wiki/Quantum_channel): completely positive trace preserving maps between spaces of operators
 
-- $\mathcal{M}\_\pm$ have the additional property of being _unital_: $\mathcal{M}\_\pm(\mathsf{1})=\mathsf{1}$
+- $\mathcal{M}_\pm$ have the additional property of being _unital_: $\mathcal{M}_\pm(\mathsf{1})=\mathsf{1}$
 
 ---
 
@@ -1413,65 +1562,7 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
 
 ---
 
-## Operator spreading
 
-- How does a local operator "look" as it evolves in Heisenberg picture?
-
-- $Z_n(t)=\mathcal{U}^\dagger(t)Z_n \mathcal{U}(t)$ appears in $\langle Z_n(t)Z_m(0) \rangle$, but this is only one "component" of $Z_n(t)$
-
-- Any observable such as $Z_n(t)$ can be expressed as expansion
-$$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
-$$
-$$
-\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
-1 & \mu_j=z, \mu_k=1,\forall k\neq j \\\\
-0 & \text{otherwise}
-\end{cases}
-$$
-
----
-
-$$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
-$$
-
-- Since $\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
-
-<figure align="center">
-<img src="images/initial-terminal.png" width="400">
-</figure>
-
-- This represents only one component of operator expansion
-
----
-
-- Operator norm $\operatorname{tr}\left[Z_n^2(t)\right]=2$ is conserved under time evolution
-
-- This implies the normalization
-
-$$
-\sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}
-$$
-
----
-
-## Example: $SU(2)$ preserving gate
-
-- Consider gate generated by exchange Hamiltonian:
-$$
-U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
-$$
-$\operatorname{\mathsf{S}}_{j,j+1}$ denotes $\operatorname{\mathsf{SWAP}}$ gate on sites $j$ and $j+1$
-
-- Action of this gate on an operator is
-
-$$
-\mathcal{O} \longrightarrow U^\dagger\_{j,j+1}\mathcal{O}U\_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{\mathsf{S}}\_{j.j+1}\mathcal{O} \operatorname{\mathsf{S}}\_{j.j+1} \\\
--i\sin\theta\cos\theta \left[\operatorname{\mathsf{S}}\_{j.j+1}, \mathcal{O}\right]
-$$
-
----
 
 ---
 
@@ -1535,6 +1626,6 @@ $$
 
 -   Recent Kos work on stabilizer entropy for kicked XY
 
--   Recent Luca work on emergent dual unitarity
+-   Recent Luca work on emergent dual unitarity... has no appeared and can be cited...
 
 Experiments -- Quantinuum and recent paper https://arxiv.org/abs/2405.07613. Also holographic paper
