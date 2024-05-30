@@ -487,8 +487,8 @@ Austen Lamacraft (Cambridge)
 <section id="game-of-life" class="slide level2 center">
 <h2>Game of life</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="83" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb3-83"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-84"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game-of-life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="81" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 80;"><span id="cb3-81"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
+<span id="cb3-82"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game-of-life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -621,16 +621,16 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 <li>From ordered (Rule 18) to chaotic (Rule 30)</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="194" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 193;"><span id="cb4-194"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb4-195"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb4-196"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb4-197"><a></a>)</span>
-<span id="cb4-198"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb4-199"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
-<span id="cb4-200"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
-<span id="cb4-201"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
-<span id="cb4-202"><a></a>  }</span>
-<span id="cb4-203"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="192" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 191;"><span id="cb4-192"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-193"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb4-194"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb4-195"><a></a>)</span>
+<span id="cb4-196"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-197"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
+<span id="cb4-198"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
+<span id="cb4-199"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
+<span id="cb4-200"><a></a>  }</span>
+<span id="cb4-201"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -647,8 +647,8 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="208" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 207;"><span id="cb5-208"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
-<span id="cb5-209"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'many-behaviours'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="206" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 205;"><span id="cb5-206"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb5-207"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'many-behaviours'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -1131,8 +1131,8 @@ b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - b_{x,t}=0\qquad \mod 2
 <section id="dimensional-kim" class="slide level2 center">
 <h2><span class="math inline">2+1</span> dimensional KIM</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="727" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 726;"><span id="cb6-727"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
-<span id="cb6-728"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'dimensional-kim'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="725" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 724;"><span id="cb6-725"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb6-726"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'dimensional-kim'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -1203,10 +1203,10 @@ Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum
 <li>Rapid growth of small differences between two trajectories</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="788" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 787;"><span id="cb7-788"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb7-789"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb7-790"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb7-791"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="786" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 785;"><span id="cb7-786"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb7-787"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb7-788"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb7-789"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-7" data-nodetype="declaration">
 
@@ -1214,8 +1214,8 @@ Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="797" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 796;"><span id="cb8-797"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
-<span id="cb8-798"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'classical-analogue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="795" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 794;"><span id="cb8-795"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
+<span id="cb8-796"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'classical-analogue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
@@ -1563,7 +1563,9 @@ S^{(\text{vN})}_A = -\sum_n p_n \log p_n = \log n_A = t\text{ bits}
 Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article/pii/S0003491621002797">Sonner, Lerose, Abanin (2021)</a>
 </figcaption>
 </figure>
-<p>Earlier named <em>process tensor</em> by <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127">Pollock <em>et al.</em> (2018)</a></p>
+<ul>
+<li>Earlier named <em>process tensor</em> by <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127">Pollock <em>et al.</em> (2018)</a></li>
+</ul>
 </section>
 <section class="slide level2 center">
 
@@ -1714,7 +1716,7 @@ Source: <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a>
 </section>
 <section class="slide level2 center">
 
-<p>##&nbsp;Three light rays / null directions</p>
+<p>-&nbsp;Three light rays / null directions</p>
 <figure align="center">
 <img src="images/jonay.png" width="100%">
 <figcaption>
@@ -1726,16 +1728,17 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
 <li><p>See <a href="https://quantum-journal.org/papers/q-2024-02-20-1260/">Yu, Wang, Kos (2024)</a>: hierarchical generalizations of dual unitarity</p></li>
 </ul>
 </section>
-<section id="other-applications-of-dual-unitarity" class="slide level2 center">
-<h2>Other applications of dual unitarity</h2>
+<section id="recent-applications-of-dual-unitarity" class="slide level2 center">
+<h2>Recent applications of dual unitarity…</h2>
 <ul>
-<li><p><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032">Claeys and Lamacraft (2020)</a>. <span class="math inline">v_\text{B}=1</span>. OTOC grows at maximum speed, c.f. Google experiment</p></li>
-<li><p><a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046">Jonay, Kehmani, Ippoliti (2021)</a>. Triunitary circuits (incl.&nbsp;2+1 dimensions)</p></li>
-<li><p><a href="https://arxiv.org/abs/2209.06191">Stephen <em>et al</em> (2022)</a>. Measurement based quantum computation in 1D using dual unitaries</p></li>
-<li><p><a href="https://arxiv.org/abs/2210.10808">Sommers, Huse, Gullans (2022)</a>. Dual unitary Clifford automata with applications to codes</p></li>
-<li><p><a href="https://quantum-journal.org/papers/q-2022-01-24-631/">Suzuki, Mitarai, Fujii (2022)</a>. Computational power of dual unitaries</p></li>
-<li><p>Many more!</p></li>
-<li><p>Dual unitary shadows</p></li>
+<li><p>Emerging dual unitarity in models described by CFTs</p>
+<p>(<a href="https://arxiv.org/abs/2405.14706">Carignano, Tagliacozzo (2024)</a>)</p></li>
+<li><p>Temporal entanglement in dual-unitary Clifford circuits with measurements</p>
+<p>(<a href="https://arxiv.org/abs/2404.14374">Yao, Claeys (2024)</a>)</p></li>
+<li><p>Stabilizer Rényi entropy in the dual-unitary XXZ model</p>
+<p>(<a href="https://arxiv.org/abs/2405.04448">Montañà López, Kos (2024)</a>)</p></li>
+<li><p>Dual unitary shadow tomography</p>
+<p>(<a href="https://arxiv.org/abs/2404.01068">Akhtar <em>et al.</em> (2024)</a>)</p></li>
 </ul>
 </section>
 <section id="last-thing-lorentz-symmetry" class="slide level2 center">

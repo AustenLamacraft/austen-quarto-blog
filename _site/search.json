@@ -2713,7 +2713,7 @@
     "href": "talks/new-rules-ictp/index.html#influence-functional",
     "title": "New Rules",
     "section": "Influence functional",
-    "text": "Influence functional\n\n\n\nSource: Sonner, Lerose, Abanin (2021)\n\n\nEarlier named process tensor by Pollock et al. (2018)"
+    "text": "Influence functional\n\n\n\nSource: Sonner, Lerose, Abanin (2021)\n\n\n\nEarlier named process tensor by Pollock et al. (2018)"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#isometries",
@@ -2959,5 +2959,12 @@
     "title": "New Rules",
     "section": "Many behaviours",
     "text": "Many behaviours\n\nFrom ordered (Rule 18) to chaotic (Rule 30)\n\n\nviewof rule = Inputs.range(\n  [0, 255], \n  {value: 30, step: 1, label: \"Rule number:\"}\n)\nviewof initial = Inputs.select(\n  [\"single 1\", \"random\"], \n  { value: \"single 1\", \n    label: \"Initial conditions:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport { elementaryParam } from \"./js/elementary-ca.js\";\ncreateSketch(elementaryParam(rule, initial), 'many-behaviours');\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRule 110 is capable of universal computation!"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#recent-applications-of-dual-unitarity",
+    "href": "talks/new-rules-ictp/index.html#recent-applications-of-dual-unitarity",
+    "title": "New Rules",
+    "section": "Recent applications of dual unitarity…",
+    "text": "Recent applications of dual unitarity…\n\nEmerging dual unitarity in models described by CFTs\n(Carignano, Tagliacozzo (2024))\nTemporal entanglement in dual-unitary Clifford circuits with measurements\n(Yao, Claeys (2024))\nStabilizer Rényi entropy in the dual-unitary XXZ model\n(Montañà López, Kos (2024))\nDual unitary shadow tomography\n(Akhtar et al. (2024))"
   }
 ]

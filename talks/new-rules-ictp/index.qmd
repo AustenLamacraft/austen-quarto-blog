@@ -75,8 +75,6 @@ function* createSketch(sketch, slideId) {
 }
 ```
 
----
-
 ## Game of life
 
 ```{ojs}
@@ -1154,7 +1152,7 @@ Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article
 </figcaption>
 </figure>
 
-Earlier named _process tensor_ by [Pollock _et al._ (2018)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127)
+- Earlier named _process tensor_ by [Pollock _et al._ (2018)](https://journals.aps.org/pra/abstract/10.1103/PhysRevA.97.012127)
 
 ---
 
@@ -1329,7 +1327,7 @@ $$
 
 ---
 
-## Three light rays / null directions
+- Three light rays / null directions
 
 <figure align="center">
 <img src="images/jonay.png" width="100%"/>
@@ -1344,23 +1342,23 @@ Source:  <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRe
 
 ---
 
-## Other applications of dual unitarity
+## Recent applications of dual unitarity...
 
+- Emerging dual unitarity in models described by CFTs 
+  
+  ([Carignano, Tagliacozzo (2024)](https://arxiv.org/abs/2405.14706))
 
-- [Claeys and Lamacraft (2020)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032). $v_\text{B}=1$. OTOC grows at maximum speed, c.f. Google experiment
+- Temporal entanglement in dual-unitary Clifford circuits with measurements 
 
-- [Jonay, Kehmani, Ippoliti (2021)](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.3.043046). Triunitary circuits (incl. 2+1 dimensions)
+  ([Yao, Claeys (2024)](https://arxiv.org/abs/2404.14374))
 
-- [Stephen _et al_ (2022)](https://arxiv.org/abs/2209.06191). Measurement based quantum computation in 1D using dual unitaries 
+- Stabilizer Rényi entropy in the dual-unitary XXZ model
 
-- [Sommers, Huse, Gullans (2022)](https://arxiv.org/abs/2210.10808). Dual unitary Clifford automata with applications to codes
+  ([Montañà López, Kos (2024)](https://arxiv.org/abs/2405.04448))
 
-- [Suzuki, Mitarai, Fujii (2022)](https://quantum-journal.org/papers/q-2022-01-24-631/). Computational power of dual unitaries
-
-- Many more!
-
-- Dual unitary shadows
-
+- Dual unitary shadow tomography 
+  
+  ([Akhtar _et al._ (2024)](https://arxiv.org/abs/2404.01068))
 
 ---
 
