@@ -2153,7 +2153,7 @@
     "href": "talks/new-rules-ictp/index.html#game-of-life",
     "title": "New Rules",
     "section": "Game of life",
-    "text": "Game of life\n\nimport { life } from \"./js/life.js\";\ncreateSketch(life, 'game of life');"
+    "text": "Game of life\n\nimport { life } from \"./js/life.js\";\ncreateSketch(life, 'game-of-life');"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#abstract",
@@ -2216,7 +2216,7 @@
     "href": "talks/new-rules-ictp/index.html#what-is-a-quantum-circuit",
     "title": "New Rules",
     "section": "What is a quantum circuit?",
-    "text": "What is a quantum circuit?\n\nA way to describe operations on quantum state, usually consisting of several qubits (spin 1/2 subsystems with Hilbert space \\mathbb{C}^2)\nTwo quantum states \\ket{0} and \\ket{1} define the computational basis.\n\n\n\n\n\nf acts on top five qubits, then g acts on lower seven"
+    "text": "What is a quantum circuit?\n\nA way to describe operations on a quantum state, usually consisting of several qubits (spin 1/2 subsystems with Hilbert space \\mathbb{C}^2)\nTwo quantum states \\ket{0} and \\ket{1} define the computational basis.\n\n\n\n\n\nf acts on top five qubits, then g acts on lower seven"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#possible-operations",
@@ -2335,7 +2335,7 @@
     "href": "talks/new-rules-ictp/index.html#unitarity-in-graphical-notation",
     "title": "New Rules",
     "section": "Unitarity in graphical notation",
-    "text": "Unitarity in graphical notation\n\nCondition of unitarity U^\\dagger U = U U^\\dagger = \\mathsf{1}\n\n\n\\sum_{\\alpha,\\beta}U^{\\vphantom{\\dagger}}_{a,b,\\alpha,\\beta} U^\\dagger_{\\alpha,\\beta,c,d}=\\delta_{ac}\\delta_{bd}\n\n\nUnitarity of two qubit gate expressed as\n\n\n\n\n\nMuch better!"
+    "text": "Unitarity in graphical notation\n\nCondition of unitarity U^\\dagger U = U U^\\dagger = \\mathsf{1}\n\n\n\\sum_{\\alpha,\\beta}U^{\\vphantom{\\dagger}}_{ab,\\alpha\\beta} U^\\dagger_{\\alpha\\beta,cd}=\\delta_{ac}\\delta_{bd}\n\n\nUnitarity of two qubit gate expressed as\n\n\n\n\n\nMuch better!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#using-unitarity",
@@ -2363,7 +2363,7 @@
     "href": "talks/new-rules-ictp/index.html#quantifying-entanglement",
     "title": "New Rules",
     "section": "Quantifying entanglement",
-    "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\Psi_{ab} as matrix and perform a singular value decomposition"
+    "text": "Quantifying entanglement\n\nSystem composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\Psi_{ab} as matrix and perform a singular value decomposition"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#toy-model",
@@ -2489,7 +2489,7 @@
     "href": "talks/new-rules-ictp/index.html#googles-otoc-experiment",
     "title": "New Rules",
     "section": "Google’s OTOC experiment",
-    "text": "Google’s OTOC experiment\n\nOTOC measured in 2021 by Google\n\n\n\n\nThe measured OTOC for i\\operatorname{\\operatorname{\\mathsf{SWAP}}} gates (top) and \\sqrt{i\\operatorname{\\mathsf{SWAP}}} (bottom) after averaging over single qubit gates."
+    "text": "Google’s OTOC experiment\n\nOTOC measured in 2021 by Google\n\n\n\n\nThe measured OTOC for i\\operatorname{\\operatorname{\\mathsf{SWAP}}} gates (top) and \\sqrt{i\\operatorname{\\mathsf{SWAP}}} (bottom) after averaging over single qubit gates"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#remark-operator-entanglement",
@@ -2664,7 +2664,7 @@
     "href": "talks/new-rules-ictp/index.html#quantinuum-experiment",
     "title": "New Rules",
     "section": "Quantinuum experiment",
-    "text": "Quantinuum experiment\n\nCorrelations measured in SDKIM last year"
+    "text": "Quantinuum experiment\n\nCorrelations measured in SDKIM by Chertkov et al. (2022)"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#other-applications-of-dual-unitarity",
@@ -2699,7 +2699,7 @@
     "href": "talks/new-rules-ictp/index.html#entanglement-from-space-time-duality",
     "title": "New Rules",
     "section": "Entanglement from space-time duality",
-    "text": "Entanglement from space-time duality\n\nStart from neighbouring Bell states\n\n\n\n\n\nCircuit above the dotted line =\\mathcal{U}_A\\otimes\\mathcal{U}_B: doesn’t change entanglement!"
+    "text": "Entanglement from space-time duality\n\nStart from neighbouring Bell states (seems special)\n\n\n\n\n\nCircuit above the dotted line =\\mathcal{U}_A\\otimes\\mathcal{U}_B: doesn’t change entanglement!"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#kim-property-1",
@@ -2734,14 +2734,14 @@
     "href": "talks/new-rules-ictp/index.html#temporal-entanglement",
     "title": "New Rules",
     "section": "Temporal entanglement",
-    "text": "Temporal entanglement\n.. Abanin… Fux… recent Pieter work"
+    "text": "Temporal entanglement\n\nA DU circuit is a purely Markovian bath (no approximation)\nDegree of non-markovianity captured by temporal entanglement (Sonner, Lerose, Abanin (2021))\nLow temporal entanglment allows efficient MPS methods to be applied to process tensor (see Fux et al. (2021))"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#influence-functional-is-rdm-in-time",
     "href": "talks/new-rules-ictp/index.html#influence-functional-is-rdm-in-time",
     "title": "New Rules",
     "section": "Influence functional is RDM in time!",
-    "text": "Influence functional is RDM in time!\n\n\n\n\nFor DU circuit map from vertical to horizontal is isometry\nHappens precisely for bath of size t\nProcess tensor"
+    "text": "Influence functional is RDM in time!\n\n\n\n\nFor DU circuit map from vertical to horizontal is isometry\nHappens precisely for bath of size t"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#structure",
@@ -2804,7 +2804,7 @@
     "href": "talks/new-rules-ictp/index.html#dimensional-kim",
     "title": "New Rules",
     "section": "2+1 dimensional KIM",
-    "text": "2+1 dimensional KIM\n\nimport { threeDCat } from \"./js/3d-cat.js\";\ncreateSketch(threeDCat, '3d cat');"
+    "text": "2+1 dimensional KIM\n\nimport { threeDCat } from \"./js/3d-cat.js\";\ncreateSketch(threeDCat, 'dimensional-kim');"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#last-thing-lorentz-symmetry",
@@ -2832,7 +2832,7 @@
     "href": "talks/new-rules-ictp/index.html#outline",
     "title": "New Rules",
     "section": "Outline",
-    "text": "Outline\n\nQuantum gates and circuits\nWhat would we like to know?\nCase study: space-time duality"
+    "text": "Outline\n\nQuantum gates and circuits\nCircuit phenomenology\nCase study: space-time duality"
   },
   {
     "objectID": "talks/new-rules-ictp/index.html#summary",
@@ -2854,5 +2854,110 @@
     "title": "New Rules",
     "section": "RDM and thermalization",
     "text": "RDM and thermalization\n\nFor SDKIM have 2^{\\min(2t-2,N_A)} non-zero eigenvalues of RDM all equal\n\n\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\n\n\nAfter N_A/2 + 1 steps, reduced density matrix is \\propto \\mathbb{1}\nAll expectations (with A) take on infinite temperature value"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#elementary-cellular-automata",
+    "href": "talks/new-rules-ictp/index.html#elementary-cellular-automata",
+    "title": "New Rules",
+    "section": "Elementary cellular automata",
+    "text": "Elementary cellular automata\n\n“Space” is one dimension with cells x_n=0,1 n\\in\\mathbb{Z}\nUpdate cells every time step depending on cells in neighborhood\n\nNeighborhood is cell and two neighbors for elementary CA"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#rules-of-life",
+    "href": "talks/new-rules-ictp/index.html#rules-of-life",
+    "title": "New Rules",
+    "section": "Rules of Life",
+    "text": "Rules of Life\n\nEach site either dead (0) or alive (1)\nFate of cell determined by eight neighbors\n\nAny live cell with two or three live neighbours survives\nAny dead cell with three live neighbours becomes a live cell\nAll other live cells die in the next generation\n\nComplex behavior!\nSee “Recursive Life”: oimo.io/works/life/"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#cellular-automata",
+    "href": "talks/new-rules-ictp/index.html#cellular-automata",
+    "title": "New Rules",
+    "section": "Cellular Automata",
+    "text": "Cellular Automata\n\nDynamical systems with discrete space, time, and degrees of freedom\nInteresting for statistical physics:\n\nWhat kinds of dynamics may occur?\nHow does dynamics determine thermodynamic behavior?"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#quantum-circuits",
+    "href": "talks/new-rules-ictp/index.html#quantum-circuits",
+    "title": "New Rules",
+    "section": "Quantum Circuits",
+    "text": "Quantum Circuits\n\nA quantum analog of CAs\nBasis of “quantum supremacy” work by Google and others\n\n\n\n\nA schematic view of the Google Sycamore processor"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#this-talk",
+    "href": "talks/new-rules-ictp/index.html#this-talk",
+    "title": "New Rules",
+    "section": "This talk",
+    "text": "This talk\n\nWhat are the similarities and differences?\nWhen is quantum dynamics harder? Is it always?"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#wolframs-rules",
+    "href": "talks/new-rules-ictp/index.html#wolframs-rules",
+    "title": "New Rules",
+    "section": "Wolfram’s rules",
+    "text": "Wolfram’s rules\n\nDomain of f is 2^3=8 possible values for three cells\n2^8=256 possible choices for the function f\nList outputs corresponding to inputs: 111, 110, … 000\n\n\n\n\n111\n110\n101\n100\n011\n010\n001\n000\n\n\n\n\n0\n1\n1\n0\n1\n1\n1\n0\n\n\n\n\nInterpret as binary number: this one is Rule 110"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#cas-as-model-physics",
+    "href": "talks/new-rules-ictp/index.html#cas-as-model-physics",
+    "title": "New Rules",
+    "section": "CAs as model physics",
+    "text": "CAs as model physics\n\nNotion of a causal “light cone” (45 degree lines)\nVariety of possible behaviors: chaos, periodicity, …\nDo these have quantum analogues?"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#classical-analogue",
+    "href": "talks/new-rules-ictp/index.html#classical-analogue",
+    "title": "New Rules",
+    "section": "Classical analogue",
+    "text": "Classical analogue\n\nRapid growth of small differences between two trajectories\n\n\nviewof ruleDifference = Inputs.range(\n  [0, 255], \n  {value: 110, step: 1, label: \"Rule number:\"}\n)\n\n\n\n\n\n\n\nimport { differenceParam } from \"./js/ca-difference.js\";\ncreateSketch(differenceParam(ruleDifference), 'classical-analogue');\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmallest change: flip one site and monitor z^t\\equiv x^t\\oplus y^t"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#basic-ingredients-z-and-x-tensors-spiders",
+    "href": "talks/new-rules-ictp/index.html#basic-ingredients-z-and-x-tensors-spiders",
+    "title": "New Rules",
+    "section": "Basic ingredients: Z and X tensors (“spiders”)",
+    "text": "Basic ingredients: Z and X tensors (“spiders”)\n\n \n\nSource: van der Wetering (2020)\n\n\n\n|0\\rangle=\\left(\\begin{array}{l}\n1 \\\\\n0\n\\end{array}\\right) \\quad|1\\rangle=\\left(\\begin{array}{l}\n0 \\\\\n1\n\\end{array}\\right) \\quad|+\\rangle=\\frac{1}{\\sqrt{2}}\\left(\\begin{array}{l}\n1 \\\\\n1\n\\end{array}\\right) \\quad|-\\rangle=\\frac{1}{\\sqrt{2}}\\left(\\begin{array}{c}\n1 \\\\\n-1\n\\end{array}\\right)\n\n\nObey many identities upon contraction"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#simplest-examples",
+    "href": "talks/new-rules-ictp/index.html#simplest-examples",
+    "title": "New Rules",
+    "section": "Simplest examples",
+    "text": "Simplest examples\n\nIdentity\n\n\n\nCNOT"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#example-liu-and-ho-2023",
+    "href": "talks/new-rules-ictp/index.html#example-liu-and-ho-2023",
+    "title": "New Rules",
+    "section": "Example: Liu and Ho (2023)",
+    "text": "Example: Liu and Ho (2023)"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#rewrite-in-zx-language",
+    "href": "talks/new-rules-ictp/index.html#rewrite-in-zx-language",
+    "title": "New Rules",
+    "section": "Rewrite in ZX language",
+    "text": "Rewrite in ZX language\n\n\n\n\nCNOTs (East model, see also Bertini et al. (2023)) + phases on each spider"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#game-of-lifess",
+    "href": "talks/new-rules-ictp/index.html#game-of-lifess",
+    "title": "New Rules",
+    "section": "Game of lifess",
+    "text": "Game of lifess\n\nimport { life } from \"./js/life.js\";\ncreateSketch(life, 'game of life');"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#many-behaviors",
+    "href": "talks/new-rules-ictp/index.html#many-behaviors",
+    "title": "New Rules",
+    "section": "Many behaviors",
+    "text": "Many behaviors\n\nFrom ordered (Rule 18) to chaotic (Rule 30)\n\n\nviewof rule = Inputs.range(\n  [0, 255], \n  {value: 30, step: 1, label: \"Rule number:\"}\n)\nviewof initial = Inputs.select(\n  [\"single 1\", \"random\"], \n  { value: \"single 1\", \n    label: \"Initial conditions:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport { elementaryParam } from \"./js/elementary-ca.js\";\ncreateSketch(elementaryParam(rule, initial), 'many-behaviours');\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRule 110 is capable of universal computation!"
+  },
+  {
+    "objectID": "talks/new-rules-ictp/index.html#many-behaviours",
+    "href": "talks/new-rules-ictp/index.html#many-behaviours",
+    "title": "New Rules",
+    "section": "Many behaviours",
+    "text": "Many behaviours\n\nFrom ordered (Rule 18) to chaotic (Rule 30)\n\n\nviewof rule = Inputs.range(\n  [0, 255], \n  {value: 30, step: 1, label: \"Rule number:\"}\n)\nviewof initial = Inputs.select(\n  [\"single 1\", \"random\"], \n  { value: \"single 1\", \n    label: \"Initial conditions:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimport { elementaryParam } from \"./js/elementary-ca.js\";\ncreateSketch(elementaryParam(rule, initial), 'many-behaviours');\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRule 110 is capable of universal computation!"
   }
 ]

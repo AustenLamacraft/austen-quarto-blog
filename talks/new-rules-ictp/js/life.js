@@ -11,6 +11,7 @@ export function life(p) {
 
   p.setup = function() {
     p.createCanvas(p.windowWidth / 2.5, p.windowHeight / 2.5);
+    p.frameRate(10); 
     w = 20;
     // Calculate columns and rows
     columns = p.floor(p.width / w);

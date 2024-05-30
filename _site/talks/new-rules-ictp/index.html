@@ -431,53 +431,52 @@ Austen Lamacraft (Cambridge)
 </div>
 </div>
 </div>
-<p>Add cover image</p>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="32" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb2-32"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
-<span id="cb2-33"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
-<span id="cb2-34"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
-<span id="cb2-35"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
-<span id="cb2-36"><a></a>  </span>
-<span id="cb2-37"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-38"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
-<span id="cb2-39"><a></a>  </span>
-<span id="cb2-40"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
-<span id="cb2-41"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
-<span id="cb2-42"><a></a>  <span class="co">// in the DOM.</span></span>
-<span id="cb2-43"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-44"><a></a>  </span>
-<span id="cb2-45"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
-<span id="cb2-46"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
-<span id="cb2-47"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
-<span id="cb2-48"><a></a></span>
-<span id="cb2-49"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
-<span id="cb2-50"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb2-51"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
-<span id="cb2-52"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
-<span id="cb2-53"><a></a>    }</span>
-<span id="cb2-54"><a></a>    <span class="cf">else</span> {</span>
-<span id="cb2-55"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
-<span id="cb2-56"><a></a>    }</span>
-<span id="cb2-57"><a></a>  } )<span class="op">;</span></span>
-<span id="cb2-58"><a></a>  </span>
-<span id="cb2-59"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
-<span id="cb2-60"><a></a></span>
-<span id="cb2-61"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
-<span id="cb2-62"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
-<span id="cb2-63"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
-<span id="cb2-64"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
-<span id="cb2-65"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
-<span id="cb2-66"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
-<span id="cb2-67"><a></a>  <span class="co">// to clean it up.</span></span>
-<span id="cb2-68"><a></a>  <span class="cf">try</span> {</span>
-<span id="cb2-69"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
-<span id="cb2-70"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-71"><a></a>    }</span>
-<span id="cb2-72"><a></a>  } <span class="cf">finally</span> {</span>
-<span id="cb2-73"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb2-74"><a></a>  }</span>
-<span id="cb2-75"><a></a></span>
-<span id="cb2-76"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="30" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 29;"><span id="cb2-30"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
+<span id="cb2-31"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
+<span id="cb2-32"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
+<span id="cb2-33"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
+<span id="cb2-34"><a></a>  </span>
+<span id="cb2-35"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-36"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
+<span id="cb2-37"><a></a>  </span>
+<span id="cb2-38"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
+<span id="cb2-39"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
+<span id="cb2-40"><a></a>  <span class="co">// in the DOM.</span></span>
+<span id="cb2-41"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-42"><a></a>  </span>
+<span id="cb2-43"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
+<span id="cb2-44"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
+<span id="cb2-45"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-46"><a></a></span>
+<span id="cb2-47"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
+<span id="cb2-48"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb2-49"><a></a>    <span class="cf">if</span> (<span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="at">id</span> <span class="op">==</span> slideId) {</span>
+<span id="cb2-50"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
+<span id="cb2-51"><a></a>    }</span>
+<span id="cb2-52"><a></a>    <span class="cf">else</span> {</span>
+<span id="cb2-53"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
+<span id="cb2-54"><a></a>    }</span>
+<span id="cb2-55"><a></a>  } )<span class="op">;</span></span>
+<span id="cb2-56"><a></a>  </span>
+<span id="cb2-57"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
+<span id="cb2-58"><a></a></span>
+<span id="cb2-59"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
+<span id="cb2-60"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
+<span id="cb2-61"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
+<span id="cb2-62"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
+<span id="cb2-63"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
+<span id="cb2-64"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
+<span id="cb2-65"><a></a>  <span class="co">// to clean it up.</span></span>
+<span id="cb2-66"><a></a>  <span class="cf">try</span> {</span>
+<span id="cb2-67"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-68"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-69"><a></a>    }</span>
+<span id="cb2-70"><a></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-71"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-72"><a></a>  }</span>
+<span id="cb2-73"><a></a></span>
+<span id="cb2-74"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -485,44 +484,11 @@ Austen Lamacraft (Cambridge)
 </div>
 </div>
 </section>
-<section id="abstract" class="slide level2 center">
-<h2>Abstract</h2>
-<p>Many of you will have played with cellular automata such as Conway’s Game of Life. These are model systems in which complex and chaotic behaviors emerge from simple dynamical rules.</p>
-<p>Motivated by quantum computation, physicists have in recent years begun to study <em>quantum circuits</em>, which are in some way quantum analogues of cellular automata. In this talk I’ll discuss some of the similarities and differences between these two classes of systems, and what they can teach us about classical and quantum dynamics more generally.</p>
-</section>
-<section id="structure" class="slide level2 center">
-<h2>Structure</h2>
-<ol type="1">
-<li>Cellular automata and introduce idea of QCs as a quantum analogue</li>
-<li>Idea of gates and circuits. Some examples</li>
-<li>Brickwork arises naturally by trotterizing</li>
-<li>Maybe used to do approximate continuous time evolution</li>
-<li>Or exactly do stroboscopic (Floquet) evolution</li>
-<li>Example of Ising</li>
-<li>Importance of locality in real platforms</li>
-<li>Operator pushing and causality. No correlations outside light cone</li>
-<li>Operator spreading and how to describe</li>
-<li>Example of Clifford circuits (KIM at special points)</li>
-<li>Relate to cellular automata. Intro to rules. Relate to spatiotemporal cat</li>
-<li>Idea of OTOC and illustrate with simulation. Google experiment</li>
-<li>Quantifying entanglement</li>
-<li>Example of SWAP circuit</li>
-<li>Introduce dual unitarity</li>
-<li>Special initial states</li>
-<li>Introduce influence functional (process tensor)</li>
-<li>DU’s give pure Markov influence functional. Notion of temporal entanglement</li>
-<li>Correlations in circuits</li>
-<li>Quantinuum experiment</li>
-<li>Triunitarity and example of SWAP circuit</li>
-<li>Chaos and solvability…. operator entanglement</li>
-<li>Add thoughts on Lorentz invariance at the end.. Luca work too</li>
-</ol>
-</section>
 <section id="game-of-life" class="slide level2 center">
 <h2>Game of life</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="124" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 123;"><span id="cb3-124"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-125"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game of life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="83" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb3-83"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
+<span id="cb3-84"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game-of-life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -549,14 +515,8 @@ Austen Lamacraft (Cambridge)
 </blockquote>
 <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </section>
-<section class="slide level2 center">
-
-<p>Recursive life</p>
-<p>https://oimo.io/works/life/</p>
-</section>
-<section class="slide level2 center">
-
-<h3 id="rules-of-life">Rules of Life</h3>
+<section id="rules-of-life" class="slide level2 center">
+<h2>Rules of Life</h2>
 <ul>
 <li><p>Each site either dead (0) or alive (1)</p></li>
 <li><p>Fate of cell determined by eight neighbors</p>
@@ -566,11 +526,11 @@ Austen Lamacraft (Cambridge)
 <li>All other live cells die in the next generation</li>
 </ol></li>
 <li><p>Complex behavior!</p></li>
+<li><p>See “Recursive Life”: <a href="https://oimo.io/works/life/">oimo.io/works/life/</a></p></li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="cellular-automata">Cellular Automata</h3>
+<section id="cellular-automata" class="slide level2 center">
+<h2>Cellular Automata</h2>
 <ul>
 <li><p>Dynamical systems with discrete <em>space</em>, <em>time</em>, and <em>degrees of freedom</em></p></li>
 <li><p>Interesting for statistical physics:</p>
@@ -580,9 +540,8 @@ Austen Lamacraft (Cambridge)
 </ul></li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="quantum-circuits">Quantum Circuits</h3>
+<section id="quantum-circuits" class="slide level2 center">
+<h2>Quantum Circuits</h2>
 <ul>
 <li><p>A quantum analog of CAs</p></li>
 <li><p>Basis of “quantum supremacy” work by Google and others</p></li>
@@ -590,24 +549,12 @@ Austen Lamacraft (Cambridge)
 <figure align="center">
 <img src="images/google-sycamore-schematic.png" width="400">
 <figcaption>
-A schematic view of the Google Sycamore processor.
+A schematic view of the Google Sycamore processor
 </figcaption>
 </figure>
 </section>
-<section class="slide level2 center">
-
-<h3 id="this-talk">This talk</h3>
-<ul>
-<li><p>What are the similarities and differences?</p></li>
-<li><p>When is quantum dynamics harder?</p></li>
-</ul>
-<p align="center" class="fragment">
-<strong>Little quantum computation <i>per se</i>, though it saturates the field</strong>
-</p>
-</section>
-<section class="slide level2 center">
-
-<h3 id="elementary-cellular-automata">Elementary cellular automata</h3>
+<section id="elementary-cellular-automata" class="slide level2 center">
+<h2>Elementary cellular automata</h2>
 <ul>
 <li><p>“Space” is one dimension with cells <span class="math inline">x_n=0,1</span> <span class="math inline">n\in\mathbb{Z}</span></p></li>
 <li><p>Update cells every time step depending on cells in <strong>neighborhood</strong></p>
@@ -631,9 +578,8 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 <li>How many possible functions?</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="wolframs-rules">Wolfram’s rules</h3>
+<section id="wolframs-rules" class="slide level2 center">
+<h2>Wolfram’s rules</h2>
 <ul>
 <li><p>Domain of <span class="math inline">f</span> is <span class="math inline">2^3=8</span> possible values for three cells</p></li>
 <li><p><span class="math inline">2^8=256</span> possible choices for the function <span class="math inline">f</span></p></li>
@@ -669,23 +615,22 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 <li>Interpret as binary number: this one is <a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a></li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<p>##&nbsp;Elementary cellular automata</p>
+<section id="many-behaviours" class="slide level2 center">
+<h2>Many behaviours</h2>
 <ul>
-<li>Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)</li>
+<li>From ordered (Rule 18) to chaotic (Rule 30)</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="250" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 249;"><span id="cb4-250"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb4-251"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb4-252"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb4-253"><a></a>)</span>
-<span id="cb4-254"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb4-255"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
-<span id="cb4-256"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
-<span id="cb4-257"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
-<span id="cb4-258"><a></a>  }</span>
-<span id="cb4-259"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="194" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 193;"><span id="cb4-194"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-195"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb4-196"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb4-197"><a></a>)</span>
+<span id="cb4-198"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-199"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
+<span id="cb4-200"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
+<span id="cb4-201"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
+<span id="cb4-202"><a></a>  }</span>
+<span id="cb4-203"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -702,8 +647,8 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="264" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 263;"><span id="cb5-264"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
-<span id="cb5-265"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'elementary cellular automata'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="208" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 207;"><span id="cb5-208"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb5-209"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'many-behaviours'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -723,26 +668,31 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 <li>Rule 110 is capable of universal computation!</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="cas-as-model-physics">CAs as model physics</h3>
+<section id="cas-as-model-physics" class="slide level2 center">
+<h2>CAs as model physics</h2>
 <ul>
 <li><p>Notion of a causal “light cone” (45 degree lines)</p></li>
 <li><p>Variety of possible behaviors: chaos, periodicity, …</p></li>
+<li><p>Do these have quantum analogues?</p></li>
 </ul>
 </section>
 <section id="outline" class="slide level2 center">
 <h2>Outline</h2>
 <ul>
 <li><p>Quantum gates and circuits</p></li>
-<li><p>What would we like to know?</p></li>
+<li><p>Circuit phenomenology</p></li>
 <li><p>Case study: space-time duality</p></li>
 </ul>
+</section>
+<section>
+<section id="quantum-gates-and-circuits" class="title-slide slide level1 center">
+<h1>Quantum gates and circuits</h1>
+
 </section>
 <section id="what-is-a-quantum-circuit" class="slide level2 center">
 <h2>What is a quantum circuit?</h2>
 <ul>
-<li><p>A way to describe operations on quantum state, usually consisting of several <strong>qubits</strong> (spin 1/2 subsystems with Hilbert space <span class="math inline">\mathbb{C}^2</span>)</p></li>
+<li><p>A way to describe operations on a quantum state, usually consisting of several <strong>qubits</strong> (spin 1/2 subsystems with Hilbert space <span class="math inline">\mathbb{C}^2</span>)</p></li>
 <li><p>Two quantum states <span class="math inline">\ket{0}</span> and <span class="math inline">\ket{1}</span> define the <strong>computational basis</strong>.</p></li>
 </ul>
 <p align="center">
@@ -893,7 +843,7 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 <li>Condition of unitarity <span class="math inline">U^\dagger U = U U^\dagger = \mathsf{1}</span></li>
 </ul>
 <p><span class="math display">
-\sum_{\alpha,\beta}U^{\vphantom{\dagger}}_{a,b,\alpha,\beta} U^\dagger_{\alpha,\beta,c,d}=\delta_{ac}\delta_{bd}
+\sum_{\alpha,\beta}U^{\vphantom{\dagger}}_{ab,\alpha\beta} U^\dagger_{\alpha\beta,cd}=\delta_{ac}\delta_{bd}
 </span></p>
 <ul>
 <li>Unitarity of two qubit gate expressed as</li>
@@ -1038,13 +988,10 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <li><p>Problem of finding optimal contraction strategy in general is NP-hard</p></li>
 <li><p><a href="https://www.nature.com/articles/s41586-019-1666-5">Google’s initial claim</a> of supremacy disputed by supercomputer optimizations, followed by improved tensor network methods: <a href="https://arxiv.org/abs/2005.06787">Huang <em>et al.</em> (2020)</a>, <a href="https://quantum-journal.org/papers/q-2021-03-15-410/">Gray and Kourtis (2021)</a>, <a href="https://arxiv.org/abs/2103.03074">Pan and Zhang (2021)</a>, <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021021">Napp <em>et al.</em> (2022)</a></p></li>
 </ul>
-</section>
-<section class="slide level2 center">
-
-</section>
+</section></section>
 <section>
-<section id="what-would-we-like-to-know" class="title-slide slide level1 center">
-<h1>What would we like to know?</h1>
+<section id="circuit-phenomenology" class="title-slide slide level1 center">
+<h1>Circuit phenomenology</h1>
 <p align="center">
 <img src="images/circuit.svg" width="450">
 </p>
@@ -1184,8 +1131,8 @@ b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - b_{x,t}=0\qquad \mod 2
 <section id="dimensional-kim" class="slide level2 center">
 <h2><span class="math inline">2+1</span> dimensional KIM</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="780" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 779;"><span id="cb6-780"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
-<span id="cb6-781"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'3d cat'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="727" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 726;"><span id="cb6-727"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb6-728"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'dimensional-kim'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -1250,29 +1197,16 @@ Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum
 <li><p>Since OTOC depends on <em>square</em> of the coefficients, a nonzero value survives after averaging over random circuits</p></li>
 </ul>
 </section>
-<section id="phenomenology-of-spreading" class="slide level2 center">
-<h2>Phenomenology of spreading</h2>
-<ul>
-<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013">von Keyserlingk <em>et al</em> (2018)</a> and <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a></li>
-</ul>
-<figure align="center">
-<img src="images/spreading.png" width="70%">
-<figcaption>
-Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.
-</figcaption>
-</figure>
-</section>
-<section class="slide level2 center">
-
-<h3 id="classical-analogue">Classical analogue</h3>
+<section id="classical-analogue" class="slide level2 center">
+<h2>Classical analogue</h2>
 <ul>
 <li>Rapid growth of small differences between two trajectories</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="853" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 852;"><span id="cb7-853"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb7-854"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb7-855"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb7-856"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="788" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 787;"><span id="cb7-788"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb7-789"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb7-790"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb7-791"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-7" data-nodetype="declaration">
 
@@ -1280,8 +1214,8 @@ Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="862" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 861;"><span id="cb8-862"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
-<span id="cb8-863"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'difference'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="797" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 796;"><span id="cb8-797"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
+<span id="cb8-798"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'classical-analogue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
@@ -1301,6 +1235,18 @@ Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014
 <li>Smallest change: flip one site and monitor <span class="math inline">z^t\equiv x^t\oplus y^t</span></li>
 </ul>
 </section>
+<section id="phenomenology-of-spreading" class="slide level2 center">
+<h2>Phenomenology of spreading</h2>
+<ul>
+<li><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013">von Keyserlingk <em>et al</em> (2018)</a> and <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a></li>
+</ul>
+<figure align="center">
+<img src="images/spreading.png" width="70%">
+<figcaption>
+Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.
+</figcaption>
+</figure>
+</section>
 <section id="googles-otoc-experiment" class="slide level2 center">
 <h2>Google’s OTOC experiment</h2>
 <ul>
@@ -1309,14 +1255,14 @@ Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014
 <figure align="center">
 <img src="images/google-otoc.png" width="1000">
 <figcaption>
-The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\mathsf{SWAP}}}</span> gates (top) and <span class="math inline">\sqrt{i\operatorname{\mathsf{SWAP}}}</span> (bottom) after averaging over single qubit gates.
+The measured OTOC for <span class="math inline">i\operatorname{\operatorname{\mathsf{SWAP}}}</span> gates (top) and <span class="math inline">\sqrt{i\operatorname{\mathsf{SWAP}}}</span> (bottom) after averaging over single qubit gates
 </figcaption>
 </figure>
 </section>
 <section id="quantifying-entanglement" class="slide level2 center">
 <h2>Quantifying entanglement</h2>
 <ul>
-<li><p>RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B</p></li>
+<li><p>System composed of two subsystems A and B</p></li>
 <li><p>General state is vector <span class="math inline">\in\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B</span></p></li>
 <li><p>Write in terms of basis vectors <span class="math inline">\ket{a}_A</span> and <span class="math inline">\ket{b}_B</span> for A and B subsystems <span class="math display">
 \ket{\Psi}_{AB} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
@@ -1438,8 +1384,8 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 </ul>
 </section></section>
 <section>
-<section id="dual-unitary-circuits" class="title-slide slide level1 center">
-<h1>Dual unitary circuits</h1>
+<section id="case-study-space-time-duality" class="title-slide slide level1 center">
+<h1>Case study: space-time duality</h1>
 
 </section>
 <section id="recall-kicked-ising-model" class="slide level2 center">
@@ -1521,7 +1467,7 @@ p_n = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 <section id="entanglement-from-space-time-duality" class="slide level2 center">
 <h2>Entanglement from space-time duality</h2>
 <ul>
-<li>Start from neighbouring Bell states</li>
+<li>Start from neighbouring Bell states (<em>seems</em> special)</li>
 </ul>
 <figure align="center">
 <img src="images/isometry.svg" width="90%">
@@ -1651,17 +1597,15 @@ Source: <a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article
 <ul>
 <li><p>For DU circuit map from vertical to horizontal is isometry</p></li>
 <li><p>Happens precisely for bath of size <span class="math inline">t</span></p></li>
-<li><p>Process tensor</p></li>
 </ul>
-</section>
-<section class="slide level2 center">
-
-<p>Pure Markov bath (no approximation)</p>
-<p>Happens precisely for bath of size <span class="math inline">t</span></p>
 </section>
 <section id="temporal-entanglement" class="slide level2 center">
 <h2>Temporal entanglement</h2>
-<p>.. Abanin… Fux… recent Pieter work</p>
+<ul>
+<li><p>A DU circuit is a purely Markovian bath (no approximation)</p></li>
+<li><p>Degree of non-markovianity captured by <em>temporal entanglement</em> (<a href="https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article/pii/S0003491621002797">Sonner, Lerose, Abanin (2021)</a>)</p></li>
+<li><p>Low temporal entanglment allows efficient MPS methods to be applied to process tensor (see <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.200401">Fux <em>et al.</em> (2021)</a>)</p></li>
+</ul>
 </section>
 <section id="reminder-no-correlations-outside-light-cone" class="slide level2 center">
 <h2>Reminder: no correlations outside light cone</h2>
@@ -1679,7 +1623,7 @@ C(\mathcal{O}_1(t),\mathcal{O}_2(0)) \equiv \operatorname{tr}\left[\mathcal{U}_t
 <section id="quantinuum-experiment" class="slide level2 center">
 <h2>Quantinuum experiment</h2>
 <ul>
-<li>Correlations measured in SDKIM <a href="(https://www.nature.com/articles/s41567-022-01689-7)">last year</a></li>
+<li>Correlations measured in SDKIM by <a href="https://www.nature.com/articles/s41567-022-01689-7">Chertkov <em>et al.</em> (2022)</a></li>
 </ul>
 <figure align="center">
 <img src="images/quantinuum.png" width="800">
@@ -1706,9 +1650,8 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/2058-9565/aad759">Go
 <li>See also <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a></li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="basic-ingredients-z-and-x-tensors-spiders">Basic ingredients: Z and X tensors (“spiders”)</h3>
+<section id="basic-ingredients-z-and-x-tensors-spiders" class="slide level2 center">
+<h2>Basic ingredients: Z and X tensors (“spiders”)</h2>
 <figure align="center">
 <img src="images/z-spider.png" width="100%"> <img src="images/x-spider.png" width="100%">
 <figcaption>
@@ -1734,9 +1677,8 @@ Source: <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a>
 <li>Obey many identities upon contraction</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
-<h3 id="simplest-examples">Simplest examples</h3>
+<section id="simplest-examples" class="slide level2 center">
+<h2>Simplest examples</h2>
 <ul>
 <li>Identity</li>
 </ul>
@@ -1746,21 +1688,19 @@ Source: <a href="https://arxiv.org/abs/2012.13966">van der Wetering (2020)</a>
 </ul>
 <p><img data-src="images/cnot.svg"></p>
 </section>
-<section class="slide level2 center">
-
-<h3 id="example-liu-and-ho-2023">Example: <a href="https://arxiv.org/abs/2312.12239">Liu and Ho (2023)</a></h3>
+<section id="example-liu-and-ho-2023" class="slide level2 center">
+<h2>Example: <a href="https://arxiv.org/abs/2312.12239">Liu and Ho (2023)</a></h2>
 <figure align="center">
 <img src="images/liu-ho-circuit.png" width="80%"> <img src="images/liu-ho-tensors.png" width="80%">
 </figure>
 </section>
-<section class="slide level2 center">
-
-<h3 id="rewrite-in-zx-language">Rewrite in ZX language</h3>
+<section id="rewrite-in-zx-language" class="slide level2 center">
+<h2>Rewrite in ZX language</h2>
 <figure align="center">
 <img src="images/hexagonal-bare.svg" width="50%">
 </figure>
 <ul>
-<li>CNOTs (East model, see <a href="https://arxiv.org/abs/2310.06128">Bertini <em>et al.</em> (2023)</a>) + phases on each spider</li>
+<li>CNOTs (East model, see also <a href="https://arxiv.org/abs/2310.06128">Bertini <em>et al.</em> (2023)</a>) + phases on each spider</li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -2072,7 +2012,7 @@ Source: <a href="https://journals.aps.org/prresearch/abstract/10.1103/PhysRevRes
       });
     </script>
     <script type="ojs-module-contents">
-    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBNb2RpZmllZCBmcm9tIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy9wNVxuLy8gU2VlIGFsc28gaHR0cHM6Ly9ibG9nLmRqbmF2YXJyby5uZXQvcG9zdHMvMjAyMy0wMS0xNF9wNWpzL1xuLy8gVGhpcyBoZWxwZXIgY3JlYXRlcyBhIGRpdiBhbmQgYXR0YWNoZXMgdGhlIHNrZXRjaCB0byBpdFxuZnVuY3Rpb24qIGNyZWF0ZVNrZXRjaChza2V0Y2gsIHNsaWRlSWQpIHtcbiAgXG4gIGNvbnN0IGVsZW1lbnQgPSBET00uZWxlbWVudCgnZGl2Jyk7XG4gIC8vIGVsZW1lbnQuc2V0QXR0cmlidXRlKCdpZCcsIGRpdklkKTtcbiAgXG4gIC8vIHA1LmpzIHJlYWxseSBsaWtlcyBpdHMgdGFyZ2V0IGVsZW1lbnQgdG8gYWxyZWFkeSBiZSBpbiB0aGUgRE9NLCBub3QganVzdFxuICAvLyBmbG9hdGluZyBhcm91bmQgZGV0YWNoZWQuIFNvLCBiZWZvcmUgd2UgY2FsbCBQNSwgd2UgeWllbGQgaXQsIHdoaWNoIHB1dHNcbiAgLy8gaW4gdGhlIERPTS5cbiAgeWllbGQgZWxlbWVudDtcbiAgXG4gIC8vIFRoaXMgaXMg4oCYaW5zdGFuY2UgbW9kZeKAmSBpbiBwNSBqYXJnb246IGluc3RlYWQgb2YgcmVseWluZyBvbiBsb3RzIG9mXG4gIC8vIGdsb2JhbHMsIHdlIGNyZWF0ZSBhIHNrZXRjaCB0aGF0IGhhcyBpdHMgb3duIGNvcHkgb2YgZXZlcnl0aGluZyB1bmRlciBwNS5cbiAgY29uc3QgaW5zdGFuY2UgPSBuZXcgUDUoc2tldGNoLCBlbGVtZW50LCB0cnVlKTtcblxuICAvLyBUaGlzIGRldGVjdHMgd2hldGhlciB3ZSBhcmUgb24gdGhlIHJlbGV2YW50IHNsaWRlIChieSBzbGlkZUlkKSBhbmQgc3RvcHMgdGhlIGxvb3AgaWYgbm90XG4gIFJldmVhbC5vbignc2xpZGVjaGFuZ2VkJywgZXZlbnQgPT4ge1xuICAgIGlmICghIWV2ZW50LmN1cnJlbnRTbGlkZS5xdWVyeVNlbGVjdG9yKFwiI1wiICsgc2xpZGVJZCkpIHtcbiAgICAgIGluc3RhbmNlLmxvb3AoKVxuICAgIH1cbiAgICBlbHNlIHtcbiAgICAgIGluc3RhbmNlLm5vTG9vcCgpXG4gICAgfVxuICB9ICk7XG4gIFxuICAvLyBJIHRoaW5rIHRoaXMgbmV4dCBwYXJ0IGlzIG9ubHkgaWYgeW91IHVzZSBvYnNlcnZhYmxlIHRvIHVwZGF0ZSBhIHNrZXRjaC4uLlxuXG4gIC8vIFRoaXMgaXMgdGhlIHRyaWNreSBwYXJ0OiB3aGVuIHlvdSBydW4gUDUoc2tldGNoLCBlbGVtZW50KSwgaXQgc3RhcnRzIGFcbiAgLy8gbG9vcCB0aGF0IHVwZGF0ZXMgdGhlIGRyYXdpbmcgYSBidW5jaCBvZiB0aW1lcyBhIHNlY29uZC4gSWYgd2Ugd2VyZSBqdXN0XG4gIC8vIHRvIGNhbGwgUDUgcmVwZWF0ZWRseSB3aXRoIGRpZmZlcmVudCBhcmd1bWVudHMsIHRoZSBsb29wcyB3b3VsZCBhbGwga2VlcFxuICAvLyBydW5uaW5nLCBvbmUgb24gdG9wIG9mIHRoZSBvdGhlci4gU28gd2hhdCB3ZSBkbyBpcyB3ZSB1c2UgdGhpcyBjZWxsXG4gIC8vIGFzIGEgZ2VuZXJhdG9yLCBhbmQgdGhlbiB3aGVuIHRoYXQgZ2VuZXJhdG9yIGlzIGludGVycnVwdGVkLCBsaWtlXG4gIC8vIHdoZW4geW91IHVwZGF0ZSB0aGUgY29kZSBpbiB0aGUgc2tldGNoKCkgbWV0aG9kLCB0aGVuIHdlIGNhbGwgaW5zdGFuY2UucmVtb3ZlKClcbiAgLy8gdG8gY2xlYW4gaXQgdXAuXG4gIHRyeSB7XG4gICAgd2hpbGUgKHRydWUpIHtcbiAgICAgIHlpZWxkIGVsZW1lbnQ7XG4gICAgfVxuICB9IGZpbmFsbHkge1xuICAgIGluc3RhbmNlLnJlbW92ZSgpO1xuICB9XG5cbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGxpZmUgfSBmcm9tIFwiLi9qcy9saWZlLmpzXCI7XG5jcmVhdGVTa2V0Y2gobGlmZSwgJ2dhbWUgb2YgbGlmZScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHJ1bGUgPSBJbnB1dHMucmFuZ2UoXG4gIFswLCAyNTVdLCBcbiAge3ZhbHVlOiAzMCwgc3RlcDogMSwgbGFiZWw6IFwiUnVsZSBudW1iZXI6XCJ9XG4pXG52aWV3b2YgaW5pdGlhbCA9IElucHV0cy5zZWxlY3QoXG4gIFtcInNpbmdsZSAxXCIsIFwicmFuZG9tXCJdLCBcbiAgeyB2YWx1ZTogXCJzaW5nbGUgMVwiLCBcbiAgICBsYWJlbDogXCJJbml0aWFsIGNvbmRpdGlvbnM6XCJcbiAgfVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC01IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW1wb3J0IHsgZWxlbWVudGFyeVBhcmFtIH0gZnJvbSBcIi4vanMvZWxlbWVudGFyeS1jYS5qc1wiO1xuY3JlYXRlU2tldGNoKGVsZW1lbnRhcnlQYXJhbShydWxlLCBpbml0aWFsKSwgJ2VsZW1lbnRhcnkgY2VsbHVsYXIgYXV0b21hdGEnKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IHRocmVlRENhdCB9IGZyb20gXCIuL2pzLzNkLWNhdC5qc1wiO1xuY3JlYXRlU2tldGNoKHRocmVlRENhdCwgJzNkIGNhdCcpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIHJ1bGVEaWZmZXJlbmNlID0gSW5wdXRzLnJhbmdlKFxuICBbMCwgMjU1XSwgXG4gIHt2YWx1ZTogMTEwLCBzdGVwOiAxLCBsYWJlbDogXCJSdWxlIG51bWJlcjpcIn1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltcG9ydCB7IGRpZmZlcmVuY2VQYXJhbSB9IGZyb20gXCIuL2pzL2NhLWRpZmZlcmVuY2UuanNcIjtcbmNyZWF0ZVNrZXRjaChkaWZmZXJlbmNlUGFyYW0ocnVsZURpZmZlcmVuY2UpLCAnZGlmZmVyZW5jZScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdydWxlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2luaXRpYWwnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncnVsZURpZmZlcmVuY2UnKSJ9XX0=
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlA1ID0gcmVxdWlyZShcInA1XCIpXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiIvLyBNb2RpZmllZCBmcm9tIGh0dHBzOi8vb2JzZXJ2YWJsZWhxLmNvbS9AdG1jdy9wNVxuLy8gU2VlIGFsc28gaHR0cHM6Ly9ibG9nLmRqbmF2YXJyby5uZXQvcG9zdHMvMjAyMy0wMS0xNF9wNWpzL1xuLy8gVGhpcyBoZWxwZXIgY3JlYXRlcyBhIGRpdiBhbmQgYXR0YWNoZXMgdGhlIHNrZXRjaCB0byBpdFxuZnVuY3Rpb24qIGNyZWF0ZVNrZXRjaChza2V0Y2gsIHNsaWRlSWQpIHtcbiAgXG4gIGNvbnN0IGVsZW1lbnQgPSBET00uZWxlbWVudCgnZGl2Jyk7XG4gIC8vIGVsZW1lbnQuc2V0QXR0cmlidXRlKCdpZCcsIGRpdklkKTtcbiAgXG4gIC8vIHA1LmpzIHJlYWxseSBsaWtlcyBpdHMgdGFyZ2V0IGVsZW1lbnQgdG8gYWxyZWFkeSBiZSBpbiB0aGUgRE9NLCBub3QganVzdFxuICAvLyBmbG9hdGluZyBhcm91bmQgZGV0YWNoZWQuIFNvLCBiZWZvcmUgd2UgY2FsbCBQNSwgd2UgeWllbGQgaXQsIHdoaWNoIHB1dHNcbiAgLy8gaW4gdGhlIERPTS5cbiAgeWllbGQgZWxlbWVudDtcbiAgXG4gIC8vIFRoaXMgaXMg4oCYaW5zdGFuY2UgbW9kZeKAmSBpbiBwNSBqYXJnb246IGluc3RlYWQgb2YgcmVseWluZyBvbiBsb3RzIG9mXG4gIC8vIGdsb2JhbHMsIHdlIGNyZWF0ZSBhIHNrZXRjaCB0aGF0IGhhcyBpdHMgb3duIGNvcHkgb2YgZXZlcnl0aGluZyB1bmRlciBwNS5cbiAgY29uc3QgaW5zdGFuY2UgPSBuZXcgUDUoc2tldGNoLCBlbGVtZW50LCB0cnVlKTtcblxuICAvLyBUaGlzIGRldGVjdHMgd2hldGhlciB3ZSBhcmUgb24gdGhlIHJlbGV2YW50IHNsaWRlIChieSBzbGlkZUlkKSBhbmQgc3RvcHMgdGhlIGxvb3AgaWYgbm90XG4gIFJldmVhbC5vbignc2xpZGVjaGFuZ2VkJywgZXZlbnQgPT4ge1xuICAgIGlmIChldmVudC5jdXJyZW50U2xpZGUuaWQgPT0gc2xpZGVJZCkge1xuICAgICAgaW5zdGFuY2UubG9vcCgpXG4gICAgfVxuICAgIGVsc2Uge1xuICAgICAgaW5zdGFuY2Uubm9Mb29wKClcbiAgICB9XG4gIH0gKTtcbiAgXG4gIC8vIEkgdGhpbmsgdGhpcyBuZXh0IHBhcnQgaXMgb25seSBpZiB5b3UgdXNlIG9ic2VydmFibGUgdG8gdXBkYXRlIGEgc2tldGNoLi4uXG5cbiAgLy8gVGhpcyBpcyB0aGUgdHJpY2t5IHBhcnQ6IHdoZW4geW91IHJ1biBQNShza2V0Y2gsIGVsZW1lbnQpLCBpdCBzdGFydHMgYVxuICAvLyBsb29wIHRoYXQgdXBkYXRlcyB0aGUgZHJhd2luZyBhIGJ1bmNoIG9mIHRpbWVzIGEgc2Vjb25kLiBJZiB3ZSB3ZXJlIGp1c3RcbiAgLy8gdG8gY2FsbCBQNSByZXBlYXRlZGx5IHdpdGggZGlmZmVyZW50IGFyZ3VtZW50cywgdGhlIGxvb3BzIHdvdWxkIGFsbCBrZWVwXG4gIC8vIHJ1bm5pbmcsIG9uZSBvbiB0b3Agb2YgdGhlIG90aGVyLiBTbyB3aGF0IHdlIGRvIGlzIHdlIHVzZSB0aGlzIGNlbGxcbiAgLy8gYXMgYSBnZW5lcmF0b3IsIGFuZCB0aGVuIHdoZW4gdGhhdCBnZW5lcmF0b3IgaXMgaW50ZXJydXB0ZWQsIGxpa2VcbiAgLy8gd2hlbiB5b3UgdXBkYXRlIHRoZSBjb2RlIGluIHRoZSBza2V0Y2goKSBtZXRob2QsIHRoZW4gd2UgY2FsbCBpbnN0YW5jZS5yZW1vdmUoKVxuICAvLyB0byBjbGVhbiBpdCB1cC5cbiAgdHJ5IHtcbiAgICB3aGlsZSAodHJ1ZSkge1xuICAgICAgeWllbGQgZWxlbWVudDtcbiAgICB9XG4gIH0gZmluYWxseSB7XG4gICAgaW5zdGFuY2UucmVtb3ZlKCk7XG4gIH1cblxufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiaW1wb3J0IHsgbGlmZSB9IGZyb20gXCIuL2pzL2xpZmUuanNcIjtcbmNyZWF0ZVNrZXRjaChsaWZlLCAnZ2FtZS1vZi1saWZlJyk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgcnVsZSA9IElucHV0cy5yYW5nZShcbiAgWzAsIDI1NV0sIFxuICB7dmFsdWU6IDMwLCBzdGVwOiAxLCBsYWJlbDogXCJSdWxlIG51bWJlcjpcIn1cbilcbnZpZXdvZiBpbml0aWFsID0gSW5wdXRzLnNlbGVjdChcbiAgW1wic2luZ2xlIDFcIiwgXCJyYW5kb21cIl0sIFxuICB7IHZhbHVlOiBcInNpbmdsZSAxXCIsIFxuICAgIGxhYmVsOiBcIkluaXRpYWwgY29uZGl0aW9uczpcIlxuICB9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTUiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJpbXBvcnQgeyBlbGVtZW50YXJ5UGFyYW0gfSBmcm9tIFwiLi9qcy9lbGVtZW50YXJ5LWNhLmpzXCI7XG5jcmVhdGVTa2V0Y2goZWxlbWVudGFyeVBhcmFtKHJ1bGUsIGluaXRpYWwpLCAnbWFueS1iZWhhdmlvdXJzJyk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTYiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJpbXBvcnQgeyB0aHJlZURDYXQgfSBmcm9tIFwiLi9qcy8zZC1jYXQuanNcIjtcbmNyZWF0ZVNrZXRjaCh0aHJlZURDYXQsICdkaW1lbnNpb25hbC1raW0nKTtcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBydWxlRGlmZmVyZW5jZSA9IElucHV0cy5yYW5nZShcbiAgWzAsIDI1NV0sIFxuICB7dmFsdWU6IDExMCwgc3RlcDogMSwgbGFiZWw6IFwiUnVsZSBudW1iZXI6XCJ9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJpbXBvcnQgeyBkaWZmZXJlbmNlUGFyYW0gfSBmcm9tIFwiLi9qcy9jYS1kaWZmZXJlbmNlLmpzXCI7XG5jcmVhdGVTa2V0Y2goZGlmZmVyZW5jZVBhcmFtKHJ1bGVEaWZmZXJlbmNlKSwgJ2NsYXNzaWNhbC1hbmFsb2d1ZScpO1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdydWxlJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2luaXRpYWwnKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgncnVsZURpZmZlcmVuY2UnKSJ9XX0=
     </script>
     <script type="module">
     if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }

@@ -27,8 +27,6 @@ format:
 P5 = require("p5")
 ```
 
-Add cover image
-
 ```{ojs}
 // Modified from https://observablehq.com/@tmcw/p5
 // See also https://blog.djnavarro.net/posts/2023-01-14_p5js/
@@ -49,7 +47,7 @@ function* createSketch(sketch, slideId) {
 
   // This detects whether we are on the relevant slide (by slideId) and stops the loop if not
   Reveal.on('slidechanged', event => {
-    if (!!event.currentSlide.querySelector("#" + slideId)) {
+    if (event.currentSlide.id == slideId) {
       instance.loop()
     }
     else {
@@ -77,52 +75,13 @@ function* createSketch(sketch, slideId) {
 }
 ```
 
-## Abstract
-
-Many of you will have played with cellular automata such as Conway's Game of Life. These are model systems in which complex and chaotic behaviors emerge from simple dynamical rules.
-
-Motivated by quantum computation, physicists have in recent years begun to study *quantum circuits*, which are in some way quantum analogues of cellular automata. In this talk I'll discuss some of the similarities and differences between these two classes of systems, and what they can teach us about classical and quantum dynamics more generally.
-
----
-
-## Structure
-
-1. Cellular automata and introduce idea of QCs as a quantum analogue
-2. Idea of gates and circuits. Some examples
-3. Brickwork arises naturally by trotterizing
-  1. Maybe used to do approximate continuous time evolution
-  2. Or exactly do stroboscopic (Floquet) evolution
-4. Example of Ising
-5. Importance of locality in real platforms
-6. Operator pushing and causality. No correlations outside light cone
-7. Operator spreading and how to describe
-8. Example of Clifford circuits (KIM at special points)
-9. Relate to cellular automata. Intro to rules. Relate to spatiotemporal cat
-10. Idea of OTOC and illustrate with simulation. Google experiment
-11. Quantifying entanglement
-12. Example of SWAP circuit
-13. Introduce dual unitarity
-14. Special initial states
-15. Introduce influence functional (process tensor)
-16. DU's give pure Markov influence functional. Notion of temporal entanglement
-17. Correlations in circuits
-18. Quantinuum experiment
-19. Triunitarity and example of SWAP circuit
-20. Chaos and solvability.... operator entanglement
-21. Add thoughts on Lorentz invariance at the end.. Luca work too
-
-
-
-
-
-
 ---
 
 ## Game of life
 
 ```{ojs}
 import { life } from "./js/life.js";
-createSketch(life, 'game of life');
+createSketch(life, 'game-of-life');
 ```
 
 ---
@@ -147,13 +106,7 @@ as a longtime fan of Conway's "Game of Life" algorithm i never once considered v
 
 ---
 
-Recursive life
-
-https://oimo.io/works/life/
-
----
-
-### Rules of Life
+## Rules of Life
 
 - Each site either dead (0) or alive (1)
 
@@ -165,9 +118,11 @@ https://oimo.io/works/life/
 
 - Complex behavior!
 
+- See "Recursive Life": [oimo.io/works/life/](https://oimo.io/works/life/)
+
 ---
 
-### Cellular Automata
+## Cellular Automata
 
 - Dynamical systems with discrete *space*, *time*, and *degrees of freedom* 
 
@@ -177,7 +132,7 @@ https://oimo.io/works/life/
 
 ---
 
-### Quantum Circuits
+## Quantum Circuits
 
 - A quantum analog of CAs
 
@@ -185,24 +140,13 @@ https://oimo.io/works/life/
 
 <figure align="center">
 <img src="images/google-sycamore-schematic.png" width="400"/>
-<figcaption> A schematic view of the Google Sycamore processor.</figcaption>
+<figcaption> A schematic view of the Google Sycamore processor</figcaption>
 </figure>
 
 ---
 
-### This talk
 
-- What are the similarities and differences?
- 
-- When is quantum dynamics harder?
- 
- <p align="center" class="fragment">
-<strong>Little quantum computation <i>per se</i>, though it saturates the field</strong>
-</p>
-
----
-
-### Elementary cellular automata
+## Elementary cellular automata
 
 - "Space" is one dimension with cells $x_n=0,1$ $n\in\mathbb{Z}$
 
@@ -225,7 +169,7 @@ $$
 
 ---
 
-### Wolfram's rules 
+## Wolfram's rules 
 
 - Domain of $f$ is $2^3=8$ possible values for three cells
 
@@ -241,9 +185,9 @@ $$
 
 ---
 
-## Elementary cellular automata
+## Many behaviours
 
-- Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)
+- From ordered (Rule 18) to chaotic (Rule 30)
 
 ```{ojs}
 //| panel: input
@@ -262,18 +206,20 @@ viewof initial = Inputs.select(
 
 ```{ojs}
 import { elementaryParam } from "./js/elementary-ca.js";
-createSketch(elementaryParam(rule, initial), 'elementary cellular automata');
+createSketch(elementaryParam(rule, initial), 'many-behaviours');
 ```
 
 - Rule 110 is capable of universal computation!
 
 ----
 
-### CAs as model physics
+## CAs as model physics
 
 - Notion of a causal "light cone" (45 degree lines)
 
 - Variety of possible behaviors: chaos, periodicity, ...
+
+- Do these have quantum analogues?
 
 ---
 
@@ -282,16 +228,18 @@ createSketch(elementaryParam(rule, initial), 'elementary cellular automata');
 
 - Quantum gates and circuits
 
-- What would we like to know?
+- Circuit phenomenology
 
 - Case study: space-time duality
 
+
+# Quantum gates and circuits
 
 ---
 
 ## What is a quantum circuit?
 
-- A way to describe operations on quantum state, usually consisting of several __qubits__ (spin 1/2 subsystems with Hilbert space $\mathbb{C}^2$)
+- A way to describe operations on a quantum state, usually consisting of several __qubits__ (spin 1/2 subsystems with Hilbert space $\mathbb{C}^2$)
 
 - Two quantum states $\ket{0}$ and $\ket{1}$  define the **computational basis**.
 
@@ -457,7 +405,7 @@ $$
 - Condition of unitarity $U^\dagger U = U U^\dagger = \mathsf{1}$
 
 $$
-\sum_{\alpha,\beta}U^{\vphantom{\dagger}}_{a,b,\alpha,\beta} U^\dagger_{\alpha,\beta,c,d}=\delta_{ac}\delta_{bd}
+\sum_{\alpha,\beta}U^{\vphantom{\dagger}}_{ab,\alpha\beta} U^\dagger_{\alpha\beta,cd}=\delta_{ac}\delta_{bd}
 $$
 
 - Unitarity of two qubit gate expressed as
@@ -620,9 +568,8 @@ $$
 
 - [Google's initial claim](https://www.nature.com/articles/s41586-019-1666-5) of supremacy disputed by supercomputer optimizations, followed by improved tensor network methods: [Huang _et al._ (2020)](https://arxiv.org/abs/2005.06787), [Gray and Kourtis (2021)](https://quantum-journal.org/papers/q-2021-03-15-410/), [Pan and Zhang (2021)](https://arxiv.org/abs/2103.03074), [Napp _et al._ (2022)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.021021)
 
----
 
-# What would we like to know?
+# Circuit phenomenology
 
 <p align="center">
 <img src="images/circuit.svg" width="450"/>
@@ -778,7 +725,7 @@ $$
 
 ```{ojs}
 import { threeDCat } from "./js/3d-cat.js";
-createSketch(threeDCat, '3d cat');
+createSketch(threeDCat, 'dimensional-kim');
 ```
 
 ---
@@ -833,19 +780,7 @@ $$
 
 ---
 
-## Phenomenology of spreading
-
-- [von Keyserlingk _et al_ (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013) and 
-[Nahum, Vijay, Haar (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014)
-
-<figure align="center">
-<img src="images/spreading.png" width="70%">
-<figcaption> Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.</figcaption>
-</figure>
-
----
-
-### Classical analogue
+## Classical analogue
 
 - Rapid growth of small differences between two trajectories
 
@@ -860,10 +795,22 @@ viewof ruleDifference = Inputs.range(
 
 ```{ojs}
 import { differenceParam } from "./js/ca-difference.js";
-createSketch(differenceParam(ruleDifference), 'difference');
+createSketch(differenceParam(ruleDifference), 'classical-analogue');
 ```
 
 - Smallest change: flip one site and monitor $z^t\equiv x^t\oplus y^t$
+
+---
+
+## Phenomenology of spreading
+
+- [von Keyserlingk _et al_ (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021013) and 
+[Nahum, Vijay, Haar (2018)](https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014)
+
+<figure align="center">
+<img src="images/spreading.png" width="70%">
+<figcaption> Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.8.021014">Nahum, Vijay, Haar (2018)</a>.</figcaption>
+</figure>
 
 ---
 
@@ -873,7 +820,7 @@ createSketch(differenceParam(ruleDifference), 'difference');
 
 <figure align="center">
 <img src="images/google-otoc.png" width="1000">
-<figcaption> The measured OTOC for $i\operatorname{\operatorname{\mathsf{SWAP}}}$ gates (top) and $\sqrt{i\operatorname{\mathsf{SWAP}}}$ (bottom) after averaging over single qubit gates.</figcaption>
+<figcaption> The measured OTOC for $i\operatorname{\operatorname{\mathsf{SWAP}}}$ gates (top) and $\sqrt{i\operatorname{\mathsf{SWAP}}}$ (bottom) after averaging over single qubit gates</figcaption>
 </figure>
 
 
@@ -881,7 +828,7 @@ createSketch(differenceParam(ruleDifference), 'difference');
 
 ## Quantifying entanglement
 
-- RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B
+- System composed of two subsystems A and B
 
 - General state is vector $\in\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B$  
 
@@ -1014,7 +961,7 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 - This picture remains true in circuits where there is no quasiparticle interpretation
 
 
-# Dual unitary circuits
+# Case study: space-time duality
 
 ---
 
@@ -1106,7 +1053,7 @@ $$
 
 ## Entanglement from space-time duality
 
-- Start from neighbouring Bell states
+- Start from neighbouring Bell states (_seems_ special)
 
 <figure align="center">
 <img src="images/isometry.svg" width="90%">
@@ -1250,19 +1197,15 @@ $$
 
 - Happens precisely for bath of size $t$
 
-- Process tensor
-
----
-
-Pure Markov bath (no approximation)
-
-Happens precisely for bath of size $t$
-
 ---
 
 ## Temporal entanglement
 
-.. Abanin... Fux... recent Pieter work
+- A DU circuit is a purely Markovian bath (no approximation)
+
+- Degree of non-markovianity captured by _temporal entanglement_ ([Sonner, Lerose, Abanin (2021)](https://www-sciencedirect-com.ezp.lib.cam.ac.uk/science/article/pii/S0003491621002797))
+
+- Low temporal entanglment allows efficient MPS methods to be applied to process tensor (see [Fux _et al._ (2021)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.200401))
 
 ---
 
@@ -1284,7 +1227,7 @@ $$
 
 ## Quantinuum experiment
 
-- Correlations measured in SDKIM [last year]((https://www.nature.com/articles/s41567-022-01689-7))
+- Correlations measured in SDKIM by [Chertkov _et al._ (2022)](https://www.nature.com/articles/s41567-022-01689-7)
 
 <figure align="center">
 <img src="images/quantinuum.png" width="800">
@@ -1317,7 +1260,7 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/2058-9565/aad759">G
 
 ---
 
-### Basic ingredients: Z and X tensors ("spiders")
+## Basic ingredients: Z and X tensors ("spiders")
 
 <figure align="center">
 <img src="images/z-spider.png" width="100%"/>
@@ -1347,7 +1290,7 @@ $$
 
 ---
 
-### Simplest examples
+## Simplest examples
 
 - Identity
 
@@ -1359,7 +1302,7 @@ $$
 
 ---
 
-### Example: [Liu and Ho (2023)](https://arxiv.org/abs/2312.12239)
+## Example: [Liu and Ho (2023)](https://arxiv.org/abs/2312.12239)
 
 <figure align="center">
 <img src="images/liu-ho-circuit.png" width="80%"/>
@@ -1368,13 +1311,13 @@ $$
 
 ---
 
-### Rewrite in ZX language
+## Rewrite in ZX language
 
 <figure align="center">
 <img src="images/hexagonal-bare.svg" width="50%"/>
 </figure>
 
-- CNOTs (East model, see [Bertini _et al._ (2023)](https://arxiv.org/abs/2310.06128)) + phases on each spider
+- CNOTs (East model, see also [Bertini _et al._ (2023)](https://arxiv.org/abs/2310.06128)) + phases on each spider
 
 ---
 
