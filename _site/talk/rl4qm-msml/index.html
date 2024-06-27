@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Austen Lamacraft</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon-32x32-roboto-slab.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Austen Lamacraft</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.pdf"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AustenLamacraft"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/AustenLamacraft"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p><span class="math display">\[
+\nonumber
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bz}{\mathbf{z}}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\]</span></p>
+<hr>
+<section id="quantum-ground-states-from-reinforcement-learning" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-ground-states-from-reinforcement-learning">Quantum Ground States from Reinforcement Learning</h2>
+<p>Work with Ariel Barr and Willem Gispen</p>
+<p align="center">
+<img src="assets/ariel.png" height="300"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="assets/willem.png" height="300">
+</p>
+<hr>
+</section>
+<section id="schrödinger-equation-n-particles" class="level2">
+<h2 class="anchored" data-anchor-id="schrödinger-equation-n-particles">Schrödinger Equation: N Particles</h2>
+<ul>
+<li>Basic object is <em>wavefunction</em>: <span class="math inline">\(\Psi(\br_1,\ldots \br_N)\)</span></li>
+</ul>
+<p><code>$$ \overbrace{\left[\sum_i\left(-\frac{\nabla_i^2}{2m_i}+V(\br_i)\right)+\sum_{i&lt;j}U(\br_i-\br_j)\right]}^{\equiv H \text{, Hamiltonian}}\Psi(\br_1,\ldots \br_N) = E\Psi(\br_1,\ldots \br_N) $$</code></p>
+<ul>
+<li>Requires grid in <span class="math inline">\(3N\)</span> dimensions of <span class="math inline">\(L^{3N}\)</span> points!</li>
+<li><strong>Atoms / molecules</strong> are hard; <strong>matter</strong> (<span class="math inline">\(N\sim N_\text{A}\)</span>) is impossible!</li>
+</ul>
+<hr>
+</section>
+<section id="variational-principle" class="level2">
+<h2 class="anchored" data-anchor-id="variational-principle">Variational Principle</h2>
+<ul>
+<li>For <em>approximate</em> <span class="math inline">\(\Psi\)</span> can upper bound <em>ground state</em> <span class="math inline">\(E_0\)</span></li>
+</ul>
+<p><code>$$ \begin{align} E_0 &amp;\leq \inf_{\lVert\Psi\rVert=1} \langle \Psi\lvert H\rvert\Psi\rangle\\ \langle \Psi\lvert H\rvert\Psi\rangle &amp;= \int d\br_1\cdots d\br_N \Psi^*(\br_1,\ldots,\br_N)\left[H \Psi\right](\br_1,\ldots,\br_N) \end{align} $$</code></p>
+<p>Challenges</p>
+<ol type="1">
+<li>Form of <span class="math inline">\(\Psi\)</span></li>
+<li>Expectation evaluation</li>
+<li>Optimization</li>
+</ol>
+<hr>
+</section>
+<section id="form-of-psi-feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="form-of-psi-feature-engineering">Form of <span class="math inline">\(\Psi\)</span> (‘Feature Engineering’)</h2>
+<p>Wavefunctions of restricted form</p>
+<ul>
+<li>Factorized, leading to <strong>Hartree–Fock</strong> method</li>
+</ul>
+<p><span class="math display">\[
+\Psi(\br_1,\ldots,\br_N)=\psi_1(\br_1)\ldots \psi_N(\br_N).
+\]</span></p>
+<ul>
+<li><strong>Jastrow factors</strong> include pair correlations</li>
+</ul>
+<p><code>$$ \Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i&lt;j}\phi(\br_i-\br_j)\right) $$</code></p>
+<ul>
+<li>Many more…</li>
+</ul>
+<hr>
+</section>
+<section id="expectation-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="expectation-evaluation">Expectation evaluation</h2>
+<p><span class="math inline">\(|\Psi(\br_1,\ldots,\br_N)|^2\)</span> a probability distribution, so evaluate</p>
+<p><code>$$ \frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}  =\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)} $$</code></p>
+<p>by Monte Carlo sampling. This is <strong>Variational Monte Carlo (VMC)</strong></p>
+<hr>
+</section>
+<section id="neural-approaches" class="level2">
+<h2 class="anchored" data-anchor-id="neural-approaches">Neural Approaches</h2>
+<p><span class="math inline">\(\Psi(\bR)\sim \textsf{NN}(\bR)\)</span> and optimize!</p>
+<ul>
+<li><p>Carleo and Troyer (2017): lattice models (more later)</p></li>
+<li><p>…</p></li>
+<li><p>Many electrons: Han <em>et al.</em>, Pfau <em>et al.</em>, Herman <em>et al.</em> (all 2019)</p></li>
+</ul>
+<hr>
+</section>
+<section id="tldr" class="level2">
+<h2 class="anchored" data-anchor-id="tldr">TL;DR</h2>
+<ul>
+<li><p><span class="math inline">\(\exists\)</span> other formulations of QM including <strong>Feynman’s path integral</strong></p></li>
+<li><p>Let’s learn the path integral instead!</p></li>
+</ul>
+<hr>
+</section>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<ul>
+<li>Theory
+<ul>
+<li>The path integral</li>
+<li>Loss</li>
+<li>Training</li>
+<li>Architectures</li>
+</ul></li>
+<li>Experiments</li>
+<li>Future directions</li>
+</ul>
+<hr>
+</section>
+<section id="path-integral" class="level2">
+<h2 class="anchored" data-anchor-id="path-integral">Path integral</h2>
+<ul>
+<li>For “Imaginary time” Schrödinger <span class="math display">\[
+\left[-\frac{\nabla^2}{2m}+V(\br_i)\right]\psi(\br,t) = -\partial_t\psi(\br,t)
+\]</span></li>
+<li><strong>Feynman–Kac</strong> formula expresses <span class="math inline">\(\psi(\br,t)\)</span> as expectation… <code>$$   \psi(\br_2,t_2) =  \E_{\br_t}\left[\exp\left(-\int_{t_1}^{t_2}V(\br_t)dt\right)\psi(\br_{t_1},t_1)\right] $$</code>
+<div data-align="right">
+<p>…over Brownian paths with <span class="math inline">\(\br_{t_{2}}=\br_{2}\)</span></p>
+</div></li>
+<li>For <span class="math inline">\(t\to\infty\)</span>: <span class="math inline">\(\psi(\br,t)\to e^{-E_0 t}\varphi_0(\br)\)</span></li>
+</ul>
+<hr>
+<ul>
+<li>Path integral Monte Carlo</li>
+</ul>
+<p align="center">
+<img src="assets/ceperley.png" width="50%">
+</p>
+<div data-align="right">
+<p><a href="https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279"> Ceperley, RMP (1995) </a></p>
+</div>
+<hr>
+</section>
+<section id="loss-function" class="level2">
+<h2 class="anchored" data-anchor-id="loss-function">Loss function</h2>
+<ul>
+<li><p>FK formula defines <strong>path measure</strong> <span class="math inline">\(\mathbb{P}_\text{FK}\)</span></p></li>
+<li><p>Jamison (1974): process is <strong>Markovian</strong> <span class="math display">\[
+d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt
+\]</span></p></li>
+<li><p>Model drift <span class="math inline">\(\bv(\br,t)\)</span> defines measure <span class="math inline">\(\mathbb{P}_\bv\)</span></p></li>
+<li><p><span class="math inline">\(D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})=\E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]\)</span> is our loss function</p></li>
+<li><p>RL / Optimal Control formulation of QM (Holland, 1977)</p></li>
+</ul>
+<hr>
+</section>
+<section id="training" class="level2">
+<h2 class="anchored" data-anchor-id="training">Training</h2>
+<ul>
+<li>Relative likelihood (Radon–Nikodym derivative; Girsanov theorem)</li>
+</ul>
+<p><code>$$   \log\left(\frac{d\mathbb{P}_{\bv}}{d\mathbb{P}_\text{FK}}\right) =\ell_T - E_0 T+\log\left(\frac{\varphi_0(\br_0)}{\varphi_0(\br_T)}\right) $$</code> <span class="math display">\[
+   \ell_T\equiv \int_0^T \bv(\br_t)
+  \cdot d\mathbf{B}_t+\int_0^T dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)
+\]</span></p>
+<ul>
+<li><p>Monte Carlo estimate of <span class="math inline">\(D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})=\E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]\)</span></p></li>
+<li><p><span class="math inline">\(\br^{(b)}_{t}\)</span> from SDE discretization. Analogous to reparameterization trick</p></li>
+<li><p><span class="math inline">\(D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})\geq 0\)</span> so <span class="math inline">\(\E_{\mathbb{P}_\bv}\left[\ell_T\right]\geq E_0T\)</span></p></li>
+</ul>
+<hr>
+<ul>
+<li><p>Suggests strategy:</p>
+<ol type="1">
+<li>Represent <code>$\bv_\theta(\br) = \textsf{NN}_\theta(\br)$</code></li>
+<li>Integrate batch of SDE trajectories</li>
+<li>Backprop through the (MC estimated) cost</li>
+</ol></li>
+</ul>
+<p align="center">
+<img src="assets/8-particles.png" width="50%">
+</p>
+<hr>
+</section>
+<section id="architectures" class="level2">
+<h2 class="anchored" data-anchor-id="architectures">Architectures</h2>
+<ul>
+<li>For identical particles require <em>permutation equivariance</em></li>
+</ul>
+<p><code>$$  \bv_{i,\theta}(\br_1,\ldots,\br_N) = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)}) $$</code></p>
+<div data-align="right">
+<p>…for any permutation <span class="math inline">\(P\)</span></p>
+</div>
+<ul>
+<li>Numerous recent proposals e.g.&nbsp;<a href="https://arxiv.org/abs/1703.06114">DeepSets</a> (Zaheer <em>et al.</em>, 2017)</li>
+</ul>
+<hr>
+</section>
+<section id="pairdrift" class="level2">
+<h2 class="anchored" data-anchor-id="pairdrift">PairDrift</h2>
+<ul>
+<li>Single particle and pair features <code>$$ \mathbf{h}_i = \boldsymbol{\sigma}_1(\mathbf{r}_i) + \sum_j \boldsymbol{\pi}_1(\mathbf{r}_i-\mathbf{r}_j)\qquad  \mathbf{h}_{ij} = \boldsymbol{\Pi}_1(\mathbf{r}_i-\mathbf{r}_j). $$</code> <span class="math inline">\(\boldsymbol{\sigma}, \boldsymbol{\pi}:\mathbb{R}^d\to \mathbb{R}^H\)</span> and <span class="math inline">\(\boldsymbol{\Pi}:\mathbb{R}^d\to \mathbb{R}^{H\times H}\)</span> NNs <code>$$ \tilde{\mathbf{h}}_i = \boldsymbol{\sigma}_2(\mathbf{h}_i) + \sum_j \boldsymbol{\pi}_2(\mathbf{h}_{ij})\qquad \tilde{\mathbf{h}}_{ij} = \boldsymbol{\Pi}_2(\mathbf{h}_{ij}). $$</code></li>
+<li>Drift function is then <code>$$ \bv_i = \boldsymbol{\sigma}_3(\tilde{\mathbf{h}}_i) + \sum_j \boldsymbol{\pi}_3(\tilde{\mathbf{h}}_{ij}). $$</code></li>
+</ul>
+<hr>
+</section>
+<section id="experiments" class="level2">
+<h2 class="anchored" data-anchor-id="experiments">Experiments</h2>
+<ol type="1">
+<li>Hydrogen and Helium atoms</li>
+<li>Hydrogen molecule</li>
+<li>2D Bosons in harmonic potential with Gaussian interactions</li>
+</ol>
+<ul>
+<li>Single hidden layer (width 64 or 256)</li>
+<li>HardTanh activation</li>
+<li>No additional use made of symmetries</li>
+</ul>
+<div data-align="right">
+<p>PyTorch code at <a href="https://github.com/AustenLamacraft/QuaRL"> https://github.com/AustenLamacraft/QuaRL </a></p>
+</div>
+<hr>
+</section>
+<section id="helium-2-electrons" class="level2">
+<h2 class="anchored" data-anchor-id="helium-2-electrons">Helium: 2 electrons</h2>
+<p><span class="math display">\[
+H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \frac{1}{|\br_1-\br_2|}
+\]</span></p>
+<ul>
+<li><p>Ground state spins <em>antisymmetric</em>; spatial wavefunction <em>symmetric</em></p></li>
+<li><p><span class="math inline">\(\varphi_0(\br_1,\br_2)\)</span> not known exactly but <span class="math inline">\(E_0=-2.903386\)</span></p></li>
+<li><p>Kato’s cusp condition implemented with skip connections</p></li>
+</ul>
+<hr>
+</section>
+<section id="hydrogen-molecule" class="level2">
+<h2 class="anchored" data-anchor-id="hydrogen-molecule">Hydrogen Molecule</h2>
+<p><code>$$ H = -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right] $$</code></p>
+<ul>
+<li>Equilibrium proton separation <span class="math inline">\(R=1.401\)</span>, <span class="math inline">\(E_0= -1.174476\)</span>
+<p align="center">
+<img src="assets/H2_density.jpg" width="35%">
+</p></li>
+</ul>
+<hr>
+</section>
+<section id="atomic-molecular-results" class="level2">
+<h2 class="anchored" data-anchor-id="atomic-molecular-results">Atomic / Molecular results</h2>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 28%">
+<col style="width: 38%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Method</th>
+<th style="text-align: center;">H atom</th>
+<th style="text-align: center;">He atom</th>
+<th style="text-align: center;">H<sub>2</sub> molecule</th>
+<th style="text-align: center;">H<sub>2</sub> molecule (R=2.8)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Numerically exact</td>
+<td style="text-align: center;">-0.5</td>
+<td style="text-align: center;">-2.903</td>
+<td style="text-align: center;">-1.173</td>
+<td style="text-align: center;">-1.071</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Hartree–Fock</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">-2.862(1.4%)</td>
+<td style="text-align: center;">-1.129(3.8%)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Ours</strong></td>
+<td style="text-align: center;">-0.497(0.6%)</td>
+<td style="text-align: center;">-2.898(0.2%)</td>
+<td style="text-align: center;">-1.169(0.3%)</td>
+<td style="text-align: center;">-1.068(0.3%)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="d-gaussian-bosons" class="level2">
+<h2 class="anchored" data-anchor-id="d-gaussian-bosons">2D Gaussian Bosons</h2>
+<p><code>$$ \begin{align} H&amp;=\frac{1}{2}\sum_i \left[-\nabla_i^2 +\br_i^2\right]+\sum_{i&lt;j}U(\br_i-\br_j)\\ U(\br) &amp;=\frac{g}{\pi s^2}e^{-\br^2/s^2} \end{align} $$</code></p>
+<ul>
+<li><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.96.043614">Mujal <em>et al.</em>, PRA 2017</a> model for ultracold atoms</li>
+</ul>
+<p align="center">
+<img style="center" src="assets/mujal4.png" width="40%">
+</p>
+<hr>
+<ul>
+<li>Drift Visualization (<span class="math inline">\(g=15\)</span>, <code>$s=1/2$</code>)</li>
+</ul>
+<p align="center">
+<img style="center" src="assets/bosons_vector_field.jpg" width="80%">
+</p>
+<hr>
+<ul>
+<li>Differences &lt;1% even with strong interaction
+<p align="center">
+<img style="center" src="assets/bosons-energies.png" width="80%">
+</p></li>
+</ul>
+<hr>
+</section>
+<section id="outlook" class="level2">
+<h2 class="anchored" data-anchor-id="outlook">Outlook</h2>
+<ul>
+<li><p>Excited states; angular momentum ↔︎ <em>non-reversible</em> drift</p></li>
+<li><p>Fermions? Dealing with the <strong>sign problem</strong></p></li>
+<li><p>Lattice models</p></li>
+</ul>
+<hr>
+</section>
+<section id="next-up-lattice-models" class="level2">
+<h2 class="anchored" data-anchor-id="next-up-lattice-models">Next Up: Lattice Models</h2>
+<p align="center">
+<img src="assets/go.png" height="300"> <img src="assets/bh.jpg" height="300">
+</p>
+<hr>
+</section>
+<section id="xy-model" class="level2">
+<h2 class="anchored" data-anchor-id="xy-model">XY model</h2>
+<ul>
+<li>On chain / square / cubic lattice</li>
+</ul>
+<p><code>$$ \begin{align} \partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &amp;= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\ &amp;=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ} \end{align} $$</code></p>
+<ul>
+<li>c.f. imaginary time Schrödinger</li>
+</ul>
+<p><span class="math display">\[
+  \frac{\partial\psi(\br,t)}{\partial t} = \left[\frac{\nabla^2}{2}-V(\br_i)\right]\psi(\br,t)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\exists\)</span> Feynamn–Kac representation!</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

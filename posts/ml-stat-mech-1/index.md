@@ -16,6 +16,8 @@ format:
 ---
 
 
+# Introduction
+
 In these lectures we are going to explore some connections between machine learning (ML) and (classical) statistical mechanics (SM). To be precise, we are going to see how the appearance of *probabilistic models* with *large numbers of variables* in both fields means that certain theoretical concepts and tools can be applied in both. To get things going, let's see how this probabilistic viewpoint arises in the two settings.
 
 $$
@@ -23,7 +25,7 @@ $$
 \newcommand{\cE}{\mathcal{E}}
 $$
 
-### Probability in Statistical Mechanics
+## Probability in Statistical Mechanics
 
 The basic problem of SM is to describe the thermodynamic properties of  a macroscopic system *probabilistically* in terms its microscopic constituents. 
 
@@ -65,7 +67,7 @@ The most pessimistic assessment is that to calculate an average we are going to 
 
 If you ever find yourself talking to a probabilist, you may find it helpful to know that these kind of models are called (undirected) [graphical models](https://en.wikipedia.org/wiki/Graphical_model), because their probability distribution is defined by a graph, called a [factor graph](https://en.wikipedia.org/wiki/Factor_graph). 
 
-### Probability in Machine Learning 
+## Probability in Machine Learning 
 
 What about ML? Let's take computer vision, one of the problems in which ML has made great progress in recent years. A (static) image is defined by a set of $(R,G,B)$ values at each pixel, each defined by eight bits i.e. an integer in $[0,255]$. The **basic hypothesis** on which probabilistic machine learning rests is that a dataset represents a set of independent and identically distributed (**iid**) samples of some random variables. In the case of an image, the random variables are the RGB values of all the pixels. The distribution of these variables has to be highly correlated and have a great deal of complex structure: rather than generating white noise for each sample we instead get (say) cats and dogs.
 
@@ -97,11 +99,11 @@ Planted ensembles
 - [ ] Refer to Alemi here? -->
 
 
-## Lecture 1: Fundamentals
+# Lecture 1: Fundamentals
 
-### Some mathematical background
+## Some mathematical background
 
-#### Probabilities: joint and conditional
+### Probabilities: joint and conditional
 
 Probabilities are real positive numbers $p(x)\geq 0$ satisfying 
 
@@ -147,7 +149,7 @@ which is sometimes called the [chain rule of probability](https://en.wikipedia.o
 
 Sampling from a highly complex joint distribution $p(x_1,\ldots x_N)$ is generally difficult. One of the benefits of formulating a model as in $\eqref{eq:chain}$ is that producing samples is much easier. First you sample $x_1$ using $p(\cdot)$, then sample $x_2$ using $p(\cdot|x_1)$, and so on. You never have to sample more than one variable at once!
 
-#### Priors and posteriors
+### Priors and posteriors
 
 Another way to express the joint probability $\eqref{eq:joint}$ is
 
@@ -189,7 +191,7 @@ Bayes' theorem lets us update our beliefs about parameters based on our initial 
 
 <!-- In the real world, it's not that easy. You don't actually get the data distribution $p(x)$, but rather samples from it. Also, your model may not be good enough for the task in hand. We'll talk about how we deal with these issues shortly. -->
 
-#### Latent variables; generative models
+### Latent variables; generative models
 
 Bayesian inference also underlies models involving *latent* (or hidden, or unobserved) variables. The idea here is that instead of the data telling us about the distribution of $z$s whose values may describe the entire dataset i.e. $p(x_1,\ldots x_N|z)$, we allow the $z$s to have different distributions for different data points $p(z_n|x_n)$. Equivalently, our model is defined by a joint distribution $p(x,z)$. 
 
@@ -205,7 +207,7 @@ Latent variables are a route to perform **structure learning**: uncovering meani
 
 Latent variable models are also the basis of **generative modelling**: sampling from a distribution $p(x)$ learnt from data. If the model has been formulated in terms of a prior $p(z)$ over latent variables and a generative model $p(x|z)$, sampling is straightforward in principle.
 
-#### Entropy
+### Entropy
 
 In SM we're familiar with the entropy associated with a probability distribution. This quantity arrived in ML from information theory and is given the symbol $H$ (for [Hartley](https://en.wikipedia.org/wiki/Ralph_Hartley)?)
 
@@ -261,7 +263,7 @@ $$
 \log_2\left(p_H^{N_H}p_T^{N_T}\right)= N_H\log_2 p_H + N_T\log_2 p_T = -N H[p_H, p_T]. 
 $$
 
-#### Entropy and information 
+### Entropy and information 
 
 This property of entropy provides a way to quantify the amount of information in a signal. If the coin is *really* biased, returning a head almost every time, you won't be surprised when you get heads, but will be surprised when you get tails. Note that the entropy of such a sequence is lower than for a fair coin, which has the maximum entropy $H=1$ . If you wanted to describe such sequence, like
 
@@ -310,7 +312,7 @@ The trade-off, then, is
 - These big chunks (images in our example) will have correspondingly more complicated distributions $p_\text{D}$, which your model $p_\text{M}$ will have to match if you want to approach optimal encoding.
 
 
-#### Divergences
+### Divergences
 
 The above discussion should make it clear that we need some way of talking about the degree to which two distributions differ. The most common measure in use in ML is the [Kullback–Leibler divergence](https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence) (KL)
 
@@ -371,7 +373,7 @@ Minimal description length
 
 - [ ] Forward and reverse KL and the meaning -->
 
-### Variational inference (VI)
+## Variational inference (VI)
 
 After introducing Bayes' theorem we discussed how you might go about fitting a model to data. It's not as easy we made it sound. Recall that Bayes' says the posterior distribution is
 
@@ -389,7 +391,7 @@ The denominator $p(x)=\sum_z p(x,z)$ normalizes the distribution $p(z|x)$, just 
 
 In this section we'll see that it's possible to develop a variational formulation of the problem that returns the "best" posterior given a family of models. It's basically a straight copy of physicists' mean field theory, so we'll review that first using the language of probability.
 
-#### Mean field theory
+### Mean field theory
 
 For an SM model like the Ising model the probability has the form
 
@@ -447,7 +449,7 @@ $$
 
 Optimizing $\eqref{eq:mft}$ with respect to $\phi_n$ reproduces the equations of [mean field theory](https://en.wikipedia.org/wiki/Mean-field_theory#Ising_model). The optimal values of $\phi_n$ are interpreted as the "mean fields" due to the applied field and the other spins coupled to $\sigma_n$.
 
-#### VI in latent variable models
+### VI in latent variable models
 
 The only thing we need to do to apply the same idea to latent variable models is to replace $\eqref{eq:boltzmann}$ with 
 

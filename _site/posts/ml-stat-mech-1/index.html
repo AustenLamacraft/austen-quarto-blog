@@ -188,12 +188,27 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#probability-in-statistical-mechanics" id="toc-probability-in-statistical-mechanics" class="nav-link active" data-scroll-target="#probability-in-statistical-mechanics">Probability in Statistical Mechanics</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#probability-in-statistical-mechanics" id="toc-probability-in-statistical-mechanics" class="nav-link" data-scroll-target="#probability-in-statistical-mechanics">Probability in Statistical Mechanics</a></li>
   <li><a href="#probability-in-machine-learning" id="toc-probability-in-machine-learning" class="nav-link" data-scroll-target="#probability-in-machine-learning">Probability in Machine Learning</a></li>
+  </ul></li>
   <li><a href="#lecture-1-fundamentals" id="toc-lecture-1-fundamentals" class="nav-link" data-scroll-target="#lecture-1-fundamentals">Lecture 1: Fundamentals</a>
   <ul class="collapse">
-  <li><a href="#some-mathematical-background" id="toc-some-mathematical-background" class="nav-link" data-scroll-target="#some-mathematical-background">Some mathematical background</a></li>
-  <li><a href="#variational-inference-vi" id="toc-variational-inference-vi" class="nav-link" data-scroll-target="#variational-inference-vi">Variational inference (VI)</a></li>
+  <li><a href="#some-mathematical-background" id="toc-some-mathematical-background" class="nav-link" data-scroll-target="#some-mathematical-background">Some mathematical background</a>
+  <ul class="collapse">
+  <li><a href="#probabilities-joint-and-conditional" id="toc-probabilities-joint-and-conditional" class="nav-link" data-scroll-target="#probabilities-joint-and-conditional">Probabilities: joint and conditional</a></li>
+  <li><a href="#priors-and-posteriors" id="toc-priors-and-posteriors" class="nav-link" data-scroll-target="#priors-and-posteriors">Priors and posteriors</a></li>
+  <li><a href="#latent-variables-generative-models" id="toc-latent-variables-generative-models" class="nav-link" data-scroll-target="#latent-variables-generative-models">Latent variables; generative models</a></li>
+  <li><a href="#entropy" id="toc-entropy" class="nav-link" data-scroll-target="#entropy">Entropy</a></li>
+  <li><a href="#entropy-and-information" id="toc-entropy-and-information" class="nav-link" data-scroll-target="#entropy-and-information">Entropy and information</a></li>
+  <li><a href="#divergences" id="toc-divergences" class="nav-link" data-scroll-target="#divergences">Divergences</a></li>
+  </ul></li>
+  <li><a href="#variational-inference-vi" id="toc-variational-inference-vi" class="nav-link" data-scroll-target="#variational-inference-vi">Variational inference (VI)</a>
+  <ul class="collapse">
+  <li><a href="#mean-field-theory" id="toc-mean-field-theory" class="nav-link" data-scroll-target="#mean-field-theory">Mean field theory</a></li>
+  <li><a href="#vi-in-latent-variable-models" id="toc-vi-in-latent-variable-models" class="nav-link" data-scroll-target="#vi-in-latent-variable-models">VI in latent variable models</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -205,13 +220,15 @@ window.Quarto = {
 
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
 <p>In these lectures we are going to explore some connections between machine learning (ML) and (classical) statistical mechanics (SM). To be precise, we are going to see how the appearance of <em>probabilistic models</em> with <em>large numbers of variables</em> in both fields means that certain theoretical concepts and tools can be applied in both. To get things going, let’s see how this probabilistic viewpoint arises in the two settings.</p>
 <p><span class="math display">\[
 \DeclareMathOperator*{\E}{\mathbb{E}}
 \newcommand{\cE}{\mathcal{E}}
 \]</span></p>
-<section id="probability-in-statistical-mechanics" class="level3">
-<h3 class="anchored" data-anchor-id="probability-in-statistical-mechanics">Probability in Statistical Mechanics</h3>
+<section id="probability-in-statistical-mechanics" class="level2">
+<h2 class="anchored" data-anchor-id="probability-in-statistical-mechanics">Probability in Statistical Mechanics</h2>
 <p>The basic problem of SM is to describe the thermodynamic properties of a macroscopic system <em>probabilistically</em> in terms its microscopic constituents.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -248,8 +265,8 @@ p(\mathbf{x})=\frac{\exp\left[-\beta \mathcal{E}(\mathbf{x})\right]}{Z},
 <p>The most pessimistic assessment is that to calculate an average we are going to have sum over <span class="math inline">\(2^N\)</span> configurations. You probably know, however, that over the years physicists have developed lots of methods to solve the problem approximately, including mean field theory and Monte Carlo simulations. We’ll return to this stuff later.</p>
 <p>If you ever find yourself talking to a probabilist, you may find it helpful to know that these kind of models are called (undirected) <a href="https://en.wikipedia.org/wiki/Graphical_model">graphical models</a>, because their probability distribution is defined by a graph, called a <a href="https://en.wikipedia.org/wiki/Factor_graph">factor graph</a>.</p>
 </section>
-<section id="probability-in-machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="probability-in-machine-learning">Probability in Machine Learning</h3>
+<section id="probability-in-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="probability-in-machine-learning">Probability in Machine Learning</h2>
 <p>What about ML? Let’s take computer vision, one of the problems in which ML has made great progress in recent years. A (static) image is defined by a set of <span class="math inline">\((R,G,B)\)</span> values at each pixel, each defined by eight bits i.e.&nbsp;an integer in <span class="math inline">\([0,255]\)</span>. The <strong>basic hypothesis</strong> on which probabilistic machine learning rests is that a dataset represents a set of independent and identically distributed (<strong>iid</strong>) samples of some random variables. In the case of an image, the random variables are the RGB values of all the pixels. The distribution of these variables has to be highly correlated and have a great deal of complex structure: rather than generating white noise for each sample we instead get (say) cats and dogs.</p>
 <p>While this may seem like a funny way of thinking about a stack of photos it does conceptually have a lot in common with the way probability is often used in physics. After all, classical statistical mechanics is built on the notion that the motion of gas molecules is completely deterministic but incredibly complicated. While detailed knowledge of the dynamics is completely beyond our reach it is also irrelevant for the thermodynamic behaviour of interest: two boxes of gas behave in exactly the same way despite the underlying configurations of the molecules being completely different. Physics is used, however, to constrain our probability model. For example, collisions between molecules are elastic and momentum conserving.</p>
 <p>The <strong>difference</strong> from the SM situation is that we don’t know the probability distribution up front. The goal is to <em>infer</em> the distribution from data. Conceptually then, probabilistic ML is the same as <a href="https://en.wikipedia.org/wiki/Statistical_inference">statistical inference</a>. The different terms mostly reflect the differing background of practitioners: ML comes from computer science; statistical inference from mathematics. It all comes down to the tools you use: in recent years probabilistic ML has made great strides using models based on neural networks together with the associated training algorithms, which have allowed very rich probability distributions, describing datasets of images or audio signals, to be successfully modelled.</p>
@@ -273,12 +290,13 @@ Planted ensembles
 - [ ] Not going to discuss supervised learning, labels and all that
 - [ ] Refer to Alemi here? -->
 </section>
-<section id="lecture-1-fundamentals" class="level2">
-<h2 class="anchored" data-anchor-id="lecture-1-fundamentals">Lecture 1: Fundamentals</h2>
-<section id="some-mathematical-background" class="level3">
-<h3 class="anchored" data-anchor-id="some-mathematical-background">Some mathematical background</h3>
-<section id="probabilities-joint-and-conditional" class="level4">
-<h4 class="anchored" data-anchor-id="probabilities-joint-and-conditional">Probabilities: joint and conditional</h4>
+</section>
+<section id="lecture-1-fundamentals" class="level1">
+<h1>Lecture 1: Fundamentals</h1>
+<section id="some-mathematical-background" class="level2">
+<h2 class="anchored" data-anchor-id="some-mathematical-background">Some mathematical background</h2>
+<section id="probabilities-joint-and-conditional" class="level3">
+<h3 class="anchored" data-anchor-id="probabilities-joint-and-conditional">Probabilities: joint and conditional</h3>
 <p>Probabilities are real positive numbers <span class="math inline">\(p(x)\geq 0\)</span> satisfying</p>
 <p><span class="math display">\[
 \sum_x p(x)=1
@@ -320,8 +338,8 @@ p(x_1,\ldots x_N)=p(x_1)p(x_2|x_1)p(x_3|x_2,x_1)\cdots p(x_N|x_1,\ldots x_{N-1})
 <p>which is sometimes called the <a href="https://en.wikipedia.org/wiki/Chain_rule_(probability)">chain rule of probability</a>. Although it’s always possible <em>in principle</em> to express a joint probability like this, there’s no guarantee it’s easy to do or useful. One situation in which one may expect it to be a convenient description is when there is a natural order to the variables. For example, words or characters in text or any kind of time series. In this case the model may still be useful if the conditional probabilities involve only a fixed number <span class="math inline">\(p\)</span> of the preceding variables, even as <span class="math inline">\(N\to\infty\)</span>. Such models are called <a href="https://en.wikipedia.org/wiki/Autoregressive_model">autoregressive</a>, although a physicist may be tempted to call them <em>causal</em>.</p>
 <p>Sampling from a highly complex joint distribution <span class="math inline">\(p(x_1,\ldots x_N)\)</span> is generally difficult. One of the benefits of formulating a model as in <span class="math inline">\(\eqref{eq:chain}\)</span> is that producing samples is much easier. First you sample <span class="math inline">\(x_1\)</span> using <span class="math inline">\(p(\cdot)\)</span>, then sample <span class="math inline">\(x_2\)</span> using <span class="math inline">\(p(\cdot|x_1)\)</span>, and so on. You never have to sample more than one variable at once!</p>
 </section>
-<section id="priors-and-posteriors" class="level4">
-<h4 class="anchored" data-anchor-id="priors-and-posteriors">Priors and posteriors</h4>
+<section id="priors-and-posteriors" class="level3">
+<h3 class="anchored" data-anchor-id="priors-and-posteriors">Priors and posteriors</h3>
 <p>Another way to express the joint probability <span class="math inline">\(\eqref{eq:joint}\)</span> is</p>
 <p><span class="math display">\[
 p(x,y)=p(y|x)p(x)
@@ -348,8 +366,8 @@ p(z|x_1,\ldots x_N) \propto  p(x_1,\ldots x_N|z)p(z).
 {{&lt; tweet 1325474361407660034 &gt;}}
 <!-- In the real world, it's not that easy. You don't actually get the data distribution $p(x)$, but rather samples from it. Also, your model may not be good enough for the task in hand. We'll talk about how we deal with these issues shortly. -->
 </section>
-<section id="latent-variables-generative-models" class="level4">
-<h4 class="anchored" data-anchor-id="latent-variables-generative-models">Latent variables; generative models</h4>
+<section id="latent-variables-generative-models" class="level3">
+<h3 class="anchored" data-anchor-id="latent-variables-generative-models">Latent variables; generative models</h3>
 <p>Bayesian inference also underlies models involving <em>latent</em> (or hidden, or unobserved) variables. The idea here is that instead of the data telling us about the distribution of <span class="math inline">\(z\)</span>s whose values may describe the entire dataset i.e.&nbsp;<span class="math inline">\(p(x_1,\ldots x_N|z)\)</span>, we allow the <span class="math inline">\(z\)</span>s to have different distributions for different data points <span class="math inline">\(p(z_n|x_n)\)</span>. Equivalently, our model is defined by a joint distribution <span class="math inline">\(p(x,z)\)</span>.</p>
 <p>The simplest example of a latent variable model is a <a href="https://en.wikipedia.org/wiki/Mixture_model">mixture model</a>, which describes a distribution of a variable <span class="math inline">\(x\)</span> as arising from <span class="math inline">\(M\)</span> different components, each with their own distribution <span class="math inline">\(p(x|m)\)</span> and occurring with probability <span class="math inline">\(p(m)\)</span>, so that</p>
 <p><span class="math display">\[
@@ -359,8 +377,8 @@ p(x) = \sum_m p(m)p(x|m).
 <p>Latent variables are a route to perform <strong>structure learning</strong>: uncovering meaningful structures in the data. A lot of effort has gone into trying to build models that “discover” such structures automatically. For example, for a dataset of images of people walking we’d like to find latent variables parameterize a manifold of different poses.</p>
 <p>Latent variable models are also the basis of <strong>generative modelling</strong>: sampling from a distribution <span class="math inline">\(p(x)\)</span> learnt from data. If the model has been formulated in terms of a prior <span class="math inline">\(p(z)\)</span> over latent variables and a generative model <span class="math inline">\(p(x|z)\)</span>, sampling is straightforward in principle.</p>
 </section>
-<section id="entropy" class="level4">
-<h4 class="anchored" data-anchor-id="entropy">Entropy</h4>
+<section id="entropy" class="level3">
+<h3 class="anchored" data-anchor-id="entropy">Entropy</h3>
 <p>In SM we’re familiar with the entropy associated with a probability distribution. This quantity arrived in ML from information theory and is given the symbol <span class="math inline">\(H\)</span> (for <a href="https://en.wikipedia.org/wiki/Ralph_Hartley">Hartley</a>?)</p>
 <p><span class="math display">\[
 H[p]=- \sum_x p(x)\log_2p(x).
@@ -403,8 +421,8 @@ p(x_1,\ldots x_N)=\prod_{n=1}^N p(x_n).
 \log_2\left(p_H^{N_H}p_T^{N_T}\right)= N_H\log_2 p_H + N_T\log_2 p_T = -N H[p_H, p_T].
 \]</span></p>
 </section>
-<section id="entropy-and-information" class="level4">
-<h4 class="anchored" data-anchor-id="entropy-and-information">Entropy and information</h4>
+<section id="entropy-and-information" class="level3">
+<h3 class="anchored" data-anchor-id="entropy-and-information">Entropy and information</h3>
 <p>This property of entropy provides a way to quantify the amount of information in a signal. If the coin is <em>really</em> biased, returning a head almost every time, you won’t be surprised when you get heads, but will be surprised when you get tails. Note that the entropy of such a sequence is lower than for a fair coin, which has the maximum entropy <span class="math inline">\(H=1\)</span> . If you wanted to describe such sequence, like</p>
 <blockquote class="blockquote">
 <p>HHHHHHHHHHHHHHHHHHHHHTHHHHHHHHHHHHHTHHHHT</p>
@@ -439,8 +457,8 @@ H(p_\text{D}, p_\text{M})\geq H(p_\text{D}).
 <li>These big chunks (images in our example) will have correspondingly more complicated distributions <span class="math inline">\(p_\text{D}\)</span>, which your model <span class="math inline">\(p_\text{M}\)</span> will have to match if you want to approach optimal encoding.</li>
 </ul>
 </section>
-<section id="divergences" class="level4">
-<h4 class="anchored" data-anchor-id="divergences">Divergences</h4>
+<section id="divergences" class="level3">
+<h3 class="anchored" data-anchor-id="divergences">Divergences</h3>
 <p>The above discussion should make it clear that we need some way of talking about the degree to which two distributions differ. The most common measure in use in ML is the <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a> (KL)</p>
 <p><span class="math display">\[
 D_\text{KL}(p||q)=\sum_x p(x)\log\left(\frac{p(x)}{q(x)}\right)=\E_{x\sim p}\log\left(\frac{p(x)}{q(x)}\right).
@@ -498,8 +516,8 @@ Minimal description length
 - [ ] Forward and reverse KL and the meaning -->
 </section>
 </section>
-<section id="variational-inference-vi" class="level3">
-<h3 class="anchored" data-anchor-id="variational-inference-vi">Variational inference (VI)</h3>
+<section id="variational-inference-vi" class="level2">
+<h2 class="anchored" data-anchor-id="variational-inference-vi">Variational inference (VI)</h2>
 <p>After introducing Bayes’ theorem we discussed how you might go about fitting a model to data. It’s not as easy we made it sound. Recall that Bayes’ says the posterior distribution is</p>
 <p><span class="math display">\[
 p(z|x) = \frac{p(x|z)p(z)}{p(x)}=\frac{p(x,z)}{p(x)}.
@@ -511,8 +529,8 @@ p(z|x) = \frac{p(x|z)p(z)}{p(x)}=\frac{p(x,z)}{p(x)}.
 
 2. If the data is highly structured and complex (keep our images example in mind) then $p(x|z)$ will have to be a similarly complicated model if it's going to have a chance of success. Think of the Ising model with all sorts of nasty couplings and fields. To evaluate $p(x|z)$ we are going to have to calculate the normalization factor aka the partition function $Z$, and that's going to be hard for a big model. -->
 <p>In this section we’ll see that it’s possible to develop a variational formulation of the problem that returns the “best” posterior given a family of models. It’s basically a straight copy of physicists’ mean field theory, so we’ll review that first using the language of probability.</p>
-<section id="mean-field-theory" class="level4">
-<h4 class="anchored" data-anchor-id="mean-field-theory">Mean field theory</h4>
+<section id="mean-field-theory" class="level3">
+<h3 class="anchored" data-anchor-id="mean-field-theory">Mean field theory</h3>
 <p>For an SM model like the Ising model the probability has the form</p>
 <p><span class="math display">\[
 p(\sigma) = \frac{\exp\left[-\beta\cE(\sigma)\right]}{Z}.
@@ -552,8 +570,8 @@ q_{\phi_n}(\sigma_n) = \frac{\exp\left[-\beta\phi_n\sigma_n\right]}{2\cosh (\bet
 \]</span></p>
 <p>Optimizing <span class="math inline">\(\eqref{eq:mft}\)</span> with respect to <span class="math inline">\(\phi_n\)</span> reproduces the equations of <a href="https://en.wikipedia.org/wiki/Mean-field_theory#Ising_model">mean field theory</a>. The optimal values of <span class="math inline">\(\phi_n\)</span> are interpreted as the “mean fields” due to the applied field and the other spins coupled to <span class="math inline">\(\sigma_n\)</span>.</p>
 </section>
-<section id="vi-in-latent-variable-models" class="level4">
-<h4 class="anchored" data-anchor-id="vi-in-latent-variable-models">VI in latent variable models</h4>
+<section id="vi-in-latent-variable-models" class="level3">
+<h3 class="anchored" data-anchor-id="vi-in-latent-variable-models">VI in latent variable models</h3>
 <p>The only thing we need to do to apply the same idea to latent variable models is to replace <span class="math inline">\(\eqref{eq:boltzmann}\)</span> with</p>
 <p><span class="math display">\[
 p(z|x) =\frac{p(x,z)}{p_\text{M}(x)}.

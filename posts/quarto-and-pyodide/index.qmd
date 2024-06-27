@@ -1,0 +1,21 @@
+---
+title: "Quarto and Pyodide"
+author: "Austen Lamacraft"
+date: "2024-06-24"
+categories: [tech]
+filters:
+  - pyodide
+---
+
+Having recently switched these pages over to [Quarto](https://quarto.org/), I was keen to see how easy it was to build interactive pages. Support for [Observable](https://observablehq.com/) comes out of the box for JS people, but I was also thrilled to discover the extension [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/) which makes it easy to incorporate [Pyodide](https://pyodide.org/en/stable/) – aka Python in the browser – into Quarto projects.
+
+This is a Pyodide-enabled code cell in a Quarto HTML document.
+
+```{pyodide-python}
+n = 5
+while n > 0:
+  print(n)
+  n = n - 1
+
+print('Blastoff!')
+```

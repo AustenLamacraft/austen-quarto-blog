@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Austen Lamacraft</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon-32x32-roboto-slab.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Austen Lamacraft</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.pdf"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/AustenLamacraft"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/AustenLamacraft"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="new-rules" class="level1">
+<h1>New Rules:</h1>
+<section id="quantum-circuits-cellular-automata-complexity-and-chaos" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-circuits-cellular-automata-complexity-and-chaos">Quantum Circuits, Cellular Automata, Complexity and Chaos</h2>
+<p><a href="https://austen.uk/slides/new-rules">austen.uk/slides/new-rules</a></p>
+<p>Austen Lamacraft, University of Cambridge</p>
+<hr>
+<section id="conways-game-of-life" class="level3">
+<h3 class="anchored" data-anchor-id="conways-game-of-life">Conway’s Game of Life</h3>
+<script src="assets/life.js"></script>
+<div id="life" style="display: inline-block">
+
+</div>
+<hr>
+</section>
+<section id="rules-of-life" class="level3">
+<h3 class="anchored" data-anchor-id="rules-of-life">Rules of Life</h3>
+<ul>
+<li><p>Each site either dead (0) or alive (1)</p></li>
+<li><p>Fate of cell determined by eight neighbors</p>
+<ol type="1">
+<li>Any live cell with two or three live neighbours survives</li>
+<li>Any dead cell with three live neighbours becomes a live cell</li>
+<li>All other live cells die in the next generation</li>
+</ol></li>
+<li><p>Complex behavior!</p></li>
+</ul>
+<hr>
+</section>
+<section id="cellular-automata" class="level3">
+<h3 class="anchored" data-anchor-id="cellular-automata">Cellular Automata</h3>
+<ul>
+<li><p>Dynamical systems with discrete <em>space</em>, <em>time</em>, and <em>degrees of freedom</em></p></li>
+<li><p>Interesting for statistical physics:</p>
+<ul>
+<li>What kinds of dynamics may occur?</li>
+<li>How does dynamics determine thermodynamic behavior?</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="quantum-circuits" class="level3">
+<h3 class="anchored" data-anchor-id="quantum-circuits">Quantum Circuits</h3>
+<ul>
+<li><p>A quantum analog of CAs</p></li>
+<li><p>Basis of “quantum supremacy” work by Google and others</p></li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/google-sycamore-schematic.png" width="400" class="figure-img">
+<figcaption>
+A schematic view of the Google Sycamore processor.
+</figcaption>
+</figure>
+<hr>
+</section>
+<section id="this-talk" class="level3">
+<h3 class="anchored" data-anchor-id="this-talk">This talk</h3>
+<ul>
+<li><p>What are the similarities and differences?</p></li>
+<li><p>When is quantum dynamics harder?</p></li>
+</ul>
+<p align="center" class="fragment">
+<strong>Little quantum computation <i>per se</i>, though it saturates the field</strong>
+</p>
+<hr>
+</section>
+<section id="elementary-cellular-automata" class="level3">
+<h3 class="anchored" data-anchor-id="elementary-cellular-automata">Elementary cellular automata</h3>
+<ul>
+<li><p>“Space” is one dimension with cells <span class="math inline">\(x_n=0,1\)</span> <span class="math inline">\(n\in\mathbb{Z}\)</span></p></li>
+<li><p>Update cells every time step depending on cells in <strong>neighborhood</strong></p>
+<ul>
+<li>Neighborhood is cell and two neighbors for elementary CA</li>
+</ul></li>
+</ul>
+<hr>
+<ul>
+<li>Update specified by function</li>
+</ul>
+<p><span class="math display">\[
+f:\\{0,1\\}^3\longrightarrow \\{0,1\\}.
+\]</span></p>
+<p><span class="math display">\[
+x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
+\]</span></p>
+<ul>
+<li>How many possible functions?</li>
+</ul>
+<hr>
+</section>
+<section id="wolframs-rules" class="level3">
+<h3 class="anchored" data-anchor-id="wolframs-rules">Wolfram’s rules</h3>
+<ul>
+<li><p>Domain of <span class="math inline">\(f\)</span> is <span class="math inline">\(2^3=8\)</span> possible values for three cells</p></li>
+<li><p><span class="math inline">\(2^8=256\)</span> possible choices for the function <span class="math inline">\(f\)</span></p></li>
+<li><p>List outputs corresponding to inputs: 111, 110, … 000</p></li>
+</ul>
+<table class="table">
+<thead>
+<tr class="header">
+<th>111</th>
+<th>110</th>
+<th>101</th>
+<th>100</th>
+<th>011</th>
+<th>010</th>
+<th>001</th>
+<th>000</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Interpret as binary number: this one is <a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a></li>
+</ul>
+<hr>
+<ul>
+<li>Many behaviors, from ordered (Rule 18) to chaotic (Rule 30)</li>
+</ul>
+<script src="assets/elementary-ca.js"></script>
+<figure align="center" class="figure">
+<div id="elementary-ca" style="display: inline-block; position: relative">
+
+</div>
+</figure>
+<ul>
+<li>Rule 110 is capable of universal computation!</li>
+</ul>
+<hr>
+<figure align="center" class="figure">
+<img src="assets/twenty-years-of-nks.png" width="400" class="figure-img">
+<figcaption>
+That’s Christmas sorted
+</figcaption>
+</figure>
+<hr>
+<p align="center">
+<img src="assets/cambridge-north.png" width="500" style="display: inline-block">
+</p>
+<hr>
+<blockquote class="twitter-tweet blockquote">
+<p lang="en" dir="ltr">
+give each pixel a random Pokemon type, and then battle pixels against their neighbors, updating each pixel with the winning type (using the Pokemon type chart)<br><br>we quickly see areas of fire &gt; water &gt; grass &gt; fire, electric sweeping over, ground frontiers taking over etc etc <a href="https://t.co/BHgQuKRApR">pic.twitter.com/BHgQuKRApR</a>
+</p>
+— Matt Henderson (<span class="citation" data-cites="matthen2">@matthen2</span>) <a href="https://twitter.com/matthen2/status/1543226572592783362?ref_src=twsrc%5Etfw">July 2, 2022</a>
+</blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<hr>
+</section>
+<section id="cas-as-model-physics" class="level3">
+<h3 class="anchored" data-anchor-id="cas-as-model-physics">CAs as model physics</h3>
+<ul>
+<li><p>Notion of a causal “light cone” (45 degree lines)</p></li>
+<li><p>Variety of possible behaviors: chaos, periodicity, …</p></li>
+</ul>
+<hr>
+</section>
+<section id="chaos" class="level3">
+<h3 class="anchored" data-anchor-id="chaos">Chaos</h3>
+<ul>
+<li>Rapid growth of small differences between two trajectories</li>
+</ul>
+<script src="assets/ca-difference.js"></script>
+<figure align="center" class="figure">
+<div id="difference" style="display: inline-block; position: relative">
+
+</div>
+</figure>
+<ul>
+<li>Smallest change: flip one site and monitor <span class="math inline">\(z^t\equiv x^t\oplus y^t\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="chaos-phenomenology" class="level3">
+<h3 class="anchored" data-anchor-id="chaos-phenomenology">Chaos phenomenology</h3>
+<ul>
+<li><p>No exponential growth (c.f. <a href="https://en.wikipedia.org/wiki/Lyapunov_exponent">Lyapunov exponent</a> in continuous systems)</p></li>
+<li><p>Track number of differences (<a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a>) between trajectories</p></li>
+<li><p>Propagating “front” cannot exceed “speed of light”: generally slower</p></li>
+</ul>
+<hr>
+</section>
+<section id="theory" class="level3">
+<h3 class="anchored" data-anchor-id="theory">Theory?</h3>
+<ul>
+<li><p>No chance of solving the dynamics of any one CA</p></li>
+<li><p>Looking for <em>generic</em> properties: natural to consider <em>ensembles</em></p>
+<ul>
+<li>of initial conditions</li>
+<li>of rules</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="probabilistic-ca" class="level3">
+<h3 class="anchored" data-anchor-id="probabilistic-ca">Probabilistic CA</h3>
+<ul>
+<li>Choose rules iid for each site and instant</li>
+</ul>
+<script src="assets/pca-chaos.js"></script>
+<figure align="center" class="figure">
+<div id="pca-chaos" style="display: inline-block; position: relative">
+
+</div>
+</figure>
+<ul>
+<li>Cell values are now white noise</li>
+</ul>
+<hr>
+<ul>
+<li><p>Fluctuations of front are larger and average speed <span class="math inline">\(&lt;\)</span> maximum</p></li>
+<li><p>Interesting variation: choose output <span class="math inline">\(1\)</span> with probability <span class="math inline">\(p\)</span></p></li>
+<li><p><span class="math inline">\(p\neq 1/2\)</span> makes dynamics less <em>one-to-one</em>. What happens?</p></li>
+</ul>
+<hr>
+</section>
+<section id="phase-transition" class="level3">
+<h3 class="anchored" data-anchor-id="phase-transition">Phase transition</h3>
+<ul>
+<li><p>For <span class="math inline">\(0.25\lesssim p\lesssim 0.75\)</span> front propagates to infinity</p></li>
+<li><p>Outside this region, front dies out</p></li>
+<li><p>In finite system two copies <em>always</em> merge after exponentially long time</p></li>
+</ul>
+<hr>
+</section>
+<section id="markov-chain-on-ztequiv-xtoplus-yt" class="level3">
+<h3 class="anchored" data-anchor-id="markov-chain-on-ztequiv-xtoplus-yt">Markov chain on <span class="math inline">\(z^t\equiv x^t\oplus y^t\)</span></h3>
+<ul>
+<li>If inputs differ, <span class="math inline">\(z^{t+1}_n=1\)</span> with probability <span class="math inline">\(2p(1-p)\)</span> (<a href="https://iopscience.iop.org/article/10.1209/0295-5075/2/10/001/meta">Derrida and Stauffer (1986)</a>)</li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/extended-lattice.png" width="50%" class="figure-img">
+</figure>
+<ul>
+<li><span class="math inline">\(z^{t+1}\_{n}=1\)</span> only if at least one of <span class="math inline">\(z^t\_{n\pm 1}=1\)</span></li>
+</ul>
+<hr>
+<ul>
+<li><p>Seek connected cluster of sites occupied with probability <span class="math inline">\(x=2p(1-p)\)</span></p></li>
+<li><p>This is (site) <a href="https://en.wikipedia.org/wiki/Directed_percolation">directed percolation</a></p></li>
+<li><p><span class="math inline">\(x\leq 1/2&lt; x_\text{crit}\sim 0.706\)</span> on square lattice: require NN neighbors</p></li>
+</ul>
+<hr>
+</section>
+<section id="reversibility" class="level3">
+<h3 class="anchored" data-anchor-id="reversibility">Reversibility</h3>
+<ul>
+<li><p>No elementary CAs are reversible (bijective)!</p></li>
+<li><p>Reversibility is undecidable above one spatial dimension</p></li>
+<li><p><span class="math inline">\(∃\)</span> reversible constructions</p></li>
+</ul>
+<hr>
+</section>
+<section id="block-cellular-automaton" class="level3">
+<h3 class="anchored" data-anchor-id="block-cellular-automaton">Block cellular automaton</h3>
+<figure align="center" class="figure">
+<img src="assets/Margolus_block_neighborhood.svg" width="30%" class="figure-img">
+</figure>
+<ul>
+<li>Partition cells into blocks (Margolus neighborhoods)</li>
+<li>Apply invertible mapping to block</li>
+<li>Alternate overlapping partitions</li>
+</ul>
+<hr>
+</section>
+<section id="spacetime-representation" class="level3">
+<h3 class="anchored" data-anchor-id="spacetime-representation">Spacetime representation</h3>
+<p align="center">
+<img src="assets/circuit.png" width="500" style="display: inline-block">
+</p>
+<ul>
+<li>Blue squares: invertible mapping on states of two sites: 00, 01, 10, 11</li>
+</ul>
+<hr>
+<div>
+<blockquote class="twitter-tweet blockquote" align="center">
+<p lang="en" dir="ltr">
+given these four jigsaw pieces, there is only one way to fill in the rest of the puzzle. The solution ends up drawing a Sierpinski triangle. Can you see why? <a href="https://t.co/OvxVz2oehy">pic.twitter.com/OvxVz2oehy</a>
+</p>
+— Matt Henderson (<span class="citation" data-cites="matthen2">@matthen2</span>) <a href="https://twitter.com/matthen2/status/1529552315337818112?ref_src=twsrc%5Etfw">May 25, 2022</a>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote></div>
+<hr>
+</section>
+</section>
+<section id="reversible-models" class="level2">
+<h2 class="anchored" data-anchor-id="reversible-models">24 reversible models</h2>
+<ul>
+<li><p>Each block a permutation of 00, 01, 10, 11</p></li>
+<li><p><span class="math inline">\(4!=24\)</span> blocks</p></li>
+<li><p>Order:</p>
+<ol type="1">
+<li><ol start="1234" type="1">
+<li></li>
+</ol></li>
+<li><ol start="1243" type="1">
+<li></li>
+</ol></li>
+<li>(1324), and so on</li>
+</ol></li>
+<li><p>Block 2 is the map <span class="math inline">\((00, 01, 10, 11) ⟶ (00, 10, 01, 11)\)</span></p></li>
+<li><p>Exchange, or SWAP gate in quantum information</p></li>
+</ul>
+<hr>
+<script src="assets/block-ca.js"></script>
+<figure align="center" class="figure">
+<div id="block" style="display: inline-block; position: relative">
+
+</div>
+</figure>
+<hr>
+<section id="ensemble-of-block-cas" class="level3">
+<h3 class="anchored" data-anchor-id="ensemble-of-block-cas">Ensemble of block CAs</h3>
+<ul>
+<li><p>Results qualitatively similar to chaotic phase of of PCA</p></li>
+<li><p>No phase transition because all blocks are reversible</p></li>
+</ul>
+<hr>
+</section>
+<section id="dual-reversibility" class="level3">
+<h3 class="anchored" data-anchor-id="dual-reversibility">Dual reversibility</h3>
+<ul>
+<li><p>Can we find an ensemble where front propagates at maximal speed?</p></li>
+<li><p>Yes! <strong>Dual reversible</strong> blocks are bijections in both time <em>and space</em></p></li>
+<li><p>There are 12 such blocks (out of 24)</p></li>
+<li><p>Ensemble is Markov in time <em>and space</em>: must have maximal velocity!</p></li>
+</ul>
+<hr>
+</section>
+<section id="mutual-information" class="level3">
+<h3 class="anchored" data-anchor-id="mutual-information">Mutual information</h3>
+<ul>
+<li><p>Disjoint regions <span class="math inline">\(A\)</span> and <span class="math inline">\(\bar A\)</span>: how much does one tell about the other?</p></li>
+<li><p>Use <a href="https://en.wikipedia.org/wiki/Mutual_information">mutual information</a>: measure of dependence of random variables</p></li>
+<li><p>Suggested in this context by <a href="https://arxiv.org/abs/2204.03016">Pizzi <em>et al.</em> (2022)</a></p></li>
+</ul>
+<hr>
+<ul>
+<li>MI defined as <span class="math display">\[
+I(X;Y) \equiv S(X) + S(Y) - S(X,Y)
+\]</span>
+<ul>
+<li><span class="math inline">\(S(X)\)</span> is entropy of <span class="math inline">\(p_X(x)\)</span>; marginal distribution of <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(S(Y)\)</span> is entropy of <span class="math inline">\(p_Y(y)\)</span>; marginal distribution of <span class="math inline">\(Y\)</span></li>
+<li><span class="math inline">\(S(X,Y)\)</span> is entropy of joint distribution <span class="math inline">\(p_{(X,Y)}(x,y)\)</span></li>
+</ul></li>
+<li>Vanishes if <span class="math inline">\(p_{(X,Y)}(x,y)=p_X(x)p_Y(y)\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="simple-example" class="level3">
+<h3 class="anchored" data-anchor-id="simple-example">Simple example</h3>
+<ul>
+<li>Suppose either <span class="math inline">\(X=Y=1\)</span> or <span class="math inline">\(X=Y=0\)</span>, with equal probability</li>
+</ul>
+<p><code>$$ \begin{align} p_{(X,Y)}(0,0)&amp;=p_{(X,Y)}(1,1)=1/2\\  p_{(X,Y)}(1,0)&amp;=p_{(X,Y)}(0,1)=0 \end{align} $$</code></p>
+<p><span class="math display">\[
+I(X;Y)=S(X) + S(Y) - S(X,Y)= 1+1-1=1 \text{ bit}
+\]</span></p>
+<hr>
+</section>
+<section id="toy-model" class="level3">
+<h3 class="anchored" data-anchor-id="toy-model">Toy model</h3>
+<figure align="center" class="figure">
+<img src="assets/bell-swap.png" width="100%" class="figure-img">
+</figure>
+<ul>
+<li>Initial distribution factorizes over correlated pairs</li>
+<li>Apply SWAPs</li>
+<li>1 bit MI for every pair with one member in <span class="math inline">\(A\)</span> and one in <span class="math inline">\(\bar A\)</span></li>
+</ul>
+<p><span class="math display">\[
+I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(|A|\)</span> is (even) number of sites in <span class="math inline">\(A\)</span></li>
+</ul>
+<hr>
+</section>
+<section id="comments" class="level3">
+<h3 class="anchored" data-anchor-id="comments">Comments</h3>
+<ul>
+<li><p>Total entropy conserved (c.f Liouville’s theorem)</p></li>
+<li><p>Entropy of initial distribution is half max, but entropy <span class="math inline">\(S(A)\)</span> saturates at maximal value (thermalization in time <span class="math inline">\(\sim |A|/2\)</span>)</p></li>
+<li><p>This model is <em>not so special!</em> Any of the dual reversible blocks CAs behaves <em>exactly the same!</em></p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary-so-far" class="level2">
+<h2 class="anchored" data-anchor-id="summary-so-far">Summary so far</h2>
+<ul>
+<li><p>CAs as dynamical systems: chaotic fronts and information dynamics</p></li>
+<li><p>Dynamical ensembles as a theoretical tool</p></li>
+</ul>
+<p align="center" class="fragment">
+<strong>How can we extend these ideas to quantum systems?</strong>
+</p>
+<hr>
+<section id="bits-to-qubits" class="level3">
+<h3 class="anchored" data-anchor-id="bits-to-qubits">Bits to qubits</h3>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Block CA</th>
+<th>Quantum Circuit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Basic unit</strong></td>
+<td>Invertible map</td>
+<td>Unitary operator (<strong>gate</strong>)</td>
+</tr>
+<tr class="even">
+<td><strong>Local variable</strong></td>
+<td><span class="math inline">\(z_n \in \\{0, 1\\}\)</span></td>
+<td><span class="math inline">\(\ket{\psi_n}\in \mathbb{C}^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Global state</strong></td>
+<td>$z \{0,1\}^N $</td>
+<td><span class="math inline">\(\ket{\Psi(t)}\in \mathbb{C}^{2^N}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Simulation</strong></td>
+<td>Easy</td>
+<td>Hard</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="why-consider-circuits" class="level3">
+<h3 class="anchored" data-anchor-id="why-consider-circuits">Why consider circuits?</h3>
+<ul>
+<li><p>Model of universal quantum computation</p></li>
+<li><p>Example of discrete time, many body quantum dynamics</p></li>
+</ul>
+<p align="center" class="fragment">
+<strong>Everyone’s doing it!</strong>
+</p>
+<hr>
+</section>
+<section id="unitaries" class="level3">
+<h3 class="anchored" data-anchor-id="unitaries">Unitaries</h3>
+<ul>
+<li><p><span class="math inline">\(n\)</span>-qubit unitary has matrix elements <span class="math inline">\(U_{x_1\ldots x_n,x'_1,\ldots, x'_n}\)</span> in <em>computational basis</em> <span class="math inline">\(\ket{0}\)</span>, <span class="math inline">\(\ket{1}\)</span></p></li>
+<li><p>Unitarity means</p></li>
+</ul>
+<p><span class="math display">\[
+\sum\_{x_1'\ldots x_N'}U_{x_1\ldots x_n,x'_1,\ldots, x'_n} U^\dagger\_{x'_1\ldots x'_n,x''_1,\ldots, x''_n}=\delta\_{x_1,x_1''}\ldots \delta\_{x_N,x_N''},
+\]</span></p>
+<ul>
+<li>But we’d like to avoid such awful looking expressions</li>
+</ul>
+<hr>
+</section>
+<section id="everythings-a-tensor" class="level3">
+<h3 class="anchored" data-anchor-id="everythings-a-tensor">Everything’s a tensor!!</h3>
+<ul>
+<li>General state of <span class="math inline">\(N\)</span> qubits is</li>
+</ul>
+<p><code>$$ \ket{\Psi} = \sum_{x_{1:N}\in \{0,1\}^N} \Psi_{x_1\ldots x_N}\ket{x_1}_1\ket{x_2}_2\cdots \ket{x_N}_N $$</code></p>
+<ul>
+<li><p>Write <span class="math inline">\(\ket{x_1}\_1\ket{x_2}\_2\cdots \ket{x_N}\_N =\ket{x_1\cdots x_N}=\ket{x_{1:N}}\)</span> for brevity</p></li>
+<li><p>Operator on <span class="math inline">\(N\)</span> qubits has matrix elements</p></li>
+</ul>
+<p><code>$$ \mathcal{O}_{x_{1:N},x'_{1:N}} = \bra{x_{1:N}}\mathcal{O}\ket{x'_{1:N}} $$</code></p>
+<hr>
+</section>
+<section id="penrose-graphical-notation" class="level3">
+<h3 class="anchored" data-anchor-id="penrose-graphical-notation"><a href="https://en.wikipedia.org/wiki/Penrose_graphical_notation">Penrose graphical notation</a></h3>
+<figure align="center" class="figure">
+<img src="assets/tensors.png" width="70%" class="figure-img">
+<figcaption>
+See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</a>
+</figcaption>
+</figure>
+<hr>
+</section>
+<section id="brickwork-unitary-circuits" class="level3">
+<h3 class="anchored" data-anchor-id="brickwork-unitary-circuits">Brickwork unitary circuits</h3>
+<p align="center">
+<img src="assets/brickwall.png" width="450">
+</p>
+<ul>
+<li>Have <strong>causality</strong> built in</li>
+<li>Quantum analog of (block) CAs</li>
+</ul>
+<hr>
+</section>
+<section id="some-gates" class="level3">
+<h3 class="anchored" data-anchor-id="some-gates">Some gates</h3>
+<ul>
+<li><p>Work in the basis <span class="math inline">\(\ket{00}\)</span>, <span class="math inline">\(\ket{01}\)</span>, <span class="math inline">\(\ket{10}\)</span>, <span class="math inline">\(\ket{11}\)</span></p></li>
+<li><p>Simplest example: <a href="https://en.wikipedia.org/wiki/Quantum_logic_gate#Swap_gate">SWAP gate</a></p></li>
+</ul>
+<p><span class="math display">\[
+\operatorname{SWAP}=\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\\
+0 &amp; 0 &amp; 1 &amp; 0 \\\
+0 &amp; 1 &amp; 0 &amp; 0 \\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}
+\]</span></p>
+<ul>
+<li>Switches states. Takes product state to product state</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{SWAP}\ket{10} = \ket{01}
+\]</span></p>
+<hr>
+</section>
+<section id="square-root-of-swap" class="level3">
+<h3 class="anchored" data-anchor-id="square-root-of-swap">Square root of SWAP</h3>
+<p><span class="math display">\[
+\sqrt{\operatorname{SWAP}}=\begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\\
+0 &amp; \frac{1}{2}(1+i) &amp; \frac{1}{2}(1-i) &amp; 0 \\\
+0 &amp; \frac{1}{2}(1-i) &amp; \frac{1}{2}(1+i) &amp; 0 \\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix}.
+\]</span></p>
+<ul>
+<li>Generates <em>entanglement</em> (non product state)</li>
+</ul>
+<p><span class="math display">\[
+\sqrt{\operatorname{SWAP}}\ket{10} = \frac{1}{2}\left[(1+i)\ket{10}+(1-i)\ket{01}\right]
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\sqrt{\operatorname{SWAP}}\)</span> and single qubit unitaries are <strong>universal gate set</strong></li>
+</ul>
+<hr>
+</section>
+<section id="gate-notation" class="level3">
+<h3 class="anchored" data-anchor-id="gate-notation">Gate notation</h3>
+<ul>
+<li>We need both <span class="math inline">\(U\)</span>s and <span class="math inline">\(U^\dagger\)</span>s (e.g.&nbsp;for <span class="math inline">\(\mathcal{O}(t)=U^\dagger(t)\mathcal{O}U(t)\)</span>)</li>
+</ul>
+<object data="assets/matrix_elements.svg" type="image/svg+xml">
+</object>
+<hr>
+</section>
+<section id="unitary-condition" class="level3">
+<h3 class="anchored" data-anchor-id="unitary-condition">Unitary condition</h3>
+<figure align="center" class="figure">
+<img src="assets/diag_unitarity.png" width="70%" class="figure-img">
+</figure>
+<ul>
+<li>Much better!</li>
+</ul>
+<hr>
+</section>
+<section id="locality-as-a-feature-of-real-circuits" class="level3">
+<h3 class="anchored" data-anchor-id="locality-as-a-feature-of-real-circuits">Locality as a feature of real circuits</h3>
+<figure align="center" class="figure">
+<img src="assets/google-sycamore-schematic.png" width="400" class="figure-img"> <img src="assets/google-sycamore-photo.png" width="400" class="figure-img">
+<figcaption>
+(left) Schematic view of the Google Sycamore processor (right)
+</figcaption>
+</figure>
+<hr>
+</section>
+<section id="hype" class="level3">
+<h3 class="anchored" data-anchor-id="hype">Hype</h3>
+<ul>
+<li>Sampling from circuits basis of <a href="https://www.nature.com/articles/s41586-019-1666-5">Google’s “quantum supremacy”</a></li>
+</ul>
+<p align="center" class="fragment">
+<img src="assets/google-time-crystal.png" width="800">
+</p>
+<p align="center" class="fragment">
+<img src="assets/google-quantum-crypto.png" width="800">
+</p>
+<hr>
+</section>
+<section id="computational-complexity" class="level3">
+<h3 class="anchored" data-anchor-id="computational-complexity">Computational complexity</h3>
+<p align="center">
+<img src="assets/brickwall.png" width="450">
+</p>
+<ul>
+<li><p>Normally matrix-vector multiplication is <span class="math inline">\(O(\operatorname{dim}^2)=2^{2N}\)</span></p></li>
+<li><p>Gates are <em>sparse</em> so <span class="math inline">\(O(\operatorname{dim})=2^{N}\)</span>, but <em>still exponentially hard</em></p></li>
+<li><p>For low depth <span class="math inline">\(T&lt;N\)</span> move <em>horizontally</em> instead</p></li>
+</ul>
+<hr>
+</section>
+<section id="expectation-values" class="level3">
+<h3 class="anchored" data-anchor-id="expectation-values">Expectation values</h3>
+<ul>
+<li>Evaluate <span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}\)</span> for local <span class="math inline">\(\mathcal{O}\)</span></li>
+</ul>
+<div data-align="center">
+<object data="assets/expectation.svg" type="image/svg+xml" width="600">
+</object>
+</div>
+<hr>
+</section>
+<section id="folded-picture" class="level3">
+<h3 class="anchored" data-anchor-id="folded-picture">Folded picture</h3>
+<figure align="center" class="figure">
+<img src="assets/diag_folded.png" width="60%" class="figure-img">
+</figure>
+<ul>
+<li>After folding, lines correspond to two indices / 4 dimensions</li>
+</ul>
+<hr>
+</section>
+<section id="unitarity-in-folded-picture" class="level3">
+<h3 class="anchored" data-anchor-id="unitarity-in-folded-picture">Unitarity in folded picture</h3>
+<ul>
+<li>Circle denotes <span class="math inline">\(\delta_{ab}\)</span></li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/folded-unitarity.png" width="60%" class="figure-img">
+</figure>
+<hr>
+</section>
+<section id="brapsimathcaloketpsi-in-folded-picture" class="level3">
+<h3 class="anchored" data-anchor-id="brapsimathcaloketpsi-in-folded-picture"><span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}\)</span> in folded picture</h3>
+<ul>
+<li>Emergence of “light cone”</li>
+</ul>
+<object data="assets/folded-expectation.svg" type="image/svg+xml">
+</object>
+<hr>
+</section>
+<section id="reduced-density-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="reduced-density-matrix">Reduced density matrix</h3>
+<ul>
+<li>Expectation values in region <span class="math inline">\(A\)</span> evaluated using <em>reduced density matrix</em></li>
+</ul>
+<p><span class="math display">\[
+\rho_A = \operatorname{tr}\_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\]</span></p>
+<object data="assets/reduced-density-matrix.svg" type="image/svg+xml">
+</object>
+<hr>
+</section>
+<section id="entanglement-entropy" class="level3">
+<h3 class="anchored" data-anchor-id="entanglement-entropy">Entanglement entropy</h3>
+<ul>
+<li><p><span class="math inline">\(\rho_A\)</span> very useful for quantifying <em>entanglement</em></p></li>
+<li><p>If <code>$\ket{\Psi} = \ket{\psi}_A \otimes \ket{\phi}_{\bar A}$</code> then <span class="math inline">\(\rho_A = \ket{\psi}_A\bra{\psi}_A\)</span>`</p></li>
+<li><p>Any deviation from product state leads to <em>mixed</em> density matrix</p></li>
+<li><p>Quantify by entropy of <span class="math inline">\(\rho_A\)</span> (the <strong>entanglement entropy</strong>)</p></li>
+</ul>
+<p><span class="math display">\[
+S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
+\]</span></p>
+<hr>
+</section>
+<section id="toy-model-revisted" class="level3">
+<h3 class="anchored" data-anchor-id="toy-model-revisted">Toy model revisted</h3>
+<figure align="center" class="figure">
+<img src="assets/bell-swap.png" width="100%" class="figure-img">
+</figure>
+<ul>
+<li><p>Each pair in <a href="https://en.wikipedia.org/wiki/Bell_state">Bell state</a> <code>$ \ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right] $</code></p></li>
+<li><p>Reduced density matrix for one member: <code>$\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1$</code></p></li>
+<li><p>Entanglement entropy of 1 bit</p></li>
+</ul>
+<hr>
+<figure align="center" class="figure">
+<img src="assets/bell-swap.png" width="100%" class="figure-img">
+</figure>
+<ul>
+<li><p>For a Bell pair consisting of qubits at sites <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li><p>If <span class="math inline">\(n\in A\)</span>, <span class="math inline">\(m\in\bar A\)</span>, <span class="math inline">\(\rho_A\)</span> has factor <span class="math inline">\(\mathbb{1}_n\)</span>.</p></li>
+<li><p>If <span class="math inline">\(m, n\in A\)</span> they contribute a factor <span class="math inline">\(\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}\)</span> (pure)</p></li>
+</ul></li>
+<li><p>Only first case contributes to <code>$  S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits} $</code></p></li>
+<li><p>Just like mutual information in classical version!</p></li>
+</ul>
+<hr>
+</section>
+<section id="dual-unitary-gates" class="level3">
+<h3 class="anchored" data-anchor-id="dual-unitary-gates">Dual unitary gates</h3>
+<ul>
+<li>Exactly the same behavior for all unitaries satisfying</li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/folded-dual-unitarity.png" width="60%" class="figure-img">
+</figure>
+<ul>
+<li><p>c.f. dual reversible CAs</p></li>
+<li><p>Proof: apply unitary and dual unitary conditions</p></li>
+<li><p>Converse – maximal entanglement growth implies dual unitary gates – recently proved by <a href="https://arxiv.org/abs/2204.10341">Zhou and Harrow (2022)</a></p></li>
+</ul>
+<hr>
+</section>
+<section id="the-dual-unitary-family" class="level3">
+<h3 class="anchored" data-anchor-id="the-dual-unitary-family">The dual unitary family</h3>
+<ul>
+<li><p><span class="math inline">\(4\times 4\)</span> unitaries are 16-dimensional</p></li>
+<li><p>Family of dual unitaries is 14-dimensional</p></li>
+<li><p>Includes <em>kicked Ising model</em> at particular values of couplings</p></li>
+<li><p>Dual unitaries not “integrable” but have enough structure to allow many calculations</p></li>
+</ul>
+<hr>
+</section>
+<section id="operator-spreading" class="level3">
+<h3 class="anchored" data-anchor-id="operator-spreading">Operator spreading</h3>
+<ul>
+<li><p>Heisenberg picture: <span class="math inline">\(Z_n(t)=\mathcal{U}^\dagger(t)Z_n \mathcal{U}(t)\)</span></p></li>
+<li><p>Might use <span class="math inline">\(Z_n(t)\)</span> to evaluate correlation <span class="math inline">\(\langle Z_n(t)Z_m(0) \rangle\)</span></p></li>
+<li><p>How does <span class="math inline">\(Z_n(t)\)</span> <em>look</em>?</p></li>
+</ul>
+<hr>
+</section>
+<section id="expansion-in-operator-basis" class="level3">
+<h3 class="anchored" data-anchor-id="expansion-in-operator-basis">Expansion in operator basis</h3>
+<ul>
+<li><p>Expand <span class="math inline">\(Z_n(t)\)</span> in products of local operators <span class="math inline">\(X_m\)</span>, <span class="math inline">\(Y_m\)</span>, <span class="math inline">\(Z_m\)</span>, <span class="math inline">\(\mathbb{1}_m\)</span></p></li>
+<li><p>Typical term <code>$\sim \mathbb{1}_1\otimes \cdots X_{8}\otimes Y_{9} \otimes Z_{10}\cdots \otimes\mathbb{1}_N$</code></p></li>
+</ul>
+<p><span class="math display">\[
+Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots\otimes \sigma_N^{\mu_N},\qquad \sigma^\mu = (\mathbb{1},X,Y,Z)
+\]</span></p>
+<p>As time progresses two things (tend to) increase:</p>
+<ol type="1">
+<li>The number of sites <span class="math inline">\(\neq\mathbb{1}\)</span> (known as <strong>operator spreading</strong>)</li>
+<li>The number of different contributions (or <strong>operator entanglement</strong>)</li>
+</ol>
+<hr>
+<ul>
+<li><p>Operator spreading closely analogous to chaotic fronts in CAs</p></li>
+<li><p>Introduce ensemble of random circuits. <span class="math inline">\(\mathcal{C}\_{\mu_{1:N}}(t)\)</span> become random</p></li>
+<li><p>Fluctuating signs mean <span class="math inline">\(\langle Z_n(t)Z_m(0) \rangle\)</span> will tend to average to zero</p></li>
+<li><p>c.f. a single PCA trajectory appears as white noise</p></li>
+</ul>
+<hr>
+</section>
+<section id="out-of-time-order-correlator" class="level3">
+<h3 class="anchored" data-anchor-id="out-of-time-order-correlator">Out of time order correlator</h3>
+<p><span class="math display">\[
+\operatorname{OTOC}_{nm}(t) \equiv \langle Z_n(t)Z_m(0)Z_n(t)Z_m(0)\rangle.
+\]</span></p>
+<ul>
+<li>In terms of operator expansion</li>
+</ul>
+<p><code>$$ \operatorname{OTOC}_{nm}(t)\propto \sum_{\mu_{1:N}}\mathcal{C}_{\mu_{1:N}}^2(t)\left[\delta_{\mu_m,0}+\delta_{\mu_m,3}-\delta_{\mu_m,1}-\delta_{\mu_m,2}\right]. $$</code></p>
+<ul>
+<li><p><span class="math inline">\(\operatorname{OTOC}\_{nm}(t)\neq 1\)</span> when operator <span class="math inline">\(Z_n(t)\)</span> spreads from site <span class="math inline">\(n\)</span> to <span class="math inline">\(m\)</span></p></li>
+<li><p>Characteristic speed of propagation is “butterfly velocity” <span class="math inline">\(v_\text{B}\)</span></p></li>
+<li><p>OTOC quantum analog of bitstring differences <span class="math inline">\(z_t=x_t\oplus y_t\)</span> in CAs.</p></li>
+</ul>
+<hr>
+</section>
+<section id="googles-otoc-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="googles-otoc-experiment">Google’s OTOC experiment</h3>
+<figure align="center" class="figure">
+<img src="assets/google-otoc.png" width="1000" class="figure-img">
+<figcaption>
+The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> gates (top) and <span class="math inline">\(\sqrt{i\operatorname{SWAP}}\)</span> (bottom) after averaging over single qubit gates.
+</figcaption>
+</figure>
+<hr>
+</section>
+<section id="quantum-advantage" class="level3">
+<h3 class="anchored" data-anchor-id="quantum-advantage">Quantum advantage?</h3>
+<ul>
+<li><p><span class="math inline">\(\overline{\operatorname{OTOC}}\)</span> can be expressed as a Markov process</p></li>
+<li><p>Efficiently calculate using Monte Carlo simulations</p></li>
+</ul>
+<p align="center" class="fragment">
+<strong>Aren’t quantum computers supposed to do things that classical computers find hard?</strong>
+</p>
+<hr>
+<ul>
+<li><p><em>Averaging</em> is what enables efficient classical algorithms</p></li>
+<li><p>For a <em>given</em> circuit (no averaging), <strong>no probabilistic interpretation</strong></p></li>
+</ul>
+<hr>
+</section>
+<section id="frontier-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="frontier-measurements">Frontier: measurements</h3>
+<ul>
+<li><p>Unitary evolution not the only game in town!</p></li>
+<li><p>We can also <em>measure</em>, which we expect to <em>reduce entanglement</em></p></li>
+<li><p>Consider measurements with certain rate and density in space</p></li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/measurement-circuit.png" width="70%" class="figure-img">
+</figure>
+<hr>
+<ul>
+<li><p><span class="math inline">\(∃\)</span> phase transition where entanglement vanishes at finite measurement rate (<a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.134306">Y Li, X Chen, MPA Fisher (2019)</a>, <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009">B Skinner, J Ruhman, A Nahum (2019)</a>)</p></li>
+<li><p>Alternative viewpoint: an initially mixed state is <em>purified</em> by (strong enough) measurements (<a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041020">MJ Gullans, DA Huse (2020)</a>)</p></li>
+</ul>
+<figure align="center" class="figure">
+<img src="assets/gullans-huse.png" width="70%" class="figure-img">
+</figure>
+<ul>
+<li>All states purify, but on exponentially long times below transition</li>
+</ul>
+<hr>
+<ul>
+<li><p>Measurements purify state; analogous to non-injective rules in CA</p></li>
+<li><p>It was a surprise that a mixed state survives finite measurement rate</p></li>
+<li><p>But… a chaotic front survives non-injective rules (up to a point)</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary-of-analogies" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-analogies">Summary of analogies</h2>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Cellular Automata</th>
+<th>Quantum Circuits</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Chaos diagonistic</strong></td>
+<td>Difference <span class="math inline">\(z^t=x^t\oplus y^t\)</span></td>
+<td>OTOC <span class="math inline">\(\langle Z_n(t)Z_m(0)Z_n(t)Z_m(0)\rangle\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Spread of</strong></td>
+<td>Mutual information</td>
+<td>Entanglement entropy</td>
+</tr>
+<tr class="odd">
+<td><strong>Transition via</strong></td>
+<td>Non-injectivity</td>
+<td>Measurements</td>
+</tr>
+<tr class="even">
+<td><strong>Ensemble</strong></td>
+<td>Random maps</td>
+<td>Random unitaries</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>Thanks to Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas</p>
+</blockquote>
+<hr>
+<section id="further-reading" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading">Further reading</h3>
+<p>[Links at <a href="https://austen.uk/slides/new-rules">austen.uk/slides/new-rules</a>] - Review on random circuits <a href="https://arxiv.org/abs/2111.08018">Andrew Potter, Romain Vasseur (2021)</a></p>
+<ul>
+<li>Transition to chaos in CA closely linked to <a href="http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems">synchronization of extended chaotic systems</a></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

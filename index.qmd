@@ -1,14 +1,41 @@
 ---
-title: "Recent posts"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
+title: "Hello"
+image: backs-jpeg.jpg
+about:
+  template: solana
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/AustenLamacraft
+    - icon: github
+      text: Github
+      href: https://github.com/AustenLamacraft
+    - icon: google
+      text: Scholar
+      href: https://scholar.google.com/citations?user=ERR4TF0AAAAJ&hl=en
+
 ---
+
+I'm a Professor of Theoretical Physics at the University of Cambridge
+
+
+## Experience
+
+- Oct 2007 – Sep 2012: Assistant → Associate Professor. University of Virginia
+ 
+- Oct 2005 – Sep 2007: Postdoctoral Fellow.
+All Souls College, University of Oxford
+
+- Oct 2002 – Sep 2005: Dicke Fellow. Princeton University, Department of Physics
+ 
+- Oct 2001 – Sep 2002: Junior Research Fellow. Trinity College, University of Cambridge
+
+## Education
+
+- PhD in Theoretical Physics, 2002. University of Cambridge
+
+- Master of Mathematics, 1998. University of Cambridge
+
+- MA in Natural Sciences, 1997. University of Cambridge
 
 

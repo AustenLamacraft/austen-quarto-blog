@@ -1,8 +1,8 @@
 ---
 # See all reveal options
 # https://quarto.org/docs/reference/formats/presentations/revealjs.html
-title: "From Dual-unitarity to Biunitarity" 
-subtitle: "A 2-categorical model for exactly-solvable many-body quantum dynamics\n arXiv:2302.07280 (J Phys A, to appear)"
+title: "From Dual Unitarity to Biunitarity" 
+subtitle: "A 2-categorical model for exactly-solvable many-body quantum dynamics\n [arXiv:2302.07280](https://arxiv.org/abs/2302.07280) (J Phys A, to appear)"
 author: "Pieter Claeys (MPI-PKS), __Austen Lamacraft__, Jamie Vicary"
 date: 07/18/2024
 date-format: long
@@ -26,16 +26,6 @@ format:
     }
 ---
 
-
-Goes here
-
-Preprint version here: arXiv:2302.07280 (2023)
-
-Try out typst documents
-
-
-
-To appear in... 
 
 # Outline
 

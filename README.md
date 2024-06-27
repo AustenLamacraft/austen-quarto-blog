@@ -5,5 +5,20 @@
 2. Make sure course works. 
 3. Make sure blog posts have same links 
 4. Pull papers from arxiv / bib file
-5. ~CV page perhaps using https://github.com/mps9506/quarto-cv. I've used this extension: should document~
+5. CV page perhaps using https://github.com/mps9506/quarto-cv. I've used this extension: should document~
 6. How to handle p5: https://blog.djnavarro.net/posts/2023-01-14_p5js/
+
+# Specific tasks
+
+- [X] ML and SM lecture 1
+- [X] ML and SM lecture 2
+- [ ] Pyodide tutorial
+- [ ] Aspen colloquium
+- [X] Favicon
+- [ ] Update links to talks in slides (don't use `/slides`)
+- [ ] Write a post using [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/)
+- [ ] Google Scholar icon (at present only have Bootstrap icons)
+- [ ] Creating citable articles including [Google Scholar indexing](https://quarto.org/docs/authoring/create-citeable-articles.html#google-scholar)
+
+- [ ] Format talks. Need front matter including dates
+- [ ] Try out [Typst documents](https://quarto.org/docs/output-formats/typst.html)

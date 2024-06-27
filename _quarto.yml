@@ -12,13 +12,18 @@ website:
   title: "Austen Lamacraft"
   navbar:
     right:
+      - posts.qmd
       - talks.qmd
-      - about.qmd
+      - teaching.qmd
       - cv.qmd
+      - icon: google
+        href: https://scholar.google.com/citations?user=ERR4TF0AAAAJ&hl=en
       - icon: github
         href: https://github.com/AustenLamacraft
       - icon: twitter
         href: https://twitter.com/AustenLamacraft
+  favicon: favicon-32x32-roboto-slab.png
+  twitter-card: true
 
 format:
   html:

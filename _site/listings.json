@@ -2,9 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/post-with-code/index.html",
-      "/posts/ml-stat-mech-2/index.html",
-      "/posts/ml-stat-mech-1/index.html"
+      "/post/post-with-code/index.html",
+      "/post/ml-stat-mech-2/index.html",
+      "/post/ml-stat-mech-1/index.html"
     ]
   },
   {
@@ -30,6 +30,15 @@
       "/talks/superdiffusion-spin-chains/index.html",
       "/talks/floquet-east/index.html",
       "/talks/qpl-2024/index.html"
+    ]
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/quarto-and-pyodide/index.html",
+      "/posts/trying-out-typst/index.pdf",
+      "/posts/ml-stat-mech-2/index.html",
+      "/posts/ml-stat-mech-1/index.html"
     ]
   }
 ]

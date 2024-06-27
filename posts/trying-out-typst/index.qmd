@@ -1,0 +1,13 @@
+---
+title: "Trying Out Typst"
+author: "Austen Lamacraft"
+date: "2024-06-24"
+categories: [tech]
+format:
+    typst:
+        toc: true
+---
+
+Quarto 1.4 now has support for typst!
+
+How fast is the render time?

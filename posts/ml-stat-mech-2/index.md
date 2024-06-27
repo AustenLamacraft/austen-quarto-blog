@@ -14,6 +14,8 @@ format:
     toc: true
 ---
 
+# Introduction
+
 In [Lecture 1](../ml-stat-mech-1) we introduced the idea of Variational Inference (VI), which turns the problem of inference in latent variable models into one of optimization. That was a rather high-level view: in this lecture we are going to see in more detail how this works in practice in modern approaches that leverage neural networks and automatic differentiation. Specifically, we going to look at one class of versatile models, with many generalizations, called **Variational Autoencoders**.
 
 $$
@@ -29,9 +31,9 @@ $$
 \newcommand{\bzeta}{\boldsymbol{\zeta}}
 $$
 
-## Lecture 2: The Variational Autoencoder
+# Lecture 2: The Variational Autoencoder
 
-### VI redux
+## VI redux
 
 Suppose we have a model defined by a prior $p(z)$ over latent variables and a generative model $p_\phi(x|z)$ for our data $x$ with parameters $\phi$. We introduce a similar model for the posterior distribution of the latent variables $q_\theta(z|x)$. This establishes two representations of the joint distribution of observed and latent variables. We'll call the model expressed in terms of the generative model and the prior the **forward** model
 
@@ -71,7 +73,7 @@ The first term is small when the posterior matches the prior, while the second i
 
 There is considerable freedom in this formulation. Given a data distribution, we could change the forward and backward model, keeping $p_\text{F}=p_\text{B}$ but changing the prior $p(z)$. Even after fixing the prior, the joint distribution $p(x,z)$ is not fixed, being determined by an unspecified [Copula](https://en.wikipedia.org/wiki/Copula_(probability_theory)) between the two sets of variables. In practice, the parameterization of the forward and backward models, as well as the details of the optimization, will determine what you get. Additional terms are sometimes added to an objective function, particularly for overparameterized models like deep neural nets, to "encourage" certain behaviour in the parameters. This is called **regularization**.
 
-### Variational autoencoder
+## Variational autoencoder
 
 [Kingma and Welling](https://arxiv.org/abs/1312.6114) noticed that the above description fits neatly into an exisiting class of ML models called [Autoencoders](https://en.wikipedia.org/wiki/Autoencoder). In their original incarnation these are deterministic models that use neural nets (NNs) to map the original data $x$ to some lower dimensional representation in terms of some latent variables $h$ (this part is called the **encoder**), and then map $h$ to an output $x'$ of the same format as the original data (**decoder**). 
 
@@ -92,7 +94,7 @@ to perform optimization.
 
 Let's look at these in turn.
 
-#### Parameterization 
+### Parameterization 
 
 Suppose our latent variables are $\bz\in \R^{H}$ ( we switch to bold notation to emphasize that we are dealing with a vector of continuous variables). For the encoder $q_\phi(\bz|\bx)$, it's normal to choose the multivariate normal distribution $\mathcal{N}(\bmu_\phi(\bx),\bSigma_\phi(\bx))$ with mean $\bmu_\phi(\bx)\in \R^{H}$ and symmetric covariance matrix $\bSigma(\bx)\in \R^{H\times H}$ dependent on the input $\bx\in \R^D$. If the prior is also normal – the choice $\mathcal{N}(0,\mathbb{1})$ is common – the KL term in \eqref{eq:VAE-loss} can be evaluated explicitly in terms of $\bmu_\phi(\bx)$ and $\bSigma_\phi(\bx)$.
 
@@ -108,7 +110,7 @@ which encourages the mean output $\bmu'_\theta(\bz)$ for $\bz\sim q_\phi(\cdot|\
 
 The required expectation over $\bz$ cannot be taken in closed form, however, if we want to model a complex decoder function $p_\theta$. It has to be done by Monte Carlo, but the expectation depends on parameters $\phi$, and we want to take derivatives with respect to these parameters. What do we do?
 
-#### Reparameterization trick
+### Reparameterization trick
 
 For continuous variables there is a nice solution, which you'd probably think of fairly quickly, though it has its own name: the **reparameterization trick**. 
 
@@ -122,7 +124,7 @@ is explicitly a function of $\sigma$ and $\mu$, so that derivatives with respect
 
 It's clear that the reparameterization trick is limited to continuous variables. Monte Carlo gradient estimation for discrete variables is [an active area of research](https://jmlr.csail.mit.edu/papers/v21/19-346.html).
 
-#### More practicalities
+### More practicalities
 
 At this point we understand how to evaluate the loss function on a data point $\bx$ using Monte Carlo estimation for the encoder $\bz\sim q_\phi(\cdot|\bx)$, in such a way that the estimate is differentiable. In practice a single $\bz$ sample is usually found to provide useful gradients for optimization. Large datasets are usually split into **batches** (sometimes called **mini-batches**, confusingly), so for a batch of size $B$ the loss function is estimated as
 
@@ -132,7 +134,7 @@ $$
 
 For optimization, gradients are calculated by automatic differentiation, implemented in all modern deep learning libraries. There's a great deal of craft to this business, but that's enough detail for now.
 
-#### Interpretability
+### Interpretability
 
 One of the promises of latent variable models like the VAE is that, as well as providing a good generative model for making new samples, or a way of assessing the likelihood of inputs, the latent space may be **interpretable**. That is, moving in a lower dimensional latent space $\R^H$ may allow us to explore the manifold on which the data is embedded in $\R^D$. Developing models and training protocols that encourage this **structure learning** is an area of active research, but here are some of the issues:
 
@@ -144,7 +146,7 @@ the same as the prior! This is known as **posterior collapse**. You may have a g
 
 2. Even if the latent space is used by the trained model, there's no guarantee that it's used *nicely*, with different latent variables corresponding to meaningfully different qualities of the data: colour, shape, position, etc.. This is called **disentangling**. Part of the problem is that the prior $\mathcal{N}(0,\mathbb{1})$ is rotationally invariant, so lifting this symmetry is necessary.
 
-#### Compression with VAEs: bits back
+### Compression with VAEs: bits back
 
 In [Lecture 1](../ml-stat-mech-1) we discussed the entropy as a fundamental bound on the compression of data, and I suggested that good probabilistic models tailored to a particular kind of data would give better compression. How can we deliver on this promise for latent variable models like the VAE? The problem, as always, is that the model doesn't supply an explicit expression for $p_\text{M}(x)$: marginalizing over the latent variables is intractable. 
 
@@ -173,11 +175,11 @@ Recall that $-\log_2 p(x)$ is the length in bits of the optimal encoding of $x$.
 I'm of course skipping over many issues to do with the implementation, including quantizing the data of a continuous VAE, and the fact that the stack-like nature of the encoder had to await the development of [asymmetric numeral systems](https://en.wikipedia.org/wiki/Asymmetric_numeral_systems) to become practical. See the [original paper](https://arxiv.org/abs/1901.04866) for more details.
 
 
-### Related Models
+## Related Models
 
 The VAE framework is quite general, and in recent years has been elaborated in various ways. 
 
-#### Markov Model autoencoders
+### Markov Model autoencoders
 
 So our encoder and decoder were just Gaussian models, albeit with a potentially complicated dependence of the mean and covariance. Can we produce a model with a richer distribution? One straightforward way is to make the forward and backward models Markov processes with $T$ steps, with latent variables $z_0,\ldots z_{T-1}$. It's easier to write if we identify $x=z_T$, so that  
 
@@ -214,11 +216,10 @@ If the forward model is fixed and describes a simulation of a physical system �
 
 Alternatively, one can fix the backward model and just learn the forward  model. This seems a bit strange from our original point of view of finding the posterior, but one can obtain perfectly good generative models this way. See [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) for a recent example.
 
-{{< figure src="assets/diffusion-model.png" width="100%" >}}
-{{< figure src="assets/diffusion-faces.png" caption="(Top) model architecture and (Bottom) generated samples from [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)" width="50%" >}}
+![(Top) Model architecture and (Bottom) generated samples from [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239).](assets/diffusion-model.png)
 
 
-#### Normalizing flows
+### Normalizing flows
 
 Autoencoders were originally conceived to learn a low dimensional latent representation of the data. By taking the latent space and the data space to be identical $\R^H=\R^D$, however, we can make contact with another kind of model called a [Normalizing Flow](http://proceedings.mlr.press/v37/rezende15.html). In this setting, let's take the covariances of the Gaussian models for the encoder ($\bSigma_\phi$) and decoder ($\bSigma'_\theta$) to zero, so that $q_\phi(\bz|\bx)$ and $p_\theta(\bx|\bz)$ become deterministic maps given by 
 
@@ -262,11 +263,11 @@ $$
 
 Conceptually, normalizing flows are perhaps a bit simpler than VAEs. The challenge in implementing this scheme is constructing flexible, invertible models with tractable Jacobians (since computing the determinant is $O(D^3)$ and has to be done for every data point). In practice this is done by stacking together simpler transformations, each of which is invertible with known Jacobian.
 
-### Learning the path integral
+## Learning the path integral
 
 Finally, we'll look at an application of these methods from [Barr, Gispen, Lamacraft (2020)](http://proceedings.mlr.press/v107/barr20a.html) that is squarely in the domain of physics: finding the ground states of quantum systems. 
 
-#### The Feynman–Kac formula
+### The Feynman–Kac formula
 
 One of the many connections between quantum mechanics and stochastic processes is provided by the [Feynman–Kac formula](https://en.wikipedia.org/wiki/Feynman%E2%80%93Kac_formula) (FK), which is a fully rigorous path integral formula exists for the heat-type equations
 
@@ -314,11 +315,10 @@ $$
 
 Apart from a normalization factor that depends on $\br_\pm$ and $T$, this is just the expected ground state distribution $|\varphi_0(\br)|^2$. Thus, the ability to sample from the FK measure for long trajectories would also allow us to sample from the ground state distribution. One technique for doing this is [Path integral Monte Carlo](https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279), which performs Monte Carlo sampling the space of Feynman trajectories.
 
-<p align="center">
-<img src="assets/ceperley.png" width="50%">
-</p>
+![Source: [Ceperley (1995)](https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279).](assets/ceperley.png){width=60%}
 
-#### The loss function
+
+### The loss function
 
 A different way to turn the above connection into a calculational tool, is to use the fact that the path measure defined by the FK formula is **Markovian**, meaning that the trajectories are solutions of the SDE
 
@@ -355,6 +355,6 @@ $$
 
 irrespective of the initial state distribution (as $T\to\infty$ the final state distribution will be the stationary state of the SDE, assuming ergodicity). 
 
-#### Training
+### Training
 
 For details of how the model is parameterized and trained see [our paper](http://proceedings.mlr.press/v107/barr20a.html).
