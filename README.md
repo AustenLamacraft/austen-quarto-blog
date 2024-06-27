@@ -1,7 +1,7 @@
 
 # TODO
 
-1. Get slides working. Currently trying to get SVGs working
+1. Get slides working. Currently trying to get SVGs working dynamically... don't know how much time to spend
 2. Make sure course works. 
 3. Make sure blog posts have same links 
 4. Pull papers from arxiv / bib file
