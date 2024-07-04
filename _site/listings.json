@@ -1,13 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/post/post-with-code/index.html",
-      "/post/ml-stat-mech-2/index.html",
-      "/post/ml-stat-mech-1/index.html"
-    ]
-  },
-  {
     "listing": "/talks.html",
     "items": [
       "/talks/dual-unitaries-pcts/index.html",

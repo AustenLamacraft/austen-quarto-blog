@@ -27,9 +27,55 @@ format:
 ---
 
 
+
 # Outline
 
 1. Dual-unitary circuits
 2. Shaded calculus
 3. Biunitary circuits
 4. Solvable states
+
+---
+
+
+# Unitary circuits
+
+Review of light cone and light cone correlations
+
+---
+
+1. __Dual-unitary circuits__
+2. Shaded calculus
+3. Biunitary circuits
+4. Solvable states
+
+
+---
+
+# Dual unitary circuits
+
+--- 
+
+![](assets/pieter/svg-pages/biunitary-circuit.svg){width=200%}
+
+
+---
+
+![](assets/pieter/svg-pages/test.svg){width=200%}
+
+---
+
+## 1D Lattice
+
+![](assets/pieter/1d-lattice.png)
+
+---
+
+1. Dual-unitary circuits
+2. __Shaded calculus__
+3. Biunitary circuits
+4. Solvable states
+
+# Shaded tensor networks
+
+# Solvable states
