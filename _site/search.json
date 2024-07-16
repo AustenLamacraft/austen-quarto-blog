@@ -2665,5 +2665,334 @@
     "title": "From Dual Unitarity to Biunitarity",
     "section": "1D Lattice",
     "text": "1D Lattice"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#local-unitary-dynamics",
+    "href": "talks/qpl-2024/index.html#local-unitary-dynamics",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Local unitary dynamics",
+    "text": "Local unitary dynamics"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#unitary-circuits-1",
+    "href": "talks/qpl-2024/index.html#unitary-circuits-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Unitary circuits",
+    "text": "Unitary circuits"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits",
+    "href": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Heterogenous biunitary cicuits",
+    "text": "Heterogenous biunitary cicuits\n\nWe can vary the shading pattern…\n\n\n\n…by introducing new elements\n\n\n\n\n\n\n\nBiunitarity implies that these vertices correspond to quantum Latin squares\nMatrix of vectors U_{a,b} with every row and column forming orthonormal basis"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits-1",
+    "href": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Heterogenous biunitary cicuits",
+    "text": "Heterogenous biunitary cicuits\n\nIntroducing additional shading patterns\n\n\n\n\n\n\n\n\n\n…by introducing new elements"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#quantum-latin-squares",
+    "href": "talks/qpl-2024/index.html#quantum-latin-squares",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Quantum latin squares1",
+    "text": "Quantum latin squares1\n\nVertical unitarity determines the properties of the rows\n\n\n\n\n\n\n\nHoritzontal unitarity fixes same property for the columns\n\nD. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits-with-qlss",
+    "href": "talks/qpl-2024/index.html#heterogenous-biunitary-cicuits-with-qlss",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Heterogenous biunitary cicuits with QLSs",
+    "text": "Heterogenous biunitary cicuits with QLSs"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#complex-hadamard-matrices",
+    "href": "talks/qpl-2024/index.html#complex-hadamard-matrices",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Complex Hadamard matrices",
+    "text": "Complex Hadamard matrices\n\nA biunitary with two opposite shaded regions\n\n\n\n\n\n\n\nCorresponds to complex Hadamard matrix: U^\\dagger U = U U^\\dagger = q\\mathbb{1}, |U_{a,b}|=1\nRepresents either one-site unitary or two-site controlled phase"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#classification-of-biunitaries",
+    "href": "talks/qpl-2024/index.html#classification-of-biunitaries",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Classification of biunitaries",
+    "text": "Classification of biunitaries\n\n\n\n\nDual-unitary gates\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum crosses\n\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Latin squares\n\n\n\n\n\n\n\n\n\n\n\n\n\nComplex Hadamard matrices\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnitary error bases"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#zoo-of-biunitary-circuits",
+    "href": "talks/qpl-2024/index.html#zoo-of-biunitary-circuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Zoo of biunitary circuits",
+    "text": "Zoo of biunitary circuits"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#complex-hadamard-circuits",
+    "href": "talks/qpl-2024/index.html#complex-hadamard-circuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Complex Hadamard circuits",
+    "text": "Complex Hadamard circuits\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\nDepending on unit cell, can be interpreted as brickwork…"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#compositions",
+    "href": "talks/qpl-2024/index.html#compositions",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Compositions1",
+    "text": "Compositions1\n\n\n\n\n\n\n\nQLS + QLS = Dual unitary\n\n\n\n\n\n\n\nQLS + QLS = Quantum cross\n\n\n\n\n\n\n\n\n\nHad + Had = QLS\n\n\n\n\n\n\n\nUEB + UEB = QLS\n\n\n\n\n\nD. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#solvable-tensors",
+    "href": "talks/qpl-2024/index.html#solvable-tensors",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Solvable tensors",
+    "text": "Solvable tensors\n\nStart from tensor with arbitrary shading pattern\n\n\n\n\n\n\n\nSatisfies notion of horizontal unitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#entanglement-dynamics",
+    "href": "talks/qpl-2024/index.html#entanglement-dynamics",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Entanglement dynamics",
+    "text": "Entanglement dynamics\n\nInitial state constructed from solvable tensors\n\n\n\nEvolve using biunitary circuit"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#unitary-circuits",
+    "href": "talks/qpl-2024/index.html#unitary-circuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Unitary circuits",
+    "text": "Unitary circuits\n\n\n\nAdd explicit expression for contraction"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#outline",
+    "href": "talks/qpl-2024/index.html#outline",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Outline",
+    "text": "Outline\n\nDual-unitary circuits\nShaded calculus\nBiunitary circuits\nSolvable states"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#causal-light-cone",
+    "href": "talks/qpl-2024/index.html#causal-light-cone",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Causal light cone",
+    "text": "Causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitary-circuits",
+    "href": "talks/qpl-2024/index.html#dual-unitary-circuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitary circuits",
+    "text": "Dual unitary circuits\n\nWhat if propagation in space direction also unitary?\n\n\n\nIntroduce dual unitary gates"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#du-motivation",
+    "href": "talks/qpl-2024/index.html#du-motivation",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "DU: Motivation",
+    "text": "DU: Motivation\n\nDU circuits are a minimal model of local and unitary many-body dynamics with many interesting properties\nExact solvability\nMaximally chaotic\nMaximal entanglement velocity: Entanglement spreads at fastest possible rate"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity from biunitarity",
+    "text": "Dual unitarity from biunitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-1",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity from biunitarity",
+    "text": "Dual unitarity from biunitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-du-gates",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-du-gates",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity from biunitarity: DU gates",
+    "text": "Dual unitarity from biunitarity: DU gates"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-du-clockwork",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity-du-clockwork",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity from biunitarity: DU clockwork",
+    "text": "Dual unitarity from biunitarity: DU clockwork\n\n\n\n\n\n\n\\sum_e (U_{a,c})^\\dagger_{b,e} (U_{a,c})^\\dagger_{e,d} = \\delta_{bd}"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#biunitary-circuits",
+    "href": "talks/qpl-2024/index.html#biunitary-circuits",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Biunitary circuits",
+    "text": "Biunitary circuits\n\nWe consider lattices where every vertex is biunitary\n\n\n\nGray background = region can be shaded or not"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nVertical unitarity implies causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-1",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nVertical unitarity implies causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-2",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-2",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nVertical unitarity implies causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-3",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-3",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nNow using horizontal unitarity…"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-4",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-4",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nNow using horizontal unitarity…"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-5",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-5",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\nNow using horizontal unitarity…"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-6",
+    "href": "talks/qpl-2024/index.html#dynamics-of-correlation-functions-6",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dynamics of correlation functions",
+    "text": "Dynamics of correlation functions\n\nProof from dual-unitarity directly extends to biunitary circuits\n\n\n\n\n\n\n\n…correlations vanish inside the light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#light-cone-dynamics",
+    "href": "talks/qpl-2024/index.html#light-cone-dynamics",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Light-cone dynamics",
+    "text": "Light-cone dynamics\n\nLight-cone correlation functions can be efficiently calculated\n\n\n\n\n\n\n\n… in the exact same way as for dual-unitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#light-cone-dynamics-1",
+    "href": "talks/qpl-2024/index.html#light-cone-dynamics-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Light-cone dynamics",
+    "text": "Light-cone dynamics\n\nLight-cone correlation functions can be efficiently calculated\n\n\n\n\n\n\n\n… in the exact same way as for dual-unitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#light-cone-dynamics-2",
+    "href": "talks/qpl-2024/index.html#light-cone-dynamics-2",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Light-cone dynamics",
+    "text": "Light-cone dynamics\n\nLight-cone correlation functions can be efficiently calculated\n\n\n\n\n\n\n\n… in the exact same way as for dual-unitarity"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#complex-hadamard-circuits-1",
+    "href": "talks/qpl-2024/index.html#complex-hadamard-circuits-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Complex Hadamard circuits",
+    "text": "Complex Hadamard circuits\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-round-a-face",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-round-a-face",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity round-a-face",
+    "text": "Dual unitarity round-a-face"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#shaded-tensor-networks",
+    "href": "talks/qpl-2024/index.html#shaded-tensor-networks",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Shaded tensor networks",
+    "text": "Shaded tensor networks"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#solvable-states",
+    "href": "talks/qpl-2024/index.html#solvable-states",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Solvable states",
+    "text": "Solvable states\n\nDynamics so far restricted to initial (ultralocal) operators\nWhat about initial states?\nClass of solvable matrix product states introduced by Piroli et al.1\n\n\n\nConsistent with dual-unitarity if \\mathcal{N} satisfies some (graphical) identities\n\nPhys. Rev. B 101, 094304 (2020)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#ordinary-tensor-network",
+    "href": "talks/qpl-2024/index.html#ordinary-tensor-network",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "“Ordinary” tensor network",
+    "text": "“Ordinary” tensor network"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix-1",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix-2",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix-2",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix-3",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix-3",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix-4",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix-4",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#reduced-density-matrix-5",
+    "href": "talks/qpl-2024/index.html#reduced-density-matrix-5",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Reduced density matrix",
+    "text": "Reduced density matrix\n\n\\rho_A(t)=\\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi(t,\\mathcal{N})}\\bra\\Psi(t,\\mathcal{N})\\right]\n\n\n\n\n\n\n\nBiunitary circuits exactly thermalize \\rho_A(t\\geq |A|/2)\\propto \\mathbb{1}"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#maximal-entanglement-entropy-growth",
+    "href": "talks/qpl-2024/index.html#maximal-entanglement-entropy-growth",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Maximal entanglement entropy growth",
+    "text": "Maximal entanglement entropy growth"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#solvable-initial-states",
+    "href": "talks/qpl-2024/index.html#solvable-initial-states",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Solvable initial states",
+    "text": "Solvable initial states\n\nNo shading: returns solvable matrix product state of Piroli et al.1\n\n\n\n\n\n\n\n\nFully shaded = new solvable initial state for clockwork circuits\n\n\n\n\n\n\nPhys. Rev. B 101, 094304 (2020)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#solvable-initial-states-1",
+    "href": "talks/qpl-2024/index.html#solvable-initial-states-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Solvable initial states",
+    "text": "Solvable initial states\n\n\n\n\n\n\nHorizontal unitarity corresponds to unitarity of \\mathcal{N}^{(b)}"
   }
 ]

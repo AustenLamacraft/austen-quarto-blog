@@ -26,7 +26,44 @@ format:
     }
 ---
 
+<!-- E to toggle to PDF mode -->
 
+# Local unitary dynamics
+
+![](assets/unitary-circuit.png)
+
+--- 
+
+## Unitary circuits
+
+![](assets/u-udagger-gates.png){width=70%}
+
+![](assets/unitarity.png){width=70%}
+
+- Add explicit expression for contraction
+
+---
+
+
+## Causal light cone
+
+![](assets/lc-1.png)
+
+---
+
+![](assets/lc-2.png)
+
+---
+
+![](assets/lc-3.png)
+
+---
+
+![](assets/lc-4.png)
+
+---
+
+![](assets/lc-6.png)
 
 # Outline
 
@@ -35,47 +72,651 @@ format:
 3. Biunitary circuits
 4. Solvable states
 
----
-
-
-# Unitary circuits
-
-Review of light cone and light cone correlations
-
----
+# Outline
 
 1. __Dual-unitary circuits__
 2. Shaded calculus
 3. Biunitary circuits
 4. Solvable states
 
+---
+
+## Dual unitary circuits
+
+- What if propagation in _space_ direction also unitary?
+
+![](assets/unitary-circuit.png)
+
+- Introduce _dual unitary gates_
 
 ---
 
-# Dual unitary circuits
 
---- 
+![](assets/u-udagger-gates.png){width=70%}
 
-![](assets/pieter/svg-pages/biunitary-circuit.svg){width=200%}
+![](assets/unitary-condition.png){width=70%}
 
+![](assets/du-condition.png){width=70%}
 
----
-
-![](assets/pieter/svg-pages/test.svg){width=200%}
 
 ---
 
-## 1D Lattice
-
-![](assets/pieter/1d-lattice.png)
+![](assets/correlator-cones-1.png)
 
 ---
+
+![](assets/correlator-cones-2.png)
+
+---
+
+![](assets/correlator-cones-3.png)
+
+---
+
+![](assets/correlator-cones-4.png)
+
+---
+
+![](assets/correlations-numerical.png)
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-1.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-2.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-3.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-4.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-5.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-6.png){width=70%}
+
+---
+
+## Light cone correlations
+
+- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/correlations-numerical.png)
+
+## DU: Motivation
+
+- DU circuits are a minimal model of __local__ and __unitary__ many-body dynamics with many interesting properties
+
+- __Exact solvability__
+
+- __Maximally chaotic__
+
+- __Maximal entanglement velocity__: Entanglement spreads at fastest possible rate
+
+---
+
+## Dual unitarity round-a-face
+
+![](assets/du-round-a-face.png)
+
+
+
+# Outline
 
 1. Dual-unitary circuits
 2. __Shaded calculus__
 3. Biunitary circuits
 4. Solvable states
 
-# Shaded tensor networks
+---
 
-# Solvable states
+## "Ordinary" tensor network
+
+---
+
+## _Shaded_ tensor networks
+
+![](assets/shaded-tensor-networks.png)
+
+---
+
+![](assets/brickwork-clockwork-1.png)
+
+![](assets/brickwork-clockwork-2.png)
+
+![](assets/du-from-bu-controlled.png){width=70%}
+
+---
+
+![](assets/brickwork-clockwork-1.png)
+
+![](assets/brickwork-clockwork-3.png)
+
+![](assets/du-from-bu-controlled.png){width=70%}
+
+# Outline
+
+1. Dual-unitary circuits
+2. Shaded calculus
+3. __Biunitary circuits__
+4. Solvable states
+
+---
+
+- TYPO??
+
+![](assets/biunitary-vertical.png){width=70% fig-align="center"}
+
+![](assets/biunitary-horizontal.png){width=70% fig-align="center"}
+
+---
+
+## Dual unitarity from biunitarity: DU gates
+
+![](assets/du-from-bu-du-gate-vertical.png){width=70%}
+
+![](assets/du-from-bu-du-gate-horizontal.png){width=40%}
+
+
+---
+
+## Dual unitarity from biunitarity: DU clockwork
+
+![](assets/du-from-bu-vertical.png){width=40% fig-align="center"}
+
+$$
+\sum_e (U_{a,c})^\dagger_{b,e} (U_{a,c})^\dagger_{e,d} = \delta_{bd} 
+$$
+
+
+![](assets/du-from-bu-controlled.png){width=70% fig-align="center"}
+
+---
+
+- __No shading__ corresponds to __brickwork circuits__
+
+![](assets/brickwork-clockwork-1.png)
+
+- __Fully shaded__ corresponds to __clockwork circuits__
+
+![](assets/brickwork-clockwork-2.png)
+
+---
+
+## Biunitary circuits
+
+- We consider lattices where __every vertex is biunitary__
+
+![](assets/biunitary-circuit.svg){width=200%}
+
+- Gray background = region can be __shaded or not__
+
+---
+
+## Heterogenous biunitary cicuits
+
+- We can vary the shading pattern...
+
+![](assets/heterogenous-circuits-1.png)
+
+- ...by introducing new elements
+
+![](assets/heterogenous-circuits-2.png){width=40% fig-align="center"}
+
+- Biunitarity implies that these vertices correspond to __quantum Latin squares__
+
+- Matrix of vectors $U_{a,b}$ with _every row and column_ forming orthonormal basis
+
+---
+
+## Quantum latin squares^[[D. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)](https://articles.math.cas.cz/10.21136/HS.2019.04)]
+
+- __Vertical unitarity__ determines the properties of the rows
+
+![](assets/quantum-latin-squares.png){width=80% fig-align="center"}
+
+- __Horitzontal unitarity__ fixes same property for the columns
+
+---
+
+Further info on Latin squares
+
+Why are they interesting?? Quanta story
+
+---
+
+
+## Heterogenous biunitary cicuits
+
+- Introducing additional shading patterns
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](assets/heterogenous-circuits-3-left.png)
+:::
+
+::: {.column width="50%"}
+![](assets/heterogenous-circuits-3-right.png)
+:::
+
+::::
+
+
+
+- ...by introducing new elements
+
+![](assets/heterogenous-circuits-4.png){width=40% fig-align="center"}
+
+---
+
+## Complex Hadamard matrices
+
+- A biunitary with two opposite shaded regions
+
+![](assets/complex-hadamard-1.png){width=30% fig-align="center"}
+
+- Corresponds to complex Hadamard matrix: $U^\dagger U = U U^\dagger = q\mathbb{1}$, $|U_{a,b}|=1$
+
+- Represents either one-site unitary or two-site controlled phase
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](assets/complex-hadamard-2.png){width=60% fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](assets/complex-hadamard-3.png)
+:::
+
+::::
+
+---
+
+## Classification of biunitaries
+
+
+:::: {layout-ncol=2}
+
+- Dual-unitary gates
+
+![](assets/classification-du.svg){width=35% fig-align="center"}
+
+- Quantum crosses
+
+![](assets/classification-quantum-crosses.svg){width=35% fig-align="center"}
+
+- Quantum Latin squares
+
+![](assets/classification-quantum-latin-squares.svg){width=35% fig-align="center"}
+
+- Complex Hadamard matrices
+
+![](assets/classification-complext-hadamard.svg){width=35% fig-align="center"}
+
+- Unitary error bases
+
+![](assets/classification-ueb.svg){width=35% fig-align="center"}
+
+::::
+
+---
+
+## Zoo of biunitary circuits
+
+![](assets/biunitary-zoo.png)
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-1.svg){width=80% fig-align="center"}
+
+- __Vertical unitarity__ implies __causal light cone__
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-2.svg){width=80% fig-align="center"}
+
+- __Vertical unitarity__ implies __causal light cone__
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-3.svg){width=80% fig-align="center"}
+
+- __Vertical unitarity__ implies __causal light cone__
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-4.svg){width=80% fig-align="center"}
+
+- Now using __horizontal unitarity__...
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-5.svg){width=80% fig-align="center"}
+
+- Now using __horizontal unitarity__...
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-6.svg){width=80% fig-align="center"}
+
+- Now using __horizontal unitarity__...
+
+---
+
+## Dynamics of correlation functions
+
+- Proof from dual-unitarity __directly extends__ to biunitary circuits
+
+![](assets/biunitary-correlations-7.svg){width=80% fig-align="center"}
+
+- ...correlations vanish inside the light cone
+
+---
+
+## Light-cone dynamics
+
+- Light-cone correlation functions can be efficiently calculated
+
+![](assets/biunitary-lightcone-1.png){width=80% fig-align="center"}
+
+- ... in the exact same way as for dual-unitarity
+
+---
+
+## Light-cone dynamics
+
+- Light-cone correlation functions can be efficiently calculated
+
+![](assets/biunitary-lightcone-2.png){width=80% fig-align="center"}
+
+- ... in the exact same way as for dual-unitarity
+
+---
+
+## Light-cone dynamics
+
+- Light-cone correlation functions can be efficiently calculated
+
+![](assets/biunitary-lightcone-3.png){width=80% fig-align="center"}
+
+- ... in the exact same way as for dual-unitarity
+
+---
+
+## Complex Hadamard circuits
+
+- Construct circuit exclusively out of complex Hadamard matrices
+
+![](assets/hadamard-brickwork-1.png){width=80% fig-align="center"}
+
+- Depending on unit cell, can be interpreted as brickwork...
+
+![](assets/hadamard-brickwork-2.png){width=60% fig-align="center"}
+
+---
+
+## Complex Hadamard circuits
+
+- Construct circuit exclusively out of complex Hadamard matrices
+
+![](assets/hadamard-clockwork-1.png){width=80% fig-align="center"}
+
+- ... or clockwork
+
+![](assets/hadamard-clockwork-2.png){width=60% fig-align="center"}
+
+
+- Biunitaries combine into biunitaries!
+
+---
+
+## Compositions^[[D. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)](https://articles.math.cas.cz/10.21136/HS.2019.04)]
+
+<!-- https://quarto.org/docs/presentations/revealjs/advanced.html#absolute-position -->
+
+::: {layout-ncol=2}
+![QLS + QLS = Dual unitary](assets/compositions-1.png){width=80% fig-align="center"}
+
+![QLS + QLS = Quantum cross](assets/compositions-2.png){width=80% fig-align="center"}
+
+![Had + Had = QLS](assets/compositions-3.png){width=80% fig-align="center"}
+
+![UEB + UEB = QLS](assets/compositions-4.png){width=80% fig-align="center"}
+:::
+
+# Outline
+
+1. Dual-unitary circuits
+2. Shaded calculus
+3. Biunitary circuits
+4. __Solvable states__
+
+---
+
+## Solvable states
+
+- Dynamics so far restricted to initial (ultralocal) operators
+
+- What about initial states?
+
+- Class of solvable matrix product states introduced by Piroli _et al_.^[[Phys. Rev. B __101__, 094304 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304)]
+
+
+
+![](assets/solvable-1-state.png)
+
+- Consistent with dual-unitarity if $\mathcal{N}$ satisfies some (graphical) identities
+
+---
+
+## Solvable tensors
+
+- Start from tensor with arbitrary shading pattern
+
+![](assets/solvable-tensors-1.png){width=30% fig-align="center"}
+
+- Satisfies notion of __horizontal unitarity__
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](assets/solvable-tensors-2.png){width=80% fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](assets/solvable-tensors-3.png){width=80% fig-align="center"}
+:::
+
+::::
+
+---
+
+- Transfer matrix...
+
+![](assets/solvable-tensors-4.png){width=20% fig-align="center"}
+
+ - ...has a __nondegenerate leading eigenvalue__
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](assets/solvable-tensors-5a.png){width=80% fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](assets/solvable-tensors-5b.png){width=80% fig-align="center"}
+:::
+
+::::
+
+---
+
+## Entanglement dynamics 
+
+- Initial state constructed from solvable tensors
+
+![](assets/entanglement-initial-state.png)
+
+- Evolve using biunitary circuit
+
+![](assets/entanglement-final-state.png)
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix.png){width=80% fig-align="center"}
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix-2.png){width=80% fig-align="center"}
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix-3.png){width=80% fig-align="center"}
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix-4.png){width=80% fig-align="center"}
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix-5.png){width=80% fig-align="center"}
+
+---
+
+## Reduced density matrix
+
+$$
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+$$
+
+![](assets/entanglement-final-density-matrix-6.png){width=40% fig-align="center"}
+
+- Biunitary circuits exactly thermalize $\rho_A(t\geq |A|/2)\propto \mathbb{1}$
+
+---
+
+## Maximal entanglement entropy growth
+
+![](assets/entanglement-dynamics-result.png)
+
+---
+
+## Solvable initial states
+
+- No shading: returns solvable matrix product state of Piroli _et al_.^[[Phys. Rev. B __101__, 094304 (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304)]
+
+![](assets/solvable-1-no-shading.png){width=40% fig-align="center"}
+
+<!-- ![](assets/solvable-1-state.png)
+
+![](assets/solvable-2.png) -->
+
+- Fully shaded = __new__ solvable initial state for clockwork circuits
+
+![](assets/solvable-3-shading.png){width=40% fig-align="center"}
+
+---
+
+## Solvable initial states
+
+![](assets/solvable-3-state.png){width=80% fig-align="center"}
+
+- Horizontal unitarity corresponds to unitarity of $\mathcal{N}^{(b)}$
+
+![](assets/solvable-4.png){width=80% fig-align="center"}
+
+# Conclusions
+
+- Dual-unitary models present a class of exactly solvable models for many-body dynamics
+
+- Embed in general class of __biunitary circuits__
+
+- Biunitaries compose into biunitaries (Dual-unitary gates, quantum crosses, unitary error bases, complex Hadamard matrices, quantum Latin squares)
+
+- Any graphical proof for dual-unitarity directly extends to biunitarity

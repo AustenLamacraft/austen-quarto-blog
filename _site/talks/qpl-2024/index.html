@@ -33,6 +33,22 @@
     }
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -347,7 +363,43 @@ Pieter Claeys (MPI-PKS), <strong>Austen Lamacraft</strong>, Jamie Vicary
 
   <p class="date">July 18, 2024</p>
 </section>
+<section class="slide level2 center">
+
+<!-- E to toggle to PDF mode -->
+</section>
 <section>
+<section id="local-unitary-dynamics" class="title-slide slide level1 center">
+<h1>Local unitary dynamics</h1>
+<p><img data-src="assets/unitary-circuit.png"></p>
+</section>
+<section id="unitary-circuits" class="slide level2 center">
+<h2>Unitary circuits</h2>
+<p><img data-src="assets/u-udagger-gates.png" style="width:70.0%"></p>
+<p><img data-src="assets/unitarity.png" style="width:70.0%"></p>
+<ul>
+<li>Add explicit expression for contraction</li>
+</ul>
+</section>
+<section id="causal-light-cone" class="slide level2 center">
+<h2>Causal light cone</h2>
+<p><img data-src="assets/lc-1.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/lc-2.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/lc-3.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/lc-4.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/lc-6.png"></p>
+</section></section>
 <section id="outline" class="title-slide slide level1 center">
 <h1>Outline</h1>
 <ol type="1">
@@ -357,16 +409,10 @@ Pieter Claeys (MPI-PKS), <strong>Austen Lamacraft</strong>, Jamie Vicary
 <li>Solvable states</li>
 </ol>
 </section>
-<section class="slide level2 center">
 
-</section></section>
 <section>
-<section id="unitary-circuits" class="title-slide slide level1 center">
-<h1>Unitary circuits</h1>
-<p>Review of light cone and light cone correlations</p>
-</section>
-<section class="slide level2 center">
-
+<section id="outline-1" class="title-slide slide level1 center">
+<h1>Outline</h1>
 <ol type="1">
 <li><strong>Dual-unitary circuits</strong></li>
 <li>Shaded calculus</li>
@@ -374,42 +420,805 @@ Pieter Claeys (MPI-PKS), <strong>Austen Lamacraft</strong>, Jamie Vicary
 <li>Solvable states</li>
 </ol>
 </section>
+<section id="dual-unitary-circuits" class="slide level2 center">
+<h2>Dual unitary circuits</h2>
+<ul>
+<li>What if propagation in <em>space</em> direction also unitary?</li>
+</ul>
+<p><img data-src="assets/unitary-circuit.png"></p>
+<ul>
+<li>Introduce <em>dual unitary gates</em></li>
+</ul>
+</section>
 <section class="slide level2 center">
 
+<p><img data-src="assets/u-udagger-gates.png" style="width:70.0%"></p>
+<p><img data-src="assets/unitary-condition.png" style="width:70.0%"></p>
+<p><img data-src="assets/du-condition.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/correlator-cones-1.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/correlator-cones-2.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/correlator-cones-3.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/correlator-cones-4.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/correlations-numerical.png"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-1.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-2.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-3.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-4.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-5.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/lc-correlations-6.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p>##&nbsp;Light cone correlations</p>
+<ul>
+<li>Correlations on light cone <span class="math inline">\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]</span></li>
+</ul>
+<p><img data-src="assets/correlations-numerical.png"></p>
+</section>
+<section id="du-motivation" class="slide level2 center">
+<h2>DU: Motivation</h2>
+<ul>
+<li><p>DU circuits are a minimal model of <strong>local</strong> and <strong>unitary</strong> many-body dynamics with many interesting properties</p></li>
+<li><p><strong>Exact solvability</strong></p></li>
+<li><p><strong>Maximally chaotic</strong></p></li>
+<li><p><strong>Maximal entanglement velocity</strong>: Entanglement spreads at fastest possible rate</p></li>
+</ul>
+</section>
+<section id="dual-unitarity-round-a-face" class="slide level2 center">
+<h2>Dual unitarity round-a-face</h2>
+<p><img data-src="assets/du-round-a-face.png"></p>
 </section></section>
 <section>
-<section id="dual-unitary-circuits" class="title-slide slide level1 center">
-<h1>Dual unitary circuits</h1>
-
-</section>
-<section class="slide level2 center">
-
-<p><img data-src="assets/pieter/svg-pages/biunitary-circuit.svg" style="width:200.0%"></p>
-</section>
-<section class="slide level2 center">
-
-<p><img data-src="assets/pieter/svg-pages/test.svg" style="width:200.0%"></p>
-</section>
-<section id="d-lattice" class="slide level2 center">
-<h2>1D Lattice</h2>
-<p><img data-src="assets/pieter/1d-lattice.png"></p>
-</section>
-<section class="slide level2 center">
-
+<section id="outline-2" class="title-slide slide level1 center">
+<h1>Outline</h1>
 <ol type="1">
 <li>Dual-unitary circuits</li>
 <li><strong>Shaded calculus</strong></li>
 <li>Biunitary circuits</li>
 <li>Solvable states</li>
 </ol>
-</section></section>
-<section id="shaded-tensor-networks" class="title-slide slide level1 center">
-<h1>Shaded tensor networks</h1>
-
 </section>
+<section id="ordinary-tensor-network" class="slide level2 center">
+<h2>“Ordinary” tensor network</h2>
+</section>
+<section id="shaded-tensor-networks" class="slide level2 center">
+<h2><em>Shaded</em> tensor networks</h2>
+<p><img data-src="assets/shaded-tensor-networks.png"></p>
+</section>
+<section class="slide level2 center">
 
-<section id="solvable-states" class="title-slide slide level1 center">
-<h1>Solvable states</h1>
+<p><img data-src="assets/brickwork-clockwork-1.png"></p>
+<p><img data-src="assets/brickwork-clockwork-2.png"></p>
+<p><img data-src="assets/du-from-bu-controlled.png" style="width:70.0%"></p>
+</section>
+<section class="slide level2 center">
+
+<p><img data-src="assets/brickwork-clockwork-1.png"></p>
+<p><img data-src="assets/brickwork-clockwork-3.png"></p>
+<p><img data-src="assets/du-from-bu-controlled.png" style="width:70.0%"></p>
+</section></section>
+<section>
+<section id="outline-3" class="title-slide slide level1 center">
+<h1>Outline</h1>
+<ol type="1">
+<li>Dual-unitary circuits</li>
+<li>Shaded calculus</li>
+<li><strong>Biunitary circuits</strong></li>
+<li>Solvable states</li>
+</ol>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>TYPO??</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-vertical.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-horizontal.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section id="dual-unitarity-from-biunitarity-du-gates" class="slide level2 center">
+<h2>Dual unitarity from biunitarity: DU gates</h2>
+<p><img data-src="assets/du-from-bu-du-gate-vertical.png" style="width:70.0%"></p>
+<p><img data-src="assets/du-from-bu-du-gate-horizontal.png" style="width:40.0%"></p>
+</section>
+<section id="dual-unitarity-from-biunitarity-du-clockwork" class="slide level2 center">
+<h2>Dual unitarity from biunitarity: DU clockwork</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/du-from-bu-vertical.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<p><span class="math display">
+\sum_e (U_{a,c})^\dagger_{b,e} (U_{a,c})^\dagger_{e,d} = \delta_{bd}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/du-from-bu-controlled.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><strong>No shading</strong> corresponds to <strong>brickwork circuits</strong></li>
+</ul>
+<p><img data-src="assets/brickwork-clockwork-1.png"></p>
+<ul>
+<li><strong>Fully shaded</strong> corresponds to <strong>clockwork circuits</strong></li>
+</ul>
+<p><img data-src="assets/brickwork-clockwork-2.png"></p>
+</section>
+<section id="biunitary-circuits" class="slide level2 center">
+<h2>Biunitary circuits</h2>
+<ul>
+<li>We consider lattices where <strong>every vertex is biunitary</strong></li>
+</ul>
+<p><img data-src="assets/biunitary-circuit.svg" style="width:200.0%"></p>
+<ul>
+<li>Gray background = region can be <strong>shaded or not</strong></li>
+</ul>
+</section>
+<section id="heterogenous-biunitary-cicuits" class="slide level2 center">
+<h2>Heterogenous biunitary cicuits</h2>
+<ul>
+<li>We can vary the shading pattern…</li>
+</ul>
+<p><img data-src="assets/heterogenous-circuits-1.png"></p>
+<ul>
+<li>…by introducing new elements</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/heterogenous-circuits-2.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li><p>Biunitarity implies that these vertices correspond to <strong>quantum Latin squares</strong></p></li>
+<li><p>Matrix of vectors <span class="math inline">U_{a,b}</span> with <em>every row and column</em> forming orthonormal basis</p></li>
+</ul>
+</section>
+<section id="quantum-latin-squares" class="slide level2 center">
+<h2>Quantum latin squares<sup>1</sup></h2>
+<ul>
+<li><strong>Vertical unitarity</strong> determines the properties of the rows</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/quantum-latin-squares.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Horitzontal unitarity</strong> fixes same property for the columns</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://articles.math.cas.cz/10.21136/HS.2019.04">D. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)</a></p></li></ol></aside></section>
+<section class="slide level2 center">
+
+<p>Further info on Latin squares</p>
+<p>Why are they interesting?? Quanta story</p>
+</section>
+<section id="heterogenous-biunitary-cicuits-1" class="slide level2 center">
+<h2>Heterogenous biunitary cicuits</h2>
+<ul>
+<li>Introducing additional shading patterns</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="assets/heterogenous-circuits-3-left.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/heterogenous-circuits-3-right.png"></p>
+</div>
+</div>
+<ul>
+<li>…by introducing new elements</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/heterogenous-circuits-4.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</section>
+<section id="complex-hadamard-matrices" class="slide level2 center">
+<h2>Complex Hadamard matrices</h2>
+<ul>
+<li>A biunitary with two opposite shaded regions</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/complex-hadamard-1.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+</figure>
+</div>
+<ul>
+<li><p>Corresponds to complex Hadamard matrix: <span class="math inline">U^\dagger U = U U^\dagger = q\mathbb{1}</span>, <span class="math inline">|U_{a,b}|=1</span></p></li>
+<li><p>Represents either one-site unitary or two-site controlled phase</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/complex-hadamard-2.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/complex-hadamard-3.png"></p>
+</div>
+</div>
+</section>
+<section id="classification-of-biunitaries" class="slide level2 center">
+<h2>Classification of biunitaries</h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Dual-unitary gates</li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/classification-du.svg" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Quantum crosses</li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/classification-quantum-crosses.svg" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Quantum Latin squares</li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/classification-quantum-latin-squares.svg" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Complex Hadamard matrices</li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/classification-complext-hadamard.svg" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<ul>
+<li>Unitary error bases</li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/classification-ueb.svg" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="zoo-of-biunitary-circuits" class="slide level2 center">
+<h2>Zoo of biunitary circuits</h2>
+<p><img data-src="assets/biunitary-zoo.png"></p>
+</section>
+<section id="dynamics-of-correlation-functions" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-1.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Vertical unitarity</strong> implies <strong>causal light cone</strong></li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-1" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-2.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Vertical unitarity</strong> implies <strong>causal light cone</strong></li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-2" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-3.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li><strong>Vertical unitarity</strong> implies <strong>causal light cone</strong></li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-3" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-4.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Now using <strong>horizontal unitarity</strong>…</li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-4" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-5.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Now using <strong>horizontal unitarity</strong>…</li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-5" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-6.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Now using <strong>horizontal unitarity</strong>…</li>
+</ul>
+</section>
+<section id="dynamics-of-correlation-functions-6" class="slide level2 center">
+<h2>Dynamics of correlation functions</h2>
+<ul>
+<li>Proof from dual-unitarity <strong>directly extends</strong> to biunitary circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-correlations-7.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>…correlations vanish inside the light cone</li>
+</ul>
+</section>
+<section id="light-cone-dynamics" class="slide level2 center">
+<h2>Light-cone dynamics</h2>
+<ul>
+<li>Light-cone correlation functions can be efficiently calculated</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-lightcone-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>… in the exact same way as for dual-unitarity</li>
+</ul>
+</section>
+<section id="light-cone-dynamics-1" class="slide level2 center">
+<h2>Light-cone dynamics</h2>
+<ul>
+<li>Light-cone correlation functions can be efficiently calculated</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-lightcone-2.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>… in the exact same way as for dual-unitarity</li>
+</ul>
+</section>
+<section id="light-cone-dynamics-2" class="slide level2 center">
+<h2>Light-cone dynamics</h2>
+<ul>
+<li>Light-cone correlation functions can be efficiently calculated</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/biunitary-lightcone-3.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>… in the exact same way as for dual-unitarity</li>
+</ul>
+</section>
+<section id="complex-hadamard-circuits" class="slide level2 center">
+<h2>Complex Hadamard circuits</h2>
+<ul>
+<li>Construct circuit exclusively out of complex Hadamard matrices</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hadamard-brickwork-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Depending on unit cell, can be interpreted as brickwork…</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hadamard-brickwork-2.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="complex-hadamard-circuits-1" class="slide level2 center">
+<h2>Complex Hadamard circuits</h2>
+<ul>
+<li>Construct circuit exclusively out of complex Hadamard matrices</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hadamard-clockwork-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>… or clockwork</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hadamard-clockwork-2.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Biunitaries combine into biunitaries!</li>
+</ul>
+</section>
+<section id="compositions" class="slide level2 center">
+<h2>Compositions<sup>1</sup></h2>
+<!-- https://quarto.org/docs/presentations/revealjs/advanced.html#absolute-position -->
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/compositions-1.png" style="width:80.0%"></p>
+<figcaption>QLS + QLS = Dual unitary</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/compositions-2.png" style="width:80.0%"></p>
+<figcaption>QLS + QLS = Quantum cross</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/compositions-3.png" style="width:80.0%"></p>
+<figcaption>Had + Had = QLS</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/compositions-4.png" style="width:80.0%"></p>
+<figcaption>UEB + UEB = QLS</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><a href="https://articles.math.cas.cz/10.21136/HS.2019.04">D. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)</a></p></li></ol></aside></section></section>
+<section>
+<section id="outline-4" class="title-slide slide level1 center">
+<h1>Outline</h1>
+<ol type="1">
+<li>Dual-unitary circuits</li>
+<li>Shaded calculus</li>
+<li>Biunitary circuits</li>
+<li><strong>Solvable states</strong></li>
+</ol>
+</section>
+<section id="solvable-states" class="slide level2 center">
+<h2>Solvable states</h2>
+<ul>
+<li><p>Dynamics so far restricted to initial (ultralocal) operators</p></li>
+<li><p>What about initial states?</p></li>
+<li><p>Class of solvable matrix product states introduced by Piroli <em>et al</em>.<sup>1</sup></p></li>
+</ul>
+<p><img data-src="assets/solvable-1-state.png"></p>
+<ul>
+<li>Consistent with dual-unitarity if <span class="math inline">\mathcal{N}</span> satisfies some (graphical) identities</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn3"><p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304">Phys. Rev.&nbsp;B <strong>101</strong>, 094304 (2020)</a></p></li></ol></aside></section>
+<section id="solvable-tensors" class="slide level2 center">
+<h2>Solvable tensors</h2>
+<ul>
+<li>Start from tensor with arbitrary shading pattern</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-1.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Satisfies notion of <strong>horizontal unitarity</strong></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-2.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-3.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Transfer matrix…</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-4.png" class="quarto-figure quarto-figure-center" style="width:20.0%"></p>
+</figure>
+</div>
+<ul>
+<li>…has a <strong>nondegenerate leading eigenvalue</strong></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-5a.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-tensors-5b.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="entanglement-dynamics" class="slide level2 center">
+<h2>Entanglement dynamics</h2>
+<ul>
+<li>Initial state constructed from solvable tensors</li>
+</ul>
+<p><img data-src="assets/entanglement-initial-state.png"></p>
+<ul>
+<li>Evolve using biunitary circuit</li>
+</ul>
+<p><img data-src="assets/entanglement-final-state.png"></p>
+</section>
+<section id="reduced-density-matrix" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="reduced-density-matrix-1" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix-2.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="reduced-density-matrix-2" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix-3.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="reduced-density-matrix-3" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix-4.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="reduced-density-matrix-4" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix-5.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="reduced-density-matrix-5" class="slide level2 center">
+<h2>Reduced density matrix</h2>
+<p><span class="math display">
+\rho_A(t)=\operatorname{tr}_{\bar A}\left[\ket{\Psi(t,\mathcal{N})}\bra\Psi(t,\mathcal{N})\right]
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/entanglement-final-density-matrix-6.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Biunitary circuits exactly thermalize <span class="math inline">\rho_A(t\geq |A|/2)\propto \mathbb{1}</span></li>
+</ul>
+</section>
+<section id="maximal-entanglement-entropy-growth" class="slide level2 center">
+<h2>Maximal entanglement entropy growth</h2>
+<p><img data-src="assets/entanglement-dynamics-result.png"></p>
+</section>
+<section id="solvable-initial-states" class="slide level2 center">
+<h2>Solvable initial states</h2>
+<ul>
+<li>No shading: returns solvable matrix product state of Piroli <em>et al</em>.<sup>1</sup></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-1-no-shading.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<!-- ![](assets/solvable-1-state.png)
+
+![](assets/solvable-2.png) -->
+<ul>
+<li>Fully shaded = <strong>new</strong> solvable initial state for clockwork circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-3-shading.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn4"><p><a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304">Phys. Rev.&nbsp;B <strong>101</strong>, 094304 (2020)</a></p></li></ol></aside></section>
+<section id="solvable-initial-states-1" class="slide level2 center">
+<h2>Solvable initial states</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-3-state.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Horizontal unitarity corresponds to unitarity of <span class="math inline">\mathcal{N}^{(b)}</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/solvable-4.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section></section>
+<section id="conclusions" class="title-slide slide level1 center">
+<h1>Conclusions</h1>
+<ul>
+<li><p>Dual-unitary models present a class of exactly solvable models for many-body dynamics</p></li>
+<li><p>Embed in general class of <strong>biunitary circuits</strong></p></li>
+<li><p>Biunitaries compose into biunitaries (Dual-unitary gates, quantum crosses, unitary error bases, complex Hadamard matrices, quantum Latin squares)</p></li>
+<li><p>Any graphical proof for dual-unitarity directly extends to biunitarity</p></li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -417,6 +1226,8 @@ Pieter Claeys (MPI-PKS), <strong>Austen Lamacraft</strong>, Jamie Vicary
 </div>
 </div>
 </section>
+
+
     </div>
   </div>
 
