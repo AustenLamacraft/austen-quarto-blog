@@ -2671,7 +2671,7 @@
     "href": "talks/qpl-2024/index.html#local-unitary-dynamics",
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Local unitary dynamics",
-    "text": "Local unitary dynamics"
+    "text": "Local unitary dynamics\n\nBrickwork unitary circuit"
   },
   {
     "objectID": "talks/qpl-2024/index.html#unitary-circuits-1",
@@ -2909,7 +2909,7 @@
     "href": "talks/qpl-2024/index.html#complex-hadamard-circuits-1",
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Complex Hadamard circuits1",
-    "text": "Complex Hadamard circuits1\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!\n\nP.W. Claeys and A.L., arXiv:2406.03781"
+    "text": "Complex Hadamard circuits1\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nP.W. Claeys and A.L., arXiv:2406.03781"
   },
   {
     "objectID": "talks/qpl-2024/index.html#dual-unitarity-round-a-face",

@@ -1,6 +1,7 @@
 ---
 # See all reveal options
 # https://quarto.org/docs/reference/formats/presentations/revealjs.html
+# E to toggle to PDF mode
 title: "From Dual Unitarity to Biunitarity" 
 subtitle: "A 2-categorical model for exactly-solvable many-body quantum dynamics\n [arXiv:2302.07280](https://arxiv.org/abs/2302.07280) (J Phys A, to appear)"
 author: "Pieter Claeys (MPI-PKS), __Austen Lamacraft__, Jamie Vicary"
@@ -25,8 +26,6 @@ format:
       throwOnError: false,
     }
 ---
-
-<!-- E to toggle to PDF mode -->
 
 # Local unitary dynamics
 
@@ -107,7 +106,7 @@ $$
 
 <!-- ![](assets/u-udagger-gates.png){width=60% fig-align="center"} -->
 
-![](assets/unitary-condition.png){width=60% fig-align="center"}
+![](assets/unitary-condition.png){width=40% fig-align="center"}
 
 ![](assets/du-condition.png){width=60% fig-align="center"}
 
@@ -558,7 +557,7 @@ $$
 
 - Construct circuit exclusively out of complex Hadamard matrices
 
-![](assets/hadamard-brickwork-1.png){width=60% fig-align="center"}
+![](assets/hadamard-brickwork-1.png){width=50% fig-align="center"}
 
 - Depending on unit cell, can be interpreted as brickwork...
 
@@ -570,14 +569,14 @@ $$
 
 - Construct circuit exclusively out of complex Hadamard matrices
 
-![](assets/hadamard-clockwork-1.png){width=60% fig-align="center"}
+![](assets/hadamard-clockwork-1.png){width=50% fig-align="center"}
 
 - ... or clockwork
 
 ![](assets/hadamard-clockwork-2.png){width=50% fig-align="center"}
 
 
-- Biunitaries combine into biunitaries!
+<!-- - Biunitaries combine into biunitaries! -->
 
 ---
 
@@ -766,7 +765,7 @@ $$
 
 # Conclusions
 
-- Dual-unitary models are a class of exactly solvable models for many-body dynamics
+- Dual-unitarity gives models of exactly solvable many-body dynamics
 
 - We embed them in a general class of __biunitary circuits__
 
