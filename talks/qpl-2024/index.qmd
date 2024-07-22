@@ -30,40 +30,52 @@ format:
 
 # Local unitary dynamics
 
-![](assets/unitary-circuit.png)
+- __Brickwork__ unitary circuit
+
+![](assets/unitary-circuit.png){width=80% fig-align="center"}
 
 --- 
 
 ## Unitary circuits
 
-![](assets/u-udagger-gates.png){width=70%}
+![](assets/u-udagger-gates.png){width=60% fig-align="center"}
 
-![](assets/unitarity.png){width=70%}
+![](assets/unitarity.png){width=60% fig-align="center"}
 
-- Add explicit expression for contraction
+$$
+\sum_{e,f} U^{\vphantom{\dagger}}_{ab, ef}U^{\dagger}_{ef,cd}=\delta_{ac}\delta_{bd}
+$$
 
 ---
 
 
 ## Causal light cone
 
-![](assets/lc-1.png)
+![](assets/lc-1.png){width=80% fig-align="center"}
 
 ---
 
-![](assets/lc-2.png)
+## Causal light cone
+
+![](assets/lc-2.png){width=80% fig-align="center"}
 
 ---
 
-![](assets/lc-3.png)
+## Causal light cone
+
+![](assets/lc-3.png){width=80% fig-align="center"}
 
 ---
 
-![](assets/lc-4.png)
+## Causal light cone
+
+![](assets/lc-4.png){width=80% fig-align="center"}
 
 ---
 
-![](assets/lc-6.png)
+## Causal light cone
+
+![](assets/lc-6.png){width=80% fig-align="center"}
 
 # Outline
 
@@ -85,113 +97,138 @@ format:
 
 - What if propagation in _space_ direction also unitary?
 
-![](assets/unitary-circuit.png)
+![](assets/unitary-circuit.png){width=80% fig-align="center"}
 
-- Introduce _dual unitary gates_
+- ... introduce _dual unitary gates_
+
+---
+
+## Dual unitary gates^[[S. Gopalakrishnan and A.L., Phys. Rev. B __100__, 064309 (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309)] ^[[B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. __123__, 210601 (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)]
+
+<!-- ![](assets/u-udagger-gates.png){width=60% fig-align="center"} -->
+
+![](assets/unitary-condition.png){width=60% fig-align="center"}
+
+![](assets/du-condition.png){width=60% fig-align="center"}
+
+
+---
+
+## Correlation functions 
+
+$$
+c_{\rho\sigma}(x,t)\sim \operatorname{tr}\left[\rho(0,t)\sigma(x)\right]
+$$
+
+![](assets/correlator-cones-1.png){width=60% fig-align="center"}
+
+---
+
+## Correlation functions 
+
+$$
+c_{\rho\sigma}(x,t)\sim \operatorname{tr}\left[\rho(0,t)\sigma(x)\right]
+$$
+
+![](assets/correlator-cones-2.png){width=60% fig-align="center"}
+
+---
+
+## Correlation functions 
+
+$$
+c_{\rho\sigma}(x,t)\sim \operatorname{tr}\left[\rho(0,t)\sigma(x)\right]
+$$
+
+![](assets/correlator-cones-3.png){width=60% fig-align="center"}
+
+---
+
+## Correlation functions 
+
+$$
+c_{\rho\sigma}(x,t)\sim \operatorname{tr}\left[\rho(0,t)\sigma(x)\right]
+$$
+
+![](assets/correlator-cones-4.png){width=60% fig-align="center"}
+
+---
+
+## Correlation functions 
+
+![](assets/correlations-numerical.png){width=60% fig-align="center"}
+
+---
+
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-1.png){width=40% fig-align="center"}
 
 ---
 
 
-![](assets/u-udagger-gates.png){width=70%}
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
 
-![](assets/unitary-condition.png){width=70%}
-
-![](assets/du-condition.png){width=70%}
-
+![](assets/lc-correlations-2.png){width=40% fig-align="center"}
 
 ---
 
-![](assets/correlator-cones-1.png)
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-3.png){width=40% fig-align="center"}
 
 ---
 
-![](assets/correlator-cones-2.png)
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-4.png){width=40% fig-align="center"}
 
 ---
 
-![](assets/correlator-cones-3.png)
+
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-5.png){width=40% fig-align="center"}
 
 ---
 
-![](assets/correlator-cones-4.png)
+
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/lc-correlations-6.png){width=40% fig-align="center"}
 
 ---
 
-![](assets/correlations-numerical.png)
+
+- Correlations on light cone $\operatorname{tr}\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
+
+![](assets/correlations-numerical.png){width=60% fig-align="center"}
+
+## Dual unitarity: motivation
+
+- Minimal model of __local__ and __unitary__ many-body dynamics with many interesting properties
+
+  - __Exact solvability__
+
+  - __Maximally chaotic__
+
+  - __Maximal entanglement velocity__: spreads at fastest possible rate
 
 ---
 
-## Light cone correlations
+## Dual unitarity round-a-face^[[Prosen, Chaos 31, 093101 (2021)](https://pubs.aip.org/aip/cha/article-abstract/31/9/093101/974675/Many-body-quantum-chaos-and-dual-unitarity-round-a?redirectedFrom=fulltext)]
 
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-1.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-2.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-3.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-4.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-5.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/lc-correlations-6.png){width=70%}
-
----
-
-## Light cone correlations
-
-- Correlations on light cone $\tr\left[\mathcal{U}^\dagger(t)\rho(0) \mathcal{U}(t)\sigma(x=t)\right]$
-
-![](assets/correlations-numerical.png)
-
-## DU: Motivation
-
-- DU circuits are a minimal model of __local__ and __unitary__ many-body dynamics with many interesting properties
-
-- __Exact solvability__
-
-- __Maximally chaotic__
-
-- __Maximal entanglement velocity__: Entanglement spreads at fastest possible rate
-
----
-
-## Dual unitarity round-a-face
+- Circuits with similar properties built from 1-site 2-controlled gates
 
 ![](assets/du-round-a-face.png)
 
+- Dual-unitarity: enforce unitarity when exchanging indices: $\tilde U_{a,c}$ unitary where  
 
+$$
+(\tilde U_{a,c})_{b,d} \equiv (U_{b,d})_{a,c}
+$$
+
+- _Common framework for round-a-face (__clockwork__) and brickwork circuits?_
 
 # Outline
 
@@ -204,27 +241,43 @@ format:
 
 ## "Ordinary" tensor network
 
----
-
-## _Shaded_ tensor networks
-
-![](assets/shaded-tensor-networks.png)
+![](assets/unshaded-tensor-networks.png){width=80% fig-align="center"}
 
 ---
 
-![](assets/brickwork-clockwork-1.png)
+## _Shaded_ tensor networks^[[D. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)](https://articles.math.cas.cz/10.21136/HS.2019.04)]
 
-![](assets/brickwork-clockwork-2.png)
+- Planar string diagram where some of the regions are shaded
 
-![](assets/du-from-bu-controlled.png){width=70%}
+![](assets/shaded-tensor-networks.png){width=80% fig-align="center"}
+
+- __Shaded region__ = index
+
+- __Closed shaded region__ = implicit summation
 
 ---
 
-![](assets/brickwork-clockwork-1.png)
+- __No shading__ corresponds to __brickwork circuits__
 
-![](assets/brickwork-clockwork-3.png)
+![](assets/brickwork-clockwork-1.png){width=60% fig-align="center"}
 
-![](assets/du-from-bu-controlled.png){width=70%}
+- __Fully shaded__ corresponds to __clockwork circuits__
+
+![](assets/brickwork-clockwork-2.png){width=60% fig-align="center"}
+
+![](assets/du-from-bu-controlled.png){width=60% fig-align="center"}
+
+---
+
+- __No shading__ corresponds to __brickwork circuits__
+
+![](assets/brickwork-clockwork-1.png){width=60% fig-align="center"}
+
+- __Fully shaded__ corresponds to __clockwork circuits__
+
+![](assets/brickwork-clockwork-3.png){width=60% fig-align="center"}
+
+![](assets/du-from-bu-controlled.png){width=60% fig-align="center"}
 
 # Outline
 
@@ -235,11 +288,17 @@ format:
 
 ---
 
-- TYPO??
+## Biunitarity
 
-![](assets/biunitary-vertical.png){width=70% fig-align="center"}
+- __Vertically unitary__
 
-![](assets/biunitary-horizontal.png){width=70% fig-align="center"}
+![](assets/biunitary-vertical.png){width=40% fig-align="center"}
+
+- __Horizontally unitary__
+
+![](assets/biunitary-horizontal.png){width=40% fig-align="center"}
+
+- __Biunitary__  vertex is both __horizontally__ and __vertically__ unitary
 
 ---
 
@@ -308,12 +367,6 @@ $$
 ![](assets/quantum-latin-squares.png){width=80% fig-align="center"}
 
 - __Horitzontal unitarity__ fixes same property for the columns
-
----
-
-Further info on Latin squares
-
-Why are they interesting?? Quanta story
 
 ---
 
@@ -501,27 +554,27 @@ Why are they interesting?? Quanta story
 
 ---
 
-## Complex Hadamard circuits
+## Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781](https://arxiv.org/abs/2406.03781)]
 
 - Construct circuit exclusively out of complex Hadamard matrices
 
-![](assets/hadamard-brickwork-1.png){width=80% fig-align="center"}
+![](assets/hadamard-brickwork-1.png){width=60% fig-align="center"}
 
 - Depending on unit cell, can be interpreted as brickwork...
 
-![](assets/hadamard-brickwork-2.png){width=60% fig-align="center"}
+![](assets/hadamard-brickwork-2.png){width=50% fig-align="center"}
 
 ---
 
-## Complex Hadamard circuits
+## Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781](https://arxiv.org/abs/2406.03781)]
 
 - Construct circuit exclusively out of complex Hadamard matrices
 
-![](assets/hadamard-clockwork-1.png){width=80% fig-align="center"}
+![](assets/hadamard-clockwork-1.png){width=60% fig-align="center"}
 
 - ... or clockwork
 
-![](assets/hadamard-clockwork-2.png){width=60% fig-align="center"}
+![](assets/hadamard-clockwork-2.png){width=50% fig-align="center"}
 
 
 - Biunitaries combine into biunitaries!
@@ -713,9 +766,9 @@ $$
 
 # Conclusions
 
-- Dual-unitary models present a class of exactly solvable models for many-body dynamics
+- Dual-unitary models are a class of exactly solvable models for many-body dynamics
 
-- Embed in general class of __biunitary circuits__
+- We embed them in a general class of __biunitary circuits__
 
 - Biunitaries compose into biunitaries (Dual-unitary gates, quantum crosses, unitary error bases, complex Hadamard matrices, quantum Latin squares)
 

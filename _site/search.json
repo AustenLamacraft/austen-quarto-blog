@@ -2733,8 +2733,8 @@
     "objectID": "talks/qpl-2024/index.html#complex-hadamard-circuits",
     "href": "talks/qpl-2024/index.html#complex-hadamard-circuits",
     "title": "From Dual Unitarity to Biunitarity",
-    "section": "Complex Hadamard circuits",
-    "text": "Complex Hadamard circuits\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\nDepending on unit cell, can be interpreted as brickwork…"
+    "section": "Complex Hadamard circuits1",
+    "text": "Complex Hadamard circuits1\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\nDepending on unit cell, can be interpreted as brickwork…\n\n\n\n\n\n\nP.W. Claeys and A.L., arXiv:2406.03781"
   },
   {
     "objectID": "talks/qpl-2024/index.html#compositions",
@@ -2769,7 +2769,7 @@
     "href": "talks/qpl-2024/index.html#unitary-circuits",
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Unitary circuits",
-    "text": "Unitary circuits\n\n\n\nAdd explicit expression for contraction"
+    "text": "Unitary circuits\n\n\n\n\n\n\n\n\n\n\n\n\\sum_{e,f} U^{\\vphantom{\\dagger}}_{ab, ef}U^{\\dagger}_{ef,cd}=\\delta_{ac}\\delta_{bd}"
   },
   {
     "objectID": "talks/qpl-2024/index.html#outline",
@@ -2790,14 +2790,14 @@
     "href": "talks/qpl-2024/index.html#dual-unitary-circuits",
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Dual unitary circuits",
-    "text": "Dual unitary circuits\n\nWhat if propagation in space direction also unitary?\n\n\n\nIntroduce dual unitary gates"
+    "text": "Dual unitary circuits\n\nWhat if propagation in space direction also unitary?\n\n\n\n\n\n\n\n… introduce dual unitary gates"
   },
   {
     "objectID": "talks/qpl-2024/index.html#du-motivation",
     "href": "talks/qpl-2024/index.html#du-motivation",
     "title": "From Dual Unitarity to Biunitarity",
     "section": "DU: Motivation",
-    "text": "DU: Motivation\n\nDU circuits are a minimal model of local and unitary many-body dynamics with many interesting properties\nExact solvability\nMaximally chaotic\nMaximal entanglement velocity: Entanglement spreads at fastest possible rate"
+    "text": "DU: Motivation\n\nDU circuits: minimal model of local and unitary many-body dynamics with many interesting properties\n\nExact solvability\nMaximally chaotic\nMaximal entanglement velocity: spreads at fastest possible rate"
   },
   {
     "objectID": "talks/qpl-2024/index.html#dual-unitarity-from-biunitarity",
@@ -2908,22 +2908,22 @@
     "objectID": "talks/qpl-2024/index.html#complex-hadamard-circuits-1",
     "href": "talks/qpl-2024/index.html#complex-hadamard-circuits-1",
     "title": "From Dual Unitarity to Biunitarity",
-    "section": "Complex Hadamard circuits",
-    "text": "Complex Hadamard circuits\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!"
+    "section": "Complex Hadamard circuits1",
+    "text": "Complex Hadamard circuits1\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!\n\nP.W. Claeys and A.L., arXiv:2406.03781"
   },
   {
     "objectID": "talks/qpl-2024/index.html#dual-unitarity-round-a-face",
     "href": "talks/qpl-2024/index.html#dual-unitarity-round-a-face",
     "title": "From Dual Unitarity to Biunitarity",
-    "section": "Dual unitarity round-a-face",
-    "text": "Dual unitarity round-a-face"
+    "section": "Dual unitarity round-a-face1",
+    "text": "Dual unitarity round-a-face1\n\nCircuits with similar properties built from 1-site 2-controlled gates\n\n\n\nDual-unitarity: enforce unitarity when exchanging indices: \\tilde U_{a,c} unitary where\n\n\n(\\tilde U_{a,c})_{b,d} \\equiv (U_{b,d})_{a,c}\n\n\nCommon framework for round-a-face (clockwork) and brickwork circuits?\n\nProsen, Chaos 31, 093101 (2021)"
   },
   {
     "objectID": "talks/qpl-2024/index.html#shaded-tensor-networks",
     "href": "talks/qpl-2024/index.html#shaded-tensor-networks",
     "title": "From Dual Unitarity to Biunitarity",
-    "section": "Shaded tensor networks",
-    "text": "Shaded tensor networks"
+    "section": "Shaded tensor networks1",
+    "text": "Shaded tensor networks1\n\nPlanar string diagram where some of the regions are shaded\n\n\n\n\n\n\n\nShaded region = index\nClosed shaded region = implicit summation\n\nD. J. Reutter and J. Vicary, Higher Structures 3, 109 (2019)"
   },
   {
     "objectID": "talks/qpl-2024/index.html#solvable-states",
@@ -2994,5 +2994,124 @@
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Solvable initial states",
     "text": "Solvable initial states\n\n\n\n\n\n\nHorizontal unitarity corresponds to unitarity of \\mathcal{N}^{(b)}"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#causal-light-cone-1",
+    "href": "talks/qpl-2024/index.html#causal-light-cone-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Causal light cone",
+    "text": "Causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#causal-light-cone-2",
+    "href": "talks/qpl-2024/index.html#causal-light-cone-2",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Causal light cone",
+    "text": "Causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#causal-light-cone-3",
+    "href": "talks/qpl-2024/index.html#causal-light-cone-3",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Causal light cone",
+    "text": "Causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#causal-light-cone-4",
+    "href": "talks/qpl-2024/index.html#causal-light-cone-4",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Causal light cone",
+    "text": "Causal light cone"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitary-gates",
+    "href": "talks/qpl-2024/index.html#dual-unitary-gates",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitary gates1 2",
+    "text": "Dual unitary gates1 2\n\n\n\n\n\n\n\n\n\n\n\nS. Gopalakrishnan and A.L., Phys. Rev. B 100, 064309 (2019)B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitary-gatess.-gopalakrishnan-and-a.l.-phys.-rev.-b-100-064309-2019b.-bertini-p.-kos-and-t.-prosen-phys.-rev.-lett.-123-210601-2019",
+    "href": "talks/qpl-2024/index.html#dual-unitary-gatess.-gopalakrishnan-and-a.l.-phys.-rev.-b-100-064309-2019b.-bertini-p.-kos-and-t.-prosen-phys.-rev.-lett.-123-210601-2019",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitary gates[S. Gopalakrishnan and A.L., Phys. Rev. B 100, 064309 (2019)][B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)]",
+    "text": "Dual unitary gates[S. Gopalakrishnan and A.L., Phys. Rev. B 100, 064309 (2019)][B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitary-gates-dd",
+    "href": "talks/qpl-2024/index.html#dual-unitary-gates-dd",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitary gates1 dd2",
+    "text": "Dual unitary gates1 dd2\n\n\n\n\n\n\n\n\n\n\n\nS. Gopalakrishnan and A.L., Phys. Rev. B 100, 064309 (2019)B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#new-slide",
+    "href": "talks/qpl-2024/index.html#new-slide",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "New slide",
+    "text": "New slide"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions-c_rhosigmaxtsim-operatornametrleftrho0tsigmaxright",
+    "href": "talks/qpl-2024/index.html#correlation-functions-c_rhosigmaxtsim-operatornametrleftrho0tsigmaxright",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions c_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]",
+    "text": "Correlation functions c_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions",
+    "href": "talks/qpl-2024/index.html#correlation-functions",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions",
+    "text": "Correlation functions\n\nc_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions-1",
+    "href": "talks/qpl-2024/index.html#correlation-functions-1",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions",
+    "text": "Correlation functions\n\nc_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions-2",
+    "href": "talks/qpl-2024/index.html#correlation-functions-2",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions",
+    "text": "Correlation functions\n\nc_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions-3",
+    "href": "talks/qpl-2024/index.html#correlation-functions-3",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions",
+    "text": "Correlation functions\n\nc_{\\rho\\sigma}(x,t)\\sim \\operatorname{tr}\\left[\\rho(0,t)\\sigma(x)\\right]"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#correlation-functions-4",
+    "href": "talks/qpl-2024/index.html#correlation-functions-4",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Correlation functions",
+    "text": "Correlation functions"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#dual-unitarity-motivation",
+    "href": "talks/qpl-2024/index.html#dual-unitarity-motivation",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Dual unitarity: motivation",
+    "text": "Dual unitarity: motivation\n\nMinimal model of local and unitary many-body dynamics with many interesting properties\n\nExact solvability\nMaximally chaotic\nMaximal entanglement velocity: spreads at fastest possible rate"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#biunitarity",
+    "href": "talks/qpl-2024/index.html#biunitarity",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Biunitarity",
+    "text": "Biunitarity\n\nVertically unitary\n\n\n\n\n\n\n\nHorizontally unitary\n\n\n\n\n\n\n\nBiunitary vertex is both horizontally and vertically unitary"
+  },
+  {
+    "objectID": "talks/qpl-2024/index.html#complex-hadamard-circuitsp.w.-claeys-and-a.l.-arxiv2406.03781",
+    "href": "talks/qpl-2024/index.html#complex-hadamard-circuitsp.w.-claeys-and-a.l.-arxiv2406.03781",
+    "title": "From Dual Unitarity to Biunitarity",
+    "section": "Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781",
+    "text": "Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781\n](https://arxiv.org/abs/2406.03781)]\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!"
   }
 ]
