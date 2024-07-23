@@ -7,6 +7,11 @@ project:
     port: 3000
     browser: false
     watch-inputs: true
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!talks/new-rules-ictp/notebooks/"
+    - "!talks/floquet-east"
 
 website:
   title: "Austen Lamacraft"

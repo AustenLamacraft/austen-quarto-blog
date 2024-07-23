@@ -1,4 +1,6 @@
 ---
+date: 12/15/2023
+date-format: long
 title: "The Planted Directed Polymer"
 author: "Austen Lamacraft (Cambridge) and Sun Woo Kim (KCL)"
 data: 

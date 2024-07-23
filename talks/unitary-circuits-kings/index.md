@@ -1,4 +1,5 @@
 ---
+date: 09/16/2019
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white

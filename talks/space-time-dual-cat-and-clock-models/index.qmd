@@ -1,4 +1,6 @@
 ---
+date: 01/24/2024
+date-format: long
 title: "Space-time dual cat models"
 subtitle: "Subtitle goes here"
 summary: ""

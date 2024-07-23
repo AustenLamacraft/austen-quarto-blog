@@ -1,4 +1,5 @@
 ---
+date: 09/29/2021
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   math_renderer: mathjax3

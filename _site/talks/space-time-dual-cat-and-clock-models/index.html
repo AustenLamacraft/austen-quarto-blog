@@ -11,6 +11,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
+  <meta name="dcterms.date" content="2024-01-24">
   <title>Austen Lamacraft - Space-time dual cat models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -423,11 +424,12 @@ Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 </div>
 </div>
 
+  <p class="date">January 24, 2024</p>
 </section>
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="28" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb1-28"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="30" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 29;"><span id="cb1-30"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -435,51 +437,51 @@ Austen Lamacraft (Cambridge) and Pieter Claeys (Dresden)
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="33" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 32;"><span id="cb2-33"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
-<span id="cb2-34"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
-<span id="cb2-35"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
-<span id="cb2-36"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
-<span id="cb2-37"><a></a>  </span>
-<span id="cb2-38"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-39"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
-<span id="cb2-40"><a></a>  </span>
-<span id="cb2-41"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
-<span id="cb2-42"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
-<span id="cb2-43"><a></a>  <span class="co">// in the DOM.</span></span>
-<span id="cb2-44"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-45"><a></a>  </span>
-<span id="cb2-46"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
-<span id="cb2-47"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
-<span id="cb2-48"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
-<span id="cb2-49"><a></a></span>
-<span id="cb2-50"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
-<span id="cb2-51"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb2-52"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
-<span id="cb2-53"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
-<span id="cb2-54"><a></a>    }</span>
-<span id="cb2-55"><a></a>    <span class="cf">else</span> {</span>
-<span id="cb2-56"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
-<span id="cb2-57"><a></a>    }</span>
-<span id="cb2-58"><a></a>  } )<span class="op">;</span></span>
-<span id="cb2-59"><a></a>  </span>
-<span id="cb2-60"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
-<span id="cb2-61"><a></a></span>
-<span id="cb2-62"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
-<span id="cb2-63"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
-<span id="cb2-64"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
-<span id="cb2-65"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
-<span id="cb2-66"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
-<span id="cb2-67"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
-<span id="cb2-68"><a></a>  <span class="co">// to clean it up.</span></span>
-<span id="cb2-69"><a></a>  <span class="cf">try</span> {</span>
-<span id="cb2-70"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
-<span id="cb2-71"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-72"><a></a>    }</span>
-<span id="cb2-73"><a></a>  } <span class="cf">finally</span> {</span>
-<span id="cb2-74"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb2-75"><a></a>  }</span>
-<span id="cb2-76"><a></a></span>
-<span id="cb2-77"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="35" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 34;"><span id="cb2-35"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
+<span id="cb2-36"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
+<span id="cb2-37"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
+<span id="cb2-38"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
+<span id="cb2-39"><a></a>  </span>
+<span id="cb2-40"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-41"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
+<span id="cb2-42"><a></a>  </span>
+<span id="cb2-43"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
+<span id="cb2-44"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
+<span id="cb2-45"><a></a>  <span class="co">// in the DOM.</span></span>
+<span id="cb2-46"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-47"><a></a>  </span>
+<span id="cb2-48"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
+<span id="cb2-49"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
+<span id="cb2-50"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-51"><a></a></span>
+<span id="cb2-52"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
+<span id="cb2-53"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb2-54"><a></a>    <span class="cf">if</span> (<span class="op">!!</span><span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#"</span> <span class="op">+</span> slideId)) {</span>
+<span id="cb2-55"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
+<span id="cb2-56"><a></a>    }</span>
+<span id="cb2-57"><a></a>    <span class="cf">else</span> {</span>
+<span id="cb2-58"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
+<span id="cb2-59"><a></a>    }</span>
+<span id="cb2-60"><a></a>  } )<span class="op">;</span></span>
+<span id="cb2-61"><a></a>  </span>
+<span id="cb2-62"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
+<span id="cb2-63"><a></a></span>
+<span id="cb2-64"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
+<span id="cb2-65"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
+<span id="cb2-66"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
+<span id="cb2-67"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
+<span id="cb2-68"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
+<span id="cb2-69"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
+<span id="cb2-70"><a></a>  <span class="co">// to clean it up.</span></span>
+<span id="cb2-71"><a></a>  <span class="cf">try</span> {</span>
+<span id="cb2-72"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-73"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-74"><a></a>    }</span>
+<span id="cb2-75"><a></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-76"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-77"><a></a>  }</span>
+<span id="cb2-78"><a></a></span>
+<span id="cb2-79"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -560,7 +562,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <li>Evaluate <span class="math inline">\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}</span> for local <span class="math inline">\mathcal{O}</span></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="169" data-source-offset="-95"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 168;"><span id="cb3-169"><a></a><span class="fu">html</span><span class="vs">`&lt;div id="svg-container"&gt;&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="171" data-source-offset="-95"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 170;"><span id="cb3-171"><a></a><span class="fu">html</span><span class="vs">`&lt;div id="svg-container"&gt;&lt;/div&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="expression">
@@ -568,9 +570,9 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </div>
 </div>
 </div>
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="170" data-source-offset="-132"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 169;"><span id="cb4-170"><a></a>d3<span class="op">.</span><span class="fu">svg</span>(<span class="st">"./images/expectation.svg"</span>)<span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(xml) {</span>
-<span id="cb4-171"><a></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="fu">appendChild</span>(xml<span class="op">.</span><span class="at">documentElement</span>)<span class="op">;</span></span>
-<span id="cb4-172"><a></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="172" data-source-offset="-132"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 171;"><span id="cb4-172"><a></a>d3<span class="op">.</span><span class="fu">svg</span>(<span class="st">"./images/expectation.svg"</span>)<span class="op">.</span><span class="fu">then</span>(<span class="kw">function</span>(xml) {</span>
+<span id="cb4-173"><a></a>  d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="fu">appendChild</span>(xml<span class="op">.</span><span class="at">documentElement</span>)<span class="op">;</span></span>
+<span id="cb4-174"><a></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-2" data-nodetype="expression">
@@ -580,8 +582,8 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="176" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 175;"><span id="cb5-176"><a></a>SVG <span class="op">=</span> <span class="pp">require</span>(<span class="st">"svg.js"</span>)</span>
-<span id="cb5-177"><a></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@6"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="178" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 177;"><span id="cb5-178"><a></a>SVG <span class="op">=</span> <span class="pp">require</span>(<span class="st">"svg.js"</span>)</span>
+<span id="cb5-179"><a></a>d3 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"d3@6"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -598,48 +600,48 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="181" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb6-181"><a></a>{</span>
-<span id="cb6-182"><a></a>    <span class="kw">let</span> circuit <span class="op">=</span> <span class="fu">SVG</span>(d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>])</span>
-<span id="cb6-183"><a></a>    circuit<span class="op">.</span><span class="fu">hide</span>()</span>
-<span id="cb6-184"><a></a>    <span class="cf">return</span> circuit</span>
-<span id="cb6-185"><a></a>    <span class="kw">let</span> gate <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate'</span>)</span>
-<span id="cb6-186"><a></a></span>
-<span id="cb6-187"><a></a>    <span class="kw">const</span> blue <span class="op">=</span> <span class="st">'#5594c3'</span></span>
-<span id="cb6-188"><a></a>    <span class="kw">const</span> red <span class="op">=</span> <span class="st">'#d84141'</span></span>
-<span id="cb6-189"><a></a></span>
-<span id="cb6-190"><a></a>    <span class="co">// Hide original </span></span>
-<span id="cb6-191"><a></a>    <span class="kw">const</span> gateAndContractions <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate-and-contractions'</span>)<span class="op">.</span><span class="fu">hide</span>()</span>
-<span id="cb6-192"><a></a>    </span>
-<span id="cb6-193"><a></a></span>
-<span id="cb6-194"><a></a>    <span class="co">// The four contractions</span></span>
-<span id="cb6-195"><a></a>    <span class="kw">const</span> topLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-left'</span>)</span>
-<span id="cb6-196"><a></a>    <span class="kw">const</span> topRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-right'</span>)</span>
-<span id="cb6-197"><a></a>    <span class="kw">const</span> bottomLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-left'</span>)</span>
-<span id="cb6-198"><a></a>    <span class="kw">const</span> bottomRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-right'</span>)</span>
-<span id="cb6-199"><a></a>    </span>
-<span id="cb6-200"><a></a>    <span class="kw">const</span> gateWidth <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb6-201"><a></a>    <span class="kw">const</span> gateHeight <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb6-202"><a></a></span>
-<span id="cb6-203"><a></a>    <span class="kw">const</span> circuitWidth <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb6-204"><a></a>    <span class="kw">const</span> circuitDepth <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb6-205"><a></a></span>
-<span id="cb6-206"><a></a>    gate<span class="op">.</span><span class="fu">size</span>(gateWidth)</span>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="183" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 182;"><span id="cb6-183"><a></a>{</span>
+<span id="cb6-184"><a></a>    <span class="kw">let</span> circuit <span class="op">=</span> <span class="fu">SVG</span>(d3<span class="op">.</span><span class="fu">select</span>(<span class="st">"#svg-container"</span>)<span class="op">.</span><span class="fu">node</span>()<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>])</span>
+<span id="cb6-185"><a></a>    circuit<span class="op">.</span><span class="fu">hide</span>()</span>
+<span id="cb6-186"><a></a>    <span class="cf">return</span> circuit</span>
+<span id="cb6-187"><a></a>    <span class="kw">let</span> gate <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate'</span>)</span>
+<span id="cb6-188"><a></a></span>
+<span id="cb6-189"><a></a>    <span class="kw">const</span> blue <span class="op">=</span> <span class="st">'#5594c3'</span></span>
+<span id="cb6-190"><a></a>    <span class="kw">const</span> red <span class="op">=</span> <span class="st">'#d84141'</span></span>
+<span id="cb6-191"><a></a></span>
+<span id="cb6-192"><a></a>    <span class="co">// Hide original </span></span>
+<span id="cb6-193"><a></a>    <span class="kw">const</span> gateAndContractions <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#gate-and-contractions'</span>)<span class="op">.</span><span class="fu">hide</span>()</span>
+<span id="cb6-194"><a></a>    </span>
+<span id="cb6-195"><a></a></span>
+<span id="cb6-196"><a></a>    <span class="co">// The four contractions</span></span>
+<span id="cb6-197"><a></a>    <span class="kw">const</span> topLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-left'</span>)</span>
+<span id="cb6-198"><a></a>    <span class="kw">const</span> topRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#top-right'</span>)</span>
+<span id="cb6-199"><a></a>    <span class="kw">const</span> bottomLeft <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-left'</span>)</span>
+<span id="cb6-200"><a></a>    <span class="kw">const</span> bottomRight <span class="op">=</span> circuit<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#bottom-right'</span>)</span>
+<span id="cb6-201"><a></a>    </span>
+<span id="cb6-202"><a></a>    <span class="kw">const</span> gateWidth <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-203"><a></a>    <span class="kw">const</span> gateHeight <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb6-204"><a></a></span>
+<span id="cb6-205"><a></a>    <span class="kw">const</span> circuitWidth <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-206"><a></a>    <span class="kw">const</span> circuitDepth <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb6-207"><a></a></span>
-<span id="cb6-208"><a></a>    <span class="co">// Build the circuit</span></span>
+<span id="cb6-208"><a></a>    gate<span class="op">.</span><span class="fu">size</span>(gateWidth)</span>
 <span id="cb6-209"><a></a></span>
-<span id="cb6-210"><a></a>    <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> circuitDepth<span class="op">;</span> y<span class="op">++</span>) {</span>
-<span id="cb6-211"><a></a>        <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> circuitWidth<span class="op">;</span> x<span class="op">++</span>) {</span>
-<span id="cb6-212"><a></a>            <span class="cf">if</span> ((x <span class="op">+</span> y) <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
-<span id="cb6-213"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> blue})</span>
-<span id="cb6-214"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
-<span id="cb6-215"><a></a>                y <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> x <span class="op">===</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> topLeft<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
-<span id="cb6-216"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> red})</span>
-<span id="cb6-217"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">-</span><span class="dv">1</span> <span class="op">-</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
-<span id="cb6-218"><a></a>            }</span>
-<span id="cb6-219"><a></a>        }</span>
-<span id="cb6-220"><a></a></span>
-<span id="cb6-221"><a></a>    }</span>
-<span id="cb6-222"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-210"><a></a>    <span class="co">// Build the circuit</span></span>
+<span id="cb6-211"><a></a></span>
+<span id="cb6-212"><a></a>    <span class="cf">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> circuitDepth<span class="op">;</span> y<span class="op">++</span>) {</span>
+<span id="cb6-213"><a></a>        <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> circuitWidth<span class="op">;</span> x<span class="op">++</span>) {</span>
+<span id="cb6-214"><a></a>            <span class="cf">if</span> ((x <span class="op">+</span> y) <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) {</span>
+<span id="cb6-215"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> blue})</span>
+<span id="cb6-216"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-217"><a></a>                y <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> x <span class="op">===</span> <span class="dv">4</span> <span class="op">&amp;&amp;</span> topLeft<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">+</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-218"><a></a>                gate<span class="op">.</span><span class="fu">findOne</span>(<span class="st">'#rect826'</span>)<span class="op">.</span><span class="fu">css</span>({<span class="dt">fill</span><span class="op">:</span> red})</span>
+<span id="cb6-219"><a></a>                gate<span class="op">.</span><span class="fu">clone</span>()<span class="op">.</span><span class="fu">dmove</span>(gateWidth <span class="op">*</span> x<span class="op">,</span> gateHeight <span class="op">*</span> (circuitDepth <span class="op">-</span><span class="dv">1</span> <span class="op">-</span> y))<span class="op">.</span><span class="fu">addTo</span>(circuit)</span>
+<span id="cb6-220"><a></a>            }</span>
+<span id="cb6-221"><a></a>        }</span>
+<span id="cb6-222"><a></a></span>
+<span id="cb6-223"><a></a>    }</span>
+<span id="cb6-224"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-5" data-nodetype="expression">
 
@@ -1225,8 +1227,8 @@ Cat map for <span class="math inline">\alpha=2</span>, <span class="math inline"
 <section id="cat-map" class="slide level2 center">
 <h2>Cat map</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="846" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 845;"><span id="cb7-846"><a></a><span class="im">import</span> { catMap } <span class="im">from</span> <span class="st">"./js/cat.js"</span><span class="op">;</span></span>
-<span id="cb7-847"><a></a><span class="co">// createSketch(catMap, 'cat-map');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="848" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 847;"><span id="cb7-848"><a></a><span class="im">import</span> { catMap } <span class="im">from</span> <span class="st">"./js/cat.js"</span><span class="op">;</span></span>
+<span id="cb7-849"><a></a><span class="co">// createSketch(catMap, 'cat-map');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-6" data-nodetype="declaration">
 
@@ -1479,8 +1481,8 @@ v_\text{H} = v_\text{V} = \begin{pmatrix}
 <section id="three-dimensions" class="slide level2 center">
 <h2>Three dimensions</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1100" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1099;"><span id="cb8-1100"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
-<span id="cb8-1101"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'three-dimensions'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="1102" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1101;"><span id="cb8-1102"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb8-1103"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'three-dimensions'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-7-1" data-nodetype="declaration">
@@ -1582,8 +1584,8 @@ x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
 <li>Many behaviours, from ordered (Rule 18) to chaotic (Rule 30)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1171" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1170;"><span id="cb9-1171"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule"</span>})</span>
-<span id="cb9-1172"><a></a>viewof initialCondition <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Initial"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="1173" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1172;"><span id="cb9-1173"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule"</span>})</span>
+<span id="cb9-1174"><a></a>viewof initialCondition <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>([<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Initial"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
@@ -1600,8 +1602,8 @@ x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1177" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1176;"><span id="cb10-1177"><a></a><span class="im">import</span> { elementary } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
-<span id="cb10-1178"><a></a><span class="fu">createSketch</span>(<span class="fu">elementary</span>(rule<span class="op">,</span> initialCondition)<span class="op">,</span> <span class="st">'elementary-ca'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="1179" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1178;"><span id="cb10-1179"><a></a><span class="im">import</span> { elementary } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb10-1180"><a></a><span class="fu">createSketch</span>(<span class="fu">elementary</span>(rule<span class="op">,</span> initialCondition)<span class="op">,</span> <span class="st">'elementary-ca'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-9-1" data-nodetype="declaration">
@@ -1733,8 +1735,8 @@ Reveal.on( 'slidechanged', event => {
 <div id="block" style="display: inline-block; position: relative"></div>
 </figure> -->
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1297" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1296;"><span id="cb11-1297"><a></a><span class="im">import</span> { block } <span class="im">from</span> <span class="st">"./js/block-ca.js"</span><span class="op">;</span></span>
-<span id="cb11-1298"><a></a><span class="co">// createSketch(block, 'block', 'reversible-ca');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="1299" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 1298;"><span id="cb11-1299"><a></a><span class="im">import</span> { block } <span class="im">from</span> <span class="st">"./js/block-ca.js"</span><span class="op">;</span></span>
+<span id="cb11-1300"><a></a><span class="co">// createSketch(block, 'block', 'reversible-ca');</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-10" data-nodetype="declaration">
 

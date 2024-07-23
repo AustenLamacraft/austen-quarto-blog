@@ -10,15 +10,26 @@
 
 # Specific tasks
 
+## Posts
+
 - [X] ML and SM lecture 1
 - [X] ML and SM lecture 2
 - [ ] Pyodide tutorial
 - [ ] Aspen colloquium
+- [ ] Write a post using [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/)
+
+## Talks
+
+- [ ] "Space-time dual cat and clock models" is incomplete version that I switched to the other site
+- [ ] Add dates to all talks
+- [ ] Other front matter
+
+## Other
+
 - [X] Favicon
 - [ ] Update links to talks in slides (don't use `/slides`)
-- [ ] Write a post using [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/)
 - [ ] Google Scholar icon (at present only have Bootstrap icons)
 - [ ] Creating citable articles including [Google Scholar indexing](https://quarto.org/docs/authoring/create-citeable-articles.html#google-scholar)
 
-- [ ] Format talks. Need front matter including dates
+
 - [ ] Try out [Typst documents](https://quarto.org/docs/output-formats/typst.html)

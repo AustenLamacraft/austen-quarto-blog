@@ -1,4 +1,6 @@
 ---
+date: 05/24/2021
+date-format: long
 slides:
   # Choose a theme from https://github.com/hakimel/reveal.js#theming
   theme: white

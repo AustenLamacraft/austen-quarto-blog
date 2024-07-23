@@ -12,6 +12,7 @@
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Austen Lamacraft (Cambridge)">
+  <meta name="dcterms.date" content="2024-05-30">
   <title>Austen Lamacraft - New Rules</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -424,11 +425,12 @@ Austen Lamacraft (Cambridge)
 </div>
 </div>
 
+  <p class="date">May 30, 2024</p>
 </section>
 <section class="slide level2 center">
 
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="26" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 25;"><span id="cb1-26"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="28" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 27;"><span id="cb1-28"><a></a>P5 <span class="op">=</span> <span class="pp">require</span>(<span class="st">"p5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-1" data-nodetype="declaration">
 
@@ -436,51 +438,51 @@ Austen Lamacraft (Cambridge)
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="30" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 29;"><span id="cb2-30"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
-<span id="cb2-31"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
-<span id="cb2-32"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
-<span id="cb2-33"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
-<span id="cb2-34"><a></a>  </span>
-<span id="cb2-35"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
-<span id="cb2-36"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
-<span id="cb2-37"><a></a>  </span>
-<span id="cb2-38"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
-<span id="cb2-39"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
-<span id="cb2-40"><a></a>  <span class="co">// in the DOM.</span></span>
-<span id="cb2-41"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-42"><a></a>  </span>
-<span id="cb2-43"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
-<span id="cb2-44"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
-<span id="cb2-45"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
-<span id="cb2-46"><a></a></span>
-<span id="cb2-47"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
-<span id="cb2-48"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
-<span id="cb2-49"><a></a>    <span class="cf">if</span> (<span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="at">id</span> <span class="op">==</span> slideId) {</span>
-<span id="cb2-50"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
-<span id="cb2-51"><a></a>    }</span>
-<span id="cb2-52"><a></a>    <span class="cf">else</span> {</span>
-<span id="cb2-53"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
-<span id="cb2-54"><a></a>    }</span>
-<span id="cb2-55"><a></a>  } )<span class="op">;</span></span>
-<span id="cb2-56"><a></a>  </span>
-<span id="cb2-57"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
-<span id="cb2-58"><a></a></span>
-<span id="cb2-59"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
-<span id="cb2-60"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
-<span id="cb2-61"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
-<span id="cb2-62"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
-<span id="cb2-63"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
-<span id="cb2-64"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
-<span id="cb2-65"><a></a>  <span class="co">// to clean it up.</span></span>
-<span id="cb2-66"><a></a>  <span class="cf">try</span> {</span>
-<span id="cb2-67"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
-<span id="cb2-68"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
-<span id="cb2-69"><a></a>    }</span>
-<span id="cb2-70"><a></a>  } <span class="cf">finally</span> {</span>
-<span id="cb2-71"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
-<span id="cb2-72"><a></a>  }</span>
-<span id="cb2-73"><a></a></span>
-<span id="cb2-74"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="32" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 31;"><span id="cb2-32"><a></a><span class="co">// Modified from https://observablehq.com/@tmcw/p5</span></span>
+<span id="cb2-33"><a></a><span class="co">// See also https://blog.djnavarro.net/posts/2023-01-14_p5js/</span></span>
+<span id="cb2-34"><a></a><span class="co">// This helper creates a div and attaches the sketch to it</span></span>
+<span id="cb2-35"><a></a><span class="kw">function</span><span class="op">*</span> <span class="fu">createSketch</span>(sketch<span class="op">,</span> slideId) {</span>
+<span id="cb2-36"><a></a>  </span>
+<span id="cb2-37"><a></a>  <span class="kw">const</span> element <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span>)<span class="op">;</span></span>
+<span id="cb2-38"><a></a>  <span class="co">// element.setAttribute('id', divId);</span></span>
+<span id="cb2-39"><a></a>  </span>
+<span id="cb2-40"><a></a>  <span class="co">// p5.js really likes its target element to already be in the DOM, not just</span></span>
+<span id="cb2-41"><a></a>  <span class="co">// floating around detached. So, before we call P5, we yield it, which puts</span></span>
+<span id="cb2-42"><a></a>  <span class="co">// in the DOM.</span></span>
+<span id="cb2-43"><a></a>  <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-44"><a></a>  </span>
+<span id="cb2-45"><a></a>  <span class="co">// This is ‘instance mode’ in p5 jargon: instead of relying on lots of</span></span>
+<span id="cb2-46"><a></a>  <span class="co">// globals, we create a sketch that has its own copy of everything under p5.</span></span>
+<span id="cb2-47"><a></a>  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="fu">P5</span>(sketch<span class="op">,</span> element<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-48"><a></a></span>
+<span id="cb2-49"><a></a>  <span class="co">// This detects whether we are on the relevant slide (by slideId) and stops the loop if not</span></span>
+<span id="cb2-50"><a></a>  Reveal<span class="op">.</span><span class="fu">on</span>(<span class="st">'slidechanged'</span><span class="op">,</span> <span class="bu">event</span> <span class="kw">=&gt;</span> {</span>
+<span id="cb2-51"><a></a>    <span class="cf">if</span> (<span class="bu">event</span><span class="op">.</span><span class="at">currentSlide</span><span class="op">.</span><span class="at">id</span> <span class="op">==</span> slideId) {</span>
+<span id="cb2-52"><a></a>      instance<span class="op">.</span><span class="fu">loop</span>()</span>
+<span id="cb2-53"><a></a>    }</span>
+<span id="cb2-54"><a></a>    <span class="cf">else</span> {</span>
+<span id="cb2-55"><a></a>      instance<span class="op">.</span><span class="fu">noLoop</span>()</span>
+<span id="cb2-56"><a></a>    }</span>
+<span id="cb2-57"><a></a>  } )<span class="op">;</span></span>
+<span id="cb2-58"><a></a>  </span>
+<span id="cb2-59"><a></a>  <span class="co">// I think this next part is only if you use observable to update a sketch...</span></span>
+<span id="cb2-60"><a></a></span>
+<span id="cb2-61"><a></a>  <span class="co">// This is the tricky part: when you run P5(sketch, element), it starts a</span></span>
+<span id="cb2-62"><a></a>  <span class="co">// loop that updates the drawing a bunch of times a second. If we were just</span></span>
+<span id="cb2-63"><a></a>  <span class="co">// to call P5 repeatedly with different arguments, the loops would all keep</span></span>
+<span id="cb2-64"><a></a>  <span class="co">// running, one on top of the other. So what we do is we use this cell</span></span>
+<span id="cb2-65"><a></a>  <span class="co">// as a generator, and then when that generator is interrupted, like</span></span>
+<span id="cb2-66"><a></a>  <span class="co">// when you update the code in the sketch() method, then we call instance.remove()</span></span>
+<span id="cb2-67"><a></a>  <span class="co">// to clean it up.</span></span>
+<span id="cb2-68"><a></a>  <span class="cf">try</span> {</span>
+<span id="cb2-69"><a></a>    <span class="cf">while</span> (<span class="kw">true</span>) {</span>
+<span id="cb2-70"><a></a>      <span class="kw">yield</span> element<span class="op">;</span></span>
+<span id="cb2-71"><a></a>    }</span>
+<span id="cb2-72"><a></a>  } <span class="cf">finally</span> {</span>
+<span id="cb2-73"><a></a>    instance<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-74"><a></a>  }</span>
+<span id="cb2-75"><a></a></span>
+<span id="cb2-76"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-2" data-nodetype="declaration">
 
@@ -491,8 +493,8 @@ Austen Lamacraft (Cambridge)
 <section id="game-of-life" class="slide level2 center">
 <h2>Game of life</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="81" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 80;"><span id="cb3-81"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
-<span id="cb3-82"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game-of-life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="83" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 82;"><span id="cb3-83"><a></a><span class="im">import</span> { life } <span class="im">from</span> <span class="st">"./js/life.js"</span><span class="op">;</span></span>
+<span id="cb3-84"><a></a><span class="fu">createSketch</span>(life<span class="op">,</span> <span class="st">'game-of-life'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-3-1" data-nodetype="declaration">
@@ -625,16 +627,16 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 <li>From ordered (Rule 18) to chaotic (Rule 30)</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="192" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 191;"><span id="cb4-192"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb4-193"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb4-194"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb4-195"><a></a>)</span>
-<span id="cb4-196"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
-<span id="cb4-197"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
-<span id="cb4-198"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
-<span id="cb4-199"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
-<span id="cb4-200"><a></a>  }</span>
-<span id="cb4-201"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb4" data-startfrom="194" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 193;"><span id="cb4-194"><a></a>viewof rule <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb4-195"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb4-196"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb4-197"><a></a>)</span>
+<span id="cb4-198"><a></a>viewof initial <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(</span>
+<span id="cb4-199"><a></a>  [<span class="st">"single 1"</span><span class="op">,</span> <span class="st">"random"</span>]<span class="op">,</span> </span>
+<span id="cb4-200"><a></a>  { <span class="dt">value</span><span class="op">:</span> <span class="st">"single 1"</span><span class="op">,</span> </span>
+<span id="cb4-201"><a></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Initial conditions:"</span></span>
+<span id="cb4-202"><a></a>  }</span>
+<span id="cb4-203"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-4-1" data-nodetype="declaration">
@@ -651,8 +653,8 @@ x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="206" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 205;"><span id="cb5-206"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
-<span id="cb5-207"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'many-behaviours'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb5" data-startfrom="208" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 207;"><span id="cb5-208"><a></a><span class="im">import</span> { elementaryParam } <span class="im">from</span> <span class="st">"./js/elementary-ca.js"</span><span class="op">;</span></span>
+<span id="cb5-209"><a></a><span class="fu">createSketch</span>(<span class="fu">elementaryParam</span>(rule<span class="op">,</span> initial)<span class="op">,</span> <span class="st">'many-behaviours'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-5-1" data-nodetype="declaration">
@@ -1135,8 +1137,8 @@ b_{x,t+1} + b_{x+1,t-1} + b_{x+1,t} + b_{x-1,t} - b_{x,t}=0\qquad \mod 2
 <section id="dimensional-kim" class="slide level2 center">
 <h2><span class="math inline">2+1</span> dimensional KIM</h2>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="725" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 724;"><span id="cb6-725"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
-<span id="cb6-726"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'dimensional-kim'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb6" data-startfrom="727" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 726;"><span id="cb6-727"><a></a><span class="im">import</span> { threeDCat } <span class="im">from</span> <span class="st">"./js/3d-cat.js"</span><span class="op">;</span></span>
+<span id="cb6-728"><a></a><span class="fu">createSketch</span>(threeDCat<span class="op">,</span> <span class="st">'dimensional-kim'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-6-1" data-nodetype="declaration">
@@ -1207,10 +1209,10 @@ Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum
 <li>Rapid growth of small differences between two trajectories</li>
 </ul>
 <div class="cell panel-input">
-<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="786" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 785;"><span id="cb7-786"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
-<span id="cb7-787"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
-<span id="cb7-788"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
-<span id="cb7-789"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb7" data-startfrom="788" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 787;"><span id="cb7-788"><a></a>viewof ruleDifference <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>(</span>
+<span id="cb7-789"><a></a>  [<span class="dv">0</span><span class="op">,</span> <span class="dv">255</span>]<span class="op">,</span> </span>
+<span id="cb7-790"><a></a>  {<span class="dt">value</span><span class="op">:</span> <span class="dv">110</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">"Rule number:"</span>}</span>
+<span id="cb7-791"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="ojs-cell-7" data-nodetype="declaration">
 
@@ -1218,8 +1220,8 @@ Source: <a href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="795" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 794;"><span id="cb8-795"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
-<span id="cb8-796"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'classical-analogue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="797" data-source-offset="-0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 796;"><span id="cb8-797"><a></a><span class="im">import</span> { differenceParam } <span class="im">from</span> <span class="st">"./js/ca-difference.js"</span><span class="op">;</span></span>
+<span id="cb8-798"><a></a><span class="fu">createSketch</span>(<span class="fu">differenceParam</span>(ruleDifference)<span class="op">,</span> <span class="st">'classical-analogue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-8-1" data-nodetype="declaration">
