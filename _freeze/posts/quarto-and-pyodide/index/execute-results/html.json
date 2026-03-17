@@ -1,0 +1,12 @@
+{
+  "hash": "a7a14ff9d48873331355fee2ce09ac7c",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Quarto and Pyodide\"\nauthor: \"Austen Lamacraft\"\ndate: \"2024-06-24\"\ncategories: [tech]\nfilters:\n  - pyodide\n---\n\nHaving recently switched these pages over to [Quarto](https://quarto.org/), I was keen to see how easy it was to build interactive pages. Support for [Observable](https://observablehq.com/) comes out of the box for JS people, but I was also thrilled to discover the extension [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/) which makes it easy to incorporate [Pyodide](https://pyodide.org/en/stable/) – aka Python in the browser – into Quarto projects.\n\nThis is a Pyodide-enabled code cell in a Quarto HTML document.\n\n__At the moment I can't do animations using Pyodide see [this issue](https://github.com/pyodide/matplotlib-pyodide/issues/46)__\n\n```{pyodide-python}\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.animation import FuncAnimation\nfrom functools import partial\n\nfig, ax = plt.subplots()\nline1, = ax.plot([], [], 'ro')\n\ndef init():\n    ax.set_xlim(0, 2*np.pi)\n    ax.set_ylim(-1, 1)\n    return line1,\n\ndef update(frame, ln, x, y):\n    x.append(frame)\n    y.append(np.sin(frame))\n    ln.set_data(x, y)\n    return ln,\n\nani = FuncAnimation(\n    fig, partial(update, ln=line1, x=[], y=[]),\n    frames=np.linspace(0, 2*np.pi, 128),\n    init_func=init, blit=True)\n\nplt.show()\n```\n\nHow would I run a simulation and see the results in real time?\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

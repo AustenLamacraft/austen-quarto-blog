@@ -7,10 +7,15 @@ subtitle: |
   A 2-categorical model for exactly-solvable many-body quantum dynamics 
   
   [arXiv:2302.07280](https://arxiv.org/abs/2302.07280) (J Phys A, to appear)
-author: "Pieter Claeys (MPI-PKS), __Austen Lamacraft__, Jamie Vicary"
+author:
+  - name: Pieter Claeys
+    affiliation: MPI-PKS
+  - name: Austen Lamacraft
+    affiliation: University of Cambridge
+  - name: Jamie Vicary
+    affiliation: University of Cambridge
 date: 07/18/2024
 date-format: long
-institute: University of Cambridge
 title-slide-attributes:
     data-background-image: assets/unitary-circuit.png
     data-background-size: auto

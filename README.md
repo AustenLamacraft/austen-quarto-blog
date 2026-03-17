@@ -50,7 +50,7 @@ institute: University of Cambridge
 
 - If using KaTeX, add `html-math-method: katex` to `revealjs` options
 
-- Macros go in the body without delimiters, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/7518#issuecomment-1807784753)
+- Note that KaTeX doesn't have a nice way to use persistent macros, see [this issue](https://github.com/quarto-dev/quarto-cli/issues/7518#issuecomment-1807784753), so if you have macros you should use MathJax.
 
 - LaTeX no longer requires any escaping with backslashes or quotes around math blocks. Thus any `\_` can be replaced with `_`
 

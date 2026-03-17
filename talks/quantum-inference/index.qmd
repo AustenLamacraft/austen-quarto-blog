@@ -8,10 +8,15 @@ subtitle: |
   Subtitle here
   
   [arXiv:2504.08888](https://arxiv.org/abs/2504.08888)
-author: "Sun Woo P. Kim, Curt von Keyserlingk (KCL), __Austen Lamacraft (Cambridge)__"
+author:
+  - name: Sun Woo P. Kim
+    affiliation: King's College London
+  - name: Curt von Keyserlingk
+    affiliation: King's College London
+  - name: Austen Lamacraft
+    affiliation: University of Cambridge
 date: 09/12/2025
 date-format: long
-# institute: University of Cambridge
 title-slide-attributes:
     data-background-image: assets/fig_hadamard-circuit.png
     data-background-size: "80%"

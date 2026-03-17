@@ -8,12 +8,15 @@ title: |
     Hadamard lattices
 subtitle: |
   Operator dynamics and entanglement
-  
+
   [J. Phys. A 57 405301 (2024)](https://iopscience.iop.org/article/10.1088/1751-8121/ad776a)
-author: "Pieter Claeys (MPI-PKS), __Austen Lamacraft (Cambridge)__"
+author:
+  - name: Pieter Claeys
+    affiliation: MPI-PKS
+  - name: __Austen Lamacraft__
+    affiliation: University of Cambridge
 date: 10/04/2024
 date-format: long
-# institute: University of Cambridge
 title-slide-attributes:
     data-background-image: assets/fig_hadamard-circuit.png
     data-background-size: "80%"
@@ -25,17 +28,15 @@ format:
     hash: true
     center: true
     auto-stretch: false
-    html-math-method: katex
+    html-math-method: mathjax
     preview-links: true
-    katex: {
-      macros: {
-        "\\abs" : "\\left|#1\\right|",
-        "\\tr" : "\\operatorname{tr}",
-        "\\sgn" : "\\operatorname{sgn}",
-      },
-      throwOnError: false,
-    }
 ---
+
+$$
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\sgn}{\operatorname{sgn}}
+$$
 
 # Model
 

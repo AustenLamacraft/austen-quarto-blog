@@ -267,7 +267,7 @@ d3 = require("d3@6")
 - Expectation values in region $A$ evaluated using *reduced density matrix*
 
 $$
-\rho_A = \operatorname{tr}\_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\rho_A = \operatorname{tr}_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
 $$
 
 <object data="../new-rules-tum/assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
@@ -285,7 +285,7 @@ $$
 
   - If $n\in A$, $m\in\bar A$, $\rho_A$ has factor $\mathbb{1}_n$. 
 
-  - If $m, n\in A$ they contribute a factor $\ket{\Phi^+}\_{nm}\bra{\Phi^+}\_{nm}$ (pure)
+  - If $m, n\in A$ they contribute a factor $\ket{\Phi^+}_{nm}\bra{\Phi^+}_{nm}$ (pure)
 
 - Only first case contributes to $
  S_A = \min(4\lfloor t/2\rfloor, |A|) 
@@ -1142,7 +1142,7 @@ f:\\{0,1\\}^3\longrightarrow \\{0,1\\}.
 $$
 
 $$
-x^{t+1}_{n} = f(x^{t}\_{n-1},x^{t}\_{n},x^{t}\_{n+1})
+x^{t+1}_{n} = f(x^{t}_{n-1},x^{t}_{n},x^{t}_{n+1})
 $$
 
 - How many possible functions?
