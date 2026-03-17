@@ -1,6 +1,6 @@
 ---
 title: "Hello"
-image: backs-jpeg.jpg
+image: "sjc-headshots-413.jpeg"
 about:
   template: solana
   links:
@@ -16,19 +16,27 @@ about:
 
 ---
 
-I'm a Professor of Theoretical Physics at the University of Cambridge
+I'm a Professor of Theoretical Physics at the [University of Cambridge](https://www.cam.ac.uk/), where I've worked since 2012. I'm also a fellow of [St. John's College](https://www.joh.cam.ac.uk/).
+
 
 
 ## Experience
 
-- Oct 2007 – Sep 2012: Assistant → Associate Professor. University of Virginia
- 
-- Oct 2005 – Sep 2007: Postdoctoral Fellow.
-All Souls College, University of Oxford
+#### 2007 – 2012
 
-- Oct 2002 – Sep 2005: Dicke Fellow. Princeton University, Department of Physics
+Assistant → Associate Professor. University of Virginia
  
-- Oct 2001 – Sep 2002: Junior Research Fellow. Trinity College, University of Cambridge
+#### 2005 – 2007
+
+Postdoctoral Fellow. All Souls College, University of Oxford
+
+#### 2002 – 2005
+
+Dicke Fellow. Princeton University, Department of Physics
+
+#### 2001 – 2006
+
+Junior Research Fellow. Trinity College, University of Cambridge
 
 ## Education
 

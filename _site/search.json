@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Hello",
     "section": "",
-    "text": "I’m a Professor of Theoretical Physics at the University of Cambridge"
+    "text": "I’m a Professor of Theoretical Physics at the University of Cambridge, where I’ve worked since 2012. I’m also a fellow of St. John’s College."
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
     "title": "Hello",
     "section": "Experience",
-    "text": "Experience\n\nOct 2007 – Sep 2012: Assistant → Associate Professor. University of Virginia\nOct 2005 – Sep 2007: Postdoctoral Fellow. All Souls College, University of Oxford\nOct 2002 – Sep 2005: Dicke Fellow. Princeton University, Department of Physics\nOct 2001 – Sep 2002: Junior Research Fellow. Trinity College, University of Cambridge"
+    "text": "Experience\n\n2007 – 2012\nAssistant → Associate Professor. University of Virginia\n\n\n2005 – 2007\nPostdoctoral Fellow. All Souls College, University of Oxford\n\n\n2002 – 2005\nDicke Fellow. Princeton University, Department of Physics\n\n\n2001 – 2006\nJunior Research Fellow. Trinity College, University of Cambridge"
   },
   {
     "objectID": "index.html#education",
@@ -149,226 +149,226 @@
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html",
     "href": "talks/quantum-circuits-2-icts/index.html",
-    "title": "Quantum Circuits II",
+    "title": "Quantum Circuits II: some special kinds of circuits",
     "section": "",
     "text": "austen.uk/slides/quantum-circuits-2-icts for slides\n\n\n\n\n\nCircuits with special structure \\(\\longrightarrow\\) theoretical progress / new insights\n\nRandom circuits\nDual unitary circuits\nOther possibilities: Clifford (Arijeet’s talk), free fermions, …\n\n\n\n\n\n\n\\[\nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}\\_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n\\]\n\nOperator norm \\(\\tr\\left[Z\\_n^2(t)\\right]=2\\) is conserved under time evolution\n\n\\[\n\\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}^2\\_{\\mu_{1:N}}(t) = \\frac{1}{2^{N-1}}\n\\]\n\n\n\n\n\nCorrelation function \\(\\langle Z_j(t)Z_k(0)\\rangle\\) captures only a single coefficient\n\n\\[\n\\langle Z_j(t)Z_k(0)\\rangle=C_{jk}(t) \\equiv \\mathcal{C}_{1\\cdots \\mu_k=z \\cdots 1}(t)\n\\]\n\n\n\n\nWhat about the rest?\n\n\n\n\n\n\\[\n\\operatorname{OTOC}_{jk}(t) \\equiv \\langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\\rangle\n\\]\n\nOTOC sometimes written as squared commutator\n\n\\[\n\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle\n\\]\n\nRelation between two expressions is (using \\(Z^2=1\\))\n\n\\[\n\\operatorname{OTOC}_{jk}(t) = \\frac{1}{2}\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle + 1\n\\]\n\n\\[\n\\operatorname{OTOC}_{jk}(t) = \\frac{1}{2}\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle + 1\n\\]\n\nAt short times commutator vanishes so \\(\\operatorname{OTOC}_{jk}(t\\to 0)=1\\)\n\n\\[\n\\operatorname{OTOC}\\_{jk}(t)= 2^{N-1} \\sum_{\\mu_{1:N}}\\mathcal{C}\\_{\\mu_{1:N}}^2(t)\\left[\\delta_{\\mu_k,0}+\\delta_{\\mu_k,3}-\\delta_{\\mu_k,1}-\\delta_{\\mu_k,2}\\right]\n\\]\n\n\\(\\operatorname{OTOC}\\_{jk}(t)\\neq 1\\) after operator \\(Z_j(t)\\) spreads from site \\(j\\) to site \\(k\\)\nCharacteristic speed of propagation of OTOC is “butterfly velocity” \\(v_\\text{B}\\)\nSince OTOC depends on square of the coefficients, a nonzero value survives after averaging over random circuits\n\n\n\n\n\n\nOTOC measured in 2021 by Google\n\n\n\n\nThe measured OTOC for \\(i\\operatorname{\\operatorname{\\mathsf{SWAP}}}\\) gates (top) and \\(\\sqrt{i\\operatorname{\\mathsf{SWAP}}}\\) (bottom) after averaging over single qubit gates.\n\n\n\n\n\n\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\(\\mathcal{C}\\_{\\mu_{1:N}}\\)?\nIntroduce Schmidt decomposition for operators \\[\n\\mathcal{O}\\_{AB} = \\sum\\_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma\\_n A_n\\otimes B_n\n\\]\n\\(\\Sigma_n\\geq 0\\) are operator Schmidt coefficients\n\\(A_n\\) and \\(B_n\\) are orthonormal operators on \\(\\mathcal{H}\\_A\\) and \\(\\mathcal{H}\\_B\\) i.e. \\(\\tr\\left[A^\\dagger_m A_n\\right]=\\tr\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}\\)\n\n\n\nSame entanglement measures as before be applied to evaluate the operator entanglement\nSimplest example, analogous to Bell state, is SWAP operator\n\n\\[\n\\operatorname{\\mathsf{SWAP}}=\\frac{1}{2}\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z + \\mathsf{1}\\otimes\\mathsf{1}\\right]\n\\]\n\nAll Schmidt coefficients are equal (maximum operator entanglement)\n\n\n\n\n\n\nMet this idea last time: average over \\(\\theta\\) in\n\n\\[\nU\\_{j,j+1} = \\cos\\theta \\mathbb{1}\\_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}\\_{j.j+1}\n\\]\n\nNow consider even more random gates: average uniformly over single site unitaries\n\n\n\n\n\n\n\n\n\nNo symmetries so results should be generic (“in some sense”)\n(real reason) Averaging over circuits simplifies things considerably, sometimes allowing tractable classical description\n\n\nChoose gates iid. Other options: randomness in space but not time\nRecent review: Fisher et al (2023)\n\n\n\n\n\\[\n\\operatorname{OTOC}_{jk}(t) \\equiv \\langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\\rangle\n\\]\n\nOTOC can be extracted by appropriately contracting indices in \\(Z_j(t)\\otimes Z_j(t)\\) (two copies)\nWhen we average over random unitaries, only certain components survive\nSingle qubit unitaries identified with rotations, so look for scalar operators made from two copies on each site\n\n\\[\n\\mathsf{1}\\otimes\\mathsf{1},\\qquad \\frac{1}{3}\\left[X\\otimes X+Y\\otimes Y + Z\\otimes Z\\right]\n\\]\n\n\nDifferent papers prefer different bases. The most popular choice is \\[\n\\mathsf{1}\\otimes\\mathsf{1},\\qquad \\operatorname{SWAP}\n\\] (recall that \\(\\operatorname{\\mathsf{SWAP}}=\\frac{1}{2}\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z + \\mathsf{1}\\otimes\\mathsf{1}\\right]\\))\nAdvantage: generalizes to multiple copies\nGeneral set of invariants are generalized SWAP operators corresponding to permutations of copies (for two copies only two permutations)\n\n\n\nNow use invariant local basis to expand average of two copies\n\n\\[\n\\mathcal{O}^{(2)}(t)=\\overline{O(t) \\otimes O(t)} \\equiv \\overline{O(t)^{\\otimes 2}}\n\\]\n\\[\n\\begin{align*}\n\\mathsf{O} &\\equiv\\mathsf{1}\\otimes\\mathsf{1} \\\\\\\n\\mathsf{1}&\\equiv\\frac{1}{3}\\left[X\\otimes X + Y\\otimes Y+ Z\\otimes Z\\right]\n\\end{align*}\n\\]\n\nIntroduce basis \\(\\mathsf{S}_{1:N}\\equiv\\mathsf{S}_1\\otimes \\mathsf{S}_2\\otimes\\cdots \\mathsf{S}_N\\), with \\(\\mathsf{S}_j=\\mathsf{0},\\mathsf{1}\\)\n\n\\[\n\\mathcal{O}^{(2)}(t) = \\sum\\_{\\mathsf{S}\\_{1:N}\\in\\\\{\\mathsf{0},\\mathsf{1}\\\\}^N} P\\_{\\mathsf{S}\\_{1:N}}(t)\\mathsf{S}\\_{1:N}\n\\]\n\nCoefficients \\(P\\_{\\mathsf{S}\\_{1:N}}(t)\\) describe averaged OTOC\n\n\n\nNext find how \\(P\\_{\\mathsf{S}\\_{1:N}}(t)\\) are updated by a single gate (after averaging)\nGate acting on sites \\(j\\) and \\(j+1\\) yields\n\n\\[\nU^\\dagger_{j,j+1}\\otimes U^\\dagger_{j,j+1} \\mathcal{O}^{(2)}(t)U_{j,j+1}\\otimes U_{j,j+1}\n\\]\n\nTake \\(U_{j,j+1}\\) of form \\[\nU_{j,j+1} = V_{j,j+1} u_j \\otimes u_{j+1}\n\\] where \\(u_j\\) and \\(u_{j+1}\\) are single quibit unitaries chosen uniformly\nAfter averaging all non-invariant components vanish and invariant components don’t depend on \\(u_j\\) and \\(u_{j+1}\\)\nExtract \\(P\\_{\\mathsf{S}\\_{1:N}}(t+1)\\) using orthgonality \\(\\tr\\left[\\mathsf{O}\\mathsf{1}\\right]=0\\)\n\n\n\\[\nP\\_{\\mathsf{S}\\_{1:N}}(t+1) = \\sum\\_{\\mathsf{S}'\\_j, \\mathsf{S}'\\_{j+1}}  P\\_{\\mathsf{S}\\_1\\cdots \\mathsf{S}'\\_j  \\mathsf{S}'\\_{j+1}\\cdots \\mathsf{S}\\_N}(t)\\Omega\\_{\\mathsf{S}'\\_j \\mathsf{S}'\\_{j+1},\\mathsf{S}\\_j \\mathsf{S}\\_k}\n\\]\n\nPrecise form of matrix \\(\\Omega\\) depends on \\(V_{j,j+1}\\) “core”\nUse conservation of operator norm \\(\\tr\\left[O(t)^\\dagger O(t)\\right]\\)\n\n\\[\n\\overline{\\tr\\left[O(t)^\\dagger O(t)\\right]} = 2\\sum\\_{\\mathsf{S}\\_{1:N}\\in\\{\\mathsf{0},\\mathsf{1}\\}^N} P\\_{\\mathsf{S}\\_{1:N}}\n\\]\n\\[\n\\sum_{S_j, S_{j+1}}\\Omega\\_{\\mathsf{S}'\\_j \\mathsf{S}'\\_{j+1},\\mathsf{S}\\_j \\mathsf{S}\\_k} = 1\n\\]\n\nIf matrix elements additionally nonnegative we have a Markov process, with transition matrix \\(\\Omega\\)\n\n\n\nFor Sycamore gate (Google’s OTOC experiment, supplementary material)\n\n\\[\n\\begin{align*}\n\\Omega&=\\left(\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\\\n0 & 1-a-b & a & b \\\\\\\n0 & a & 1-a-b & b \\\\\\\n0 & \\frac{b}{3} & \\frac{b}{3} & \\left(1-\\frac{2}{3} b\\right)\n\\end{array}\\right) \\\\\\\na&=\\frac{1}{3}\\left(2 \\sin ^{2} \\theta+\\sin ^{4} \\theta\\right) \\qquad b=\\frac{1}{3}\\left(\\frac{1}{2} \\sin ^{2} 2 \\theta+2\\left(\\sin ^{2} \\theta+\\cos ^{2} \\theta\\right)\\right)\n\\end{align*}\n\\]\n\n\\(\\theta=\\pi/2\\) for \\(i\\operatorname{SWAP}\\) gate and \\(\\theta=\\pi/4\\) for \\(\\sqrt{i\\operatorname{SWAP}}\\)\n\n\n\n\n\n\n\nIdea that unitary averages over two copies yields a Markov process on the invariant space goes back to Oliveria, Dahlsten, and Plenio (2007), which was concerned with dynamics of average purity \\(\\gamma\\equiv \\tr \\rho_A^2\\)\n\\(\\bar \\gamma\\) can be extracted from average of two copies of density matrix \\(\\rho(t)\\otimes\\rho(t)\\). See e.g. Rowlands and Lamacraft (2018) for noisy unitary evolution in continuous time\n\n\n\n\n\n\\[\n\\begin{align*}\n\\Omega&=\\left(\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\\\n0 & 1-a-b & a & b \\\\\\\n0 & a & 1-a-b & b \\\\\\\n0 & \\frac{b}{3} & \\frac{b}{3} & \\left(1-\\frac{2}{3} b\\right)\n\\end{array}\\right)\n\\end{align*}\n\\]\n\nDescribes transitions\n\n\\[\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\\]\n\nNote that \\(\\mathsf{0}=\\mathsf{1}\\otimes\\mathsf{1}\\) is “inert”: there no transitions from or to \\(\\mathsf{00}\\)\n\n\n\n\n\n\\[\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\\]\n\n\n\n\n\n\n\nStationary state: independent sites with \\(p_1=3/4\\), \\(p_0=1/4\\)\n\n\n\n\n\n\nFront propagation characterised by finite velocity \\(v_\\text{B}\\)\n\n\n\n\n\n\n\n\n\nFront broadens unless \\(v_\\text{B}\\) maximal as for \\(i\\operatorname{SWAP}\\)\n\n\n \n\n\\(i\\operatorname{SWAP}\\) (left) vs. \\(\\sqrt{i\\operatorname{SWAP}}\\) (right)\n\n\n\n\nDiffusive in 1D \\(\\propto \\sqrt{t}\\)\nKPZ dynamics in 2D\n\n\n\n\n\nSee Nahum, Vijay, and Haah (2018) for much more\n\n\n\n\n\n\nEfficient simulation of averaged OTOC dynamics via Monte Carlo\nAppearance of Markov process a little surprising\n\n\n\n\n\n\nCircuit-to-circuit fluctuations of OTOC from\n\n\\[\n\\mathcal{O}^{(4)}(t)=\\overline{O(t) \\otimes O(t) \\otimes O(t) \\otimes O(t)} \\equiv \\overline{O(t)^{\\otimes 4}}\n\\]\n\nGo through same procedure of identifying invariant states\nEvolution of average now involves negative matrix elements\nLeads to sign problem in Monte Carlo simulation\nSame problem for \\(\\overline{\\operatorname{OTOC}}\\) in models with number conservation (Rowlands and Lamacraft)\n\n\n\n\n\n\n\n\n\n\nTime dependent Hamiltonian with kicks at \\(t=0,1,2,\\ldots\\).\n\n\\[\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j\n\\end{align*}\n\\]\n\n\n\n\n\nBertini, Kos, Prosen (2019) found that when \\(|J|=|b|=\\pi/4\\)\n\n\\[\n\\lim_{L\\to\\infty} S_A =\\min(2t-2,N_A)\\log 2,\n\\]\n\nAny \\(h_j\\); initial \\(Z_j\\) product state\n\n\n\n\n\n\n\n\n\nRényi entropies depend on eigenvalues of reduced density matrix\n\n$$   S^{(\\alpha)}_A = \\frac{1}{1-\\alpha}\\log \\text{tr}\\left[\\rho^\\alpha\\right]=\\frac{1}{1-\\alpha}\\sum_n p_n^\\alpha $$\n\nFor SDKIM have \\(2^{\\min(2t-2,N_A)}\\) non-zero eigenvalues all equal\n\n\\[\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\n\\]\n\n\n\n\n\nAfter \\(N_A/2 + 1\\) steps, reduced density matrix is \\(\\propto \\mathbb{1}\\)\nAll expectations (with \\(A\\)) take on infinite temperature value\n\n\n\n\n\n\nRecall KIM has circuit representation\n\n\n\n\n$$ \\begin{aligned}   \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\   \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right] \\end{aligned} $$\n\nAt \\(|J|=|b|=\\pi/4\\) has additional property of dual unitarity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnitarity:\n\n\n\n\n\n\n\n\n\nImpose additional restriction\n\n\n\n\n\nGopalakrishnan and Lamacraft (2019), Bertini, Kos, and Prosen (2019)\n\n\n\n\n\n\nInitial state of NN Bell pairs\n8 sites; 4 layers\n\n\n\n\n\\(\\rho_A\\) is unitary transformation of\n\n\\[\n  \\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\n\\]\n\n\n\n\n\n\n\n\\(\\rho_A\\) is unitary transformation of\n\n\\[\n\\mathbb{1}\\otimes\\mathbb{1}\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\n\\]\n\n\n\n\n\nRDM is unitary transformation of\n\n\\[\n\\rho_0=\\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1} \\otimes\\overbrace{\\ket{\\Phi^+}\\bra{\\Phi^+} \\cdots }^{N_A/2-t+1 } \\otimes \\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1}\n\\]\n\nRDM has \\(2^{\\min(2t-2,N_A)}\\) non-zero eigenvalues all equal to \\(\\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\\)\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)\n\n\n\n\n\n\n\\(4\\times 4\\) unitaries are 16-dimensional\nFamily of dual unitaries is 14-dimensional\nIncludes kicked Ising model at particular values of couplings\nDual unitaries not “integrable” but have enough structure to allow many calculations\n\n\n\n\n\n\n\n\n\n(\\(q=2\\) here) Not satisfied by e.g. \\(\\operatorname{SWAP}\\)\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions\n\n\n\n\n\n\nInfinite temperature correlator \\(\\tr\\left[\\sigma^\\alpha_x(x,t)\\sigma^\\beta(y,0)\\right]\\)\n\n\n\n\n\nBertini, Kos, and Prosen (2019): dual unitarity means correlations vanish inside light cone!\n\n\n\n\n\n\nCorrelations measured in SDKIM last year\n\n\n\n\n\n\n\n\n\nClaeys and Lamacraft (2020). \\(v_\\text{B}=1\\). OTOC grows at maximum speed, c.f. Google experiment\nJonay, Kehmani, Ippoliti (2021). Triunitary circuits (incl. 2+1 dimensions)\nStephen et al (2022). Measurement based quantum computation in 1D using dual unitaries\nSommers, Huse, Gullans (2022). Dual unitary Clifford automata with applications to codes\nSuzuki, Mitarai, Fujii (2022). Computational power of dual unitaries\nMany more!"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#some-special-kinds-of-circuits",
     "href": "talks/quantum-circuits-2-icts/index.html#some-special-kinds-of-circuits",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "austen.uk/slides/quantum-circuits-2-icts for slides"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Some special kinds of circuits",
+    "text": "Some special kinds of circuits\n\n\n\nausten.uk/talks/quantum-circuits-2-icts for slides"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#outline",
     "href": "talks/quantum-circuits-2-icts/index.html#outline",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Circuits with special structure \\(\\longrightarrow\\) theoretical progress / new insights\n\nRandom circuits\nDual unitary circuits\nOther possibilities: Clifford (Arijeet’s talk), free fermions, …"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Outline",
+    "text": "Outline\n\nCircuits with special structure \\longrightarrow theoretical progress / new insights\n\nRandom circuits\nDual unitary circuits\nOther possibilities: Clifford (Arijeet’s talk), free fermions, …"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#reminder-operator-spreading",
     "href": "talks/quantum-circuits-2-icts/index.html#reminder-operator-spreading",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\[\nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}\\_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n\\]\n\nOperator norm \\(\\tr\\left[Z\\_n^2(t)\\right]=2\\) is conserved under time evolution\n\n\\[\n\\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}^2\\_{\\mu_{1:N}}(t) = \\frac{1}{2^{N-1}}\n\\]"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Reminder: operator spreading",
+    "text": "Reminder: operator spreading\n\nZ_n(t)= \\sum_{\\mu_{1:N}=\\{1,x,y,z\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n\n\nOperator norm \\operatorname{tr}\\left[Z_n^2(t)\\right]=2 is conserved under time evolution\n\n\n\\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}^2_{\\mu_{1:N}}(t) = \\frac{1}{2^{N-1}}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#describing-operator-spreading",
     "href": "talks/quantum-circuits-2-icts/index.html#describing-operator-spreading",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Correlation function \\(\\langle Z_j(t)Z_k(0)\\rangle\\) captures only a single coefficient\n\n\\[\n\\langle Z_j(t)Z_k(0)\\rangle=C_{jk}(t) \\equiv \\mathcal{C}_{1\\cdots \\mu_k=z \\cdots 1}(t)\n\\]\n\n\n\n\nWhat about the rest?"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Describing operator spreading",
+    "text": "Describing operator spreading\n\nCorrelation function \\langle Z_j(t)Z_k(0)\\rangle captures only a single coefficient\n\n\n\\langle Z_j(t)Z_k(0)\\rangle=C_{jk}(t) \\equiv \\mathcal{C}_{1\\cdots \\mu_k=z \\cdots 1}(t)\n\n\n\n\n\nWhat about the rest?"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#out-of-time-order-correlator",
     "href": "talks/quantum-circuits-2-icts/index.html#out-of-time-order-correlator",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\[\n\\operatorname{OTOC}_{jk}(t) \\equiv \\langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\\rangle\n\\]\n\nOTOC sometimes written as squared commutator\n\n\\[\n\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle\n\\]\n\nRelation between two expressions is (using \\(Z^2=1\\))\n\n\\[\n\\operatorname{OTOC}_{jk}(t) = \\frac{1}{2}\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle + 1\n\\]\n\n\\[\n\\operatorname{OTOC}_{jk}(t) = \\frac{1}{2}\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle + 1\n\\]\n\nAt short times commutator vanishes so \\(\\operatorname{OTOC}_{jk}(t\\to 0)=1\\)\n\n\\[\n\\operatorname{OTOC}\\_{jk}(t)= 2^{N-1} \\sum_{\\mu_{1:N}}\\mathcal{C}\\_{\\mu_{1:N}}^2(t)\\left[\\delta_{\\mu_k,0}+\\delta_{\\mu_k,3}-\\delta_{\\mu_k,1}-\\delta_{\\mu_k,2}\\right]\n\\]\n\n\\(\\operatorname{OTOC}\\_{jk}(t)\\neq 1\\) after operator \\(Z_j(t)\\) spreads from site \\(j\\) to site \\(k\\)\nCharacteristic speed of propagation of OTOC is “butterfly velocity” \\(v_\\text{B}\\)\nSince OTOC depends on square of the coefficients, a nonzero value survives after averaging over random circuits"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Out of time order correlator",
+    "text": "Out of time order correlator\n\n\\operatorname{OTOC}_{jk}(t) \\equiv \\langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\\rangle\n\n\nOTOC sometimes written as squared commutator\n\n\n\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle\n\n\nRelation between two expressions is (using Z^2=1)\n\n\n\\operatorname{OTOC}_{jk}(t) = \\frac{1}{2}\\langle \\left[Z_k(0),Z_j(t)\\right]^2 \\rangle + 1"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#googles-otoc-experiment",
     "href": "talks/quantum-circuits-2-icts/index.html#googles-otoc-experiment",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "OTOC measured in 2021 by Google\n\n\n\n\nThe measured OTOC for \\(i\\operatorname{\\operatorname{\\mathsf{SWAP}}}\\) gates (top) and \\(\\sqrt{i\\operatorname{\\mathsf{SWAP}}}\\) (bottom) after averaging over single qubit gates."
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Google’s OTOC experiment",
+    "text": "Google’s OTOC experiment\n\nOTOC measured in 2021 by Google\n\n\n\n\nThe measured OTOC for i\\operatorname{\\operatorname{\\mathsf{SWAP}}} gates (top) and \\sqrt{i\\operatorname{\\mathsf{SWAP}}} (bottom) after averaging over single qubit gates."
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#remark-operator-entanglement",
     "href": "talks/quantum-circuits-2-icts/index.html#remark-operator-entanglement",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "OTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\(\\mathcal{C}\\_{\\mu_{1:N}}\\)?\nIntroduce Schmidt decomposition for operators \\[\n\\mathcal{O}\\_{AB} = \\sum\\_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma\\_n A_n\\otimes B_n\n\\]\n\\(\\Sigma_n\\geq 0\\) are operator Schmidt coefficients\n\\(A_n\\) and \\(B_n\\) are orthonormal operators on \\(\\mathcal{H}\\_A\\) and \\(\\mathcal{H}\\_B\\) i.e. \\(\\tr\\left[A^\\dagger_m A_n\\right]=\\tr\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}\\)\n\n\n\nSame entanglement measures as before be applied to evaluate the operator entanglement\nSimplest example, analogous to Bell state, is SWAP operator\n\n\\[\n\\operatorname{\\mathsf{SWAP}}=\\frac{1}{2}\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z + \\mathsf{1}\\otimes\\mathsf{1}\\right]\n\\]\n\nAll Schmidt coefficients are equal (maximum operator entanglement)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Remark: operator entanglement",
+    "text": "Remark: operator entanglement\n\nOTOC provides one measure of operator spreading\nAnother question: how many nonzero coefficients \\mathcal{C}_{\\mu_{1:N}}?\nIntroduce Schmidt decomposition for operators \n\\mathcal{O}_{AB} = \\sum_{n=1}^{\\min(n^2_A, n^2_B)} \\Sigma_n A_n\\otimes B_n\n\n\\Sigma_n\\geq 0 are operator Schmidt coefficients\nA_n and B_n are orthonormal operators on \\mathcal{H}_A and \\mathcal{H}_B i.e. \\operatorname{tr}\\left[A^\\dagger_m A_n\\right]=\\operatorname{tr}\\left[B^\\dagger_m B_n\\right]=\\delta_{mn}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#random-circuits",
     "href": "talks/quantum-circuits-2-icts/index.html#random-circuits",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Met this idea last time: average over \\(\\theta\\) in\n\n\\[\nU\\_{j,j+1} = \\cos\\theta \\mathbb{1}\\_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}\\_{j.j+1}\n\\]\n\nNow consider even more random gates: average uniformly over single site unitaries"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Random circuits",
+    "text": "Random circuits\n\nMet this idea last time: average over \\theta in\n\n\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}_{j.j+1}\n\n\nNow consider even more random gates: average uniformly over single site unitaries"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#why",
     "href": "talks/quantum-circuits-2-icts/index.html#why",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "No symmetries so results should be generic (“in some sense”)\n(real reason) Averaging over circuits simplifies things considerably, sometimes allowing tractable classical description\n\n\nChoose gates iid. Other options: randomness in space but not time\nRecent review: Fisher et al (2023)\n\n\n\n\n\\[\n\\operatorname{OTOC}_{jk}(t) \\equiv \\langle Z_j(t)Z_k(0)Z_j(t)Z_k(0)\\rangle\n\\]\n\nOTOC can be extracted by appropriately contracting indices in \\(Z_j(t)\\otimes Z_j(t)\\) (two copies)\nWhen we average over random unitaries, only certain components survive\nSingle qubit unitaries identified with rotations, so look for scalar operators made from two copies on each site\n\n\\[\n\\mathsf{1}\\otimes\\mathsf{1},\\qquad \\frac{1}{3}\\left[X\\otimes X+Y\\otimes Y + Z\\otimes Z\\right]\n\\]\n\n\nDifferent papers prefer different bases. The most popular choice is \\[\n\\mathsf{1}\\otimes\\mathsf{1},\\qquad \\operatorname{SWAP}\n\\] (recall that \\(\\operatorname{\\mathsf{SWAP}}=\\frac{1}{2}\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z + \\mathsf{1}\\otimes\\mathsf{1}\\right]\\))\nAdvantage: generalizes to multiple copies\nGeneral set of invariants are generalized SWAP operators corresponding to permutations of copies (for two copies only two permutations)\n\n\n\nNow use invariant local basis to expand average of two copies\n\n\\[\n\\mathcal{O}^{(2)}(t)=\\overline{O(t) \\otimes O(t)} \\equiv \\overline{O(t)^{\\otimes 2}}\n\\]\n\\[\n\\begin{align*}\n\\mathsf{O} &\\equiv\\mathsf{1}\\otimes\\mathsf{1} \\\\\\\n\\mathsf{1}&\\equiv\\frac{1}{3}\\left[X\\otimes X + Y\\otimes Y+ Z\\otimes Z\\right]\n\\end{align*}\n\\]\n\nIntroduce basis \\(\\mathsf{S}_{1:N}\\equiv\\mathsf{S}_1\\otimes \\mathsf{S}_2\\otimes\\cdots \\mathsf{S}_N\\), with \\(\\mathsf{S}_j=\\mathsf{0},\\mathsf{1}\\)\n\n\\[\n\\mathcal{O}^{(2)}(t) = \\sum\\_{\\mathsf{S}\\_{1:N}\\in\\\\{\\mathsf{0},\\mathsf{1}\\\\}^N} P\\_{\\mathsf{S}\\_{1:N}}(t)\\mathsf{S}\\_{1:N}\n\\]\n\nCoefficients \\(P\\_{\\mathsf{S}\\_{1:N}}(t)\\) describe averaged OTOC\n\n\n\nNext find how \\(P\\_{\\mathsf{S}\\_{1:N}}(t)\\) are updated by a single gate (after averaging)\nGate acting on sites \\(j\\) and \\(j+1\\) yields\n\n\\[\nU^\\dagger_{j,j+1}\\otimes U^\\dagger_{j,j+1} \\mathcal{O}^{(2)}(t)U_{j,j+1}\\otimes U_{j,j+1}\n\\]\n\nTake \\(U_{j,j+1}\\) of form \\[\nU_{j,j+1} = V_{j,j+1} u_j \\otimes u_{j+1}\n\\] where \\(u_j\\) and \\(u_{j+1}\\) are single quibit unitaries chosen uniformly\nAfter averaging all non-invariant components vanish and invariant components don’t depend on \\(u_j\\) and \\(u_{j+1}\\)\nExtract \\(P\\_{\\mathsf{S}\\_{1:N}}(t+1)\\) using orthgonality \\(\\tr\\left[\\mathsf{O}\\mathsf{1}\\right]=0\\)\n\n\n\\[\nP\\_{\\mathsf{S}\\_{1:N}}(t+1) = \\sum\\_{\\mathsf{S}'\\_j, \\mathsf{S}'\\_{j+1}}  P\\_{\\mathsf{S}\\_1\\cdots \\mathsf{S}'\\_j  \\mathsf{S}'\\_{j+1}\\cdots \\mathsf{S}\\_N}(t)\\Omega\\_{\\mathsf{S}'\\_j \\mathsf{S}'\\_{j+1},\\mathsf{S}\\_j \\mathsf{S}\\_k}\n\\]\n\nPrecise form of matrix \\(\\Omega\\) depends on \\(V_{j,j+1}\\) “core”\nUse conservation of operator norm \\(\\tr\\left[O(t)^\\dagger O(t)\\right]\\)\n\n\\[\n\\overline{\\tr\\left[O(t)^\\dagger O(t)\\right]} = 2\\sum\\_{\\mathsf{S}\\_{1:N}\\in\\{\\mathsf{0},\\mathsf{1}\\}^N} P\\_{\\mathsf{S}\\_{1:N}}\n\\]\n\\[\n\\sum_{S_j, S_{j+1}}\\Omega\\_{\\mathsf{S}'\\_j \\mathsf{S}'\\_{j+1},\\mathsf{S}\\_j \\mathsf{S}\\_k} = 1\n\\]\n\nIf matrix elements additionally nonnegative we have a Markov process, with transition matrix \\(\\Omega\\)\n\n\n\nFor Sycamore gate (Google’s OTOC experiment, supplementary material)\n\n\\[\n\\begin{align*}\n\\Omega&=\\left(\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\\\n0 & 1-a-b & a & b \\\\\\\n0 & a & 1-a-b & b \\\\\\\n0 & \\frac{b}{3} & \\frac{b}{3} & \\left(1-\\frac{2}{3} b\\right)\n\\end{array}\\right) \\\\\\\na&=\\frac{1}{3}\\left(2 \\sin ^{2} \\theta+\\sin ^{4} \\theta\\right) \\qquad b=\\frac{1}{3}\\left(\\frac{1}{2} \\sin ^{2} 2 \\theta+2\\left(\\sin ^{2} \\theta+\\cos ^{2} \\theta\\right)\\right)\n\\end{align*}\n\\]\n\n\\(\\theta=\\pi/2\\) for \\(i\\operatorname{SWAP}\\) gate and \\(\\theta=\\pi/4\\) for \\(\\sqrt{i\\operatorname{SWAP}}\\)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Why?",
+    "text": "Why?\n\nNo symmetries so results should be generic (“in some sense”)\n(real reason) Averaging over circuits simplifies things considerably, sometimes allowing tractable classical description\n\n\nChoose gates iid. Other options: randomness in space but not time\nRecent review: Fisher et al (2023)"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#remarks",
     "href": "talks/quantum-circuits-2-icts/index.html#remarks",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Idea that unitary averages over two copies yields a Markov process on the invariant space goes back to Oliveria, Dahlsten, and Plenio (2007), which was concerned with dynamics of average purity \\(\\gamma\\equiv \\tr \\rho_A^2\\)\n\\(\\bar \\gamma\\) can be extracted from average of two copies of density matrix \\(\\rho(t)\\otimes\\rho(t)\\). See e.g. Rowlands and Lamacraft (2018) for noisy unitary evolution in continuous time"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Remarks",
+    "text": "Remarks\n\nIdea that unitary averages over two copies yields a Markov process on the invariant space goes back to Oliveria, Dahlsten, and Plenio (2007), which was concerned with dynamics of average purity \\gamma\\equiv \\operatorname{tr}\\rho_A^2\n\\bar \\gamma can be extracted from average of two copies of density matrix \\rho(t)\\otimes\\rho(t). See e.g. Rowlands and Lamacraft (2018) for noisy unitary evolution in continuous time"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#the-markov-process",
     "href": "talks/quantum-circuits-2-icts/index.html#the-markov-process",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\[\n\\begin{align*}\n\\Omega&=\\left(\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\\\n0 & 1-a-b & a & b \\\\\\\n0 & a & 1-a-b & b \\\\\\\n0 & \\frac{b}{3} & \\frac{b}{3} & \\left(1-\\frac{2}{3} b\\right)\n\\end{array}\\right)\n\\end{align*}\n\\]\n\nDescribes transitions\n\n\\[\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\\]\n\nNote that \\(\\mathsf{0}=\\mathsf{1}\\otimes\\mathsf{1}\\) is “inert”: there no transitions from or to \\(\\mathsf{00}\\)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "The Markov process",
+    "text": "The Markov process\n\n\\begin{align*}\n\\Omega&=\\left(\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\\\n0 & 1-a-b & a & b \\\\\\\n0 & a & 1-a-b & b \\\\\\\n0 & \\frac{b}{3} & \\frac{b}{3} & \\left(1-\\frac{2}{3} b\\right)\n\\end{array}\\right)\n\\end{align*}\n\n\nDescribes transitions\n\n\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\n\nNote that \\mathsf{0}=\\mathsf{1}\\otimes\\mathsf{1} is “inert”: there no transitions from or to \\mathsf{00}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#fredricksonandersen-model",
     "href": "talks/quantum-circuits-2-icts/index.html#fredricksonandersen-model",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\[\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\\]\n\n\n\n\n\n\n\nStationary state: independent sites with \\(p_1=3/4\\), \\(p_0=1/4\\)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Fredrickson–Andersen model",
+    "text": "Fredrickson–Andersen model\n\n\\mathsf{10} \\xleftrightharpoons[a]{a}  \\mathsf{01} \\qquad \\mathsf{11} \\xleftrightharpoons[b/3]{b} \\mathsf{10},\\mathsf{01}\n\n\n\n\n\n\n\n\nStationary state: independent sites with p_1=3/4, p_0=1/4"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#butterfly-velocity",
     "href": "talks/quantum-circuits-2-icts/index.html#butterfly-velocity",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Front propagation characterised by finite velocity \\(v_\\text{B}\\)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Butterfly velocity",
+    "text": "Butterfly velocity\n\nFront propagation characterised by finite velocity v_\\text{B}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#front-broadening",
     "href": "talks/quantum-circuits-2-icts/index.html#front-broadening",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Front broadens unless \\(v_\\text{B}\\) maximal as for \\(i\\operatorname{SWAP}\\)\n\n\n \n\n\\(i\\operatorname{SWAP}\\) (left) vs. \\(\\sqrt{i\\operatorname{SWAP}}\\) (right)\n\n\n\n\nDiffusive in 1D \\(\\propto \\sqrt{t}\\)\nKPZ dynamics in 2D\n\n\n\n\n\nSee Nahum, Vijay, and Haah (2018) for much more"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Front broadening",
+    "text": "Front broadening\n\nFront broadens unless v_\\text{B} maximal as for i\\operatorname{SWAP}\n\n\n \n\ni\\operatorname{SWAP} (left) vs. \\sqrt{i\\operatorname{SWAP}} (right)"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#classical-simulation",
     "href": "talks/quantum-circuits-2-icts/index.html#classical-simulation",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Efficient simulation of averaged OTOC dynamics via Monte Carlo\nAppearance of Markov process a little surprising"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Classical simulation?",
+    "text": "Classical simulation?\n\nEfficient simulation of averaged OTOC dynamics via Monte Carlo\nAppearance of Markov process a little surprising"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#otoc-fluctuations",
     "href": "talks/quantum-circuits-2-icts/index.html#otoc-fluctuations",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Circuit-to-circuit fluctuations of OTOC from\n\n\\[\n\\mathcal{O}^{(4)}(t)=\\overline{O(t) \\otimes O(t) \\otimes O(t) \\otimes O(t)} \\equiv \\overline{O(t)^{\\otimes 4}}\n\\]\n\nGo through same procedure of identifying invariant states\nEvolution of average now involves negative matrix elements\nLeads to sign problem in Monte Carlo simulation\nSame problem for \\(\\overline{\\operatorname{OTOC}}\\) in models with number conservation (Rowlands and Lamacraft)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "OTOC fluctuations",
+    "text": "OTOC fluctuations\n\nCircuit-to-circuit fluctuations of OTOC from\n\n\n\\mathcal{O}^{(4)}(t)=\\overline{O(t) \\otimes O(t) \\otimes O(t) \\otimes O(t)} \\equiv \\overline{O(t)^{\\otimes 4}}\n\n\nGo through same procedure of identifying invariant states\nEvolution of average now involves negative matrix elements\nLeads to sign problem in Monte Carlo simulation\nSame problem for \\overline{\\operatorname{OTOC}} in models with number conservation (Rowlands and Lamacraft)"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#recall-kicked-ising-model",
     "href": "talks/quantum-circuits-2-icts/index.html#recall-kicked-ising-model",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Time dependent Hamiltonian with kicks at \\(t=0,1,2,\\ldots\\).\n\n\\[\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j\n\\end{align*}\n\\]"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Recall: kicked Ising model",
+    "text": "Recall: kicked Ising model\n\nTime dependent Hamiltonian with kicks at t=0,1,2,\\ldots.\n\n\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j\n\\end{align*}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#entanglement-growth-for-kim",
     "href": "talks/quantum-circuits-2-icts/index.html#entanglement-growth-for-kim",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Bertini, Kos, Prosen (2019) found that when \\(|J|=|b|=\\pi/4\\)\n\n\\[\n\\lim_{L\\to\\infty} S_A =\\min(2t-2,N_A)\\log 2,\n\\]\n\nAny \\(h_j\\); initial \\(Z_j\\) product state"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Entanglement Growth for KIM",
+    "text": "Entanglement Growth for KIM\n\nBertini, Kos, Prosen (2019) found that when |J|=|b|=\\pi/4\n\n\n\\lim_{L\\to\\infty} S_A =\\min(2t-2,N_A)\\log 2,\n\n\nAny h_j; initial Z_j product state"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#entanglement-spectrum",
     "href": "talks/quantum-circuits-2-icts/index.html#entanglement-spectrum",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Rényi entropies depend on eigenvalues of reduced density matrix\n\n$$   S^{(\\alpha)}_A = \\frac{1}{1-\\alpha}\\log \\text{tr}\\left[\\rho^\\alpha\\right]=\\frac{1}{1-\\alpha}\\sum_n p_n^\\alpha $$\n\nFor SDKIM have \\(2^{\\min(2t-2,N_A)}\\) non-zero eigenvalues all equal\n\n\\[\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\n\\]"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Entanglement Spectrum",
+    "text": "Entanglement Spectrum\n\nRényi entropies depend on eigenvalues of reduced density matrix\n\n\n  S^{(\\alpha)}_A = \\frac{1}{1-\\alpha}\\log \\text{tr}\\left[\\rho^\\alpha\\right]=\\frac{1}{1-\\alpha}\\sum_n p_n^\\alpha\n\n\nFor SDKIM have 2^{\\min(2t-2,N_A)} non-zero eigenvalues all equal\n\n\np_n = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#thermalization",
     "href": "talks/quantum-circuits-2-icts/index.html#thermalization",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "After \\(N_A/2 + 1\\) steps, reduced density matrix is \\(\\propto \\mathbb{1}\\)\nAll expectations (with \\(A\\)) take on infinite temperature value"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Thermalization",
+    "text": "Thermalization\n\nAfter N_A/2 + 1 steps, reduced density matrix is \\propto \\mathbb{1}\nAll expectations (with A) take on infinite temperature value"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#dual-unitarity",
     "href": "talks/quantum-circuits-2-icts/index.html#dual-unitarity",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Recall KIM has circuit representation\n\n\n\n\n$$ \\begin{aligned}   \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\   \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right] \\end{aligned} $$\n\nAt \\(|J|=|b|=\\pi/4\\) has additional property of dual unitarity"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Dual unitarity",
+    "text": "Dual unitarity\n\nRecall KIM has circuit representation\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}\n\n\nAt |J|=|b|=\\pi/4 has additional property of dual unitarity"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#folded-representations",
     "href": "talks/quantum-circuits-2-icts/index.html#folded-representations",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Unitarity:"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "“Folded” representations",
+    "text": "“Folded” representations\n\n\n\n\nUnitarity:"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#dual-unitary-gates",
     "href": "talks/quantum-circuits-2-icts/index.html#dual-unitary-gates",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Impose additional restriction\n\n\n\n\n\nGopalakrishnan and Lamacraft (2019), Bertini, Kos, and Prosen (2019)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Dual unitary gates",
+    "text": "Dual unitary gates\n\nImpose additional restriction\n\n\n\n\n\nGopalakrishnan and Lamacraft (2019), Bertini, Kos, and Prosen (2019)"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#rho_a-via-dual-unitarity",
     "href": "talks/quantum-circuits-2-icts/index.html#rho_a-via-dual-unitarity",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Initial state of NN Bell pairs\n8 sites; 4 layers\n\n\n\n\n\\(\\rho_A\\) is unitary transformation of\n\n\\[\n  \\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\n\\]"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "\\rho_A via dual unitarity",
+    "text": "\\rho_A via dual unitarity\n\nInitial state of NN Bell pairs\n8 sites; 4 layers\n\n\n\n\n\\rho_A is unitary transformation of\n\n\n  \\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\\otimes\\mathbb{1}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#shallower",
     "href": "talks/quantum-circuits-2-icts/index.html#shallower",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\(\\rho_A\\) is unitary transformation of\n\n\\[\n\\mathbb{1}\\otimes\\mathbb{1}\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\mathbb{1}\\otimes\\mathbb{1}\n\\]"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Shallower…",
+    "text": "Shallower…\n\n\n\n\\rho_A is unitary transformation of\n\n\n\\mathbb{1}\\otimes\\mathbb{1}\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\ket{\\Phi^+}\\bra{\\Phi^+}\\otimes\\mathbb{1}\\otimes\\mathbb{1}"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#general-case",
     "href": "talks/quantum-circuits-2-icts/index.html#general-case",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "RDM is unitary transformation of\n\n\\[\n\\rho_0=\\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1} \\otimes\\overbrace{\\ket{\\Phi^+}\\bra{\\Phi^+} \\cdots }^{N_A/2-t+1 } \\otimes \\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1}\n\\]\n\nRDM has \\(2^{\\min(2t-2,N_A)}\\) non-zero eigenvalues all equal to \\(\\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\\)\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "General case",
+    "text": "General case\n\nRDM is unitary transformation of\n\n\n\\rho_0=\\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1} \\otimes\\overbrace{\\ket{\\Phi^+}\\bra{\\Phi^+} \\cdots }^{N_A/2-t+1 } \\otimes \\overbrace{\\frac{\\mathbb{1}}{2}\\otimes \\frac{\\mathbb{1}}{2} \\cdots }^{t-1}\n\n\nRDM has 2^{\\min(2t-2,N_A)} non-zero eigenvalues all equal to \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#the-dual-unitary-family",
     "href": "talks/quantum-circuits-2-icts/index.html#the-dual-unitary-family",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "\\(4\\times 4\\) unitaries are 16-dimensional\nFamily of dual unitaries is 14-dimensional\nIncludes kicked Ising model at particular values of couplings\nDual unitaries not “integrable” but have enough structure to allow many calculations"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "The dual unitary family",
+    "text": "The dual unitary family\n\n4\\times 4 unitaries are 16-dimensional\nFamily of dual unitaries is 14-dimensional\nIncludes kicked Ising model at particular values of couplings\nDual unitaries not “integrable” but have enough structure to allow many calculations"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#kim-property",
     "href": "talks/quantum-circuits-2-icts/index.html#kim-property",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "(\\(q=2\\) here) Not satisfied by e.g. \\(\\operatorname{SWAP}\\)\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "‘KIM’ property",
+    "text": "‘KIM’ property\n\n\n\n\n(q=2 here) Not satisfied by e.g. \\operatorname{SWAP}\nMaps product states to maximally entangled (Bell) states\nProduct initial states also work for KIM!\nPiroli et al (2020) studied more general initial states\nFoligno and Bertini (2023) study general initial conditions"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#correlation-functions",
     "href": "talks/quantum-circuits-2-icts/index.html#correlation-functions",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Infinite temperature correlator \\(\\tr\\left[\\sigma^\\alpha_x(x,t)\\sigma^\\beta(y,0)\\right]\\)\n\n\n\n\n\nBertini, Kos, and Prosen (2019): dual unitarity means correlations vanish inside light cone!"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Correlation functions",
+    "text": "Correlation functions\n\nInfinite temperature correlator \\operatorname{tr}\\left[\\sigma^\\alpha_x(x,t)\\sigma^\\beta(y,0)\\right]\n\n\n\n\n\nBertini, Kos, and Prosen (2019): dual unitarity means correlations vanish inside light cone!"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#quantinuum-experiment",
     "href": "talks/quantum-circuits-2-icts/index.html#quantinuum-experiment",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Correlations measured in SDKIM last year"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Quantinuum experiment",
+    "text": "Quantinuum experiment\n\nCorrelations measured in SDKIM last year"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#other-applications-of-dual-unitarity",
     "href": "talks/quantum-circuits-2-icts/index.html#other-applications-of-dual-unitarity",
-    "title": "Quantum Circuits II",
-    "section": "",
-    "text": "Claeys and Lamacraft (2020). \\(v_\\text{B}=1\\). OTOC grows at maximum speed, c.f. Google experiment\nJonay, Kehmani, Ippoliti (2021). Triunitary circuits (incl. 2+1 dimensions)\nStephen et al (2022). Measurement based quantum computation in 1D using dual unitaries\nSommers, Huse, Gullans (2022). Dual unitary Clifford automata with applications to codes\nSuzuki, Mitarai, Fujii (2022). Computational power of dual unitaries\nMany more!"
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Other applications of dual unitarity",
+    "text": "Other applications of dual unitarity\n\nClaeys and Lamacraft (2020). v_\\text{B}=1. OTOC grows at maximum speed, c.f. Google experiment\nJonay, Kehmani, Ippoliti (2021). Triunitary circuits (incl. 2+1 dimensions)\nStephen et al (2022). Measurement based quantum computation in 1D using dual unitaries\nSommers, Huse, Gullans (2022). Dual unitary Clifford automata with applications to codes\nSuzuki, Mitarai, Fujii (2022). Computational power of dual unitaries\nMany more!"
   },
   {
     "objectID": "talks/new-rules/index.html",
@@ -1089,7 +1089,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "From Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics arXiv:2302.07280 (J Phys A, to appear)\n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys (MPI-PKS), Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft (Cambridge)\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft (Cambridge) and Sun Woo Kim (KCL)\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\n\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nML and SM 2\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\n\n\n\n\nNo matching items"
+    "text": "Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models\n\n\nSubtitle here\narXiv:2504.08888 \n\n\n\n\n\n\n\n\nSep 12, 2025\n\n\nSun Woo P. Kim, Curt von Keyserlingk (KCL), Austen Lamacraft (Cambridge)\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual\nHadamard lattices\n\n\nOperator dynamics and entanglement\nJ. Phys. A 57 405301 (2024) \n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nPieter Claeys (MPI-PKS), Austen Lamacraft (Cambridge)\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics\narXiv:2302.07280 (J Phys A, to appear) \n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys (MPI-PKS), Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft (Cambridge)\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft (Cambridge) and Sun Woo Kim (KCL)\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II: some special kinds of circuits\n\n\nLectures on Quantum Circuits at ICTS Bangalore\nausten.uk/talks/quantum-circuits-2-icts for slides \n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\n\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules:\n\n\n\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\n\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nML and SM 2\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html",
@@ -2657,7 +2657,7 @@
     "href": "posts.html",
     "title": "Posts",
     "section": "",
-    "text": "Quarto and Pyodide\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n\n\n\nJun 24, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nTrying Out Typst\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n\n\n\nJun 24, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics II\n\n\n\n\n\n\nML\n\n\nPhysics\n\n\n\n\n\n\n\n\n\nMay 25, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics I\n\n\n\n\n\n\nML\n\n\nPhysics\n\n\n\n\n\n\n\n\n\nMay 19, 2021\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto and Pyodide\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n\n\n\nJun 24, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nTrying Out Typst\n\n\n\n\n\n\ntech\n\n\n\n\n\n\n\n\n\nJun 24, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics II\n\n\n\n\n\n\nML\n\nPhysics\n\n\n\n\n\n\n\n\n\nMay 25, 2021\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics I\n\n\n\n\n\n\nML\n\nPhysics\n\n\n\n\n\n\n\n\n\nMay 19, 2021\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/qpl-2024/index.html#d-lattice",
@@ -3113,5 +3113,285 @@
     "title": "From Dual Unitarity to Biunitarity",
     "section": "Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781",
     "text": "Complex Hadamard circuits^[[P.W. Claeys and A.L., arXiv:2406.03781\n](https://arxiv.org/abs/2406.03781)]\n\nConstruct circuit exclusively out of complex Hadamard matrices\n\n\n\n\n\n\n\n… or clockwork\n\n\n\n\n\n\n\nBiunitaries combine into biunitaries!"
+  },
+  {
+    "objectID": "talks/quantum-circuits-2-icts/index.html#dual-unitary-circuits",
+    "href": "talks/quantum-circuits-2-icts/index.html#dual-unitary-circuits",
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Dual unitary circuits",
+    "text": "Dual unitary circuits"
+  },
+  {
+    "objectID": "talks/quantum-circuits-2-icts/index.html#reminder-from-last-lecture",
+    "href": "talks/quantum-circuits-2-icts/index.html#reminder-from-last-lecture",
+    "title": "Quantum Circuits II: some special kinds of circuits",
+    "section": "Reminder from last lecture",
+    "text": "Reminder from last lecture"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#interpretation-as-stroboscopic-dynamics",
+    "href": "talks/open-qmbp-24/index.html#interpretation-as-stroboscopic-dynamics",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Interpretation as stroboscopic dynamics",
+    "text": "Interpretation as stroboscopic dynamics\n\nWrite U_\\text{row} and U_\\text{ver} as exponentials of two Hamiltonians\n\n\n  U_{\\text{row}} = e^{-i H_1 T_1}, \\qquad  U_{\\text{vert}} = e^{-i H_2 T_2}\n\n\nH_1 a sum of diagonal terms acting on two neighbouring qudits: classical Ising-like interaction\nH_2 a sum of single qudit terms: a “kick” creating quantum superposition\nH_{1,2} must be chosen so that matrix elements of corresponding unitaries have unit modulus\nExamples include self-dual kicked Ising model and kicked Potts model (later)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#brickwork-circuit",
+    "href": "talks/open-qmbp-24/index.html#brickwork-circuit",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Brickwork circuit",
+    "text": "Brickwork circuit\n\n\n\n\n\n\n\n\n\n\n\nVertices now rank 3 delta tensors\nBrickwork dual unitary circuit from Hadamard condition"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#round-a-face-form",
+    "href": "talks/open-qmbp-24/index.html#round-a-face-form",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Round-a-face form1",
+    "text": "Round-a-face form1\n\n\n\n\n\n\n\n\n\n\n\nHadamard construction shows that exchanging control indices a,c and unitary indices b,d preserves unitarity \\longrightarrow space-time duality\n\nProsen (2021)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#qm-interpretation",
+    "href": "talks/open-qmbp-24/index.html#qm-interpretation",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "QM interpretation",
+    "text": "QM interpretation\n\n\n\n\n\n\nFix values of z_{x,t} on bottom and top z_{x,0} and z_{x,T} for x=1,\\ldots N\nWhen does partition function U(z_{1:N,0},z_{1:N,T}) give matrix elements of unitary operator on a system of N qudits?\nGives rise to conditions on u_{ij}…"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#tensor-network",
+    "href": "talks/open-qmbp-24/index.html#tensor-network",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Tensor network",
+    "text": "Tensor network\n\n\n\n\n\n\nRank 2 tensors u_{ij} on bonds\nRank 4 tensors \\delta_{z_1,z_2,z_3,z_4} at the vertices\n\n\n\\delta_{z_1,z_2,\\ldots ,z_p} =\n  \\begin{cases}\n    1  & z_1=z_2=\\cdots =z_p \\\\\n    0  & \\text{otherwise}\n  \\end{cases}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#tensor-network-1",
+    "href": "talks/open-qmbp-24/index.html#tensor-network-1",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Tensor network",
+    "text": "Tensor network"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#unitary-condition",
+    "href": "talks/open-qmbp-24/index.html#unitary-condition",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Unitary condition",
+    "text": "Unitary condition\n\nRow corresponds to diagonal operator U_{\\text{row}}\n\n\n\n\n\n\n\n  \\braket{z_{1:N}|U_{\\text{row}}|z_{1:N,t}} = \\prod_{x=1}^N u_\\text{H}(z_{x,t},z_{x+1,t})\n\n\nUnitary operator since u_\\text{H} are phases"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#unitary-condition-1",
+    "href": "talks/open-qmbp-24/index.html#unitary-condition-1",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Unitary condition",
+    "text": "Unitary condition\n\nVertical bonds: single qudit operator u_\\text{V}, giving rise U_\\text{vert} on N qudits\n\n\n\n\n\n\n\nRequire that u_\\text{V} is unitary too, up to multiplicative factor\nu_\\text{V}^\\dagger u^{\\vphantom{\\dagger}}_\\text{V}=q\\mathbb{1} with |u_{\\text{V}ij}|=1 is complex Hadamard matrix\nSimple and important example is Fourier matrix\n\n\n\\left(F_q\\right)_{jk} = \\exp\\left(2\\pi ijk/q\\right)\\qquad j,k=0,\\ldots, q-1."
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#example",
+    "href": "talks/open-qmbp-24/index.html#example",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Example",
+    "text": "Example\n\nSimple and important example is Fourier matrix\n\n\n\\left(F_q\\right)_{jk} = \\exp\\left(2\\pi ijk/q\\right)\\qquad j,k=0,\\ldots, q-1.\n\nThe complete tensor network then corresponds to the composition % \\begin{equation}\\label{eq:big-U}\nU(z_{1:N,0},z_{1:N,T})\\propto\\braket{z_{1:N,T}|\\left(U_\\text{vert}U_\\text{row}\\right)^T|z_{1:N,0}}.\n\\end{equation} % These are the matrix elements of a unitary operator if u_V is a Hadamard matrix, with the normalization factor in given by \\mathcal{N}=q^{-N(T-1)}."
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#space-time-duality",
+    "href": "talks/open-qmbp-24/index.html#space-time-duality",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Space time duality1",
+    "text": "Space time duality1\n\nEvaluate TN from left to right instead of from top to bottom\nSpace-like evolution is unitary if u_\\text{H} is Hadamard\nIf both u_\\text{V} and u_\\text{H} are Hadamard model describes unitary evolution in both space and time: space-time duality\n\nHosur et al. (2016), Gutkin and Osipov (2016), Akila et al. (2016), Bertini, Kos, Prosen (2018), Bertini, Kos, Prosen (2019), Gopalakrishnan and A.L. (2019), Bertini, Kos, Prosen (2019)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#unitary-condition-2",
+    "href": "talks/open-qmbp-24/index.html#unitary-condition-2",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Unitary condition",
+    "text": "Unitary condition\n\nComplete tensor network corresponds to composition\n\n\nU(z_{1:N,0},z_{1:N,T})\\propto\\braket{z_{1:N,T}|\\left(U_\\text{vert}U_\\text{row}\\right)^T|z_{1:N,0}}\n\n\nMatrix elements of unitary operator if u_V is Hadamard matrix with normalization \\mathcal{N}=q^{-N(T-1)}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#boundary-conditions-slightly-different",
+    "href": "talks/open-qmbp-24/index.html#boundary-conditions-slightly-different",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "(Boundary conditions slightly different…)",
+    "text": "(Boundary conditions slightly different…)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#boundary-conditions-again-slightly-different",
+    "href": "talks/open-qmbp-24/index.html#boundary-conditions-again-slightly-different",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "(Boundary conditions again slightly different…)",
+    "text": "(Boundary conditions again slightly different…)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#connection-to-cellular-automata",
+    "href": "talks/open-qmbp-24/index.html#connection-to-cellular-automata",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Connection to cellular automata",
+    "text": "Connection to cellular automata\n\nFor Fourier gates u_\\text{H}=F^\\dagger and u_\\text{V}=F\n\n\n\n\n\n\n\n\\sum_{e=0}^{q-1} (F^{\\dagger}_d)_{ae} \\left(F_d\\right)_{be}(F_d^{\\dagger})_{ce}\\left(F_d\\right)_{de} = q\\, \\delta_{-a+b-c+d \\mod q},\n\n\n\\begin{align*}\n  s_{x-1,t} = a \\qquad s_{x,t+1} = b \\nonumber\\\\\n  s_{x+1,t} = c \\qquad s_{x,t-1} = d\n\\end{align*}\n\n\ns_{x,t+1} = - s_{x-1,t} - s_{x+1, t} + s_{x,t-1} \\qquad \\mod q\n\n\nFor q=2 this is reversible version of Wolfram’s Rule 150 (Rule 150R) ."
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#connection-to-cellular-automata-for-u_texthfdagger-and-u_textvf",
+    "href": "talks/open-qmbp-24/index.html#connection-to-cellular-automata-for-u_texthfdagger-and-u_textvf",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Connection to cellular automata for u_\\text{H}=F^\\dagger and u_\\text{V}=F",
+    "text": "Connection to cellular automata for u_\\text{H}=F^\\dagger and u_\\text{V}=F\n\n\n\n\n\n\n\\sum_{e=0}^{q-1} (F^{\\dagger}_d)_{ae} \\left(F_d\\right)_{be}(F_d^{\\dagger})_{ce}\\left(F_d\\right)_{de} = q\\, \\delta_{-a+b-c+d \\mod q},\n\n\n\\begin{align*}\n  s_{x-1,t} = a \\qquad s_{x,t+1} = b \\nonumber\\\\\n  s_{x+1,t} = c \\qquad s_{x,t-1} = d\n\\end{align*}\n\n\ns_{x,t+1} = - s_{x-1,t} - s_{x+1, t} + s_{x,t-1} \\qquad \\mod q\n\n\nFor q=2 this is reversible version of Wolfram’s Rule 150 (Rule 150R)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#cellular-automata-for-u_texthfdagger-and-u_textvf",
+    "href": "talks/open-qmbp-24/index.html#cellular-automata-for-u_texthfdagger-and-u_textvf",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Cellular automata for u_\\text{H}=F^\\dagger and u_\\text{V}=F",
+    "text": "Cellular automata for u_\\text{H}=F^\\dagger and u_\\text{V}=F\n\n\n\n\n\n\n\\sum_{e=0}^{q-1} (F^{\\dagger}_d)_{ae} \\left(F_d\\right)_{be}(F_d^{\\dagger})_{ce}\\left(F_d\\right)_{de} = q\\, \\delta_{-a+b-c+d \\mod q},\n\n\n\\begin{align*}\n  s_{x-1,t} = a \\qquad s_{x,t+1} = b \\nonumber\\\\\n  s_{x+1,t} = c \\qquad s_{x,t-1} = d\n\\end{align*}\n\n\ns_{x,t+1} = - s_{x-1,t} - s_{x+1, t} + s_{x,t-1} \\qquad \\mod q\n\n\nFor q=2 this is reversible version of Wolfram’s Rule 150 (Rule 150R)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#generalized-pauli-matrices",
+    "href": "talks/open-qmbp-24/index.html#generalized-pauli-matrices",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Generalized Pauli matrices",
+    "text": "Generalized Pauli matrices\n\nZ_q = \\begin{pmatrix}\n1 & 0 & 0 & \\cdots & 0\\\\\n0 & \\omega_q & 0 & \\cdots & 0\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots \\\\\n0 & 0 & 0 & \\cdots & \\omega_q^{q-1}\n\\end{pmatrix},\\qquad X_q = \\begin{pmatrix}\n  0 & 1 & 0 & \\cdots & 0\\\\\n  0 & 0 & 1 & \\cdots & 0\\\\\n  \\cdots & \\cdots & \\cdots & \\cdots & \\cdots \\\\\n  1 & 0 & 0 & \\cdots & 0\n  \\end{pmatrix}\n (\\omega_q = \\exp(2\\pi i/q))\n\nSatisfy Z_q^q=X_q^q=\\mathbb{1} and the Weyl relation\n\n\nX_q Z_q = \\omega_q Z_q X_q"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#some-simple-unitaries",
+    "href": "talks/open-qmbp-24/index.html#some-simple-unitaries",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Some simple unitaries",
+    "text": "Some simple unitaries\n\nA power of Z is a simple diagonal unitary\n\n\nZ^k Z^a X^b Z^{\\dagger k} = Z^a X^b \\omega^{-bk}\n\n\nCorresponds to a `kick’ to momentum x\\to x'=x-k"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#some-simple-unitaries-1",
+    "href": "talks/open-qmbp-24/index.html#some-simple-unitaries-1",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Some simple unitaries",
+    "text": "Some simple unitaries\n\nS_{jj} = \\exp(-i\\pi j^2/q)\\qquad j\\in\\mathbb{Z}_q\n\n\nS^\\alpha Z^a X^b (S^\\dagger)^\\alpha = \\omega^{\\alpha b^2/2} Z^{a+\\alpha b}X^b\n\n\nMomentum receives kick x'=x+\\alpha z+\\alpha /2, corresponding to shear\n\n\n\\begin{pmatrix}\n    z \\\\\n    x\n  \\end{pmatrix}\\longrightarrow\n  \\begin{pmatrix}\n    z' \\\\\n    x'\n  \\end{pmatrix} = \\begin{pmatrix}\n    z \\\\\n    x + \\alpha z\n  \\end{pmatrix}=\n  \\begin{pmatrix}\n  1 & 0 \\\\\n  \\alpha & 1\n  \\end{pmatrix}\n  \\begin{pmatrix}\n    z \\\\\n    x\n  \\end{pmatrix}\\qquad \\mod q\n\n\nSemiclassical interpretation: multiplying by e^{i\\theta(z)} shifts momentum by \\theta'(z)\nShift linear in z \\longrightarrow \\theta(z)\\propto z^2"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#cat-maps",
+    "href": "talks/open-qmbp-24/index.html#cat-maps",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Cat maps",
+    "text": "Cat maps\n\n\\begin{pmatrix}\n  z \\\\\n  x\n\\end{pmatrix}\\longrightarrow\n\\begin{pmatrix}\n  z' \\\\\n  x'\n\\end{pmatrix} = T\n\\begin{pmatrix}\n  z \\\\\n  x\n\\end{pmatrix}\\qquad \\mod 1\n\n\nT = \\begin{pmatrix}\n\\alpha & \\beta \\\\\n\\gamma & \\delta\n\\end{pmatrix}\\qquad \\alpha,\\beta,\\gamma,\\delta\\in\\mathbb{Z},\\qquad \\alpha\\delta-\\beta\\gamma=1\n\n\n\n\n\n\n\nCase \\beta=1 gives Clifford unitaries: Z^a X^b\\longrightarrow Z^{a'} X^{b'}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#some-simple-unitaries-i",
+    "href": "talks/open-qmbp-24/index.html#some-simple-unitaries-i",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Some simple unitaries I",
+    "text": "Some simple unitaries I\n\nA power of Z is a simple diagonal unitary\n\n\nZ^k Z^a X^b Z^{\\dagger k} = Z^a X^b \\omega^{-bk}\n\n\nCorresponds to a `kick’ to momentum x\\to x'=x-k"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#some-simple-unitaries-ii",
+    "href": "talks/open-qmbp-24/index.html#some-simple-unitaries-ii",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Some simple unitaries II",
+    "text": "Some simple unitaries II\n\nS_{jj} = \\exp(-i\\pi j^2/q)\\qquad j\\in\\mathbb{Z}_q\n\n\nS^\\alpha Z^a X^b (S^\\dagger)^\\alpha = \\omega^{\\alpha b^2/2} Z^{a+\\alpha b}X^b\n\n\nMomentum receives kick x'=x+\\alpha z+\\alpha /2, corresponding to shear\n\n\n\\begin{pmatrix}\n    z \\\\\n    x\n  \\end{pmatrix}\\longrightarrow\n  \\begin{pmatrix}\n    z' \\\\\n    x'\n  \\end{pmatrix} = \\begin{pmatrix}\n    z \\\\\n    x + \\alpha z\n  \\end{pmatrix}=\n  \\begin{pmatrix}\n  1 & 0 \\\\\n  \\alpha & 1\n  \\end{pmatrix}\n  \\begin{pmatrix}\n    z \\\\\n    x\n  \\end{pmatrix}\\qquad \\mod q\n\n\nSemiclassical interpretation: multiplying by e^{i\\theta(z)} shifts momentum by \\theta'(z)\nShift linear in z \\longrightarrow \\theta(z)\\propto z^2"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#some-simple-unitaries-iii",
+    "href": "talks/open-qmbp-24/index.html#some-simple-unitaries-iii",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Some simple unitaries III",
+    "text": "Some simple unitaries III\n\nCombine S with F to give family of Hadamards\n\n\nC_{jk}(\\alpha,\\delta)\\equiv\\left(S^\\alpha F S^\\delta\\right)_{jk} = \\exp\\left(-\\frac{2\\pi i}{q}\\left[\\frac{\\alpha j^2}{2} - jk + \\frac{\\delta k^2}{2}\\right]\\right)\\qquad \\alpha,\\delta\\in \\mathbb{Z}\n\n\nEffect on operator basis\n\n\nZ^a X^b \\longrightarrow C(\\alpha,\\delta)Z^a X^b C^\\dagger(\\alpha,\\delta)\\sim Z^{a'}X^{b'}\n\n\n\\begin{pmatrix}\na' \\\\\nb'\n\\end{pmatrix}\n=\\overbrace{\\begin{pmatrix}\n\\alpha & \\alpha\\delta - 1\\\\\n1 & \\delta\n\\end{pmatrix}}^{\\equiv T^T}\n\\begin{pmatrix}\n  a \\\\\n  b\n  \\end{pmatrix}.\n\n\nSubfamily of linear area preserving maps of torus"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#coupling-between-sites",
+    "href": "talks/open-qmbp-24/index.html#coupling-between-sites",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Coupling between sites",
+    "text": "Coupling between sites\n\nCoupling via diagonal two qudit matrix with cat matrix elements\n\n\nC_2(\\alpha,\\delta) = \\operatorname{diag}(C_{j_1j_2}(\\alpha,\\delta)) \\qquad j_{1,2}\\in\\mathbb{Z}_q\n\n\n  C_2(\\alpha,\\delta)Z_1^{a_1} X_1^{b_1} Z_2^{a_2} X_2^{b_2} C^\\dagger_2(\\alpha,\\delta) \\sim Z_1^{a_1-\\alpha b_1-b_2}X_1^{b_1}Z_2^{a_2-\\delta b_2-b_1}X_2^{b_2}\n\n\nMomenta on two sites receive a kick:\n\n\n\\begin{align*}\nz_1&\\longrightarrow z_1 \\nonumber\\\\\nx_1&\\longrightarrow x_1 - z_2 - \\alpha z_1\\nonumber\\\\\nz_2&\\longrightarrow z_2 \\nonumber\\\\\nx_2&\\longrightarrow x_2 - z_1 - \\delta z_2\n\\end{align*}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#operator-dynamics-in-coupled-clifford-cats",
+    "href": "talks/open-qmbp-24/index.html#operator-dynamics-in-coupled-clifford-cats",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Operator dynamics in coupled Clifford cats",
+    "text": "Operator dynamics in coupled Clifford cats\n\nFind dynamics of general Pauli operator\n\n\n\\mathcal{O}_{AB}\\equiv\\prod_{x=1}^N Z_x^{a_{x}}X_x^{b_{x}}\\qquad a_{x}, b_{x}\\in \\mathbb{Z}_q\n\n\nU_t \\mathcal{O}_{A_0B_0}U^\\dagger_t \\equiv \\mathcal{O}_{A_t B_t} defines evolution of A_t=(a_{0,t}, \\ldots, a_{N,t}) and B_t=(b_{0,t}, \\ldots, b_{N,t})"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#fractal-dynamics-alphadeltaneq-0-mod-q",
+    "href": "talks/open-qmbp-24/index.html#fractal-dynamics-alphadeltaneq-0-mod-q",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Fractal dynamics: \\alpha+\\delta\\neq 0 \\mod q",
+    "text": "Fractal dynamics: \\alpha+\\delta\\neq 0 \\mod q\n\nLinearity \\longrightarrow dynamics of a_t(u)\\equiv\\sum_x a_{x,t}u^x and b_t(u)\\equiv\\sum_x b_{x,t}u^x\n\n\n\\begin{pmatrix}\na_{t+1}(u) \\\\\nb_{t+1}(u)\n\\end{pmatrix}\n= M(u,u^{-1})\n\\begin{pmatrix}\n  a_{t}(u) \\\\\n  b_{t}(u)\n  \\end{pmatrix}\n\n\nM(u, u^{-1}) = \\begin{pmatrix}\n\\alpha & (\\alpha\\delta - 1) + \\alpha(u + u^{-1}) \\\\\n1 & \\delta + u + u^{-1}\n\\end{pmatrix}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#fractal-dynamics-alphadeltaneq-0-mod-q-gütschow-et-al.-2010",
+    "href": "talks/open-qmbp-24/index.html#fractal-dynamics-alphadeltaneq-0-mod-q-gütschow-et-al.-2010",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Fractal dynamics: \\alpha+\\delta\\neq 0 \\mod q (Gütschow et al. (2010))",
+    "text": "Fractal dynamics: \\alpha+\\delta\\neq 0 \\mod q (Gütschow et al. (2010))\n\nLinearity \\longrightarrow dynamics of a_t(u)\\equiv\\sum_x a_{x,t}u^x and b_t(u)\\equiv\\sum_x b_{x,t}u^x\n\n\n\\begin{pmatrix}\na_{t+1}(u) \\\\\nb_{t+1}(u)\n\\end{pmatrix}\n= M(u,u^{-1})\n\\begin{pmatrix}\n  a_{t}(u) \\\\\n  b_{t}(u)\n  \\end{pmatrix}\n\n\nM(u, u^{-1}) = \\begin{pmatrix}\n\\alpha & (\\alpha\\delta - 1) + \\alpha(u + u^{-1}) \\\\\n1 & \\delta + u + u^{-1}\n\\end{pmatrix}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#self-dual-kicked-ising-model-with-longitudinal-field-hpi4",
+    "href": "talks/open-qmbp-24/index.html#self-dual-kicked-ising-model-with-longitudinal-field-hpi4",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Self-dual kicked Ising model with longitudinal field h=\\pi/4",
+    "text": "Self-dual kicked Ising model with longitudinal field h=\\pi/4"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#q3-lotkov-et-al.-2022",
+    "href": "talks/open-qmbp-24/index.html#q3-lotkov-et-al.-2022",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "q=3 Lotkov et al. (2022)",
+    "text": "q=3 Lotkov et al. (2022)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#self-dual-kicked-ising-model-at-hpi4",
+    "href": "talks/open-qmbp-24/index.html#self-dual-kicked-ising-model-at-hpi4",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Self-dual kicked Ising model at h=\\pi/4",
+    "text": "Self-dual kicked Ising model at h=\\pi/4"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#glider-dynamics-for-alphadelta-0mod-q",
+    "href": "talks/open-qmbp-24/index.html#glider-dynamics-for-alphadelta-0mod-q",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Glider dynamics for \\alpha=\\delta = 0\\mod q",
+    "text": "Glider dynamics for \\alpha=\\delta = 0\\mod q\n\nFor u_\\text{H}=F^\\dagger\n\n\n\\begin{aligned}\n  a_{x,t+1} &=  -b_{x,t}\\nonumber\\\\\n  b_{x,t+1} &= a_{x,t} + b_{x-1,t} + b_{x+1,t}\n\\end{aligned} \\mod q\n\n\nRight and left moving configurations\n\n\n\\begin{aligned}\na^R_{x,t} &= r_{x-t}, \\qquad b^R_{x,t} = -r_{x-t-1}\\,,\\nonumber\\\\\na^L_{x,t} &= l_{x+t}, \\qquad b^L_{x,t} = -l_{x+t+1}\n\\end{aligned}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#lotkov-et-al.-2022",
+    "href": "talks/open-qmbp-24/index.html#lotkov-et-al.-2022",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Lotkov et al. (2022)",
+    "text": "Lotkov et al. (2022)\n\nq=3 Floquet dynamics\n\n\nH_1 = \\sum_{j=1}^{2N-1} Z_j^2 Z_{j+1} + Z_{j}Z_{j+1}^2, \\qquad H_{2} = \\sum_{j=1}^{2N} \\left(X_j+X_j^2\\right)\n\n\nWith periods T_1 and T_2 get\n\n\nU_{\\text{row}} = e^{-i H_1 T_1}, \\qquad  U_{\\text{vert}} = e^{-i H_2 T_2}\n\n\nIntegrable for T_1 = T_2 =\\frac{2\\pi}{9}(3l-m) with m =1,2 and l\\in \\mathbb{Z}"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#long-range-entan",
+    "href": "talks/open-qmbp-24/index.html#long-range-entan",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Long-range entan",
+    "text": "Long-range entan"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#long-range-entanglement-generation-i",
+    "href": "talks/open-qmbp-24/index.html#long-range-entanglement-generation-i",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Long-range entanglement generation I",
+    "text": "Long-range entanglement generation I\n\nPrepare initial product state \n\\ket{\\psi(t=0)} = \\otimes_{j=1}^{2N} \\ket{+}_j\n where \\ket{+} = \\frac{1}{\\sqrt{q}}\\sum_{a=1}^q \\ket{a}\nEvolve for N steps with no u_\\text{H} between sites N and N+1\n\n\n[U_{\\text{vert}}\\tilde{U}_{\\text{row}}]^N\\ket{\\psi(t=0)},\n\n\n\\braket{z_{1:2N}|\\tilde{U}_{\\text{row}}|z_{1:2N,t}} = \\prod_{j=1}^{N-1} u_\\text{H}(z_{j,t},z_{j+1,t})\\prod_{j=N+1}^{2N-1} u_\\text{H}(z_{j,t},z_{j+1,t})"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#long-range-entanglement-generation",
+    "href": "talks/open-qmbp-24/index.html#long-range-entanglement-generation",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Long-range entanglement generation",
+    "text": "Long-range entanglement generation\n\nPrepare initial product state \n\\ket{\\psi(t=0)} = \\otimes_{j=1}^{2N} \\ket{+}_j\n where \\ket{+} = \\frac{1}{\\sqrt{q}}\\sum_{a=1}^q \\ket{a}\nEvolve for N steps with no u_\\text{H} between sites N and N+1\n\n\n[U_{\\text{vert}}\\tilde{U}_{\\text{row}}]^N\\ket{\\psi(t=0)},\n\n\n\\braket{z_{1:2N}|\\tilde{U}_{\\text{row}}|z_{1:2N,t}} = \\prod_{j=1}^{N-1} u_\\text{H}(z_{j,t},z_{j+1,t})\\prod_{j=N+1}^{2N-1} u_\\text{H}(z_{j,t},z_{j+1,t})"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#space-time-duality-b.-bertini-p.-kos-and-t.-prosen-phys.-rev.-lett.-123-210601-2019",
+    "href": "talks/open-qmbp-24/index.html#space-time-duality-b.-bertini-p.-kos-and-t.-prosen-phys.-rev.-lett.-123-210601-2019",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "Space time duality1, B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)]",
+    "text": "Space time duality1, B. Bertini, P. Kos, and T. Prosen, Phys. Rev. Lett. 123, 210601 (2019)]\n\nEvaluate TN from left to right instead of from top to bottom\nSpace-like evolution is unitary if u_\\text{H} is Hadamard\nIf both u_\\text{V} and u_\\text{H} are Hadamard model describes unitary evolution in both space and time: space-time duality\n\nHosur et al. (2016) S. Gopalakrishnan and A.L., Phys. Rev. B 100, 064309 (2019)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#q3",
+    "href": "talks/open-qmbp-24/index.html#q3",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "q=31",
+    "text": "q=31\n\n\n\n\n\nLotkov et al. (2022)"
+  },
+  {
+    "objectID": "talks/open-qmbp-24/index.html#q3-floquet-dynamics",
+    "href": "talks/open-qmbp-24/index.html#q3-floquet-dynamics",
+    "title": "Space-time dual\nHadamard lattices",
+    "section": "q=3 Floquet dynamics1",
+    "text": "q=3 Floquet dynamics1\n\nH_1 = \\sum_{j=1}^{2N-1} Z_j^2 Z_{j+1} + Z_{j}Z_{j+1}^2, \\qquad H_{2} = \\sum_{j=1}^{2N} \\left(X_j+X_j^2\\right)\n\n\nWith periods T_1 and T_2 get\n\n\nU_{\\text{row}} = e^{-i H_1 T_1}, \\qquad  U_{\\text{vert}} = e^{-i H_2 T_2}\n\n\nIntegrable for T_1 = T_2 =\\frac{2\\pi}{9}(3l-m) with m =1,2 and l\\in \\mathbb{Z}\n\nLotkov et al. (2022)"
   }
 ]

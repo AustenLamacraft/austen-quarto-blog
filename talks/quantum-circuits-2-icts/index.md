@@ -1,10 +1,22 @@
 ---
 date: 06/14/2023
-slides:
-  # Choose a theme from https://github.com/hakimel/reveal.js#theming
-  theme: white
-  reveal_options: {
-    hash: true,
+date-format: long
+title: "Quantum Circuits II: some special kinds of circuits"
+subtitle: |
+  Lectures on Quantum Circuits at ICTS Bangalore
+
+  [austen.uk/talks/quantum-circuits-2-icts](https://austen.uk/talks/quantum-circuits-2-icts) for slides
+author: Austen Lamacraft
+institute: University of Cambridge
+title-slide-attributes:
+    data-background-image: assets/brickwall.png
+    data-background-size: auto
+    data-background-opacity: "0.2"
+format:
+  revealjs:
+    theme: [default, reveal_custom.scss]
+    hash: true
+    html-math-method: katex
     katex: {
       macros: {
         "\\abs" : "\\left|#1\\right|",
@@ -13,22 +25,14 @@ slides:
       },
       throwOnError: false,
     }
-  }
 scripts: ['https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js']
 ---
 
-# Quantum Circuits II
-## Some special kinds of circuits
-
-<p align="center">
-<img src="assets/brickwall.png" width="450"/>
-</p>
-
-[austen.uk/slides/quantum-circuits-2-icts](https://austen.uk/slides/quantum-circuits-2-icts) for slides
-
----
-
 ## Outline
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\sgn}{\operatorname{sgn}}
+
 
 - Circuits with special structure $\longrightarrow$ theoretical progress / new insights
 
@@ -43,13 +47,13 @@ scripts: ['https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js']
 ## Reminder: operator spreading
 
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 
-- Operator norm $\tr\left[Z\_n^2(t)\right]=2$ is conserved under time evolution
+- Operator norm $\tr\left[Z_n^2(t)\right]=2$ is conserved under time evolution
 
 $$
-\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}
+\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}
 $$
 
 ---
@@ -95,15 +99,15 @@ $$
 \operatorname{OTOC}_{jk}(t) = \frac{1}{2}\langle \left[Z_k(0),Z_j(t)\right]^2 \rangle + 1
 $$
 
- - At short times commutator vanishes so $\operatorname{OTOC}_{jk}(t\to 0)=1$
+ - At $t=0$ commutator vanishes: $\operatorname{OTOC}_{jk}(t=0)=1$
  
 $$
-\operatorname{OTOC}\_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}\_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right]
+\operatorname{OTOC}_{jk}(t)= 2^{N-1} \sum_{\mu_{1:N}}\mathcal{C}_{\mu_{1:N}}^2(t)\left[\delta_{\mu_k,0}+\delta_{\mu_k,3}-\delta_{\mu_k,1}-\delta_{\mu_k,2}\right]
 $$
 
-- $\operatorname{OTOC}\_{jk}(t)\neq 1$ after operator $Z_j(t)$ spreads from site $j$ to site $k$ 
+- $\operatorname{OTOC}_{jk}(t)\neq 1$ when $Z_j(t)$ spreads from $j\to k$
 
-- Characteristic speed of propagation of OTOC is "butterfly velocity" $v_\text{B}$
+- Characteristic speed of propagation is "butterfly velocity" $v_\text{B}$
 
 
 - Since OTOC depends on *square* of the coefficients, a nonzero value survives after averaging over random circuits
@@ -126,16 +130,16 @@ $$
 
 - OTOC provides one measure of operator spreading
 
-- Another question: how many nonzero coefficients  $\mathcal{C}\_{\mu_{1:N}}$?
+- Another question: how many nonzero coefficients  $\mathcal{C}_{\mu_{1:N}}$?
 
 - Introduce Schmidt decomposition _for operators_ 
 $$
-\mathcal{O}\_{AB} = \sum\_{n=1}^{\min(n^2_A, n^2_B)} \Sigma\_n A_n\otimes B_n
+\mathcal{O}_{AB} = \sum_{n=1}^{\min(n^2_A, n^2_B)} \Sigma_n A_n\otimes B_n
 $$
 
 - $\Sigma_n\geq 0$ are operator Schmidt coefficients
 
-- $A_n$ and $B_n$ are orthonormal operators on $\mathcal{H}\_A$ and $\mathcal{H}\_B$ i.e. $\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}$
+- $A_n$ and $B_n$ are orthonormal operators on $\mathcal{H}_A$ and $\mathcal{H}_B$ i.e. $\tr\left[A^\dagger_m A_n\right]=\tr\left[B^\dagger_m B_n\right]=\delta_{mn}$
 
 ---
 
@@ -156,7 +160,7 @@ $$
 - Met this idea last time: average over $\theta$ in
 
 $$
-U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
+U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}_{j.j+1}
 $$
 
 - Now consider _even more random_ gates: average uniformly over single site unitaries 
@@ -226,14 +230,14 @@ $$
  - Introduce basis $\mathsf{S}_{1:N}\equiv\mathsf{S}_1\otimes \mathsf{S}_2\otimes\cdots \mathsf{S}_N$, with $\mathsf{S}_j=\mathsf{0},\mathsf{1}$ 
 
 $$
-\mathcal{O}^{(2)}(t) = \sum\_{\mathsf{S}\_{1:N}\in\\{\mathsf{0},\mathsf{1}\\}^N} P\_{\mathsf{S}\_{1:N}}(t)\mathsf{S}\_{1:N}
+\mathcal{O}^{(2)}(t) = \sum_{\mathsf{S}_{1:N}\in\\{\mathsf{0},\mathsf{1}\\}^N} P_{\mathsf{S}_{1:N}}(t)\mathsf{S}_{1:N}
 $$
 
-- Coefficients $P\_{\mathsf{S}\_{1:N}}(t)$ describe averaged OTOC
+- Coefficients $P_{\mathsf{S}_{1:N}}(t)$ describe averaged OTOC
 
 ---
 
-- Next find how $P\_{\mathsf{S}\_{1:N}}(t)$ are updated by a single gate (after averaging)
+- Next find how $P_{\mathsf{S}_{1:N}}(t)$ are updated by a single gate (after averaging)
 
 - Gate acting on sites $j$ and $j+1$ yields  
 
@@ -249,12 +253,12 @@ where $u_j$ and $u_{j+1}$ are single quibit unitaries chosen uniformly
 
 - After averaging all non-invariant components vanish and invariant components don't depend on $u_j$ and $u_{j+1}$
 
-- Extract $P\_{\mathsf{S}\_{1:N}}(t+1)$ using orthgonality $\tr\left[\mathsf{O}\mathsf{1}\right]=0$
+- Extract $P_{\mathsf{S}_{1:N}}(t+1)$ using orthgonality $\tr\left[\mathsf{O}\mathsf{1}\right]=0$
 
 ---
 
 $$
-P\_{\mathsf{S}\_{1:N}}(t+1) = \sum\_{\mathsf{S}'\_j, \mathsf{S}'\_{j+1}}  P\_{\mathsf{S}\_1\cdots \mathsf{S}'\_j  \mathsf{S}'\_{j+1}\cdots \mathsf{S}\_N}(t)\Omega\_{\mathsf{S}'\_j \mathsf{S}'\_{j+1},\mathsf{S}\_j \mathsf{S}\_k}
+P_{\mathsf{S}_{1:N}}(t+1) = \sum_{\mathsf{S}'_j, \mathsf{S}'_{j+1}}  P_{\mathsf{S}_1\cdots \mathsf{S}'_j  \mathsf{S}'_{j+1}\cdots \mathsf{S}_N}(t)\Omega_{\mathsf{S}'_j \mathsf{S}'_{j+1},\mathsf{S}_j \mathsf{S}_k}
 $$
 
 - Precise form of matrix $\Omega$ depends on $V_{j,j+1}$ "core"
@@ -262,11 +266,11 @@ $$
 - Use conservation of operator norm $\tr\left[O(t)^\dagger O(t)\right]$
 
 $$
-\overline{\tr\left[O(t)^\dagger O(t)\right]} = 2\sum\_{\mathsf{S}\_{1:N}\in\{\mathsf{0},\mathsf{1}\}^N} P\_{\mathsf{S}\_{1:N}}
+\overline{\tr\left[O(t)^\dagger O(t)\right]} = 2\sum_{\mathsf{S}_{1:N}\in\{\mathsf{0},\mathsf{1}\}^N} P_{\mathsf{S}_{1:N}}
 $$
 
 $$
-\sum_{S_j, S_{j+1}}\Omega\_{\mathsf{S}'\_j \mathsf{S}'\_{j+1},\mathsf{S}\_j \mathsf{S}\_k} = 1
+\sum_{S_j, S_{j+1}}\Omega_{\mathsf{S}'_j \mathsf{S}'_{j+1},\mathsf{S}_j \mathsf{S}_k} = 1
 $$
 
 - If matrix elements additionally nonnegative we have a Markov process, with transition matrix $\Omega$ 
@@ -450,9 +454,9 @@ $$
 
 - Rényi entropies depend on eigenvalues of reduced density matrix
 
-`$$
+$$
   S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \text{tr}\left[\rho^\alpha\right]=\frac{1}{1-\alpha}\sum_n p_n^\alpha
-$$`
+$$
 
 - For SDKIM have $2^{\min(2t-2,N_A)}$ non-zero eigenvalues all equal
 
@@ -478,12 +482,12 @@ $$
 <img src="assets/kim-circuit.png" width="150"/>
 </p>
 
-`$$
+$$
 \begin{aligned}
   \mathcal{K} &= \exp\left[-i b X\right]\\
   \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right]
 \end{aligned}
-$$`
+$$
 
 - At $|J|=|b|=\pi/4$ has additional property of __dual unitarity__
 

@@ -1,0 +1,53 @@
+---
+# See all reveal options
+# https://quarto.org/docs/reference/formats/presentations/revealjs.html
+# E to toggle to PDF mode
+title: |
+    Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models
+subtitle: |
+  Subtitle here
+  
+  [arXiv:2504.08888](https://arxiv.org/abs/2504.08888)
+author: "Sun Woo P. Kim, Curt von Keyserlingk (KCL), __Austen Lamacraft (Cambridge)__"
+date: 09/12/2025
+date-format: long
+# institute: University of Cambridge
+title-slide-attributes:
+    data-background-image: assets/fig_hadamard-circuit.png
+    data-background-size: "80%"
+    data-background-opacity: "0.2"
+format:
+  revealjs:
+    theme: [default, reveal_custom.scss]
+    slide-number: true
+    hash: true
+    center: true
+    auto-stretch: false
+    html-math-method: katex
+    preview-links: true
+    katex: {
+      macros: {
+        "\\abs" : "\\left|#1\\right|",
+        "\\tr" : "\\operatorname{tr}",
+        "\\sgn" : "\\operatorname{sgn}",
+      },
+      throwOnError: false,
+    }
+---
+
+Goes here
+
+Bayes
+
+Inference
+
+Bayes optimality
+
+Nishimori condition
+
+Nishimori cat.
+
+
+Bayes theorem in quantum mechanics. Conditional distribution
+
+

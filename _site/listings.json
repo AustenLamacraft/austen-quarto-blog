@@ -2,6 +2,8 @@
   {
     "listing": "/talks.html",
     "items": [
+      "/talks/quantum-inference/index.html",
+      "/talks/open-qmbp-24/index.html",
       "/talks/qpl-2024/index.html",
       "/talks/new-rules-ictp/index.html",
       "/talks/space-time-dual-cat-and-clock-models/index.html",
