@@ -257,7 +257,7 @@ H = \sum_{j,a} \left[(J + \xi_j(t))\sigma^a_j \sigma^a_{j+1}\right]
 C^{ab}_{jk}(t)\equiv\frac{1}{2^N}\mathop{\mathrm{tr}}\left[\sigma^a_j(0) \sigma^b_k(t)\right]\qquad \sigma^b_k(t)=\mathcal{U}^\dagger_t \sigma^b_k \mathcal{U}_t.
 \]</span></p>
 <ul>
-<li><p><span class="math inline">\(SU(2)\)</span> invariance: <span class="math inline">\(C^{ab}\_{jk}(t)\equiv\delta_{ab}C_{jk}(t)\)</span> with <span class="math inline">\(\sum_{k=1}^N C_{jk}(t)=1\)</span></p></li>
+<li><p><span class="math inline">\(SU(2)\)</span> invariance: <span class="math inline">\(C^{ab}_{jk}(t)\equiv\delta_{ab}C_{jk}(t)\)</span> with <span class="math inline">\(\sum_{k=1}^N C_{jk}(t)=1\)</span></p></li>
 <li><p>From now on fix <span class="math inline">\(a=b=z\)</span></p></li>
 </ul>
 </section>
@@ -271,7 +271,7 @@ Z_j(t)= \sum_{\mu_{1:N}=\{0,1,2,3\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_
 </ul>
 <p><span class="math display">\[
 \begin{equation}
-\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
+\mathcal{C}_{\mu_{1:N}}(0)=\begin{cases}
 1 &amp; \mu_j=z, \mu_k=0,\forall k\neq j \\\\
 0 &amp; \text{otherwise},
 \end{cases}
@@ -303,16 +303,17 @@ d\ket{\psi} = \sum_j \left[-i(J dt + \sqrt{\eta}dW_j)P_{j,j+1}-\frac{\eta}{2}dt\
 <ul>
 <li>Heisenberg equation of motion (<span class="math inline">\(\eta=1\)</span>)</li>
 </ul>
-<p><span class="math display">\[\begin{multline}\label{eq:hberg}
+<p><span class="math display">\[
+\begin{multline}\label{eq:hberg}
 d\mathcal{O} = \sum_j \left[i\left(J dt + dW_j\right)\left[P_{j,j+1},\mathcal{O}\right]+dt\left(P_{j,j+1}\mathcal{O}P_{j,j+1}-\mathcal{O}\right)\right].
-\end{multline}\]</span></p>
+\end{multline}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(\bar{\mathcal{O}}\equiv\E \mathcal{O}\)</span> obeys the (adjoint) Lindblad equation</li>
 </ul>
-<p><span class="math display">\[\begin{equation}
+<p><span class="math display">\[
 \frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[P_{j,j+1},\bar{\mathcal{O}}\right]+\left(P_{j,j+1}\bar{\mathcal{O}}P_{j,j+1}-\bar{\mathcal{O}}\right)\right].
-\label{eq:eom}
-\end{equation}\]</span></p>
+\]</span></p>
 </section>
 <section id="circuit-viewpoint" class="slide level2 center">
 <h2>Circuit viewpoint</h2>
@@ -331,20 +332,24 @@ U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} - i\sin\theta P_{j.j+1}
 <p><span class="math display">\[
 U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} - i\sin\theta P_{j.j+1}
 \]</span></p>
-<p><span class="math display">\[\begin{multline}
-\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \\, \mathcal{O} + \sin^2\theta \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
-+i\sin\theta\cos\theta \left[P_{j.j+1}, \mathcal{O}\right]
-\end{multline}\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} &amp;= \cos^2\theta \mathcal{O} + \sin^2\theta P_{j.j+1}\mathcal{O} P_{j.j+1}\\
+&amp;\qquad+i\sin\theta\cos\theta \left[P_{j.j+1}, \mathcal{O}\right]
+\end{align}
+\]</span></p>
 <ul>
 <li>Take distribution <span class="math inline">\(\theta=\pm \theta_0\)</span> with <span class="math inline">\(p(\theta_0)-p(-\theta_0)\equiv \delta &gt; 0\)</span></li>
 </ul>
 </section>
 <section id="average-dynamics" class="slide level2 center">
 <h2>Average dynamics</h2>
-<p><span class="math display">\[\begin{multline}
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
-+i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
-\end{multline}\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} &amp;= \cos^2\theta_0 \mathcal{O} + \sin^2\theta_0 P_{j.j+1}\mathcal{O} P_{j.j+1}\\
+&amp;\qquad+i\delta\sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
+\end{align}
+\]</span></p>
 <ul>
 <li>Interpretation:
 <ul>
@@ -382,10 +387,10 @@ U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} - i\sin\theta P_{j.j+1}
 <section id="j0-2-operator-sector" class="slide level2 center">
 <h2><span class="math inline">\(J=0\)</span>: 2 operator sector</h2>
 <ul>
-<li><span class="math inline">\(C^{bc}\_{j,k}\equiv \mathcal{C}\_{0\cdots \mu\_j=b\cdots \mu\_k=c\cdots 0}\)</span></li>
+<li><span class="math inline">\(C^{bc}_{j,k}\equiv \mathcal{C}_{0\cdots \mu_j=b\cdots \mu_k=c\cdots 0}\)</span></li>
 </ul>
 <p><span class="math display">\[
-\partial_t C^{xy}\_{m,n}= \Delta_m C^{xy}\_{m,n}+ \Delta_n C^{xy}\_{m,n} + \delta_{|m-n|-1}C^{xy}_{m,n}
+\partial_t C^{xy}_{m,n}= \Delta_m C^{xy}_{m,n}+ \Delta_n C^{xy}_{m,n} + \delta_{|m-n|-1}C^{xy}_{m,n}
 \]</span></p>
 <ul>
 <li>Last term plus condition <span class="math inline">\(C^{xy}_{m,m}=0\)</span> from hardcore condition</li>
@@ -417,7 +422,7 @@ i[P,\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otim
 </ul>
 <p><span class="math display">\[
 \begin{align}
-\partial_t \mathcal{C}\_{\mu_{1:N}} = \sum_j \left[J\epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}\_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}\_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}\_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right].
+\partial_t \mathcal{C}_{\mu_{1:N}} = \sum_j \left[J\epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right].
 \end{align}
 \]</span></p>
 <p align="center">
@@ -431,13 +436,13 @@ i[P,\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otim
 </ul>
 <p><span class="math display">\[
 \begin{align}
-  \partial_t C^z_n = J\left[C^{xy}\_{n-1,n}-C^{xy}\_{n,n-1}-C^{xy}\_{n,n+1}+C^{xy}\_{n+1,n}\right]  +\Delta_n C^z_n,
+  \partial_t C^z_n = J\left[C^{xy}_{n-1,n}-C^{xy}_{n,n-1}-C^{xy}_{n,n+1}+C^{xy}_{n+1,n}\right]  +\Delta_n C^z_n,
   \end{align}
 \]</span></p>
 <p><span class="math display">\[
   \begin{align}
-  \partial_t C^{xy}\_{m,n}&amp; = J \left[\delta_{m+1,n}\left(C^z_m-C^z_{m+1}\right)+\delta_{m,n+1}\left(C^z_{n+1}-C^z_n\right)\right] \nonumber\\\\
-  &amp;\qquad+\Delta_m C^{xy}\_{m,n}+ \Delta_n C^{xy}\_{m,n} + \delta_{|m-n|-1}C^{xy}\_{m,n}
+  \partial_t C^{xy}_{m,n}&amp; = J \left[\delta_{m+1,n}\left(C^z_m-C^z_{m+1}\right)+\delta_{m,n+1}\left(C^z_{n+1}-C^z_n\right)\right] \nonumber\\\\
+  &amp;\qquad+\Delta_m C^{xy}_{m,n}+ \Delta_n C^{xy}_{m,n} + \delta_{|m-n|-1}C^{xy}_{m,n}
   \end{align}
 \]</span></p>
 <p align="center">
@@ -503,7 +508,7 @@ i[P,\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otim
 <h2>Numerics</h2>
 <ul>
 <li><p>Represent <span class="math inline">\(Z_j(t)\)</span> using MPO and evolve using TEBD (based on <a href="https://tenpy.github.io/">TeNPy</a>)</p></li>
-<li><p>$= 400$, truncation error <span class="math inline">\(\epsilon = 10^{−12}\)</span>, <span class="math inline">\(\delta t = 10^{-2}\)</span></p></li>
+<li><p><span class="math inline">\(\chi = 400\)</span>, truncation error <span class="math inline">\(\epsilon = 10^{−12}\)</span>, <span class="math inline">\(\delta t = 10^{-2}\)</span></p></li>
 <li><p>Exact for <span class="math inline">\(J=0\)</span> (<span class="math inline">\(\chi=2\)</span>)</p></li>
 </ul>
 </section>
@@ -586,7 +591,7 @@ J^a = -D\nabla s^a + \lambda \epsilon_{abc} s^b \nabla s^c
 <section id="penrose-colouring" class="slide level2 center">
 <h2>Penrose colouring</h2>
 <ul>
-<li>Recall each vertex has <span class="math inline">\(\epsilon\_{abc}\)</span>. For planar graph this counts <strong>3-colorings</strong></li>
+<li>Recall each vertex has <span class="math inline">\(\epsilon_{abc}\)</span>. For planar graph this counts <strong>3-colorings</strong></li>
 </ul>
 <p align="center">
 <img src="assets/simple-graph.png" width="200">

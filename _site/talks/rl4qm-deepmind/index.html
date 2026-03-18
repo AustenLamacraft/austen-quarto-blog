@@ -181,7 +181,9 @@ Austen Lamacraft
 <ul>
 <li>Wavefunction now has <span class="math inline">\(N\)</span> variables: <span class="math inline">\(\Psi(\br_1,\ldots \br_N)\)</span></li>
 </ul>
-<p><code>$$ \overbrace{\left[\sum_i\left(-\frac{\nabla_i^2}{2m_i}+V(\br_i)\right)+\sum_{i&lt;j}U(\br_i-\br_j)\right]}^{\equiv H}\Psi(\br_1,\ldots \br_N) = E\Psi(\br_1,\ldots \br_N) $$</code></p>
+<p><span class="math display">\[
+\overbrace{\left[\sum_i\left(-\frac{\nabla_i^2}{2m_i}+V(\br_i)\right)+\sum_{i&lt;j}U(\br_i-\br_j)\right]}^{\equiv H}\Psi(\br_1,\ldots \br_N) = E\Psi(\br_1,\ldots \br_N)
+\]</span></p>
 <ul>
 <li>Requires grid in <span class="math inline">\(3N\)</span> dimensions of <span class="math inline">\(L^{3N}\)</span> points!</li>
 <li><strong>Atoms / molecules</strong> are hard; <strong>matter</strong> (<span class="math inline">\(N\sim N_\text{A}\)</span>) is <em>impossible</em>!</li>
@@ -192,7 +194,12 @@ Austen Lamacraft
 <ul>
 <li>For <em>approximate</em> <span class="math inline">\(\Psi\)</span> can upper bound <em>ground state</em> <span class="math inline">\(E_0\)</span></li>
 </ul>
-<p><code>$$ \begin{align} E_0 &amp;\leq \inf_{\lVert\Psi\rVert=1} \langle \Psi\lvert H\rvert\Psi\rangle\\ \langle \Psi\lvert H\rvert\Psi\rangle &amp;= \int d\br_1\cdots d\br_N \Psi^*(\br_1,\ldots,\br_N)\left[H \Psi\right](\br_1,\ldots,\br_N) \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+E_0 &amp;\leq \inf_{\lVert\Psi\rVert=1} \langle \Psi\lvert H\rvert\Psi\rangle\\
+\langle \Psi\lvert H\rvert\Psi\rangle &amp;= \int d\br_1\cdots d\br_N \Psi^*(\br_1,\ldots,\br_N)\left[H \Psi\right](\br_1,\ldots,\br_N)
+\end{align}
+\]</span></p>
 <p>Challenges</p>
 <ol type="1">
 <li>Form of <span class="math inline">\(\Psi\)</span></li>
@@ -212,7 +219,9 @@ Austen Lamacraft
 <ul>
 <li><strong>Jastrow factors</strong> include pair correlations</li>
 </ul>
-<p><code>$$ \Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i&lt;j}\phi(\br_i-\br_j)\right) $$</code></p>
+<p><span class="math display">\[
+\Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i&lt;j}\phi(\br_i-\br_j)\right)
+\]</span></p>
 <ul>
 <li>Many more…</li>
 </ul>
@@ -220,7 +229,10 @@ Austen Lamacraft
 <section id="expectation-evaluation" class="slide level2 center">
 <h2>Expectation evaluation</h2>
 <p><span class="math inline">\(|\Psi(\br_1,\ldots,\br_N)|^2\)</span> a probability distribution, so evaluate</p>
-<p><code>$$ \frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}  =\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)} $$</code></p>
+<p><span class="math display">\[
+\frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}
+=\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)}
+\]</span></p>
 <p>by Monte Carlo sampling. This is <strong>Variational Monte Carlo (VMC)</strong></p>
 </section>
 <section id="neural-approaches" class="slide level2 center">
@@ -257,7 +269,13 @@ Austen Lamacraft
 <ul>
 <li>Solution of <em>time-dependent</em> Schrödinger equation</li>
 </ul>
-<p><code>$$ \begin{align} i\frac{\partial \psi}{\partial t} &amp;= H\psi\\ \psi(\br_2,t_2) &amp;= \int d\br_1 \mathcal{K}(\br_2,t_2;\br_1,t_1)\psi(\br_1,t_1),\\   \mathcal{K}(\br_2,t_2;\br_1,t_1) &amp;= \int_{\br(t_1)=\br_1 \atop \br(t_2)=\br_2} \mathcal{D}\br(t)\exp\left(i\int_{t'}^t L(\br(t),\dot{\br})\right) \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+i\frac{\partial \psi}{\partial t} &amp;= H\psi\\
+\psi(\br_2,t_2) &amp;= \int d\br_1 \mathcal{K}(\br_2,t_2;\br_1,t_1)\psi(\br_1,t_1),\\
+  \mathcal{K}(\br_2,t_2;\br_1,t_1) &amp;= \int_{\br(t_1)=\br_1 \atop \br(t_2)=\br_2} \mathcal{D}\br(t)\exp\left(i\int_{t'}^t L(\br(t),\dot{\br})\right)
+\end{align}
+\]</span></p>
 <ul>
 <li><span class="math inline">\(L(\br,\bv) = \frac{1}{2}\bv^2 - V(\br)\)</span> is the classical Lagrangian</li>
 </ul>
@@ -284,10 +302,10 @@ Austen Lamacraft
 <section id="feynmankac-fk-formula" class="slide level2 center">
 <h2>Feynman–Kac (FK) Formula</h2>
 <p>…expresses <span class="math inline">\(\psi(\br,t)\)</span> as expectation…</p>
-<p><code>$$   \psi(\br_2,t_2) =  \E_{\br(t)}\left[\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)\psi(\br(t_1),t_1)\right] $$</code></p>
-<div data-align="right">
+<p><span class="math display">\[
+  \psi(\br_2,t_2) =  \E_{\br(t)}\left[\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)\psi(\br(t_1),t_1)\right]
+\]</span></p>
 <p>…over Brownian paths finishing at <span class="math inline">\(\br_2\)</span> at time <span class="math inline">\(t_2\)</span>.</p>
-</div>
 </section>
 <section id="ground-state-from-pi" class="slide level2 center">
 <h2>Ground State from PI</h2>
@@ -295,7 +313,12 @@ Austen Lamacraft
 <li><p>For <span class="math inline">\(t\to\infty\)</span> only <em>ground state</em> contributes</p></li>
 <li><p>Spectral representation in terms of <span class="math inline">\(H\varphi_n = E_n\varphi_n\)</span></p></li>
 </ul>
-<p><code>\begin{align}   K(\br_2,t_2;\br_1,t_1) &amp;= \sum_n \varphi_n(\br_2)\varphi^*_n(\br_1)e^{-E_n(t_2-t_1)}\\   &amp;\longrightarrow \varphi_0(\br_2)\varphi^*_0(\br_1)e^{-E_0(t_2-t_1)} \qquad \text{ as } t_2-t_1\to\infty. \end{align}</code></p>
+<p><span class="math display">\[
+\begin{align}
+  K(\br_2,t_2;\br_1,t_1) &amp;= \sum_n \varphi_n(\br_2)\varphi^*_n(\br_1)e^{-E_n(t_2-t_1)}\\
+  &amp;\longrightarrow \varphi_0(\br_2)\varphi^*_0(\br_1)e^{-E_0(t_2-t_1)} \qquad \text{ as } t_2-t_1\to\infty.
+\end{align}
+\]</span></p>
 </section>
 <section id="bosons-and-fermions" class="slide level2 center">
 <h2>Bosons and Fermions</h2>
@@ -310,16 +333,16 @@ Austen Lamacraft
 <p align="center">
 <img src="assets/ceperley.png" width="50%">
 </p>
-<div data-align="right">
 <p><a href="https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279">Ceperley, RMP (1995)</a></p>
-</div>
 </section>
 <section id="the-path-measure" class="slide level2 center">
 <h2>The Path Measure</h2>
 <ul>
 <li>Relative weight of FK paths given by <em>Radon-Nikodym derivative</em></li>
 </ul>
-<p><code>$$   \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right) $$</code></p>
+<p><span class="math display">\[
+  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
+\]</span></p>
 <ul>
 <li><p><span class="math inline">\(\mathcal{N}\)</span> is a normalization factor. <span class="math inline">\(\mathcal{N}\sim e^{E_0 (t_2-t_1)}\)</span> for <span class="math inline">\(t_2\gg t_1\)</span></p></li>
 <li><p>More time in <span class="math inline">\(V(\br)&lt;0\)</span> regions; less in <span class="math inline">\(V(\br)&gt;0\)</span>.</p></li>
@@ -329,10 +352,12 @@ Austen Lamacraft
 <h2>Born Rule in PI?</h2>
 <ul>
 <li><p><span class="math inline">\(|\psi(\br)|^2\)</span> is probability distribution. Connection to path measure?</p></li>
-<li><p>Consider path passing through <code>$(\br_-,-T/2)$</code>, <span class="math inline">\((\br,0)\)</span> and <code>$(\br_+,T/2)$</code></p></li>
+<li><p>Consider path passing through <span class="math inline">\((\br_-,-T/2)\)</span>, <span class="math inline">\((\br,0)\)</span> and <span class="math inline">\((\br_+,T/2)\)</span></p></li>
 <li><p>Overall propagator is</p></li>
 </ul>
-<p><code>$$   K(\br_+,T/2;\br,0)K(\br,0;\br_-,-T/2;)\sim  |\varphi_0(\br)|^2\varphi_0(\br_+)\varphi^*_0(\br_-)e^{-E_0T}. $$</code></p>
+<p><span class="math display">\[
+  K(\br_+,T/2;\br,0)K(\br,0;\br_-,-T/2;)\sim  |\varphi_0(\br)|^2\varphi_0(\br_+)\varphi^*_0(\br_-)e^{-E_0T}.
+\]</span></p>
 <ul>
 <li>Sample from FK measure ↔︎ sample from <span class="math inline">\(|\varphi_0(\br)|^2\)</span></li>
 </ul>
@@ -344,7 +369,7 @@ Austen Lamacraft
 </p>
 <ul>
 <li><p>Diffusion between two distributions <span class="math inline">\(p_{\pm T/2}(\br)\)</span> ?</p></li>
-<li><p>Solution written <code>$p_t(\br) = \varphi_\text{F}(\br,t)\varphi_\text{B}(\br,t)$</code></p></li>
+<li><p>Solution written <span class="math inline">\(p_t(\br) = \varphi_\text{F}(\br,t)\varphi_\text{B}(\br,t)\)</span></p></li>
 <li><p><span class="math inline">\(\varphi_\text{F/B}(\br,t)\)</span> obeys forward / backward heat equation</p></li>
 <li><p>Jamison (1974): process is <em>Markov</em></p></li>
 </ul>
@@ -352,7 +377,7 @@ Austen Lamacraft
 d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt,
 \]</span></p>
 <ul>
-<li>Drift <span class="math inline">\(\mathbf{v}(\br_t,t)\)</span> determined by potential <code>$V(\br)$</code> and <code>$p_{\pm T/2}(\br)$</code></li>
+<li>Drift <span class="math inline">\(\mathbf{v}(\br_t,t)\)</span> determined by potential <span class="math inline">\(V(\br)\)</span> and <span class="math inline">\(p_{\pm T/2}(\br)\)</span></li>
 </ul>
 </section>
 <section id="optimal-control-formulation" class="slide level2 center">
@@ -366,11 +391,15 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt,
 <ul>
 <li>Holland (1977) showed that</li>
 </ul>
-<p><code>$$ E_0 = \lim_{T\to\infty} \min_{\bv} C_T[\bv(\br)] $$</code></p>
+<p><span class="math display">\[
+E_0 = \lim_{T\to\infty} \min_{\bv} C_T[\bv(\br)]
+\]</span></p>
 </section>
 <section id="probabilistic-interpretation" class="slide level2 center">
 <h2>Probabilistic interpretation</h2>
-<p><code>$$ C_T[\mathbf{v}]-E_0  = \lim_{T\to\infty} \frac{1}{T} \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right] = \lim_{T\to\infty} \frac{1}{T} D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK}) $$</code></p>
+<p><span class="math display">\[
+C_T[\mathbf{v}]-E_0  = \lim_{T\to\infty} \frac{1}{T} \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right] = \lim_{T\to\infty} \frac{1}{T} D_\text{KL}(\mathbb{P}_\bv\lvert\rvert \mathbb{P}_\text{FK})
+\]</span></p>
 <ul>
 <li><p>When <span class="math inline">\(C_T[\mathbf{v}]/T=E_0\)</span>, SDE samples from the FK path measure!</p></li>
 <li><p>Don’t just get <span class="math inline">\(E_0\)</span>, but samples from <span class="math inline">\(|\varphi_0|^2\)</span></p></li>
@@ -381,23 +410,29 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt,
 <ul>
 <li>We have seen</li>
 </ul>
-<p><code>$$   \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right) $$</code></p>
-<div data-align="right">
+<p><span class="math display">\[
+  \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
+\]</span></p>
 <p><span class="math inline">\(\mathcal{N}\sim e^{E_0 (t_2-t_1)}\)</span> for <span class="math inline">\(t_2\gg t_1\)</span></p>
-</div>
-<p>`</p>
 <ul>
 <li><strong>Girsanov theorem</strong> tells us</li>
 </ul>
-<p><code>$$   \frac{d\mathbb{P}_\bv}{d\mathbb{P}_{\text{B}}}=\exp\left(\int \bv(\br_t)\cdot d\br_t - \frac{1}{2}\int |\bv(\br_t)|^2 dt\right). $$</code></p>
+<p><span class="math display">\[
+  \frac{d\mathbb{P}_\bv}{d\mathbb{P}_{\text{B}}}=\exp\left(\int \bv(\br_t)\cdot d\br_t - \frac{1}{2}\int |\bv(\br_t)|^2 dt\right).
+\]</span></p>
 </section>
 <section class="slide level2 center">
 
 <p>Evaluate the KL divergence</p>
-<p><code>$$ \begin{align}   \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]&amp;=\E_{\mathbb{P}_v}\left[\int \bv(\br_t)\cdot d\br_t+\int dt\left(-\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\   &amp;=\E_{\mathbb{P}_\bv}\left[\int \bv(\br_t)\cdot d\mathbf{B}_t+\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\   &amp;=\E_{\mathbb{P}_\bv}\left[\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - \lambda T\\   &amp;\geq 0 \end{align} $$</code></p>
-<div data-align="right">
+<p><span class="math display">\[
+\begin{align}
+  \E_{\mathbb{P}_\bv}\left[\log\left(\frac{d\mathbb{P}_\bv}{d\mathbb{P}_\text{FK}}\right)\right]&amp;=\E_{\mathbb{P}_v}\left[\int \bv(\br_t)\cdot d\br_t+\int dt\left(-\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\
+  &amp;=\E_{\mathbb{P}_\bv}\left[\int \bv(\br_t)\cdot d\mathbf{B}_t+\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - E_0 T\\
+  &amp;=\E_{\mathbb{P}_\bv}\left[\int dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)\right] - \lambda T\\
+  &amp;\geq 0
+\end{align}
+\]</span></p>
 <p><a href="https://projecteuclid.org/euclid.aop/1022855876">Boué and Dupuis (1998)</a></p>
-</div>
 </section>
 <section id="fokkerplanck" class="slide level2 center">
 <h2>Fokker–Planck</h2>
@@ -425,10 +460,10 @@ dx_t = dB_t + v(X_t)dt
 <p><span class="math display">\[
   \psi(x,t) = \frac{\rho(x,t)}{\sqrt{\rho_0(x)}},
 \]</span></p>
-<div data-align="right">
 <p>…satisfies the (imaginary time) Schrödinger equation with Hamiltonian</p>
-</div>
-<p><code>$$   H = -\frac{1}{2}\frac{\partial^2}{\partial x^2}+ \overbrace{\frac{U'^2- U''}{2}}^{\equiv V(x)}. $$</code></p>
+<p><span class="math display">\[
+  H = -\frac{1}{2}\frac{\partial^2}{\partial x^2}+ \overbrace{\frac{U'^2- U''}{2}}^{\equiv V(x)}.
+\]</span></p>
 <ul>
 <li><p>Zero energy ground state <span class="math inline">\(\varphi_0(x) = \sqrt{\rho_0(x)}\propto \exp(-U(x))\)</span></p></li>
 <li><p>Drift <span class="math inline">\(v(x) = \varphi_0'(x)/\varphi_0(x)\)</span></p></li>
@@ -443,7 +478,7 @@ dx_t = dB_t + v(X_t)dt
 H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 \]</span></p>
 <ul>
-<li><p>Ground state <code>$\varphi_0(x)=\pi^{-1/4}e^{-x^2/2}$</code>; <code>$E_0=1/2$</code></p></li>
+<li><p>Ground state <span class="math inline">\(\varphi_0(x)=\pi^{-1/4}e^{-x^2/2}\)</span>; <span class="math inline">\(E_0=1/2\)</span></p></li>
 <li><p>Drift <span class="math inline">\(v(x) = - x\)</span> gives OU process</p></li>
 </ul>
 <p align="center">
@@ -452,15 +487,21 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 </section>
 <section id="calogero-dyson-bm" class="slide level2 center">
 <h2>Calogero = Dyson BM</h2>
-<p><code>$$ H = \sum_i \frac{1}{2}\left[-\frac{\partial^2}{\partial x_i^2}+x^2\right] + \lambda(\lambda-1)\sum_{i&lt;j} \frac{1}{(x_i-x_j)^2} $$</code></p>
+<p><span class="math display">\[
+H = \sum_i \frac{1}{2}\left[-\frac{\partial^2}{\partial x_i^2}+x^2\right] + \lambda(\lambda-1)\sum_{i&lt;j} \frac{1}{(x_i-x_j)^2}
+\]</span></p>
 <ul>
 <li>Ground state <em>exactly</em> of Jastrow form</li>
 </ul>
-<p><code>$$ \Phi_0(x_1,\ldots x_N) = \prod_{i&lt;j}|x_i-x_j|^{\lambda}\exp\left(-\frac{1}{2}\sum_i x_i^2\right) $$</code></p>
+<p><span class="math display">\[
+\Phi_0(x_1,\ldots x_N) = \prod_{i&lt;j}|x_i-x_j|^{\lambda}\exp\left(-\frac{1}{2}\sum_i x_i^2\right)
+\]</span></p>
 <ul>
 <li>Drift is <span class="math inline">\(v_i = \partial_i \log\Phi_0\)</span></li>
 </ul>
-<p><code>$$ v_i = - x_i + \lambda \sum_{j\neq i} \frac{1}{x_i-x_j} $$</code></p>
+<p><span class="math display">\[
+v_i = - x_i + \lambda \sum_{j\neq i} \frac{1}{x_i-x_j}
+\]</span></p>
 </section>
 <section class="slide level2 center">
 
@@ -485,7 +526,7 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 <ul>
 <li><p>Suggests strategy:</p>
 <ol type="1">
-<li>Represent <code>$\bv_\theta(\br) = \textsf{NN}_\theta(\br)$</code></li>
+<li>Represent <span class="math inline">\(\bv_\theta(\br) = \textsf{NN}_\theta(\br)\)</span></li>
 <li>Integrate batch of SDE trajectories</li>
 <li>Backprop through the (MC estimated) cost</li>
 </ol></li>
@@ -496,10 +537,10 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 <ul>
 <li>For identical particles require <em>permutation equivariance</em></li>
 </ul>
-<p><code>$$  \bv_{i,\theta}(\br_1,\ldots,\br_N = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)}) $$</code></p>
-<div data-align="right">
+<p><span class="math display">\[
+\bv_{i,\theta}(\br_1,\ldots,\br_N = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)})
+\]</span></p>
 <p>…for any permutation <span class="math inline">\(P\)</span></p>
-</div>
 <ul>
 <li>Numerous recent proposals e.g.&nbsp;<a href="https://arxiv.org/abs/1703.06114">Deep Sets</a> (Zaheer <em>et al.</em>, 2017)</li>
 </ul>
@@ -509,7 +550,9 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 <ul>
 <li>Simplest scheme is <em>Euler–Maruyama</em></li>
 </ul>
-<p><code>$$     \br_{t+1} = \br_{t+1} + \Delta\mathbf{B}_t + \bv_\theta(\br_t)\Delta t, $$</code></p>
+<p><span class="math display">\[
+    \br_{t+1} = \br_{t+1} + \Delta\mathbf{B}_t + \bv_\theta(\br_t)\Delta t,
+\]</span></p>
 <ul>
 <li><p><span class="math inline">\(\Delta\mathbf{B}_t\sim \mathcal{N}(0,t)\)</span></p></li>
 <li><p>We use <a href="https://arxiv.org/abs/1804.04344">SOSRA</a> (Rackaukas and Nie, 2018)</p></li>
@@ -526,7 +569,9 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 <ul>
 <li>Monte Carlo estimate from batch of <span class="math inline">\(B\)</span> trajectories</li>
 </ul>
-<p><code>$$     C_T[\bv_\theta] \approx \frac{1}{B T} \sum_{b,t}\left[\frac{1}{2}\bv_\theta\left(\br^{(b)}_t\right)^2 + V\left(\br^{(b)}_t\right)\right]. $$</code></p>
+<p><span class="math display">\[
+    C_T[\bv_\theta] \approx \frac{1}{B T} \sum_{b,t}\left[\frac{1}{2}\bv_\theta\left(\br^{(b)}_t\right)^2 + V\left(\br^{(b)}_t\right)\right].
+\]</span></p>
 <ul>
 <li><span class="math inline">\(\br^{(b)}_{t}\)</span> from SDE discretization. Analogous to reparameterization trick</li>
 </ul>
@@ -538,9 +583,7 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 <li>Hydrogen molecule</li>
 <li>2D Bosons in harmonic potential with Gaussian interactions</li>
 </ol>
-<div data-align="right">
 <p>…all errors around 1% at the moment without exploiting symmetries</p>
-</div>
 </section>
 <section id="hydrogen-1-electron" class="slide level2 center">
 <h2>Hydrogen: 1 electron</h2>
@@ -548,7 +591,7 @@ H = \frac{1}{2}\left[-\frac{d^2}{dx^2} + x^2\right]
 H = -\frac{\nabla^2}{2} - \frac{1}{|\br|}
 \]</span></p>
 <ul>
-<li><p>Ground state <code>$\varphi_0(r) = \pi^{-1/2}e^{-r}$</code>. <span class="math inline">\(E_0=-\frac{1}{2}\)</span></p></li>
+<li><p>Ground state <span class="math inline">\(\varphi_0(r) = \pi^{-1/2}e^{-r}\)</span>. <span class="math inline">\(E_0=-\frac{1}{2}\)</span></p></li>
 <li><p>Drift <span class="math inline">\(v(\br)=-\hat\br\)</span></p></li>
 </ul>
 </section>
@@ -565,7 +608,12 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 </section>
 <section id="hydrogen-molecule" class="slide level2 center">
 <h2>Hydrogen Molecule</h2>
-<p><code>$$ \begin{align} H &amp;= -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}\\  &amp;- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right] \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+H &amp;= -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}\\
+&amp;- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right]
+\end{align}
+\]</span></p>
 <ul>
 <li><p>Spatial wavefunction again <em>symmetric</em></p></li>
 <li><p>Equilibrium proton separation <span class="math inline">\(R=1.401\)</span>, <span class="math inline">\(E_0= -1.174476\)</span></p></li>
@@ -584,7 +632,12 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 </section>
 <section id="d-gaussian-bosons" class="slide level2 center">
 <h2>2D Gaussian Bosons</h2>
-<p><code>$$ \begin{align} H&amp;=\frac{1}{2}\sum_i \left[\nabla_i^2 +\br_i^2\right]+\sum_{i&lt;j}U(\br_i-\br_j)\\ U(\br) &amp;=\frac{g}{\pi s^2}e^{-\br^2/s^2} \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+H&amp;=\frac{1}{2}\sum_i \left[\nabla_i^2 +\br_i^2\right]+\sum_{i&lt;j}U(\br_i-\br_j)\\
+U(\br) &amp;=\frac{g}{\pi s^2}e^{-\br^2/s^2}
+\end{align}
+\]</span></p>
 <ul>
 <li><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.96.043614">Mujal <em>et al.</em>, PRA 2017</a> model for ultracold atoms</li>
 </ul>
@@ -595,7 +648,7 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <section class="slide level2 center">
 
 <ul>
-<li>Drift Visualization (<span class="math inline">\(g=10\)</span>, <code>$s=1/2$</code>)</li>
+<li>Drift Visualization (<span class="math inline">\(g=10\)</span>, <span class="math inline">\(s=1/2\)</span>)</li>
 </ul>
 <p align="center">
 <img style="center" src="assets/trapped_bosons_vector_field_g10_s05_5percent.jpg" width="80%">
@@ -634,7 +687,12 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <ul>
 <li>On chain / square / cubic lattice</li>
 </ul>
-<p><code>$$ \begin{align} \partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &amp;= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\ &amp;=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ} \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+\partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &amp;= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\
+&amp;=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ}
+\end{align}
+\]</span></p>
 <ul>
 <li>c.f. imaginary time Schrödinger</li>
 </ul>
@@ -650,12 +708,16 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <ul>
 <li><a href="http://papers.nips.cc/paper/3002-linearly-solvable-markov-decision-problems.pdf">Todorov (2017)</a> introduced cost</li>
 </ul>
-<p><code>$$   \ell(j,v) = q(j) +   D_{\text{KL}}\left(v(\cdot|j) \middle\|\middle\| p(\cdot|j)\right) $$</code></p>
+<p><span class="math display">\[
+  \ell(j,v) = q(j) +   D_{\text{KL}}\left(v(\cdot|j) \middle\|\middle\| p(\cdot|j)\right)
+\]</span></p>
 <ul>
 <li><p><span class="math inline">\(v(j|k)\)</span> is controlled dynamics, <span class="math inline">\(p(j|k)\)</span> is “passive dynamics”</p></li>
 <li><p>Bellman equation for the cost to go <span class="math inline">\(\nu(j,t)\)</span></p></li>
 </ul>
-<p><code>$$ \nu(k,t) = \min_v\left[\ell(k,u) + \E_{j\sim u(\cdot|k)}\nu(j,t+1)\right] $$</code></p>
+<p><span class="math display">\[
+\nu(k,t) = \min_v\left[\ell(k,u) + \E_{j\sim u(\cdot|k)}\nu(j,t+1)\right]
+\]</span></p>
 </section>
 <section class="slide level2 center">
 
@@ -669,7 +731,9 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <ul>
 <li>Linear equation</li>
 </ul>
-<p><code>$$ \Psi(k,t) = e^{-q(k)}\sum_{j}p(j|k)\Psi(j,t+1). $$</code></p>
+<p><span class="math display">\[
+\Psi(k,t) = e^{-q(k)}\sum_{j}p(j|k)\Psi(j,t+1).
+\]</span></p>
 <ul>
 <li>Discrete imaginary time Schrödinger equation</li>
 </ul>

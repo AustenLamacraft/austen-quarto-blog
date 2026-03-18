@@ -178,16 +178,17 @@ d\ket{\psi} = \sum_j \left[-i(J dt + \sqrt{\eta}dW_j)P_{j,j+1}-\frac{\eta}{2}dt\
 
 - Heisenberg equation of motion ($\eta=1$)
 
+$$
 \begin{multline}\label{eq:hberg}
 d\mathcal{O} = \sum_j \left[i\left(J dt + dW_j\right)\left[P_{j,j+1},\mathcal{O}\right]+dt\left(P_{j,j+1}\mathcal{O}P_{j,j+1}-\mathcal{O}\right)\right].
 \end{multline}
+$$
 
 - $\bar{\mathcal{O}}\equiv\E \mathcal{O}$ obeys the (adjoint) Lindblad equation
 
-\begin{equation}
+$$
 \frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[P_{j,j+1},\bar{\mathcal{O}}\right]+\left(P_{j,j+1}\bar{\mathcal{O}}P_{j,j+1}-\bar{\mathcal{O}}\right)\right].
-\label{eq:eom}
-\end{equation}
+$$
 
 
 ---
@@ -212,10 +213,12 @@ $$
 U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} - i\sin\theta P_{j.j+1}
 $$
 
-\begin{multline}
-\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \\, \mathcal{O} + \sin^2\theta \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
-+i\sin\theta\cos\theta \left[P_{j.j+1}, \mathcal{O}\right]
-\end{multline}
+$$
+\begin{align}
+\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} &= \cos^2\theta \mathcal{O} + \sin^2\theta P_{j.j+1}\mathcal{O} P_{j.j+1}\\
+&\qquad+i\sin\theta\cos\theta \left[P_{j.j+1}, \mathcal{O}\right]
+\end{align}
+$$
 
 - Take distribution $\theta=\pm \theta_0$ with $p(\theta_0)-p(-\theta_0)\equiv \delta > 0$
 
@@ -223,10 +226,12 @@ $$
 
 ## Average dynamics
 
-\begin{multline}
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
-+i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
-\end{multline}
+$$
+\begin{align}
+\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} &= \cos^2\theta_0 \mathcal{O} + \sin^2\theta_0 P_{j.j+1}\mathcal{O} P_{j.j+1}\\
+&\qquad+i\delta\sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
+\end{align}
+$$
 
 - Interpretation:
   - Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$
@@ -410,7 +415,7 @@ $$
 
 - Represent $Z_j(t)$ using MPO and evolve using TEBD (based on [TeNPy](https://tenpy.github.io/))
 
-- \$\chi = 400$, truncation error $\epsilon = 10^{−12}$, $\delta t = 10^{-2}$
+- $\chi = 400$, truncation error $\epsilon = 10^{−12}$, $\delta t = 10^{-2}$
 
 - Exact for $J=0$ ($\chi=2$)
 

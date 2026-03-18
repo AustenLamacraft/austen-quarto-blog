@@ -169,7 +169,9 @@ Austen Lamacraft
 <ul>
 <li>Basic object is <em>wavefunction</em>: <span class="math inline">\(\Psi(\br_1,\ldots \br_N)\)</span></li>
 </ul>
-<p><code>$$ \overbrace{\left[\sum_i\left(-\frac{\nabla_i^2}{2m_i}+V(\br_i)\right)+\sum_{i&lt;j}U(\br_i-\br_j)\right]}^{\equiv H \text{, Hamiltonian}}\Psi(\br_1,\ldots \br_N) = E\Psi(\br_1,\ldots \br_N) $$</code></p>
+<p><span class="math display">\[
+\overbrace{\left[\sum_i\left(-\frac{\nabla_i^2}{2m_i}+V(\br_i)\right)+\sum_{i&lt;j}U(\br_i-\br_j)\right]}^{\equiv H \text{, Hamiltonian}}\Psi(\br_1,\ldots \br_N) = E\Psi(\br_1,\ldots \br_N)
+\]</span></p>
 <ul>
 <li>Requires grid in <span class="math inline">\(3N\)</span> dimensions of <span class="math inline">\(L^{3N}\)</span> points!</li>
 <li><strong>Atoms / molecules</strong> are hard; <strong>matter</strong> (<span class="math inline">\(N\sim N_\text{A}\)</span>) is impossible!</li>
@@ -180,7 +182,12 @@ Austen Lamacraft
 <ul>
 <li>For <em>approximate</em> <span class="math inline">\(\Psi\)</span> can upper bound <em>ground state</em> <span class="math inline">\(E_0\)</span></li>
 </ul>
-<p><code>$$ \begin{align} E_0 &amp;\leq \inf_{\lVert\Psi\rVert=1} \langle \Psi\lvert H\rvert\Psi\rangle\\ \langle \Psi\lvert H\rvert\Psi\rangle &amp;= \int d\br_1\cdots d\br_N \Psi^*(\br_1,\ldots,\br_N)\left[H \Psi\right](\br_1,\ldots,\br_N) \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+E_0 &amp;\leq \inf_{\lVert\Psi\rVert=1} \langle \Psi\lvert H\rvert\Psi\rangle\\
+\langle \Psi\lvert H\rvert\Psi\rangle &amp;= \int d\br_1\cdots d\br_N \Psi^*(\br_1,\ldots,\br_N)\left[H \Psi\right](\br_1,\ldots,\br_N)
+\end{align}
+\]</span></p>
 <p>Challenges</p>
 <ol type="1">
 <li>Form of <span class="math inline">\(\Psi\)</span></li>
@@ -200,7 +207,9 @@ Austen Lamacraft
 <ul>
 <li><strong>Jastrow factors</strong> include pair correlations</li>
 </ul>
-<p><code>$$ \Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i&lt;j}\phi(\br_i-\br_j)\right) $$</code></p>
+<p><span class="math display">\[
+\Psi(\br_1,\ldots,\br_N)\to \Psi(\br_1,\ldots,\br_N)\exp\left(\sum_{i&lt;j}\phi(\br_i-\br_j)\right)
+\]</span></p>
 <ul>
 <li>Many more…</li>
 </ul>
@@ -208,7 +217,10 @@ Austen Lamacraft
 <section id="expectation-evaluation" class="slide level2 center">
 <h2>Expectation evaluation</h2>
 <p><span class="math inline">\(|\Psi(\br_1,\ldots,\br_N)|^2\)</span> a probability distribution, so evaluate</p>
-<p><code>$$ \frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}  =\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)} $$</code></p>
+<p><span class="math display">\[
+\frac{\langle \Psi\lvert H\rvert\Psi\rangle}{\langle\Psi \vert\Psi\rangle}
+=\int d\bR\,|\Psi(\bR)|^2\frac{\left[H \Psi\right](\bR)}{\Psi(\bR)}
+\]</span></p>
 <p>by Monte Carlo sampling. This is <strong>Variational Monte Carlo (VMC)</strong></p>
 </section>
 <section id="neural-approaches" class="slide level2 center">
@@ -244,14 +256,13 @@ Austen Lamacraft
 <section id="path-integral" class="slide level2 center">
 <h2>Path integral</h2>
 <ul>
-<li>For “Imaginary time” Schrödinger <span class="math display">\[
+<li><p>For “Imaginary time” Schrödinger <span class="math display">\[
 \left[-\frac{\nabla^2}{2m}+V(\br_i)\right]\psi(\br,t) = -\partial_t\psi(\br,t)
-\]</span></li>
-<li><strong>Feynman–Kac</strong> formula expresses <span class="math inline">\(\psi(\br,t)\)</span> as expectation… <code>$$ \psi(\br_2,t_2) =  \E_{\br_t}\left[\exp\left(-\int_{t_1}^{t_2}V(\br_t)dt\right)\psi(\br_{t_1},t_1)\right] $$</code>
-<div data-align="right">
-<p>…over Brownian paths with <span class="math inline">\(\br_{t_{2}}=\br_{2}\)</span></p>
-</div></li>
-<li>For <span class="math inline">\(t\to\infty\)</span>: <span class="math inline">\(\psi(\br,t)\to e^{-E_0 t}\varphi_0(\br)\)</span></li>
+\]</span></p></li>
+<li><p><strong>Feynman–Kac</strong> formula expresses <span class="math inline">\(\psi(\br,t)\)</span> as expectation… <span class="math display">\[
+\psi(\br_2,t_2) =  \E_{\br_t}\left[\exp\left(-\int_{t_1}^{t_2}V(\br_t)dt\right)\psi(\br_{t_1},t_1)\right]
+\]</span> ..over Brownian paths with <span class="math inline">\(\br_{t_{2}}=\br_{2}\)</span></p></li>
+<li><p>For <span class="math inline">\(t\to\infty\)</span>: <span class="math inline">\(\psi(\br,t)\to e^{-E_0 t}\varphi_0(\br)\)</span></p></li>
 </ul>
 </section>
 <section class="slide level2 center">
@@ -283,7 +294,9 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt
 <ul>
 <li>Relative likelihood (Radon–Nikodym derivative; Girsanov theorem)</li>
 </ul>
-<p><code>$$   \log\left(\frac{d\mathbb{P}_{\bv}}{d\mathbb{P}_\text{FK}}\right) =\ell_T - E_0 T+\log\left(\frac{\varphi_0(\br_0)}{\varphi_0(\br_T)}\right) $$</code> <span class="math display">\[
+<p><span class="math display">\[
+  \log\left(\frac{d\mathbb{P}_{\bv}}{d\mathbb{P}_\text{FK}}\right) =\ell_T - E_0 T+\log\left(\frac{\varphi_0(\br_0)}{\varphi_0(\br_T)}\right)
+\]</span> <span class="math display">\[
    \ell_T\equiv \int_0^T \bv(\br_t)
   \cdot d\mathbf{B}_t+\int_0^T dt\left(\frac{1}{2}|\bv(\br_t)|^2+V(\br_t)\right)
 \]</span></p>
@@ -298,7 +311,7 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt
 <ul>
 <li><p>Suggests strategy:</p>
 <ol type="1">
-<li>Represent <code>$\bv_\theta(\br) = \textsf{NN}_\theta(\br)$</code></li>
+<li>Represent <span class="math inline">\(\bv_\theta(\br) = \textsf{NN}_\theta(\br)\)</span></li>
 <li>Integrate batch of SDE trajectories</li>
 <li>Backprop through the (MC estimated) cost</li>
 </ol></li>
@@ -312,10 +325,10 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt
 <ul>
 <li>For identical particles require <em>permutation equivariance</em></li>
 </ul>
-<p><code>$$  \bv_{i,\theta}(\br_1,\ldots,\br_N) = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)}) $$</code></p>
-<div data-align="right">
+<p><span class="math display">\[
+\bv_{i,\theta}(\br_1,\ldots,\br_N) = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)})
+\]</span></p>
 <p>…for any permutation <span class="math inline">\(P\)</span></p>
-</div>
 <ul>
 <li>Numerous recent proposals e.g.&nbsp;<a href="https://arxiv.org/abs/1703.06114">DeepSets</a> (Zaheer <em>et al.</em>, 2017)</li>
 </ul>
@@ -323,8 +336,15 @@ d\br_t = d\mathbf{B}_t + \bv(\br_t,t)dt
 <section id="pairdrift" class="slide level2 center">
 <h2>PairDrift</h2>
 <ul>
-<li>Single particle and pair features <code>$$ \mathbf{h}_i = \boldsymbol{\sigma}_1(\mathbf{r}_i) + \sum_j \boldsymbol{\pi}_1(\mathbf{r}_i-\mathbf{r}_j)\qquad \mathbf{h}_{ij} = \boldsymbol{\Pi}_1(\mathbf{r}_i-\mathbf{r}_j). $$</code> <span class="math inline">\(\boldsymbol{\sigma}, \boldsymbol{\pi}:\mathbb{R}^d\to \mathbb{R}^H\)</span> and <span class="math inline">\(\boldsymbol{\Pi}:\mathbb{R}^d\to \mathbb{R}^{H\times H}\)</span> NNs <code>$$ \tilde{\mathbf{h}}_i = \boldsymbol{\sigma}_2(\mathbf{h}_i) + \sum_j \boldsymbol{\pi}_2(\mathbf{h}_{ij})\qquad \tilde{\mathbf{h}}_{ij} = \boldsymbol{\Pi}_2(\mathbf{h}_{ij}). $$</code></li>
-<li>Drift function is then <code>$$ \bv_i = \boldsymbol{\sigma}_3(\tilde{\mathbf{h}}_i) + \sum_j \boldsymbol{\pi}_3(\tilde{\mathbf{h}}_{ij}). $$</code></li>
+<li>Single particle and pair features <span class="math display">\[
+\mathbf{h}_i = \boldsymbol{\sigma}_1(\mathbf{r}_i) + \sum_j \boldsymbol{\pi}_1(\mathbf{r}_i-\mathbf{r}_j)\qquad
+\mathbf{h}_{ij} = \boldsymbol{\Pi}_1(\mathbf{r}_i-\mathbf{r}_j).
+\]</span> <span class="math inline">\(\boldsymbol{\sigma}, \boldsymbol{\pi}:\mathbb{R}^d\to \mathbb{R}^H\)</span> and <span class="math inline">\(\boldsymbol{\Pi}:\mathbb{R}^d\to \mathbb{R}^{H\times H}\)</span> NNs <span class="math display">\[
+\tilde{\mathbf{h}}_i = \boldsymbol{\sigma}_2(\mathbf{h}_i) + \sum_j \boldsymbol{\pi}_2(\mathbf{h}_{ij})\qquad \tilde{\mathbf{h}}_{ij} = \boldsymbol{\Pi}_2(\mathbf{h}_{ij}).
+\]</span></li>
+<li>Drift function is then <span class="math display">\[
+\bv_i = \boldsymbol{\sigma}_3(\tilde{\mathbf{h}}_i) + \sum_j \boldsymbol{\pi}_3(\tilde{\mathbf{h}}_{ij}).
+\]</span></li>
 </ul>
 </section>
 <section id="experiments" class="slide level2 center">
@@ -356,7 +376,9 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 </section>
 <section id="hydrogen-molecule" class="slide level2 center">
 <h2>Hydrogen Molecule</h2>
-<p><code>$$ H = -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right] $$</code></p>
+<p><span class="math display">\[
+H = -\frac{\nabla_1^2+\nabla_2^2}{2}+ \frac{1}{|\br_1-\br_2|}- \sum_{i=1,2}\left[\frac{1}{|\br_i-\hat{\mathbf{z}} R/2|} + \frac{1}{|\br_i+\hat{\mathbf{z}}R/2|}\right]
+\]</span></p>
 <ul>
 <li>Equilibrium proton separation <span class="math inline">\(R=1.401\)</span>, <span class="math inline">\(E_0= -1.174476\)</span>
 <p align="center">
@@ -410,7 +432,12 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 </section>
 <section id="d-gaussian-bosons" class="slide level2 center">
 <h2>2D Gaussian Bosons</h2>
-<p><code>$$ \begin{align} H&amp;=\frac{1}{2}\sum_i \left[-\nabla_i^2 +\br_i^2\right]+\sum_{i&lt;j}U(\br_i-\br_j)\\ U(\br) &amp;=\frac{g}{\pi s^2}e^{-\br^2/s^2} \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+H&amp;=\frac{1}{2}\sum_i \left[-\nabla_i^2 +\br_i^2\right]+\sum_{i&lt;j}U(\br_i-\br_j)\\
+U(\br) &amp;=\frac{g}{\pi s^2}e^{-\br^2/s^2}
+\end{align}
+\]</span></p>
 <ul>
 <li><a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.96.043614">Mujal <em>et al.</em>, PRA 2017</a> model for ultracold atoms</li>
 </ul>
@@ -421,7 +448,7 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <section class="slide level2 center">
 
 <ul>
-<li>Drift Visualization (<span class="math inline">\(g=15\)</span>, <code>$s=1/2$</code>)</li>
+<li>Drift Visualization (<span class="math inline">\(g=15\)</span>, <span class="math inline">\(s=1/2\)</span>)</li>
 </ul>
 <p align="center">
 <img style="center" src="assets/bosons_vector_field.jpg" width="80%">
@@ -455,7 +482,12 @@ H = -\frac{\nabla_1^2+\nabla_2^2}{2} - \frac{2}{|\br_1|} - \frac{2}{|\br_2|} + \
 <ul>
 <li>On chain / square / cubic lattice</li>
 </ul>
-<p><code>$$ \begin{align} \partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &amp;= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\ &amp;=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ} \end{align} $$</code></p>
+<p><span class="math display">\[
+\begin{align}
+\partial_t \Psi_{\Huge\circ\Huge\bullet\Huge\circ} &amp;= \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}\\
+&amp;=\overbrace{ \Psi_{\Huge\bullet\Huge\circ\Huge\circ}+\Psi_{\Huge\circ\Huge\circ\Huge\bullet}-2\Psi_{\Huge\circ\Huge\bullet\Huge\circ}}^{\text{master / forward eq.}} +2 \Psi_{\Huge\circ\Huge\bullet\Huge\circ}
+\end{align}
+\]</span></p>
 <ul>
 <li>c.f. imaginary time Schrödinger</li>
 </ul>

@@ -67,14 +67,14 @@
     "href": "talks/superdiffusion-kitp/index.html#correlation-function",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Correlation function",
-    "text": "Correlation function\n\nSpin-1/2 chain of \\(N\\) sites with spin \\(\\boldsymbol{\\sigma}_j=(X_j, Y_j, Z_j)\\) at site \\(j\\)\nInfinite temperature spin-spin correlator\n\n\\[\nC^{ab}_{jk}(t)\\equiv\\frac{1}{2^N}\\mathop{\\mathrm{tr}}\\left[\\sigma^a_j(0) \\sigma^b_k(t)\\right]\\qquad \\sigma^b_k(t)=\\mathcal{U}^\\dagger_t \\sigma^b_k \\mathcal{U}_t.\n\\]\n\n\\(SU(2)\\) invariance: \\(C^{ab}\\_{jk}(t)\\equiv\\delta_{ab}C_{jk}(t)\\) with \\(\\sum_{k=1}^N C_{jk}(t)=1\\)\nFrom now on fix \\(a=b=z\\)"
+    "text": "Correlation function\n\nSpin-1/2 chain of \\(N\\) sites with spin \\(\\boldsymbol{\\sigma}_j=(X_j, Y_j, Z_j)\\) at site \\(j\\)\nInfinite temperature spin-spin correlator\n\n\\[\nC^{ab}_{jk}(t)\\equiv\\frac{1}{2^N}\\mathop{\\mathrm{tr}}\\left[\\sigma^a_j(0) \\sigma^b_k(t)\\right]\\qquad \\sigma^b_k(t)=\\mathcal{U}^\\dagger_t \\sigma^b_k \\mathcal{U}_t.\n\\]\n\n\\(SU(2)\\) invariance: \\(C^{ab}_{jk}(t)\\equiv\\delta_{ab}C_{jk}(t)\\) with \\(\\sum_{k=1}^N C_{jk}(t)=1\\)\nFrom now on fix \\(a=b=z\\)"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#expansion-in-pauli-basis",
     "href": "talks/superdiffusion-kitp/index.html#expansion-in-pauli-basis",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Expansion in Pauli basis",
-    "text": "Expansion in Pauli basis\n\\[\nZ_j(t)= \\sum_{\\mu_{1:N}=\\{0,1,2,3\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N},\\qquad \\sigma^\\mu = (\\mathbb{1},X,Y,Z)\n\\]\n\nWith initial condition\n\n\\[\n\\begin{equation}\n\\mathcal{C}\\_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=0,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise},\n\\end{cases}\n\\end{equation}\n\\]\n\nSpin correlation function is \\(C_{jk}(t) = \\mathcal{C}_{0\\cdots \\mu_k=z \\cdots 0}(t)\\)"
+    "text": "Expansion in Pauli basis\n\\[\nZ_j(t)= \\sum_{\\mu_{1:N}=\\{0,1,2,3\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N},\\qquad \\sigma^\\mu = (\\mathbb{1},X,Y,Z)\n\\]\n\nWith initial condition\n\n\\[\n\\begin{equation}\n\\mathcal{C}_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=0,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise},\n\\end{cases}\n\\end{equation}\n\\]\n\nSpin correlation function is \\(C_{jk}(t) = \\mathcal{C}_{0\\cdots \\mu_k=z \\cdots 0}(t)\\)"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#model",
@@ -88,7 +88,7 @@
     "href": "talks/superdiffusion-kitp/index.html#operator-dynamics",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Operator dynamics",
-    "text": "Operator dynamics\n\nHeisenberg equation of motion (\\(\\eta=1\\))\n\n\\[\\begin{multline}\\label{eq:hberg}\nd\\mathcal{O} = \\sum_j \\left[i\\left(J dt + dW_j\\right)\\left[P_{j,j+1},\\mathcal{O}\\right]+dt\\left(P_{j,j+1}\\mathcal{O}P_{j,j+1}-\\mathcal{O}\\right)\\right].\n\\end{multline}\\]\n\n\\(\\bar{\\mathcal{O}}\\equiv\\E \\mathcal{O}\\) obeys the (adjoint) Lindblad equation\n\n\\[\\begin{equation}\n\\frac{d\\bar{\\mathcal{O}}}{dt} = \\sum_j \\left[iJ \\left[P_{j,j+1},\\bar{\\mathcal{O}}\\right]+\\left(P_{j,j+1}\\bar{\\mathcal{O}}P_{j,j+1}-\\bar{\\mathcal{O}}\\right)\\right].\n\\label{eq:eom}\n\\end{equation}\\]"
+    "text": "Operator dynamics\n\nHeisenberg equation of motion (\\(\\eta=1\\))\n\n\\[\n\\begin{multline}\\label{eq:hberg}\nd\\mathcal{O} = \\sum_j \\left[i\\left(J dt + dW_j\\right)\\left[P_{j,j+1},\\mathcal{O}\\right]+dt\\left(P_{j,j+1}\\mathcal{O}P_{j,j+1}-\\mathcal{O}\\right)\\right].\n\\end{multline}\n\\]\n\n\\(\\bar{\\mathcal{O}}\\equiv\\E \\mathcal{O}\\) obeys the (adjoint) Lindblad equation\n\n\\[\n\\frac{d\\bar{\\mathcal{O}}}{dt} = \\sum_j \\left[iJ \\left[P_{j,j+1},\\bar{\\mathcal{O}}\\right]+\\left(P_{j,j+1}\\bar{\\mathcal{O}}P_{j,j+1}-\\bar{\\mathcal{O}}\\right)\\right].\n\\]"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#circuit-viewpoint",
@@ -102,14 +102,14 @@
     "href": "talks/superdiffusion-kitp/index.html#operator-dynamics-1",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Operator Dynamics",
-    "text": "Operator Dynamics\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} - i\\sin\\theta P_{j.j+1}\n\\]\n\\[\\begin{multline}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\\\, \\mathcal{O} + \\sin^2\\theta \\\\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\\\\\n+i\\sin\\theta\\cos\\theta \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\\]\n\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
+    "text": "Operator Dynamics\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} - i\\sin\\theta P_{j.j+1}\n\\]\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\sin\\theta\\cos\\theta \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#average-dynamics",
     "href": "talks/superdiffusion-kitp/index.html#average-dynamics",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Average dynamics",
-    "text": "Average dynamics\n\\[\\begin{multline}\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\\\, \\mathcal{O} + \\sin^2\\theta_0 \\\\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics\n\nTaking \\(\\theta_0=\\sqrt{dt}\\), \\(\\delta= J\\sqrt{dt}\\) gives continuous time evolution"
+    "text": "Average dynamics\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta_0 \\mathcal{O} + \\sin^2\\theta_0 P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\delta\\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics\n\nTaking \\(\\theta_0=\\sqrt{dt}\\), \\(\\delta= J\\sqrt{dt}\\) gives continuous time evolution"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#back-to-continuous-time",
@@ -130,7 +130,7 @@
     "href": "talks/superdiffusion-kitp/index.html#j0-2-operator-sector",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "\\(J=0\\): 2 operator sector",
-    "text": "\\(J=0\\): 2 operator sector\n\n\\(C^{bc}\\_{j,k}\\equiv \\mathcal{C}\\_{0\\cdots \\mu\\_j=b\\cdots \\mu\\_k=c\\cdots 0}\\)\n\n\\[\n\\partial_t C^{xy}\\_{m,n}= \\Delta_m C^{xy}\\_{m,n}+ \\Delta_n C^{xy}\\_{m,n} + \\delta_{|m-n|-1}C^{xy}_{m,n}\n\\]\n\nLast term plus condition \\(C^{xy}_{m,m}=0\\) from hardcore condition"
+    "text": "\\(J=0\\): 2 operator sector\n\n\\(C^{bc}_{j,k}\\equiv \\mathcal{C}_{0\\cdots \\mu_j=b\\cdots \\mu_k=c\\cdots 0}\\)\n\n\\[\n\\partial_t C^{xy}_{m,n}= \\Delta_m C^{xy}_{m,n}+ \\Delta_n C^{xy}_{m,n} + \\delta_{|m-n|-1}C^{xy}_{m,n}\n\\]\n\nLast term plus condition \\(C^{xy}_{m,m}=0\\) from hardcore condition"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#perturbation-theory",
@@ -144,14 +144,14 @@
     "href": "talks/superdiffusion-kitp/index.html#equation-of-motion",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Equation of motion",
-    "text": "Equation of motion\n\nIn component form\n\n\\[\n\\begin{align}\n\\partial_t \\mathcal{C}\\_{\\mu_{1:N}} = \\sum_j \\left[J\\epsilon_{\\alpha\\beta \\mu_j \\mu_{j+1}} \\mathcal{C}\\_{\\mu_1\\cdots \\alpha\\beta \\cdots \\mu_N} + \\mathcal{C}\\_{\\mu_1\\cdots \\mu_{j+1}\\mu_j \\cdots \\mu_N} - \\mathcal{C}\\_{\\mu_1\\cdots \\mu_{j}\\mu_{j+1} \\cdots \\mu_N}\\right].\n\\end{align}\n\\]"
+    "text": "Equation of motion\n\nIn component form\n\n\\[\n\\begin{align}\n\\partial_t \\mathcal{C}_{\\mu_{1:N}} = \\sum_j \\left[J\\epsilon_{\\alpha\\beta \\mu_j \\mu_{j+1}} \\mathcal{C}_{\\mu_1\\cdots \\alpha\\beta \\cdots \\mu_N} + \\mathcal{C}_{\\mu_1\\cdots \\mu_{j+1}\\mu_j \\cdots \\mu_N} - \\mathcal{C}_{\\mu_1\\cdots \\mu_{j}\\mu_{j+1} \\cdots \\mu_N}\\right].\n\\end{align}\n\\]"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#simple-approximation",
     "href": "talks/superdiffusion-kitp/index.html#simple-approximation",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Simple approximation",
-    "text": "Simple approximation\n\n1 and 2 operator sectors, dropping coupling to higher sectors\n\n\\[\n\\begin{align}\n  \\partial_t C^z_n = J\\left[C^{xy}\\_{n-1,n}-C^{xy}\\_{n,n-1}-C^{xy}\\_{n,n+1}+C^{xy}\\_{n+1,n}\\right]  +\\Delta_n C^z_n,\n  \\end{align}\n\\]\n\\[\n  \\begin{align}\n  \\partial_t C^{xy}\\_{m,n}& = J \\left[\\delta_{m+1,n}\\left(C^z_m-C^z_{m+1}\\right)+\\delta_{m,n+1}\\left(C^z_{n+1}-C^z_n\\right)\\right] \\nonumber\\\\\\\\\n  &\\qquad+\\Delta_m C^{xy}\\_{m,n}+ \\Delta_n C^{xy}\\_{m,n} + \\delta_{|m-n|-1}C^{xy}\\_{m,n}\n  \\end{align}\n\\]"
+    "text": "Simple approximation\n\n1 and 2 operator sectors, dropping coupling to higher sectors\n\n\\[\n\\begin{align}\n  \\partial_t C^z_n = J\\left[C^{xy}_{n-1,n}-C^{xy}_{n,n-1}-C^{xy}_{n,n+1}+C^{xy}_{n+1,n}\\right]  +\\Delta_n C^z_n,\n  \\end{align}\n\\]\n\\[\n  \\begin{align}\n  \\partial_t C^{xy}_{m,n}& = J \\left[\\delta_{m+1,n}\\left(C^z_m-C^z_{m+1}\\right)+\\delta_{m,n+1}\\left(C^z_{n+1}-C^z_n\\right)\\right] \\nonumber\\\\\\\\\n  &\\qquad+\\Delta_m C^{xy}_{m,n}+ \\Delta_n C^{xy}_{m,n} + \\delta_{|m-n|-1}C^{xy}_{m,n}\n  \\end{align}\n\\]"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#result-for-correlator",
@@ -186,7 +186,7 @@
     "href": "talks/superdiffusion-kitp/index.html#numerics",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Numerics",
-    "text": "Numerics\n\nRepresent \\(Z_j(t)\\) using MPO and evolve using TEBD (based on TeNPy)\n$= 400$, truncation error \\(\\epsilon = 10^{−12}\\), \\(\\delta t = 10^{-2}\\)\nExact for \\(J=0\\) (\\(\\chi=2\\))"
+    "text": "Numerics\n\nRepresent \\(Z_j(t)\\) using MPO and evolve using TEBD (based on TeNPy)\n\\(\\chi = 400\\), truncation error \\(\\epsilon = 10^{−12}\\), \\(\\delta t = 10^{-2}\\)\nExact for \\(J=0\\) (\\(\\chi=2\\))"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#diffusion-constant",
@@ -228,7 +228,7 @@
     "href": "talks/superdiffusion-kitp/index.html#penrose-colouring",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Penrose colouring",
-    "text": "Penrose colouring\n\nRecall each vertex has \\(\\epsilon\\_{abc}\\). For planar graph this counts 3-colorings\n\n\n\n\n\n\n\n\n Biamonte and Bergholm (2017)"
+    "text": "Penrose colouring\n\nRecall each vertex has \\(\\epsilon_{abc}\\). For planar graph this counts 3-colorings\n\n\n\n\n\n\n\n\n Biamonte and Bergholm (2017)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html",
@@ -256,28 +256,28 @@
     "href": "talks/rl4qm-deepmind/index.html#schrödinger-equation-n-particles",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Schrödinger Equation: N Particles",
-    "text": "Schrödinger Equation: N Particles\n\nWavefunction now has \\(N\\) variables: \\(\\Psi(\\br_1,\\ldots \\br_N)\\)\n\n$$ \\overbrace{\\left[\\sum_i\\left(-\\frac{\\nabla_i^2}{2m_i}+V(\\br_i)\\right)+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\right]}^{\\equiv H}\\Psi(\\br_1,\\ldots \\br_N) = E\\Psi(\\br_1,\\ldots \\br_N) $$\n\nRequires grid in \\(3N\\) dimensions of \\(L^{3N}\\) points!\nAtoms / molecules are hard; matter (\\(N\\sim N_\\text{A}\\)) is impossible!"
+    "text": "Schrödinger Equation: N Particles\n\nWavefunction now has \\(N\\) variables: \\(\\Psi(\\br_1,\\ldots \\br_N)\\)\n\n\\[\n\\overbrace{\\left[\\sum_i\\left(-\\frac{\\nabla_i^2}{2m_i}+V(\\br_i)\\right)+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\right]}^{\\equiv H}\\Psi(\\br_1,\\ldots \\br_N) = E\\Psi(\\br_1,\\ldots \\br_N)\n\\]\n\nRequires grid in \\(3N\\) dimensions of \\(L^{3N}\\) points!\nAtoms / molecules are hard; matter (\\(N\\sim N_\\text{A}\\)) is impossible!"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#variational-principle",
     "href": "talks/rl4qm-deepmind/index.html#variational-principle",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Variational Principle",
-    "text": "Variational Principle\n\nFor approximate \\(\\Psi\\) can upper bound ground state \\(E_0\\)\n\n$$ \\begin{align} E_0 &\\leq \\inf_{\\lVert\\Psi\\rVert=1} \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle\\\\ \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle &= \\int d\\br_1\\cdots d\\br_N \\Psi^*(\\br_1,\\ldots,\\br_N)\\left[H \\Psi\\right](\\br_1,\\ldots,\\br_N) \\end{align} $$\nChallenges\n\nForm of \\(\\Psi\\)\nExpectation evaluation\nOptimization"
+    "text": "Variational Principle\n\nFor approximate \\(\\Psi\\) can upper bound ground state \\(E_0\\)\n\n\\[\n\\begin{align}\nE_0 &\\leq \\inf_{\\lVert\\Psi\\rVert=1} \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle\\\\\n\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle &= \\int d\\br_1\\cdots d\\br_N \\Psi^*(\\br_1,\\ldots,\\br_N)\\left[H \\Psi\\right](\\br_1,\\ldots,\\br_N)\n\\end{align}\n\\]\nChallenges\n\nForm of \\(\\Psi\\)\nExpectation evaluation\nOptimization"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#form-of-psi-feature-engineering",
     "href": "talks/rl4qm-deepmind/index.html#form-of-psi-feature-engineering",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Form of \\(\\Psi\\) (‘Feature Engineering’)",
-    "text": "Form of \\(\\Psi\\) (‘Feature Engineering’)\nWavefunctions of restricted form\n\nFactorized, leading to Hartree–Fock method\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)=\\psi_1(\\br_1)\\ldots \\psi_N(\\br_N).\n\\]\n\nJastrow factors include pair correlations\n\n$$ \\Psi(\\br_1,\\ldots,\\br_N)\\to \\Psi(\\br_1,\\ldots,\\br_N)\\exp\\left(\\sum_{i&lt;j}\\phi(\\br_i-\\br_j)\\right) $$\n\nMany more…"
+    "text": "Form of \\(\\Psi\\) (‘Feature Engineering’)\nWavefunctions of restricted form\n\nFactorized, leading to Hartree–Fock method\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)=\\psi_1(\\br_1)\\ldots \\psi_N(\\br_N).\n\\]\n\nJastrow factors include pair correlations\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)\\to \\Psi(\\br_1,\\ldots,\\br_N)\\exp\\left(\\sum_{i&lt;j}\\phi(\\br_i-\\br_j)\\right)\n\\]\n\nMany more…"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#expectation-evaluation",
     "href": "talks/rl4qm-deepmind/index.html#expectation-evaluation",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Expectation evaluation",
-    "text": "Expectation evaluation\n\\(|\\Psi(\\br_1,\\ldots,\\br_N)|^2\\) a probability distribution, so evaluate\n$$ \\frac{\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle}{\\langle\\Psi \\vert\\Psi\\rangle}  =\\int d\\bR\\,|\\Psi(\\bR)|^2\\frac{\\left[H \\Psi\\right](\\bR)}{\\Psi(\\bR)} $$\nby Monte Carlo sampling. This is Variational Monte Carlo (VMC)"
+    "text": "Expectation evaluation\n\\(|\\Psi(\\br_1,\\ldots,\\br_N)|^2\\) a probability distribution, so evaluate\n\\[\n\\frac{\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle}{\\langle\\Psi \\vert\\Psi\\rangle}\n=\\int d\\bR\\,|\\Psi(\\bR)|^2\\frac{\\left[H \\Psi\\right](\\bR)}{\\Psi(\\bR)}\n\\]\nby Monte Carlo sampling. This is Variational Monte Carlo (VMC)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#neural-approaches",
@@ -305,7 +305,7 @@
     "href": "talks/rl4qm-deepmind/index.html#path-integral",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Path integral",
-    "text": "Path integral\n\n\n\n\nSolution of time-dependent Schrödinger equation\n\n$$ \\begin{align} i\\frac{\\partial \\psi}{\\partial t} &= H\\psi\\\\ \\psi(\\br_2,t_2) &= \\int d\\br_1 \\mathcal{K}(\\br_2,t_2;\\br_1,t_1)\\psi(\\br_1,t_1),\\\\   \\mathcal{K}(\\br_2,t_2;\\br_1,t_1) &= \\int_{\\br(t_1)=\\br_1 \\atop \\br(t_2)=\\br_2} \\mathcal{D}\\br(t)\\exp\\left(i\\int_{t'}^t L(\\br(t),\\dot{\\br})\\right) \\end{align} $$\n\n\\(L(\\br,\\bv) = \\frac{1}{2}\\bv^2 - V(\\br)\\) is the classical Lagrangian\n\n\nMy machines came from too far away"
+    "text": "Path integral\n\n\n\n\nSolution of time-dependent Schrödinger equation\n\n\\[\n\\begin{align}\ni\\frac{\\partial \\psi}{\\partial t} &= H\\psi\\\\\n\\psi(\\br_2,t_2) &= \\int d\\br_1 \\mathcal{K}(\\br_2,t_2;\\br_1,t_1)\\psi(\\br_1,t_1),\\\\\n  \\mathcal{K}(\\br_2,t_2;\\br_1,t_1) &= \\int_{\\br(t_1)=\\br_1 \\atop \\br(t_2)=\\br_2} \\mathcal{D}\\br(t)\\exp\\left(i\\int_{t'}^t L(\\br(t),\\dot{\\br})\\right)\n\\end{align}\n\\]\n\n\\(L(\\br,\\bv) = \\frac{1}{2}\\bv^2 - V(\\br)\\) is the classical Lagrangian\n\n\nMy machines came from too far away"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#trouble-with-feynman",
@@ -319,14 +319,14 @@
     "href": "talks/rl4qm-deepmind/index.html#feynmankac-fk-formula",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Feynman–Kac (FK) Formula",
-    "text": "Feynman–Kac (FK) Formula\n…expresses \\(\\psi(\\br,t)\\) as expectation…\n$$   \\psi(\\br_2,t_2) =  \\E_{\\br(t)}\\left[\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right)\\psi(\\br(t_1),t_1)\\right] $$\n\n…over Brownian paths finishing at \\(\\br_2\\) at time \\(t_2\\)."
+    "text": "Feynman–Kac (FK) Formula\n…expresses \\(\\psi(\\br,t)\\) as expectation…\n\\[\n  \\psi(\\br_2,t_2) =  \\E_{\\br(t)}\\left[\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right)\\psi(\\br(t_1),t_1)\\right]\n\\]\n…over Brownian paths finishing at \\(\\br_2\\) at time \\(t_2\\)."
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#ground-state-from-pi",
     "href": "talks/rl4qm-deepmind/index.html#ground-state-from-pi",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Ground State from PI",
-    "text": "Ground State from PI\n\nFor \\(t\\to\\infty\\) only ground state contributes\nSpectral representation in terms of \\(H\\varphi_n = E_n\\varphi_n\\)\n\n\\begin{align}   K(\\br_2,t_2;\\br_1,t_1) &= \\sum_n \\varphi_n(\\br_2)\\varphi^*_n(\\br_1)e^{-E_n(t_2-t_1)}\\\\   &\\longrightarrow \\varphi_0(\\br_2)\\varphi^*_0(\\br_1)e^{-E_0(t_2-t_1)} \\qquad \\text{ as } t_2-t_1\\to\\infty. \\end{align}"
+    "text": "Ground State from PI\n\nFor \\(t\\to\\infty\\) only ground state contributes\nSpectral representation in terms of \\(H\\varphi_n = E_n\\varphi_n\\)\n\n\\[\n\\begin{align}\n  K(\\br_2,t_2;\\br_1,t_1) &= \\sum_n \\varphi_n(\\br_2)\\varphi^*_n(\\br_1)e^{-E_n(t_2-t_1)}\\\\\n  &\\longrightarrow \\varphi_0(\\br_2)\\varphi^*_0(\\br_1)e^{-E_0(t_2-t_1)} \\qquad \\text{ as } t_2-t_1\\to\\infty.\n\\end{align}\n\\]"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#bosons-and-fermions",
@@ -340,49 +340,49 @@
     "href": "talks/rl4qm-deepmind/index.html#path-integral-monte-carlo",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Path integral Monte Carlo",
-    "text": "Path integral Monte Carlo\n\n\n\n\nCeperley, RMP (1995)"
+    "text": "Path integral Monte Carlo\n\n\n\nCeperley, RMP (1995)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#the-path-measure",
     "href": "talks/rl4qm-deepmind/index.html#the-path-measure",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "The Path Measure",
-    "text": "The Path Measure\n\nRelative weight of FK paths given by Radon-Nikodym derivative\n\n$$   \\frac{d\\mathbb{P}_\\text{FK}}{d\\mathbb{P}_\\text{B}} = \\mathcal{N}\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right) $$\n\n\\(\\mathcal{N}\\) is a normalization factor. \\(\\mathcal{N}\\sim e^{E_0 (t_2-t_1)}\\) for \\(t_2\\gg t_1\\)\nMore time in \\(V(\\br)&lt;0\\) regions; less in \\(V(\\br)&gt;0\\)."
+    "text": "The Path Measure\n\nRelative weight of FK paths given by Radon-Nikodym derivative\n\n\\[\n  \\frac{d\\mathbb{P}_\\text{FK}}{d\\mathbb{P}_\\text{B}} = \\mathcal{N}\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right)\n\\]\n\n\\(\\mathcal{N}\\) is a normalization factor. \\(\\mathcal{N}\\sim e^{E_0 (t_2-t_1)}\\) for \\(t_2\\gg t_1\\)\nMore time in \\(V(\\br)&lt;0\\) regions; less in \\(V(\\br)&gt;0\\)."
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#born-rule-in-pi",
     "href": "talks/rl4qm-deepmind/index.html#born-rule-in-pi",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Born Rule in PI?",
-    "text": "Born Rule in PI?\n\n\\(|\\psi(\\br)|^2\\) is probability distribution. Connection to path measure?\nConsider path passing through $(\\br_-,-T/2)$, \\((\\br,0)\\) and $(\\br_+,T/2)$\nOverall propagator is\n\n$$   K(\\br_+,T/2;\\br,0)K(\\br,0;\\br_-,-T/2;)\\sim  |\\varphi_0(\\br)|^2\\varphi_0(\\br_+)\\varphi^*_0(\\br_-)e^{-E_0T}. $$\n\nSample from FK measure ↔︎ sample from \\(|\\varphi_0(\\br)|^2\\)"
+    "text": "Born Rule in PI?\n\n\\(|\\psi(\\br)|^2\\) is probability distribution. Connection to path measure?\nConsider path passing through \\((\\br_-,-T/2)\\), \\((\\br,0)\\) and \\((\\br_+,T/2)\\)\nOverall propagator is\n\n\\[\n  K(\\br_+,T/2;\\br,0)K(\\br,0;\\br_-,-T/2;)\\sim  |\\varphi_0(\\br)|^2\\varphi_0(\\br_+)\\varphi^*_0(\\br_-)e^{-E_0T}.\n\\]\n\nSample from FK measure ↔︎ sample from \\(|\\varphi_0(\\br)|^2\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#schrödinger-problem-1931",
     "href": "talks/rl4qm-deepmind/index.html#schrödinger-problem-1931",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Schrödinger Problem (1931)",
-    "text": "Schrödinger Problem (1931)\n\n\n\n\nDiffusion between two distributions \\(p_{\\pm T/2}(\\br)\\) ?\nSolution written $p_t(\\br) = \\varphi_\\text{F}(\\br,t)\\varphi_\\text{B}(\\br,t)$\n\\(\\varphi_\\text{F/B}(\\br,t)\\) obeys forward / backward heat equation\nJamison (1974): process is Markov\n\n\\[\nd\\br_t = d\\mathbf{B}_t + \\bv(\\br_t,t)dt,\n\\]\n\nDrift \\(\\mathbf{v}(\\br_t,t)\\) determined by potential $V(\\br)$ and $p_{\\pm T/2}(\\br)$"
+    "text": "Schrödinger Problem (1931)\n\n\n\n\nDiffusion between two distributions \\(p_{\\pm T/2}(\\br)\\) ?\nSolution written \\(p_t(\\br) = \\varphi_\\text{F}(\\br,t)\\varphi_\\text{B}(\\br,t)\\)\n\\(\\varphi_\\text{F/B}(\\br,t)\\) obeys forward / backward heat equation\nJamison (1974): process is Markov\n\n\\[\nd\\br_t = d\\mathbf{B}_t + \\bv(\\br_t,t)dt,\n\\]\n\nDrift \\(\\mathbf{v}(\\br_t,t)\\) determined by potential \\(V(\\br)\\) and \\(p_{\\pm T/2}(\\br)\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#optimal-control-formulation",
     "href": "talks/rl4qm-deepmind/index.html#optimal-control-formulation",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Optimal Control Formulation",
-    "text": "Optimal Control Formulation\n\nCost function\n\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nHolland (1977) showed that\n\n$$ E_0 = \\lim_{T\\to\\infty} \\min_{\\bv} C_T[\\bv(\\br)] $$"
+    "text": "Optimal Control Formulation\n\nCost function\n\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nHolland (1977) showed that\n\n\\[\nE_0 = \\lim_{T\\to\\infty} \\min_{\\bv} C_T[\\bv(\\br)]\n\\]"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#probabilistic-interpretation",
     "href": "talks/rl4qm-deepmind/index.html#probabilistic-interpretation",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Probabilistic interpretation",
-    "text": "Probabilistic interpretation\n$$ C_T[\\mathbf{v}]-E_0  = \\lim_{T\\to\\infty} \\frac{1}{T} \\E_{\\mathbb{P}_\\bv}\\left[\\log\\left(\\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_\\text{FK}}\\right)\\right] = \\lim_{T\\to\\infty} \\frac{1}{T} D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK}) $$\n\nWhen \\(C_T[\\mathbf{v}]/T=E_0\\), SDE samples from the FK path measure!\nDon’t just get \\(E_0\\), but samples from \\(|\\varphi_0|^2\\)"
+    "text": "Probabilistic interpretation\n\\[\nC_T[\\mathbf{v}]-E_0  = \\lim_{T\\to\\infty} \\frac{1}{T} \\E_{\\mathbb{P}_\\bv}\\left[\\log\\left(\\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_\\text{FK}}\\right)\\right] = \\lim_{T\\to\\infty} \\frac{1}{T} D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK})\n\\]\n\nWhen \\(C_T[\\mathbf{v}]/T=E_0\\), SDE samples from the FK path measure!\nDon’t just get \\(E_0\\), but samples from \\(|\\varphi_0|^2\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#proof-sketch",
     "href": "talks/rl4qm-deepmind/index.html#proof-sketch",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Proof Sketch",
-    "text": "Proof Sketch\n\nWe have seen\n\n$$   \\frac{d\\mathbb{P}_\\text{FK}}{d\\mathbb{P}_\\text{B}} = \\mathcal{N}\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right) $$\n\n\\(\\mathcal{N}\\sim e^{E_0 (t_2-t_1)}\\) for \\(t_2\\gg t_1\\)\n\n`\n\nGirsanov theorem tells us\n\n$$   \\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_{\\text{B}}}=\\exp\\left(\\int \\bv(\\br_t)\\cdot d\\br_t - \\frac{1}{2}\\int |\\bv(\\br_t)|^2 dt\\right). $$"
+    "text": "Proof Sketch\n\nWe have seen\n\n\\[\n  \\frac{d\\mathbb{P}_\\text{FK}}{d\\mathbb{P}_\\text{B}} = \\mathcal{N}\\exp\\left(-\\int_{t_1}^{t_2}V(\\br(t))dt\\right)\n\\]\n\\(\\mathcal{N}\\sim e^{E_0 (t_2-t_1)}\\) for \\(t_2\\gg t_1\\)\n\nGirsanov theorem tells us\n\n\\[\n  \\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_{\\text{B}}}=\\exp\\left(\\int \\bv(\\br_t)\\cdot d\\br_t - \\frac{1}{2}\\int |\\bv(\\br_t)|^2 dt\\right).\n\\]"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#fokkerplanck",
@@ -396,7 +396,7 @@
     "href": "talks/rl4qm-deepmind/index.html#schrödinger-fokkerplanck",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Schrödinger ↔︎ Fokker–Planck",
-    "text": "Schrödinger ↔︎ Fokker–Planck\n\\[\n  \\psi(x,t) = \\frac{\\rho(x,t)}{\\sqrt{\\rho_0(x)}},\n\\]\n\n…satisfies the (imaginary time) Schrödinger equation with Hamiltonian\n\n$$   H = -\\frac{1}{2}\\frac{\\partial^2}{\\partial x^2}+ \\overbrace{\\frac{U'^2- U''}{2}}^{\\equiv V(x)}. $$\n\nZero energy ground state \\(\\varphi_0(x) = \\sqrt{\\rho_0(x)}\\propto \\exp(-U(x))\\)\nDrift \\(v(x) = \\varphi_0'(x)/\\varphi_0(x)\\)"
+    "text": "Schrödinger ↔︎ Fokker–Planck\n\\[\n  \\psi(x,t) = \\frac{\\rho(x,t)}{\\sqrt{\\rho_0(x)}},\n\\]\n…satisfies the (imaginary time) Schrödinger equation with Hamiltonian\n\\[\n  H = -\\frac{1}{2}\\frac{\\partial^2}{\\partial x^2}+ \\overbrace{\\frac{U'^2- U''}{2}}^{\\equiv V(x)}.\n\\]\n\nZero energy ground state \\(\\varphi_0(x) = \\sqrt{\\rho_0(x)}\\propto \\exp(-U(x))\\)\nDrift \\(v(x) = \\varphi_0'(x)/\\varphi_0(x)\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#examples",
@@ -410,56 +410,56 @@
     "href": "talks/rl4qm-deepmind/index.html#oscillator-ornsteinuhlenbeck",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Oscillator = Ornstein–Uhlenbeck",
-    "text": "Oscillator = Ornstein–Uhlenbeck\n\\[\nH = \\frac{1}{2}\\left[-\\frac{d^2}{dx^2} + x^2\\right]\n\\]\n\nGround state $\\varphi_0(x)=\\pi^{-1/4}e^{-x^2/2}$; $E_0=1/2$\nDrift \\(v(x) = - x\\) gives OU process"
+    "text": "Oscillator = Ornstein–Uhlenbeck\n\\[\nH = \\frac{1}{2}\\left[-\\frac{d^2}{dx^2} + x^2\\right]\n\\]\n\nGround state \\(\\varphi_0(x)=\\pi^{-1/4}e^{-x^2/2}\\); \\(E_0=1/2\\)\nDrift \\(v(x) = - x\\) gives OU process"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#calogero-dyson-bm",
     "href": "talks/rl4qm-deepmind/index.html#calogero-dyson-bm",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Calogero = Dyson BM",
-    "text": "Calogero = Dyson BM\n$$ H = \\sum_i \\frac{1}{2}\\left[-\\frac{\\partial^2}{\\partial x_i^2}+x^2\\right] + \\lambda(\\lambda-1)\\sum_{i&lt;j} \\frac{1}{(x_i-x_j)^2} $$\n\nGround state exactly of Jastrow form\n\n$$ \\Phi_0(x_1,\\ldots x_N) = \\prod_{i&lt;j}|x_i-x_j|^{\\lambda}\\exp\\left(-\\frac{1}{2}\\sum_i x_i^2\\right) $$\n\nDrift is \\(v_i = \\partial_i \\log\\Phi_0\\)\n\n$$ v_i = - x_i + \\lambda \\sum_{j\\neq i} \\frac{1}{x_i-x_j} $$"
+    "text": "Calogero = Dyson BM\n\\[\nH = \\sum_i \\frac{1}{2}\\left[-\\frac{\\partial^2}{\\partial x_i^2}+x^2\\right] + \\lambda(\\lambda-1)\\sum_{i&lt;j} \\frac{1}{(x_i-x_j)^2}\n\\]\n\nGround state exactly of Jastrow form\n\n\\[\n\\Phi_0(x_1,\\ldots x_N) = \\prod_{i&lt;j}|x_i-x_j|^{\\lambda}\\exp\\left(-\\frac{1}{2}\\sum_i x_i^2\\right)\n\\]\n\nDrift is \\(v_i = \\partial_i \\log\\Phi_0\\)\n\n\\[\nv_i = - x_i + \\lambda \\sum_{j\\neq i} \\frac{1}{x_i-x_j}\n\\]"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#reinforcement-learning",
     "href": "talks/rl4qm-deepmind/index.html#reinforcement-learning",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Reinforcement Learning",
-    "text": "Reinforcement Learning\n\nRecall cost\n\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nSuggests strategy:\n\nRepresent $\\bv_\\theta(\\br) = \\textsf{NN}_\\theta(\\br)$\nIntegrate batch of SDE trajectories\nBackprop through the (MC estimated) cost"
+    "text": "Reinforcement Learning\n\nRecall cost\n\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nSuggests strategy:\n\nRepresent \\(\\bv_\\theta(\\br) = \\textsf{NN}_\\theta(\\br)\\)\nIntegrate batch of SDE trajectories\nBackprop through the (MC estimated) cost"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#drift-representation",
     "href": "talks/rl4qm-deepmind/index.html#drift-representation",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Drift Representation",
-    "text": "Drift Representation\n\nFor identical particles require permutation equivariance\n\n$$  \\bv_{i,\\theta}(\\br_1,\\ldots,\\br_N = \\bv_{P(i),\\theta}(\\br_{P(1)},\\ldots,\\br_{P(N)}) $$\n\n…for any permutation \\(P\\)\n\n\nNumerous recent proposals e.g. Deep Sets (Zaheer et al., 2017)"
+    "text": "Drift Representation\n\nFor identical particles require permutation equivariance\n\n\\[\n\\bv_{i,\\theta}(\\br_1,\\ldots,\\br_N = \\bv_{P(i),\\theta}(\\br_{P(1)},\\ldots,\\br_{P(N)})\n\\]\n…for any permutation \\(P\\)\n\nNumerous recent proposals e.g. Deep Sets (Zaheer et al., 2017)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#integrate-sde",
     "href": "talks/rl4qm-deepmind/index.html#integrate-sde",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Integrate SDE",
-    "text": "Integrate SDE\n\nSimplest scheme is Euler–Maruyama\n\n$$     \\br_{t+1} = \\br_{t+1} + \\Delta\\mathbf{B}_t + \\bv_\\theta(\\br_t)\\Delta t, $$\n\n\\(\\Delta\\mathbf{B}_t\\sim \\mathcal{N}(0,t)\\)\nWe use SOSRA (Rackaukas and Nie, 2018)\nCan regard as (recurrent) resnet Neural ODE, (Chen et al., 2018)\nEvolve batch of trajectories from final state of previous batch\nBatch tracks stationary state of current \\(\\bv_\\theta\\)"
+    "text": "Integrate SDE\n\nSimplest scheme is Euler–Maruyama\n\n\\[\n    \\br_{t+1} = \\br_{t+1} + \\Delta\\mathbf{B}_t + \\bv_\\theta(\\br_t)\\Delta t,\n\\]\n\n\\(\\Delta\\mathbf{B}_t\\sim \\mathcal{N}(0,t)\\)\nWe use SOSRA (Rackaukas and Nie, 2018)\nCan regard as (recurrent) resnet Neural ODE, (Chen et al., 2018)\nEvolve batch of trajectories from final state of previous batch\nBatch tracks stationary state of current \\(\\bv_\\theta\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#stochastic-backprop",
     "href": "talks/rl4qm-deepmind/index.html#stochastic-backprop",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Stochastic Backprop",
-    "text": "Stochastic Backprop\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nMonte Carlo estimate from batch of \\(B\\) trajectories\n\n$$     C_T[\\bv_\\theta] \\approx \\frac{1}{B T} \\sum_{b,t}\\left[\\frac{1}{2}\\bv_\\theta\\left(\\br^{(b)}_t\\right)^2 + V\\left(\\br^{(b)}_t\\right)\\right]. $$\n\n\\(\\br^{(b)}_{t}\\) from SDE discretization. Analogous to reparameterization trick"
+    "text": "Stochastic Backprop\n\\[\n  C_T[\\mathbf{v}] = \\frac{1}{T}\\E\\left[\\int_0^T\\left[\\frac{1}{2}(\\mathbf{v}(\\br_t,t))^2 + V(\\br_t)\\right]dt\\right],\n\\]\n\nMonte Carlo estimate from batch of \\(B\\) trajectories\n\n\\[\n    C_T[\\bv_\\theta] \\approx \\frac{1}{B T} \\sum_{b,t}\\left[\\frac{1}{2}\\bv_\\theta\\left(\\br^{(b)}_t\\right)^2 + V\\left(\\br^{(b)}_t\\right)\\right].\n\\]\n\n\\(\\br^{(b)}_{t}\\) from SDE discretization. Analogous to reparameterization trick"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#experiments",
     "href": "talks/rl4qm-deepmind/index.html#experiments",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Experiments",
-    "text": "Experiments\n\nHydrogen and Helium atoms\nHydrogen molecule\n2D Bosons in harmonic potential with Gaussian interactions\n\n\n…all errors around 1% at the moment without exploiting symmetries"
+    "text": "Experiments\n\nHydrogen and Helium atoms\nHydrogen molecule\n2D Bosons in harmonic potential with Gaussian interactions\n\n…all errors around 1% at the moment without exploiting symmetries"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#hydrogen-1-electron",
     "href": "talks/rl4qm-deepmind/index.html#hydrogen-1-electron",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Hydrogen: 1 electron",
-    "text": "Hydrogen: 1 electron\n\\[\nH = -\\frac{\\nabla^2}{2} - \\frac{1}{|\\br|}\n\\]\n\nGround state $\\varphi_0(r) = \\pi^{-1/2}e^{-r}$. \\(E_0=-\\frac{1}{2}\\)\nDrift \\(v(\\br)=-\\hat\\br\\)"
+    "text": "Hydrogen: 1 electron\n\\[\nH = -\\frac{\\nabla^2}{2} - \\frac{1}{|\\br|}\n\\]\n\nGround state \\(\\varphi_0(r) = \\pi^{-1/2}e^{-r}\\). \\(E_0=-\\frac{1}{2}\\)\nDrift \\(v(\\br)=-\\hat\\br\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#helium-2-electrons",
@@ -473,7 +473,7 @@
     "href": "talks/rl4qm-deepmind/index.html#hydrogen-molecule",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Hydrogen Molecule",
-    "text": "Hydrogen Molecule\n$$ \\begin{align} H &= -\\frac{\\nabla_1^2+\\nabla_2^2}{2}+ \\frac{1}{|\\br_1-\\br_2|}\\\\  &- \\sum_{i=1,2}\\left[\\frac{1}{|\\br_i-\\hat{\\mathbf{z}} R/2|} + \\frac{1}{|\\br_i+\\hat{\\mathbf{z}}R/2|}\\right] \\end{align} $$\n\nSpatial wavefunction again symmetric\nEquilibrium proton separation \\(R=1.401\\), \\(E_0= -1.174476\\)"
+    "text": "Hydrogen Molecule\n\\[\n\\begin{align}\nH &= -\\frac{\\nabla_1^2+\\nabla_2^2}{2}+ \\frac{1}{|\\br_1-\\br_2|}\\\\\n&- \\sum_{i=1,2}\\left[\\frac{1}{|\\br_i-\\hat{\\mathbf{z}} R/2|} + \\frac{1}{|\\br_i+\\hat{\\mathbf{z}}R/2|}\\right]\n\\end{align}\n\\]\n\nSpatial wavefunction again symmetric\nEquilibrium proton separation \\(R=1.401\\), \\(E_0= -1.174476\\)"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#exchange-processes",
@@ -487,7 +487,7 @@
     "href": "talks/rl4qm-deepmind/index.html#d-gaussian-bosons",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "2D Gaussian Bosons",
-    "text": "2D Gaussian Bosons\n$$ \\begin{align} H&=\\frac{1}{2}\\sum_i \\left[\\nabla_i^2 +\\br_i^2\\right]+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\\\ U(\\br) &=\\frac{g}{\\pi s^2}e^{-\\br^2/s^2} \\end{align} $$\n\nMujal et al., PRA 2017 model for ultracold atoms"
+    "text": "2D Gaussian Bosons\n\\[\n\\begin{align}\nH&=\\frac{1}{2}\\sum_i \\left[\\nabla_i^2 +\\br_i^2\\right]+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\\\\nU(\\br) &=\\frac{g}{\\pi s^2}e^{-\\br^2/s^2}\n\\end{align}\n\\]\n\nMujal et al., PRA 2017 model for ultracold atoms"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#outlook",
@@ -508,14 +508,14 @@
     "href": "talks/rl4qm-deepmind/index.html#xy-model",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "XY model",
-    "text": "XY model\n\nOn chain / square / cubic lattice\n\n$$ \\begin{align} \\partial_t \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} &= \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}\\\\ &=\\overbrace{ \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}-2\\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}}^{\\text{master / forward eq.}} +2 \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} \\end{align} $$\n\nc.f. imaginary time Schrödinger\n\n\\[\n  \\frac{\\partial\\psi(\\br,t)}{\\partial t} = \\left[\\frac{\\nabla^2}{2}-V(\\br_i)\\right]\\psi(\\br,t)\n\\]\n\n\\(\\exists\\) Feynamn–Kac representation!"
+    "text": "XY model\n\nOn chain / square / cubic lattice\n\n\\[\n\\begin{align}\n\\partial_t \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} &= \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}\\\\\n&=\\overbrace{ \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}-2\\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}}^{\\text{master / forward eq.}} +2 \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}\n\\end{align}\n\\]\n\nc.f. imaginary time Schrödinger\n\n\\[\n  \\frac{\\partial\\psi(\\br,t)}{\\partial t} = \\left[\\frac{\\nabla^2}{2}-V(\\br_i)\\right]\\psi(\\br,t)\n\\]\n\n\\(\\exists\\) Feynamn–Kac representation!"
   },
   {
     "objectID": "talks/rl4qm-deepmind/index.html#linearly-solvable-mdps",
     "href": "talks/rl4qm-deepmind/index.html#linearly-solvable-mdps",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Linearly Solvable MDPs",
-    "text": "Linearly Solvable MDPs\n\nTodorov (2017) introduced cost\n\n$$   \\ell(j,v) = q(j) +   D_{\\text{KL}}\\left(v(\\cdot|j) \\middle\\|\\middle\\| p(\\cdot|j)\\right) $$\n\n\\(v(j|k)\\) is controlled dynamics, \\(p(j|k)\\) is “passive dynamics”\nBellman equation for the cost to go \\(\\nu(j,t)\\)\n\n$$ \\nu(k,t) = \\min_v\\left[\\ell(k,u) + \\E_{j\\sim u(\\cdot|k)}\\nu(j,t+1)\\right] $$"
+    "text": "Linearly Solvable MDPs\n\nTodorov (2017) introduced cost\n\n\\[\n  \\ell(j,v) = q(j) +   D_{\\text{KL}}\\left(v(\\cdot|j) \\middle\\|\\middle\\| p(\\cdot|j)\\right)\n\\]\n\n\\(v(j|k)\\) is controlled dynamics, \\(p(j|k)\\) is “passive dynamics”\nBellman equation for the cost to go \\(\\nu(j,t)\\)\n\n\\[\n\\nu(k,t) = \\min_v\\left[\\ell(k,u) + \\E_{j\\sim u(\\cdot|k)}\\nu(j,t+1)\\right]\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-2-icts/index.html#outline",
@@ -1803,7 +1803,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models\n\n\nSubtitle here\narXiv:2504.08888 \n\n\n\n\n\n\n\n\nSep 12, 2025\n\n\nSun Woo P. Kim, Curt von Keyserlingk, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual\nHadamard lattices\n\n\nOperator dynamics and entanglement\nJ. Phys. A 57 405301 (2024) \n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nPieter Claeys, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics\narXiv:2302.07280 (J Phys A, to appear) \n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys, Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft, Sun Woo Kim\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II: some special kinds of circuits\n\n\nLectures on Quantum Circuits at ICTS Bangalore\nausten.uk/talks/quantum-circuits-2-icts for slides \n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\nCircuits as many-body dynamics\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nAusten Lamacraft and Pieter Claeys\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\nWork with Pieter Claeys and Jonah Herzog-Arbeitman\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nML and SM 2\n\n\n\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\nSarang Gopalakrishnan and Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n[earlier work with Sarang Gopalakrishnan]\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\nNo matching items"
+    "text": "Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models\n\n\nSubtitle here\narXiv:2504.08888 \n\n\n\n\n\n\n\n\nSep 12, 2025\n\n\nSun Woo P. Kim, Curt von Keyserlingk, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual\nHadamard lattices\n\n\nOperator dynamics and entanglement\nJ. Phys. A 57 405301 (2024) \n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nPieter Claeys, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics\narXiv:2302.07280 (J Phys A, to appear) \n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys, Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft, Sun Woo Kim\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II: some special kinds of circuits\n\n\nLectures on Quantum Circuits at ICTS Bangalore\nausten.uk/talks/quantum-circuits-2-icts for slides \n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\nCircuits as many-body dynamics\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nAusten Lamacraft and Pieter Claeys\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\nWork with Pieter Claeys and Jonah Herzog-Arbeitman\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\nSarang Gopalakrishnan and Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n[earlier work with Sarang Gopalakrishnan]\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/open-qmbp-24/index.html#tensor-network",
@@ -2846,7 +2846,7 @@
     "href": "talks/quantum-circuits-2/index.html#expansion-in-pauli-basis",
     "title": "Quantum Circuits II",
     "section": "Expansion in Pauli basis",
-    "text": "Expansion in Pauli basis\n\\[\nZ_j(t)= \\sum_{\\mu_{1:N}=\\{0,1,2,3\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N},\\qquad \\sigma^\\mu = (\\mathbb{1},X,Y,Z)\n\\]\n\nWith initial condition\n\n\\[\n\\begin{equation}\n\\mathcal{C}\\_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=0,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise},\n\\end{cases}\n\\end{equation}\n\\]\n\nSpin correlations \\(\\langle Z_j(t)Z_k(0)\\rangle=C_{jk}(t) = \\mathcal{C}_{0\\cdots \\mu_k=z \\cdots 0}(t)\\)"
+    "text": "Expansion in Pauli basis\n\\[\nZ_j(t)= \\sum_{\\mu_{1:N}=\\{0,1,2,3\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N},\\qquad \\sigma^\\mu = (\\mathbb{1},X,Y,Z)\n\\]\n\nWith initial condition\n\n\\[\n\\begin{equation}\n\\mathcal{C}_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=0,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise},\n\\end{cases}\n\\end{equation}\n\\]\n\nSpin correlations \\(\\langle Z_j(t)Z_k(0)\\rangle=C_{jk}(t) = \\mathcal{C}_{0\\cdots \\mu_k=z \\cdots 0}(t)\\)"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#j0-1-operator-sector",
@@ -2860,7 +2860,7 @@
     "href": "talks/quantum-circuits-2/index.html#equation-of-motion",
     "title": "Quantum Circuits II",
     "section": "Equation of motion",
-    "text": "Equation of motion\n\\[\n\\begin{align}\n\\partial_t \\mathcal{C}\\_{\\mu_{1:N}} = \\sum_j \\left[J\\epsilon_{\\alpha\\beta \\mu_j \\mu_{j+1}} \\mathcal{C}\\_{\\mu_1\\cdots \\alpha\\beta \\cdots \\mu_N} + \\mathcal{C}\\_{\\mu_1\\cdots \\mu_{j+1}\\mu_j \\cdots \\mu_N} - \\mathcal{C}\\_{\\mu_1\\cdots \\mu_{j}\\mu_{j+1} \\cdots \\mu_N}\\right].\n\\end{align}\n\\]\n\n\n\n\nSee Claeys, Lamacraft, and Herzog-Arbeitman for more"
+    "text": "Equation of motion\n\\[\n\\begin{align}\n\\partial_t \\mathcal{C}_{\\mu_{1:N}} = \\sum_j \\left[J\\epsilon_{\\alpha\\beta \\mu_j \\mu_{j+1}} \\mathcal{C}_{\\mu_1\\cdots \\alpha\\beta \\cdots \\mu_N} + \\mathcal{C}_{\\mu_1\\cdots \\mu_{j+1}\\mu_j \\cdots \\mu_N} - \\mathcal{C}_{\\mu_1\\cdots \\mu_{j}\\mu_{j+1} \\cdots \\mu_N}\\right].\n\\end{align}\n\\]\n\n\n\n\nSee Claeys, Lamacraft, and Herzog-Arbeitman for more"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#operator-spreading",
@@ -2951,28 +2951,28 @@
     "href": "talks/rl4qm-msml/index.html#schrödinger-equation-n-particles",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Schrödinger Equation: N Particles",
-    "text": "Schrödinger Equation: N Particles\n\nBasic object is wavefunction: \\(\\Psi(\\br_1,\\ldots \\br_N)\\)\n\n$$ \\overbrace{\\left[\\sum_i\\left(-\\frac{\\nabla_i^2}{2m_i}+V(\\br_i)\\right)+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\right]}^{\\equiv H \\text{, Hamiltonian}}\\Psi(\\br_1,\\ldots \\br_N) = E\\Psi(\\br_1,\\ldots \\br_N) $$\n\nRequires grid in \\(3N\\) dimensions of \\(L^{3N}\\) points!\nAtoms / molecules are hard; matter (\\(N\\sim N_\\text{A}\\)) is impossible!"
+    "text": "Schrödinger Equation: N Particles\n\nBasic object is wavefunction: \\(\\Psi(\\br_1,\\ldots \\br_N)\\)\n\n\\[\n\\overbrace{\\left[\\sum_i\\left(-\\frac{\\nabla_i^2}{2m_i}+V(\\br_i)\\right)+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\right]}^{\\equiv H \\text{, Hamiltonian}}\\Psi(\\br_1,\\ldots \\br_N) = E\\Psi(\\br_1,\\ldots \\br_N)\n\\]\n\nRequires grid in \\(3N\\) dimensions of \\(L^{3N}\\) points!\nAtoms / molecules are hard; matter (\\(N\\sim N_\\text{A}\\)) is impossible!"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#variational-principle",
     "href": "talks/rl4qm-msml/index.html#variational-principle",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Variational Principle",
-    "text": "Variational Principle\n\nFor approximate \\(\\Psi\\) can upper bound ground state \\(E_0\\)\n\n$$ \\begin{align} E_0 &\\leq \\inf_{\\lVert\\Psi\\rVert=1} \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle\\\\ \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle &= \\int d\\br_1\\cdots d\\br_N \\Psi^*(\\br_1,\\ldots,\\br_N)\\left[H \\Psi\\right](\\br_1,\\ldots,\\br_N) \\end{align} $$\nChallenges\n\nForm of \\(\\Psi\\)\nExpectation evaluation\nOptimization"
+    "text": "Variational Principle\n\nFor approximate \\(\\Psi\\) can upper bound ground state \\(E_0\\)\n\n\\[\n\\begin{align}\nE_0 &\\leq \\inf_{\\lVert\\Psi\\rVert=1} \\langle \\Psi\\lvert H\\rvert\\Psi\\rangle\\\\\n\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle &= \\int d\\br_1\\cdots d\\br_N \\Psi^*(\\br_1,\\ldots,\\br_N)\\left[H \\Psi\\right](\\br_1,\\ldots,\\br_N)\n\\end{align}\n\\]\nChallenges\n\nForm of \\(\\Psi\\)\nExpectation evaluation\nOptimization"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#form-of-psi-feature-engineering",
     "href": "talks/rl4qm-msml/index.html#form-of-psi-feature-engineering",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Form of \\(\\Psi\\) (‘Feature Engineering’)",
-    "text": "Form of \\(\\Psi\\) (‘Feature Engineering’)\nWavefunctions of restricted form\n\nFactorized, leading to Hartree–Fock method\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)=\\psi_1(\\br_1)\\ldots \\psi_N(\\br_N).\n\\]\n\nJastrow factors include pair correlations\n\n$$ \\Psi(\\br_1,\\ldots,\\br_N)\\to \\Psi(\\br_1,\\ldots,\\br_N)\\exp\\left(\\sum_{i&lt;j}\\phi(\\br_i-\\br_j)\\right) $$\n\nMany more…"
+    "text": "Form of \\(\\Psi\\) (‘Feature Engineering’)\nWavefunctions of restricted form\n\nFactorized, leading to Hartree–Fock method\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)=\\psi_1(\\br_1)\\ldots \\psi_N(\\br_N).\n\\]\n\nJastrow factors include pair correlations\n\n\\[\n\\Psi(\\br_1,\\ldots,\\br_N)\\to \\Psi(\\br_1,\\ldots,\\br_N)\\exp\\left(\\sum_{i&lt;j}\\phi(\\br_i-\\br_j)\\right)\n\\]\n\nMany more…"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#expectation-evaluation",
     "href": "talks/rl4qm-msml/index.html#expectation-evaluation",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Expectation evaluation",
-    "text": "Expectation evaluation\n\\(|\\Psi(\\br_1,\\ldots,\\br_N)|^2\\) a probability distribution, so evaluate\n$$ \\frac{\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle}{\\langle\\Psi \\vert\\Psi\\rangle}  =\\int d\\bR\\,|\\Psi(\\bR)|^2\\frac{\\left[H \\Psi\\right](\\bR)}{\\Psi(\\bR)} $$\nby Monte Carlo sampling. This is Variational Monte Carlo (VMC)"
+    "text": "Expectation evaluation\n\\(|\\Psi(\\br_1,\\ldots,\\br_N)|^2\\) a probability distribution, so evaluate\n\\[\n\\frac{\\langle \\Psi\\lvert H\\rvert\\Psi\\rangle}{\\langle\\Psi \\vert\\Psi\\rangle}\n=\\int d\\bR\\,|\\Psi(\\bR)|^2\\frac{\\left[H \\Psi\\right](\\bR)}{\\Psi(\\bR)}\n\\]\nby Monte Carlo sampling. This is Variational Monte Carlo (VMC)"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#neural-approaches",
@@ -3000,7 +3000,7 @@
     "href": "talks/rl4qm-msml/index.html#path-integral",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Path integral",
-    "text": "Path integral\n\nFor “Imaginary time” Schrödinger \\[\n\\left[-\\frac{\\nabla^2}{2m}+V(\\br_i)\\right]\\psi(\\br,t) = -\\partial_t\\psi(\\br,t)\n\\]\nFeynman–Kac formula expresses \\(\\psi(\\br,t)\\) as expectation… $$ \\psi(\\br_2,t_2) =  \\E_{\\br_t}\\left[\\exp\\left(-\\int_{t_1}^{t_2}V(\\br_t)dt\\right)\\psi(\\br_{t_1},t_1)\\right] $$\n\n…over Brownian paths with \\(\\br_{t_{2}}=\\br_{2}\\)\n\nFor \\(t\\to\\infty\\): \\(\\psi(\\br,t)\\to e^{-E_0 t}\\varphi_0(\\br)\\)"
+    "text": "Path integral\n\nFor “Imaginary time” Schrödinger \\[\n\\left[-\\frac{\\nabla^2}{2m}+V(\\br_i)\\right]\\psi(\\br,t) = -\\partial_t\\psi(\\br,t)\n\\]\nFeynman–Kac formula expresses \\(\\psi(\\br,t)\\) as expectation… \\[\n\\psi(\\br_2,t_2) =  \\E_{\\br_t}\\left[\\exp\\left(-\\int_{t_1}^{t_2}V(\\br_t)dt\\right)\\psi(\\br_{t_1},t_1)\\right]\n\\] ..over Brownian paths with \\(\\br_{t_{2}}=\\br_{2}\\)\nFor \\(t\\to\\infty\\): \\(\\psi(\\br,t)\\to e^{-E_0 t}\\varphi_0(\\br)\\)"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#loss-function",
@@ -3014,21 +3014,21 @@
     "href": "talks/rl4qm-msml/index.html#training",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Training",
-    "text": "Training\n\nRelative likelihood (Radon–Nikodym derivative; Girsanov theorem)\n\n$$   \\log\\left(\\frac{d\\mathbb{P}_{\\bv}}{d\\mathbb{P}_\\text{FK}}\\right) =\\ell_T - E_0 T+\\log\\left(\\frac{\\varphi_0(\\br_0)}{\\varphi_0(\\br_T)}\\right) $$ \\[\n   \\ell_T\\equiv \\int_0^T \\bv(\\br_t)\n  \\cdot d\\mathbf{B}_t+\\int_0^T dt\\left(\\frac{1}{2}|\\bv(\\br_t)|^2+V(\\br_t)\\right)\n\\]\n\nMonte Carlo estimate of \\(D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK})=\\E_{\\mathbb{P}_\\bv}\\left[\\log\\left(\\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_\\text{FK}}\\right)\\right]\\)\n\\(\\br^{(b)}_{t}\\) from SDE discretization. Analogous to reparameterization trick\n\\(D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK})\\geq 0\\) so \\(\\E_{\\mathbb{P}_\\bv}\\left[\\ell_T\\right]\\geq E_0T\\)"
+    "text": "Training\n\nRelative likelihood (Radon–Nikodym derivative; Girsanov theorem)\n\n\\[\n  \\log\\left(\\frac{d\\mathbb{P}_{\\bv}}{d\\mathbb{P}_\\text{FK}}\\right) =\\ell_T - E_0 T+\\log\\left(\\frac{\\varphi_0(\\br_0)}{\\varphi_0(\\br_T)}\\right)\n\\] \\[\n   \\ell_T\\equiv \\int_0^T \\bv(\\br_t)\n  \\cdot d\\mathbf{B}_t+\\int_0^T dt\\left(\\frac{1}{2}|\\bv(\\br_t)|^2+V(\\br_t)\\right)\n\\]\n\nMonte Carlo estimate of \\(D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK})=\\E_{\\mathbb{P}_\\bv}\\left[\\log\\left(\\frac{d\\mathbb{P}_\\bv}{d\\mathbb{P}_\\text{FK}}\\right)\\right]\\)\n\\(\\br^{(b)}_{t}\\) from SDE discretization. Analogous to reparameterization trick\n\\(D_\\text{KL}(\\mathbb{P}_\\bv\\lvert\\rvert \\mathbb{P}_\\text{FK})\\geq 0\\) so \\(\\E_{\\mathbb{P}_\\bv}\\left[\\ell_T\\right]\\geq E_0T\\)"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#architectures",
     "href": "talks/rl4qm-msml/index.html#architectures",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Architectures",
-    "text": "Architectures\n\nFor identical particles require permutation equivariance\n\n$$  \\bv_{i,\\theta}(\\br_1,\\ldots,\\br_N) = \\bv_{P(i),\\theta}(\\br_{P(1)},\\ldots,\\br_{P(N)}) $$\n\n…for any permutation \\(P\\)\n\n\nNumerous recent proposals e.g. DeepSets (Zaheer et al., 2017)"
+    "text": "Architectures\n\nFor identical particles require permutation equivariance\n\n\\[\n\\bv_{i,\\theta}(\\br_1,\\ldots,\\br_N) = \\bv_{P(i),\\theta}(\\br_{P(1)},\\ldots,\\br_{P(N)})\n\\]\n…for any permutation \\(P\\)\n\nNumerous recent proposals e.g. DeepSets (Zaheer et al., 2017)"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#pairdrift",
     "href": "talks/rl4qm-msml/index.html#pairdrift",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "PairDrift",
-    "text": "PairDrift\n\nSingle particle and pair features $$ \\mathbf{h}_i = \\boldsymbol{\\sigma}_1(\\mathbf{r}_i) + \\sum_j \\boldsymbol{\\pi}_1(\\mathbf{r}_i-\\mathbf{r}_j)\\qquad \\mathbf{h}_{ij} = \\boldsymbol{\\Pi}_1(\\mathbf{r}_i-\\mathbf{r}_j). $$ \\(\\boldsymbol{\\sigma}, \\boldsymbol{\\pi}:\\mathbb{R}^d\\to \\mathbb{R}^H\\) and \\(\\boldsymbol{\\Pi}:\\mathbb{R}^d\\to \\mathbb{R}^{H\\times H}\\) NNs $$ \\tilde{\\mathbf{h}}_i = \\boldsymbol{\\sigma}_2(\\mathbf{h}_i) + \\sum_j \\boldsymbol{\\pi}_2(\\mathbf{h}_{ij})\\qquad \\tilde{\\mathbf{h}}_{ij} = \\boldsymbol{\\Pi}_2(\\mathbf{h}_{ij}). $$\nDrift function is then $$ \\bv_i = \\boldsymbol{\\sigma}_3(\\tilde{\\mathbf{h}}_i) + \\sum_j \\boldsymbol{\\pi}_3(\\tilde{\\mathbf{h}}_{ij}). $$"
+    "text": "PairDrift\n\nSingle particle and pair features \\[\n\\mathbf{h}_i = \\boldsymbol{\\sigma}_1(\\mathbf{r}_i) + \\sum_j \\boldsymbol{\\pi}_1(\\mathbf{r}_i-\\mathbf{r}_j)\\qquad\n\\mathbf{h}_{ij} = \\boldsymbol{\\Pi}_1(\\mathbf{r}_i-\\mathbf{r}_j).\n\\] \\(\\boldsymbol{\\sigma}, \\boldsymbol{\\pi}:\\mathbb{R}^d\\to \\mathbb{R}^H\\) and \\(\\boldsymbol{\\Pi}:\\mathbb{R}^d\\to \\mathbb{R}^{H\\times H}\\) NNs \\[\n\\tilde{\\mathbf{h}}_i = \\boldsymbol{\\sigma}_2(\\mathbf{h}_i) + \\sum_j \\boldsymbol{\\pi}_2(\\mathbf{h}_{ij})\\qquad \\tilde{\\mathbf{h}}_{ij} = \\boldsymbol{\\Pi}_2(\\mathbf{h}_{ij}).\n\\]\nDrift function is then \\[\n\\bv_i = \\boldsymbol{\\sigma}_3(\\tilde{\\mathbf{h}}_i) + \\sum_j \\boldsymbol{\\pi}_3(\\tilde{\\mathbf{h}}_{ij}).\n\\]"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#experiments",
@@ -3049,7 +3049,7 @@
     "href": "talks/rl4qm-msml/index.html#hydrogen-molecule",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "Hydrogen Molecule",
-    "text": "Hydrogen Molecule\n$$ H = -\\frac{\\nabla_1^2+\\nabla_2^2}{2}+ \\frac{1}{|\\br_1-\\br_2|}- \\sum_{i=1,2}\\left[\\frac{1}{|\\br_i-\\hat{\\mathbf{z}} R/2|} + \\frac{1}{|\\br_i+\\hat{\\mathbf{z}}R/2|}\\right] $$\n\nEquilibrium proton separation \\(R=1.401\\), \\(E_0= -1.174476\\)"
+    "text": "Hydrogen Molecule\n\\[\nH = -\\frac{\\nabla_1^2+\\nabla_2^2}{2}+ \\frac{1}{|\\br_1-\\br_2|}- \\sum_{i=1,2}\\left[\\frac{1}{|\\br_i-\\hat{\\mathbf{z}} R/2|} + \\frac{1}{|\\br_i+\\hat{\\mathbf{z}}R/2|}\\right]\n\\]\n\nEquilibrium proton separation \\(R=1.401\\), \\(E_0= -1.174476\\)"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#atomic-molecular-results",
@@ -3063,7 +3063,7 @@
     "href": "talks/rl4qm-msml/index.html#d-gaussian-bosons",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "2D Gaussian Bosons",
-    "text": "2D Gaussian Bosons\n$$ \\begin{align} H&=\\frac{1}{2}\\sum_i \\left[-\\nabla_i^2 +\\br_i^2\\right]+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\\\ U(\\br) &=\\frac{g}{\\pi s^2}e^{-\\br^2/s^2} \\end{align} $$\n\nMujal et al., PRA 2017 model for ultracold atoms"
+    "text": "2D Gaussian Bosons\n\\[\n\\begin{align}\nH&=\\frac{1}{2}\\sum_i \\left[-\\nabla_i^2 +\\br_i^2\\right]+\\sum_{i&lt;j}U(\\br_i-\\br_j)\\\\\nU(\\br) &=\\frac{g}{\\pi s^2}e^{-\\br^2/s^2}\n\\end{align}\n\\]\n\nMujal et al., PRA 2017 model for ultracold atoms"
   },
   {
     "objectID": "talks/rl4qm-msml/index.html#outlook",
@@ -3084,7 +3084,7 @@
     "href": "talks/rl4qm-msml/index.html#xy-model",
     "title": "Quantum Ground States from Reinforcement Learning",
     "section": "XY model",
-    "text": "XY model\n\nOn chain / square / cubic lattice\n\n$$ \\begin{align} \\partial_t \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} &= \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}\\\\ &=\\overbrace{ \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}-2\\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}}^{\\text{master / forward eq.}} +2 \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} \\end{align} $$\n\nc.f. imaginary time Schrödinger\n\n\\[\n  \\frac{\\partial\\psi(\\br,t)}{\\partial t} = \\left[\\frac{\\nabla^2}{2}-V(\\br_i)\\right]\\psi(\\br,t)\n\\]\n\n\\(\\exists\\) Feynamn–Kac representation!"
+    "text": "XY model\n\nOn chain / square / cubic lattice\n\n\\[\n\\begin{align}\n\\partial_t \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ} &= \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}\\\\\n&=\\overbrace{ \\Psi_{\\Huge\\bullet\\Huge\\circ\\Huge\\circ}+\\Psi_{\\Huge\\circ\\Huge\\circ\\Huge\\bullet}-2\\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}}^{\\text{master / forward eq.}} +2 \\Psi_{\\Huge\\circ\\Huge\\bullet\\Huge\\circ}\n\\end{align}\n\\]\n\nc.f. imaginary time Schrödinger\n\n\\[\n  \\frac{\\partial\\psi(\\br,t)}{\\partial t} = \\left[\\frac{\\nabla^2}{2}-V(\\br_i)\\right]\\psi(\\br,t)\n\\]\n\n\\(\\exists\\) Feynamn–Kac representation!"
   },
   {
     "objectID": "talks/superdiffusion-spin-chains/index.html",
@@ -3133,7 +3133,7 @@
     "href": "talks/superdiffusion-spin-chains/index.html#numerics-relaxation",
     "title": "Superdiffusion in spin chains",
     "section": "Numerics: relaxation",
-    "text": "Numerics: relaxation\n\nLjubotina, Žnidarič, Prosen (2017) studied weak domain wall initial conditions\n\n\n\n\n\nAgain, superdiffusion with \\(z=3/2\\)\nIn 2019, same authors improved accuracy and identified scaling behaviour with KPZ universality class (more later)"
+    "text": "Numerics: relaxation\n\nLjubotina, Žnidarič, Prosen (2017) studied weak domain wall initial conditions\n\n\n\nAgain, superdiffusion with \\(z=3/2\\)\nIn 2019 same authors improved accuracy and identified scaling behaviour with KPZ universality class (more later)"
   },
   {
     "objectID": "talks/superdiffusion-spin-chains/index.html#numerics-classical",

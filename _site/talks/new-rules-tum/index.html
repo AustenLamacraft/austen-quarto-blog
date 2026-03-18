@@ -126,6 +126,7 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.4/dist/svg.min.js"></script>
 <meta name="twitter:title" content="New Rules – Austen Lamacraft">
 <meta name="twitter:description" content="Quantum Circuits, Cellular Automata, Complexity and Chaos">
 <meta name="twitter:card" content="summary">
@@ -603,7 +604,7 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <ul>
 <li>8 sites share 4 bits of entropy</li>
 </ul>
-<object data="assets/A-entropy.svg" type="image/svg+xml">
+<object data="assets/A-entropy.svg" type="image/svg+xml" data-script="assets/A-entropy.js">
 </object>
 <ul>
 <li>After four steps increases to (maximum) 8 bits!</li>
@@ -613,7 +614,7 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <ul>
 <li>8 sites share 4 bits of entropy</li>
 </ul>
-<object data="assets/A-entropy-shallower.svg" type="image/svg+xml">
+<object data="assets/A-entropy-shallower.svg" type="image/svg+xml" data-script="assets/A-entropy-shallower.js">
 </object>
 <ul>
 <li>After two steps increases to 6 bits!</li>
@@ -838,7 +839,7 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <li>Evaluate <span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}\)</span> for local <span class="math inline">\(\mathcal{O}\)</span></li>
 </ul>
 <div data-align="center">
-<object data="assets/expectation.svg" type="image/svg+xml" width="600">
+<object data="assets/expectation.svg" type="image/svg+xml" data-script="assets/expectation.js" width="600">
 </object>
 </div>
 <hr>
@@ -862,7 +863,7 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <ul>
 <li>Emergence of “light cone”</li>
 </ul>
-<object data="assets/folded-expectation.svg" type="image/svg+xml">
+<object data="assets/folded-expectation.svg" type="image/svg+xml" data-script="assets/folded-expectation.js">
 </object>
 <hr>
 <h3 id="reduced-density-matrix">Reduced density matrix</h3>
@@ -872,7 +873,7 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <p><span class="math display">\[
 \rho_A = \operatorname{tr}_{\bar A}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{\bar A}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
 \]</span></p>
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml">
+<object data="assets/reduced-density-matrix.svg" type="image/svg+xml" data-script="assets/reduced-density-matrix.js">
 </object>
 <hr>
 <h3 id="entanglement-entropy">Entanglement entropy</h3>
@@ -934,7 +935,7 @@ S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 <ul>
 <li>8 sites; 4 layers</li>
 </ul>
-<object data="assets/A-entropy-quantum.svg" type="image/svg+xml">
+<object data="assets/A-entropy-quantum.svg" type="image/svg+xml" data-script="assets/A-entropy-quantum.js">
 </object>
 <ul>
 <li><span class="math inline">\(\rho_A\)</span> is unitary transformation of</li>
@@ -946,7 +947,7 @@ S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 </section>
 <section id="shallower-1" class="slide level2 center">
 <h2>Shallower…</h2>
-<object data="assets/A-entropy-quantum-shallower.svg" type="image/svg+xml">
+<object data="assets/A-entropy-quantum-shallower.svg" type="image/svg+xml" data-script="assets/A-entropy-quantum-shallower.js">
 </object>
 <ul>
 <li><span class="math inline">\(\rho_A\)</span> is unitary transformation of</li>
@@ -1628,6 +1629,46 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
         }
       });
       </script>
+    <script>
+    async function inlineSVGsOnSlide(slide) {
+      const objects = slide.querySelectorAll('object[type="image/svg+xml"]:not([data-initialized])');
+      for (const obj of objects) {
+        const src = obj.getAttribute('data');
+        try {
+          const resp = await fetch(src);
+          const text = await resp.text();
+          const cleaned = text.replace(/<\?xml[\s\S]*?\?>/, '').trim();
+          const tmp = document.createElement('div');
+          tmp.innerHTML = cleaned;
+          const svgEl = tmp.firstElementChild;
+          if (svgEl) {
+            svgEl.setAttribute('data-inlined', 'true');
+            obj.parentNode.insertBefore(svgEl, obj);
+            obj.setAttribute('data-initialized', 'true');
+            obj.style.display = 'none';
+            const scriptSrc = obj.getAttribute('data-script');
+            if (scriptSrc) {
+              const scriptResp = await fetch(scriptSrc);
+              const scriptText = await scriptResp.text();
+              new Function(scriptText)();
+            }
+          }
+        } catch(e) {
+          console.error('SVG inline error:', src, e);
+        }
+      }
+    }
+    function cleanupSlide(slide) {
+      if (!slide) return;
+      slide.querySelectorAll('svg[data-inlined]').forEach(s => s.remove());
+      slide.querySelectorAll('object[data-initialized]').forEach(o => {
+        o.removeAttribute('data-initialized');
+        o.style.display = '';
+      });
+    }
+    Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
+    Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
+    </script>
     
 
 </body></html>

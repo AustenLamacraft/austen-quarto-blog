@@ -1,7 +1,8 @@
 ---
 date: 05/26/2021
 date-format: long
-title: "ML and SM 2"
+title: "Machine Learning and Statistical Mechanics"
+subtitle: "TCM graduate lectures"
 author: Austen Lamacraft
 institute: University of Cambridge
 format:

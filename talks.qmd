@@ -9,4 +9,9 @@ listing:
   filter-ui: false
 page-layout: full
 title-block-banner: true
+include-after-body:
+  - text: |
+      <script>
+      document.querySelectorAll('.quarto-listing a').forEach(a => a.target = '_blank');
+      </script>
 ---

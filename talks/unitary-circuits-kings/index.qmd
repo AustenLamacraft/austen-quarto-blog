@@ -269,10 +269,10 @@ $$
 
 - Arises when the reshuffled unitary $\tilde U$ is unitary too
 
-`$$
+$$
 (\tilde U)_{ab,cd}=(U)_{ac,bd}
 $$
-`
+
 
 <p align="center">
 <img src="assets/unitarity.png" width="400"/> &emsp;    &emsp;  <img src="assets/u_tilde.png" width="400"/>

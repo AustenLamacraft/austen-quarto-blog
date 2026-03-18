@@ -289,7 +289,7 @@ $$
 
 - [Piroli, _et al._, (2020)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.101.094304) considered 2-site MPS initial conditions that allow for solution in similar way
 
-- For $2t>N $ result is the same: $\infty$-temperature RDM
+- For $2t>N$ result is the same: $\infty$-temperature RDM
 
 - At earlier times structure of initial state important
 

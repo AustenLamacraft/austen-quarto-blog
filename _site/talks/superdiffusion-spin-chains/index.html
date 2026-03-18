@@ -215,12 +215,10 @@ H = \sum_j \left[X_j X_{j+1}+Y_j Y_{j+1}+ \Delta Z_j Z_{j+1}\right]
 <ul>
 <li><a href="https://www.nature.com/articles/ncomms16117">Ljubotina, Žnidarič, Prosen (2017)</a> studied <em>weak domain wall</em> initial conditions</li>
 </ul>
-<p align="center">
-<img src="assets/domain-spread.png" width="500">
-</p>
+<p><img data-src="assets/domain-spread.png" style="width:50.0%"></p>
 <ul>
 <li>Again, superdiffusion with <span class="math inline">\(z=3/2\)</span></li>
-<li><h2 id="in-2019-same-authors-improved-accuracy-and-identified-scaling-behaviour-with-kpz-universality-class-more-later"><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.210602">In 2019</a>, same authors improved accuracy and identified scaling behaviour with <em>KPZ universality class</em> (more later)</h2></li>
+<li>In 2019 <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.210602">same authors</a> improved accuracy and identified scaling behaviour with <em>KPZ universality class</em> (more later)</li>
 </ul>
 </section>
 <section id="numerics-classical" class="slide level2 center">
@@ -371,11 +369,17 @@ d\mathcal{O} = \sum_j i\left[\left(J dt + dW_j\right)P_{j,j+1},\mathcal{O}\right
 <ul>
 <li>Expand in components</li>
 </ul>
-<p><code>$$ \mathcal{O}= \sum_{\mu_{1:N}=\{0,1,2,3\}^N} \mathcal{C}^a_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}, $$</code> <code>$$ \partial_t \mathcal{C}_{\mu_{1:N}} = \sum_j \left[J\sum_{\alpha\beta} \epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right] $$</code></p>
+<p><span class="math display">\[
+\mathcal{O}= \sum_{\mu_{1:N}=\{0,1,2,3\}^N} \mathcal{C}^a_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N},
+\]</span> <span class="math display">\[
+\partial_t \mathcal{C}_{\mu_{1:N}} = \sum_j \left[J\sum_{\alpha\beta} \epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right]
+\]</span></p>
 </section>
 <section class="slide level2 center">
 
-<p><code>$$ \partial_t \mathcal{C}_{\mu_{1:N}} = \sum_j \left[J\sum_{\alpha\beta} \epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right] $$</code></p>
+<p><span class="math display">\[
+\partial_t \mathcal{C}_{\mu_{1:N}} = \sum_j \left[J\sum_{\alpha\beta} \epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right]
+\]</span></p>
 <ul>
 <li><p><span class="math inline">\(J=0\)</span> describes <em>operator diffusion</em></p></li>
 <li><p><span class="math inline">\(J\neq 0\)</span> describes <em>splitting</em> and <em>merging</em> e.g.&nbsp;<span class="math inline">\(Z_j\leftrightarrow X_jY_{j+1}\)</span></p></li>

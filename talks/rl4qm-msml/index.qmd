@@ -137,9 +137,8 @@ $$
 $$
   \psi(\br_2,t_2) =  \E_{\br_t}\left[\exp\left(-\int_{t_1}^{t_2}V(\br_t)dt\right)\psi(\br_{t_1},t_1)\right]
 $$
-<DIV align="right">
-...over Brownian paths with $\br_{t_{2}}=\br_{2}$
-</DIV>
+..over Brownian paths with $\br_{t_{2}}=\br_{2}$
+
 
 - For $t\to\infty$: $\psi(\br,t)\to e^{-E_0 t}\varphi_0(\br)$
 
@@ -217,9 +216,8 @@ $$
  \bv_{i,\theta}(\br_1,\ldots,\br_N) = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)})
 $$
 
-<DIV align="right">
+
 ...for any permutation $P$
-</DIV>
 
 - Numerous recent proposals e.g. [DeepSets](https://arxiv.org/abs/1703.06114) (Zaheer _et al._, 2017)
 

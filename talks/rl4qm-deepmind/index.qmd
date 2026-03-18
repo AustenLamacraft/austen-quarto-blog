@@ -186,9 +186,9 @@ $$
   \psi(\br_2,t_2) =  \E_{\br(t)}\left[\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)\psi(\br(t_1),t_1)\right]
 $$
 
-<DIV align="right">
+
 ...over Brownian paths finishing at $\br_2$ at time $t_2$.
-</DIV>
+
 
 ---
 
@@ -198,10 +198,12 @@ $$
 
 - Spectral representation in terms of $H\varphi_n = E_n\varphi_n$
 
-`\begin{align}
+$$
+\begin{align}
   K(\br_2,t_2;\br_1,t_1) &= \sum_n \varphi_n(\br_2)\varphi^*_n(\br_1)e^{-E_n(t_2-t_1)}\\
   &\longrightarrow \varphi_0(\br_2)\varphi^*_0(\br_1)e^{-E_0(t_2-t_1)} \qquad \text{ as } t_2-t_1\to\infty.
-\end{align}`
+\end{align}
+$$
 
 ---
 
@@ -221,9 +223,9 @@ $$
 <img src="assets/ceperley.png" width="50%">
 </p>
 
-<DIV align="right">
-  [Ceperley, RMP (1995)](https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279)
-</DIV>
+
+[Ceperley, RMP (1995)](https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.67.279)
+
 
 
 ---
@@ -232,10 +234,10 @@ $$
 
 - Relative weight of FK paths given by _Radon-Nikodym derivative_
 
-`$$
+$$
   \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
 $$
-`
+
 
 - $\mathcal{N}$ is a normalization factor. $\mathcal{N}\sim e^{E_0 (t_2-t_1)}$ for $t_2\gg t_1$
 
@@ -315,14 +317,14 @@ $$
 
 - We have seen
 
-`$$
+$$
   \frac{d\mathbb{P}_\text{FK}}{d\mathbb{P}_\text{B}} = \mathcal{N}\exp\left(-\int_{t_1}^{t_2}V(\br(t))dt\right)
 $$
-`
 
-<DIV align="right">
+
+
 $\mathcal{N}\sim e^{E_0 (t_2-t_1)}$ for $t_2\gg t_1$
-</DIV>`
+
 
 - __Girsanov theorem__ tells us
 
@@ -343,9 +345,9 @@ $$
 \end{align}
 $$
 
-<DIV align="right">
+
 [Boué and Dupuis (1998)](https://projecteuclid.org/euclid.aop/1022855876)
-</DIV>
+
 
 
 ---
@@ -378,9 +380,9 @@ $$
   \psi(x,t) = \frac{\rho(x,t)}{\sqrt{\rho_0(x)}},
 $$
 
-<DIV align="right">
+
 ...satisfies the (imaginary time) Schrödinger equation with Hamiltonian
-</DIV>
+
 
 $$
   H = -\frac{1}{2}\frac{\partial^2}{\partial x^2}+ \overbrace{\frac{U'^2- U''}{2}}^{\equiv V(x)}.
@@ -469,9 +471,9 @@ $$
  \bv_{i,\theta}(\br_1,\ldots,\br_N = \bv_{P(i),\theta}(\br_{P(1)},\ldots,\br_{P(N)})
 $$
 
-<DIV align="right">
+
 ...for any permutation $P$
-</DIV>
+
 
 - Numerous recent proposals e.g. [Deep Sets](https://arxiv.org/abs/1703.06114) (Zaheer _et al._, 2017)
 
@@ -522,9 +524,9 @@ $$
 2. Hydrogen molecule
 3. 2D Bosons in harmonic potential with Gaussian interactions
 
-<DIV align="right">
+
 ...all errors around 1% at the moment without exploiting symmetries
-</DIV>
+
 
 ---
 

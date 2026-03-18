@@ -88,12 +88,12 @@ $$
 
 - [Ljubotina, Žnidarič, Prosen (2017)](https://www.nature.com/articles/ncomms16117) studied *weak domain wall* initial conditions
 
-<p align="center">
-<img src="assets/domain-spread.png" width="500">
-</p>
+
+![](assets/domain-spread.png){width="50%"}
 
 - Again, superdiffusion with $z=3/2$
-- [In 2019](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.210602), same authors improved accuracy and identified scaling behaviour with *KPZ universality class* (more later)
+- In 2019 [same authors](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.122.210602) improved accuracy and identified scaling behaviour with *KPZ universality class* (more later)
+
 ---
 
 ## Numerics: classical
