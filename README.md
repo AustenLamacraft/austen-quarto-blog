@@ -57,7 +57,7 @@ institute: University of Cambridge
 
 Talks updates so far 
 
-- All talks up to and including "absence of superdiffusion" have been updated. Next to update "Quantum circuits II".
+- All talks up to and including "Quantum circuits I" have been updated. Next to update "New Rules".
 
 ## Other
 

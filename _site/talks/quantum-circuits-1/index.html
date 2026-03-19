@@ -7,21 +7,18 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Austen Lamacraft">
   <meta name="dcterms.date" content="2022-03-09">
-  <title>Austen Lamacraft – Quantum Circuits</title>
+  <title>Austen Lamacraft – Quantum Circuits I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-43c786d1c8ecd919271c820feae20d09.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-db84968dd3a81be0f114100d4bbaf104.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -126,15 +123,16 @@
       margin-right: 0; 
     }
   </style>
-<meta name="twitter:title" content="Quantum Circuits – Austen Lamacraft">
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.4/dist/svg.min.js"></script>
+<meta name="twitter:title" content="Quantum Circuits I – Austen Lamacraft">
 <meta name="twitter:card" content="summary">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="assets/brickwall.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Quantum Circuits</h1>
+<section id="title-slide" data-background-image="assets/brickwall.png" data-background-opacity="0.2" data-background-size="contain" class="quarto-title-block center">
+  <h1 class="title">Quantum Circuits I</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -225,7 +223,7 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <h2>Unitary gates: one qubit</h2>
 <ul>
 <li><p>Multiplication by a Pauli matrix: <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, or <span class="math inline">\(Z\)</span>.</p></li>
-<li><p>General case <span class="math inline">\(U = a_0\mathbb{1} + \vectorbold{a}\cdot(X,Y,Z)\)</span> with <span class="math inline">\(|a_0|^2+|\vectorbold{a}|^2=1\)</span></p></li>
+<li><p>General case <span class="math inline">\(U = a_0\mathbb{1} + \mathbf{a}\cdot(X,Y,Z)\)</span> with <span class="math inline">\(|a_0|^2+|\mathbf{a}|^2=1\)</span></p></li>
 <li><p>Other special cases used in quantum information e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_gate">Hadamard gate</a> <span class="math display">\[
 H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 1 &amp; 1 \\
@@ -276,7 +274,7 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 <section id="general-two-qubit-unitary" class="slide level2 center">
 <h2>General two qubit unitary</h2>
 <ul>
-<li>Any two-qubit unitary <span class="math inline">\(U\in \mathcal{U(4)}\)</span> can be written</li>
+<li>Any two-qubit unitary <span class="math inline">\(U\in \mathcal{U}(4)\)</span> can be written</li>
 </ul>
 <p><span class="math display">\[\begin{equation}
 U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
@@ -284,7 +282,17 @@ U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
 <ul>
 <li><span class="math inline">\(u_{\pm}, v_{\pm} \in SU(2)\)</span></li>
 </ul>
-<p><code>\begin{align}  V[J_x, J_y, J_z] &amp;= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\  &amp;= \begin{bmatrix} e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\ 0 &amp; e^{iJ_z} \cos(J_+) &amp; -ie^{i J_z} \sin(J_+) &amp; 0 \\ 0 &amp; -ie^{i J_z} \sin(J_+) &amp; e^{iJ_z} \cos(J_+) &amp; 0 \\ -i e^{-i J_z \sin(J_-)} &amp; 0 &amp; 0 &amp; e^{-i J_z} \cos(J_-) \\ \end{bmatrix} \end{align}</code></p>
+<p><span class="math display">\[
+\begin{align}
+V[J_x, J_y, J_z] &amp;= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\
+&amp;= \begin{bmatrix}
+e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\
+0 &amp; e^{iJ_z} \cos(J_+) &amp; -ie^{i J_z} \sin(J_+) &amp; 0 \\
+0 &amp; -ie^{i J_z} \sin(J_+) &amp; e^{iJ_z} \cos(J_+) &amp; 0 \\
+-i e^{-i J_z \sin(J_-)} &amp; 0 &amp; 0 &amp; e^{-i J_z} \cos(J_-) \\
+\end{bmatrix}
+\end{align}
+\]</span></p>
 <ul>
 <li>16 parameters!</li>
 </ul>
@@ -448,7 +456,7 @@ Source: <a href="https://quantumfrontiers.com/2015/06/26/holography-and-the-mera
 <h2>Expectation values</h2>
 <ul>
 <li><p>Evaluate <span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}U^\dagger\mathcal{O}U\ket{\Psi_0}\)</span> for local <span class="math inline">\(\mathcal{O}\)</span></p></li>
-<li><p>If <span class="math inline">\(\Psi_0\)</span> is product state top and bottom indices match <object data="assets/expectation.svg" type="image/svg+xml" width="600"></object></p></li>
+<li><p>If <span class="math inline">\(\Psi_0\)</span> is product state top and bottom indices match <object data="assets/expectation.svg" type="image/svg+xml" data-script="assets/expectation.js" width="600"></object></p></li>
 </ul>
 </section>
 <section id="folded-picture" class="slide level2 center">
@@ -474,7 +482,7 @@ Source: <a href="https://quantumfrontiers.com/2015/06/26/holography-and-the-mera
 <ul>
 <li>Emergence of “light cone”</li>
 </ul>
-<object data="assets/folded-expectation.svg" type="image/svg+xml">
+<object data="assets/folded-expectation.svg" type="image/svg+xml" data-script="assets/folded-expectation.js">
 </object>
 </section>
 <section id="reduced-density-matrix" class="slide level2 center">
@@ -482,7 +490,7 @@ Source: <a href="https://quantumfrontiers.com/2015/06/26/holography-and-the-mera
 <p><span class="math display">\[
 \rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_B\left[U\ket{\Psi_0}\bra{\Psi_0}U^\dagger\right]
 \]</span></p>
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml">
+<object data="assets/reduced-density-matrix.svg" type="image/svg+xml" data-script="assets/reduced-density-matrix.js">
 </object>
 </section>
 <section id="schmidt-decomposition" class="slide level2 center">
@@ -514,7 +522,7 @@ Source: <a href="https://quantumfrontiers.com/2015/06/26/holography-and-the-mera
 <h2>Schmidt rank</h2>
 <ul>
 <li><p><span class="math inline">\(\operatorname{rank}=\min(\operatorname{dim} \mathcal{H}_A, \operatorname{dim} \mathcal{H}_B)=2^{\min(2t-2, N_A)}\)</span></p></li>
-<li><p>Here <span class="math inline">\(t=4\)</span>, <span class="math inline">\(N_A=4\)</span> <object data="assets/contracted-density-matrix.svg" type="image/svg+xml"></object></p></li>
+<li><p>Here <span class="math inline">\(t=4\)</span>, <span class="math inline">\(N_A=4\)</span> <object data="assets/contracted-density-matrix.svg" type="image/svg+xml" data-script="assets/contracted-density-matrix.js"></object></p></li>
 </ul>
 </section>
 <section id="entanglement-entropy" class="slide level2 center">
@@ -618,7 +626,7 @@ p_\alpha = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
 </section>
 <section id="rho_a-via-dual-unitarity-kim" class="slide level2 center">
 <h2><span class="math inline">\(\rho_A\)</span> via dual unitarity + KIM</h2>
-<object data="assets/density-matrix-dual-unitary.svg" type="image/svg+xml">
+<object data="assets/density-matrix-dual-unitary.svg" type="image/svg+xml" data-script="assets/density-matrix-dual-unitary.js">
 </object>
 </section>
 <section class="slide level2 center">
@@ -1029,6 +1037,46 @@ p_\alpha = \left(\frac{1}{2}\right)^{\min(2t-2,N_A)}
         }
       });
       </script>
+    <script>
+    async function inlineSVGsOnSlide(slide) {
+      const objects = slide.querySelectorAll('object[type="image/svg+xml"]:not([data-initialized])');
+      for (const obj of objects) {
+        const src = obj.getAttribute('data');
+        try {
+          const resp = await fetch(src);
+          const text = await resp.text();
+          const cleaned = text.replace(/<\?xml[\s\S]*?\?>/, '').trim();
+          const tmp = document.createElement('div');
+          tmp.innerHTML = cleaned;
+          const svgEl = tmp.firstElementChild;
+          if (svgEl) {
+            svgEl.setAttribute('data-inlined', 'true');
+            obj.parentNode.insertBefore(svgEl, obj);
+            obj.setAttribute('data-initialized', 'true');
+            obj.style.display = 'none';
+            const scriptSrc = obj.getAttribute('data-script');
+            if (scriptSrc) {
+              const scriptResp = await fetch(scriptSrc);
+              const scriptText = await scriptResp.text();
+              new Function(scriptText)();
+            }
+          }
+        } catch(e) {
+          console.error('SVG inline error:', src, e);
+        }
+      }
+    }
+    function cleanupSlide(slide) {
+      if (!slide) return;
+      slide.querySelectorAll('svg[data-inlined]').forEach(s => s.remove());
+      slide.querySelectorAll('object[data-initialized]').forEach(o => {
+        o.removeAttribute('data-initialized');
+        o.style.display = '';
+      });
+    }
+    Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
+    Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
+    </script>
     
 
 </body></html>

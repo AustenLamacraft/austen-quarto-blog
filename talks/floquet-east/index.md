@@ -8,11 +8,6 @@ slides:
   reveal_options: {
     hash: true,
     katex: {
-      macros: {
-        "\\abs" : "\\left|#1\\right|",
-        "\\tr" : "\\operatorname{tr}",
-        "\\sgn" : "\\operatorname{sgn}",
-      },
       throwOnError: false,
     }
   }

@@ -102,14 +102,14 @@
     "href": "talks/superdiffusion-kitp/index.html#operator-dynamics-1",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Operator Dynamics",
-    "text": "Operator Dynamics\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} - i\\sin\\theta P_{j.j+1}\n\\]\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\sin\\theta\\cos\\theta \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
+    "text": "Operator Dynamics\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} - i\\sin\\theta P_{j.j+1}\n\\]\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta \\,\\mathcal{O} + \\sin^2\\theta\\, P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\sin\\theta\\cos\\theta \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#average-dynamics",
     "href": "talks/superdiffusion-kitp/index.html#average-dynamics",
     "title": "Absence of superdiffusion in certain random spin models",
     "section": "Average dynamics",
-    "text": "Average dynamics\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta_0 \\mathcal{O} + \\sin^2\\theta_0 P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\delta\\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics\n\nTaking \\(\\theta_0=\\sqrt{dt}\\), \\(\\delta= J\\sqrt{dt}\\) gives continuous time evolution"
+    "text": "Average dynamics\n\\[\n\\begin{align}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} &= \\cos^2\\theta_0 \\,\\mathcal{O} + \\sin^2\\theta_0 \\,P_{j.j+1}\\mathcal{O} P_{j.j+1}\\\\\n&\\qquad+i\\delta\\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{align}\n\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics\n\nTaking \\(\\theta_0=\\sqrt{dt}\\), \\(\\delta= J\\sqrt{dt}\\) gives continuous time evolution"
   },
   {
     "objectID": "talks/superdiffusion-kitp/index.html#back-to-continuous-time",
@@ -1803,7 +1803,7 @@
     "href": "talks.html",
     "title": "Talks",
     "section": "",
-    "text": "Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models\n\n\nSubtitle here\narXiv:2504.08888 \n\n\n\n\n\n\n\n\nSep 12, 2025\n\n\nSun Woo P. Kim, Curt von Keyserlingk, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual\nHadamard lattices\n\n\nOperator dynamics and entanglement\nJ. Phys. A 57 405301 (2024) \n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nPieter Claeys, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics\narXiv:2302.07280 (J Phys A, to appear) \n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys, Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft, Sun Woo Kim\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II: some special kinds of circuits\n\n\nLectures on Quantum Circuits at ICTS Bangalore\nausten.uk/talks/quantum-circuits-2-icts for slides \n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\nCircuits as many-body dynamics\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nAusten Lamacraft and Pieter Claeys\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\nWork with Pieter Claeys and Jonah Herzog-Arbeitman\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\nSarang Gopalakrishnan and Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n[earlier work with Sarang Gopalakrishnan]\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\nNo matching items"
+    "text": "Measurement-induced phase transitions in quantum inference problems and quantum hidden Markov models\n\n\nSubtitle here\narXiv:2504.08888 \n\n\n\n\n\n\n\n\nSep 12, 2025\n\n\nSun Woo P. Kim, Curt von Keyserlingk, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual\nHadamard lattices\n\n\nOperator dynamics and entanglement\nJ. Phys. A 57 405301 (2024) \n\n\n\n\n\n\n\n\nOct 4, 2024\n\n\nPieter Claeys, Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Dual Unitarity to Biunitarity\n\n\nA 2-categorical model for exactly-solvable many-body quantum dynamics\narXiv:2302.07280 (J Phys A, to appear) \n\n\n\n\n\n\n\n\nJul 18, 2024\n\n\nPieter Claeys, Austen Lamacraft, Jamie Vicary\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nMay 30, 2024\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSpace-time dual cat models\n\n\nSubtitle goes here\n\n\n\nQuantum Circuits\n\nPhysics\n\n\n\n\n\n\n\n\n\nJan 24, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nThe Planted Directed Polymer\n\n\n\n\n\n\n\n\n\n\n\nDec 15, 2023\n\n\nAusten Lamacraft, Sun Woo Kim\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II: some special kinds of circuits\n\n\nLectures on Quantum Circuits at ICTS Bangalore\nausten.uk/talks/quantum-circuits-2-icts for slides \n\n\n\n\n\n\n\n\nJun 14, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\nCircuits as many-body dynamics\n\n\n\n\n\n\n\n\nJun 13, 2023\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 27, 2022\n\n\nAusten Lamacraft and Pieter Claeys\n\n\n\n\n\n\n\n\n\n\n\n\nNew Rules\n\n\nQuantum Circuits, Cellular Automata, Complexity and Chaos\n\n\n\n\n\n\n\n\nJul 7, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits I\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits II\n\n\n\n\n\n\n\n\n\n\n\nMar 9, 2022\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nAbsence of superdiffusion in certain random spin models\n\n\nWork with Pieter Claeys and Jonah Herzog-Arbeitman\n\n\n\n\n\n\n\n\nSep 29, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 26, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nMachine Learning and Statistical Mechanics\n\n\nTCM graduate lectures\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nSuperdiffusion in spin chains\n\n\n\n\n\n\n\n\n\n\n\nMay 24, 2021\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Circuits of Dual Unitary Gates\n\n\n\n\n\n\n\n\n\n\n\nJan 28, 2021\n\n\nSarang Gopalakrishnan and Austen Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nJul 22, 2020\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nQuantum Ground States from Reinforcement Learning\n\n\n\n\n\n\n\n\n\n\n\nNov 27, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\n\n\n\n\n\n\n\nCircuit Models of Many Body Quantum Dynamics\n\n\n[earlier work with Sarang Gopalakrishnan]\n\n\n\n\n\n\n\n\nSep 16, 2019\n\n\nAusten Lamacraft\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "talks/open-qmbp-24/index.html#tensor-network",
@@ -2543,231 +2543,231 @@
   {
     "objectID": "talks/quantum-circuits-1/index.html#what-is-a-quantum-circuit",
     "href": "talks/quantum-circuits-1/index.html#what-is-a-quantum-circuit",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "What is a quantum circuit?",
     "text": "What is a quantum circuit?\n\nA way to describe operations on quantum state, usually consisting of several qubits (spin 1/2 subsystems)\n\n\n\n\n\n\\(f\\) acts on top five qubits, then \\(g\\) acts on lower seven"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#possible-operations",
     "href": "talks/quantum-circuits-1/index.html#possible-operations",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Possible operations",
     "text": "Possible operations\n\n\n\nSource: Wikipedia\n\n\n\n\\(H\\) (a Hadamard gate) is a single qubit unitary\nAlso two qubit unitary gates (CNOT here)\nMeasurements"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#why-consider-circuits",
     "href": "talks/quantum-circuits-1/index.html#why-consider-circuits",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Why consider circuits?",
     "text": "Why consider circuits?\n\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nExample of discrete time, many body dynamics"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#unitary-circuits",
     "href": "talks/quantum-circuits-1/index.html#unitary-circuits",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Unitary circuits",
     "text": "Unitary circuits\n\n(Mostly) concerned with unitary circuits made from unitary gates\nGate is \\(n\\)-qubit unitary \\(U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n}\\)\n\n\\[\n\\sum_{s_1'\\ldots s_N'}U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n} U^\\dagger_{s'_1\\ldots s'_n,s''_1,\\ldots, s''_n}=\\delta_{s_1,s_1''}\\ldots \\delta_{s_N,s_N''}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#everything-is-a-tensor",
     "href": "talks/quantum-circuits-1/index.html#everything-is-a-tensor",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Everything is a tensor",
     "text": "Everything is a tensor\n\nState of \\(N\\) qubits expressed in product basis\n\n\\[\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\\]\n\nWrite \\(\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N =\\ket{s_1\\cdots s_N}=\\ket{s_{1:N}}\\) for brevity\nOperator on \\(N\\) qubits has matrix elements\n\n\\[\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#graphical-notation",
     "href": "talks/quantum-circuits-1/index.html#graphical-notation",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Graphical notation",
     "text": "Graphical notation\n\n\n\nSee Pan Zhang’s tutorial"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#unitary-gates-one-qubit",
     "href": "talks/quantum-circuits-1/index.html#unitary-gates-one-qubit",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Unitary gates: one qubit",
-    "text": "Unitary gates: one qubit\n\nMultiplication by a Pauli matrix: \\(X\\), \\(Y\\), or \\(Z\\).\nGeneral case \\(U = a_0\\mathbb{1} + \\vectorbold{a}\\cdot(X,Y,Z)\\) with \\(|a_0|^2+|\\vectorbold{a}|^2=1\\)\nOther special cases used in quantum information e.g. Hadamard gate \\[\nH = \\frac{1}{\\sqrt{2}}\\begin{pmatrix}\n1 & 1 \\\\\n1 & -1\n\\end{pmatrix}\n\\]"
+    "text": "Unitary gates: one qubit\n\nMultiplication by a Pauli matrix: \\(X\\), \\(Y\\), or \\(Z\\).\nGeneral case \\(U = a_0\\mathbb{1} + \\mathbf{a}\\cdot(X,Y,Z)\\) with \\(|a_0|^2+|\\mathbf{a}|^2=1\\)\nOther special cases used in quantum information e.g. Hadamard gate \\[\nH = \\frac{1}{\\sqrt{2}}\\begin{pmatrix}\n1 & 1 \\\\\n1 & -1\n\\end{pmatrix}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#two-qubits",
     "href": "talks/quantum-circuits-1/index.html#two-qubits",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Two qubits",
     "text": "Two qubits\n\nUsually write in basis \\(\\ket{00}\\), \\(\\ket{01}\\), \\(\\ket{10}\\), \\(\\ket{11}\\)\nSimplest example: SWAP gate \\[\n\\operatorname{SWAP}=\\left[\\begin{array}{llll}\n1 & 0 & 0 & 0 \\\\\n0 & 0 & 1 & 0 \\\\\n0 & 1 & 0 & 0 \\\\\n0 & 0 & 0 & 1\n\\end{array}\\right]\n\\]\nTakes product state to product state in computational basis\n\n\\[\n\\operatorname{SWAP}\\ket{10} = \\ket{01}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#square-root-of-swap",
     "href": "talks/quantum-circuits-1/index.html#square-root-of-swap",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Square root of SWAP",
     "text": "Square root of SWAP\n\\[\n\\sqrt{\\operatorname{SWAP}}=\\left[\\begin{array}{cccc}\n1 & 0 & 0 & 0 \\\\\n0 & \\frac{1}{2}(1+i) & \\frac{1}{2}(1-i) & 0 \\\\\n0 & \\frac{1}{2}(1-i) & \\frac{1}{2}(1+i) & 0 \\\\\n0 & 0 & 0 & 1\n\\end{array}\\right]\n\\]\n\nGenerates entanglement\n\n\\[\n\\sqrt{\\operatorname{SWAP}}\\ket{10} = \\frac{1}{2}\\left[(1+i)\\ket{10}+(1-i)\\ket{01}\\right]\n\\]\n\nConserves number of 1s and 0s (in fact fully rotationally invariant)\n\\(\\sqrt{\\operatorname{SWAP}}\\) and single qubit unitaries are universal gate set"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#general-two-qubit-unitary",
     "href": "talks/quantum-circuits-1/index.html#general-two-qubit-unitary",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "General two qubit unitary",
-    "text": "General two qubit unitary\n\nAny two-qubit unitary \\(U\\in \\mathcal{U(4)}\\) can be written\n\n\\[\\begin{equation}\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+),\n\\end{equation}\\]\n\n\\(u_{\\pm}, v_{\\pm} \\in SU(2)\\)\n\n\\begin{align}  V[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\  &= \\begin{bmatrix} e^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\ 0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\ 0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\ -i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\ \\end{bmatrix} \\end{align}\n\n16 parameters!"
+    "text": "General two qubit unitary\n\nAny two-qubit unitary \\(U\\in \\mathcal{U}(4)\\) can be written\n\n\\[\\begin{equation}\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+),\n\\end{equation}\\]\n\n\\(u_{\\pm}, v_{\\pm} \\in SU(2)\\)\n\n\\[\n\\begin{align}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\n\\end{bmatrix}\n\\end{align}\n\\]\n\n16 parameters!"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#time-evolution-single-qubit-gates",
     "href": "talks/quantum-circuits-1/index.html#time-evolution-single-qubit-gates",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Time evolution: single qubit gates",
     "text": "Time evolution: single qubit gates\n\nTime evolution operator \\(U=\\exp(-iHt)\\)\nIf \\(H=\\sum_j h_j\\) a sum of single qubit terms\n\n\\[\nU = \\exp(-iHt) = \\prod_j \\exp(-ih_j) = \\prod_j U_j\n\\] \\[\nU_j=\\mathbb{1}\\otimes \\ldots \\otimes\\mathbb{1} \\otimes \\overbrace{u_j}^{j\\text{th factor}} \\ldots \\otimes\\mathbb{1}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#two-qubit-gates",
     "href": "talks/quantum-circuits-1/index.html#two-qubit-gates",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Two qubit gates",
     "text": "Two qubit gates\n\nSimplest example of two qubit interaction is exchange Hamiltonian\n\n\\[\n\\begin{align}\nh_{12} &= J\\left[X\\otimes X+Y\\otimes Y+Z\\otimes Z\\right] =J\\left[X_1X_2+Y_1Y_2 + Z_1Z_2\\right]\\\\\n&=2\\operatorname{SWAP} - 1\n\\end{align}\n\\] \\[\nU(J) = \\exp(-ih_{12}) = e^{iJ}\\left[\\cos (2J) \\mathbb{1} - i\\sin (2J) \\operatorname{SWAP}\\right]\n\\]\n\nSpecial cases\n\n\\[\nU(\\pi/4)=\\operatorname{SWAP}\n\\] \\[\nU(\\pi/8)=\\sqrt{\\operatorname{SWAP}}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#time-evolution-of-chain",
     "href": "talks/quantum-circuits-1/index.html#time-evolution-of-chain",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Time evolution of chain",
     "text": "Time evolution of chain\n\\[\nH = \\sum_j h_{j,j+1}\n\\] \\[\nH_A = \\sum_j h_{2j, 2j+1}\\qquad H_B = \\sum_j h_{2j-1, 2j}\n\\] \\[\ne^{-iH_A/n}=\\prod_j U_{2j,2j+1}\\qquad e^{-iH_B/n} = \\prod_j U_{2j-1,2j}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#floquet-theory-kicked-ising-model",
     "href": "talks/quantum-circuits-1/index.html#floquet-theory-kicked-ising-model",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Floquet theory: kicked Ising model",
     "text": "Floquet theory: kicked Ising model\n\nTime dependent Hamiltonian with kicks at \\(t=0,1,2,\\ldots\\).\n\n\\[\n\\begin{aligned}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{m}\\delta(t-n)H_\\text{K}\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j,\n\\end{aligned}\n\\]\n\n“Stroboscopic” form of \\(U(t)=\\mathcal{T}\\exp\\left[-i\\int^t H_{\\text{KIM}}(t') dt'\\right]\\)\n\n\\[\n\\begin{aligned}\n  U(n_+) &= \\left[U(1_+)\\right]^n,\\qquad U(1_-) = K I_\\mathbf{h}\\\\\n  I_\\mathbf{h} &= e^{-iH_\\text{I}[\\mathbf{h}]}, \\qquad K = e^{-iH_\\text{K}}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#kim-as-a-circuit",
     "href": "talks/quantum-circuits-1/index.html#kim-as-a-circuit",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "KIM as a circuit",
     "text": "KIM as a circuit\n\n\n\n\\[\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right].\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#locality-as-a-feature-of-real-circuits",
     "href": "talks/quantum-circuits-1/index.html#locality-as-a-feature-of-real-circuits",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Locality as a feature of real circuits",
     "text": "Locality as a feature of real circuits\n\nGoogle Sycamore processor"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#hype",
     "href": "talks/quantum-circuits-1/index.html#hype",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Hype",
     "text": "Hype\n\nSampling from circuits basis of Google’s “quantum supremacy”"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#brickwork-unitary-circuits",
     "href": "talks/quantum-circuits-1/index.html#brickwork-unitary-circuits",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Brickwork unitary circuits",
     "text": "Brickwork unitary circuits\n\n\n\n\nHave causality built in"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#computational-complexity",
     "href": "talks/quantum-circuits-1/index.html#computational-complexity",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Computational complexity",
     "text": "Computational complexity\n\n\n\n\nNormally matrix-vector multiplication is \\(O(\\operatorname{dim}^2)=2^{2N}\\)\nGates are sparse so \\(O(\\operatorname{dim})=2^{N}\\), but still exponentially hard\nFor low depth \\(T&lt;N\\) move horizontally instead"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#expectation-values",
     "href": "talks/quantum-circuits-1/index.html#expectation-values",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Expectation values",
     "text": "Expectation values\n\nEvaluate \\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}=\\bra{\\Psi_0}U^\\dagger\\mathcal{O}U\\ket{\\Psi_0}\\) for local \\(\\mathcal{O}\\)\nIf \\(\\Psi_0\\) is product state top and bottom indices match"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#folded-picture",
     "href": "talks/quantum-circuits-1/index.html#folded-picture",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Folded picture",
     "text": "Folded picture\n\nRecall unitary condtion"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#brapsimathcaloketpsi-in-folded-picture",
     "href": "talks/quantum-circuits-1/index.html#brapsimathcaloketpsi-in-folded-picture",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "\\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}\\) in folded picture",
     "text": "\\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}\\) in folded picture\n\nEmergence of “light cone”"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#reduced-density-matrix",
     "href": "talks/quantum-circuits-1/index.html#reduced-density-matrix",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Reduced density matrix",
     "text": "Reduced density matrix\n\\[\n\\rho_A = \\operatorname{tr}_B\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_B\\left[U\\ket{\\Psi_0}\\bra{\\Psi_0}U^\\dagger\\right]\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#schmidt-decomposition",
     "href": "talks/quantum-circuits-1/index.html#schmidt-decomposition",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Schmidt decomposition",
     "text": "Schmidt decomposition\n\nIn \\(\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\\) any state \\(\\Psi_{AB}\\) can be written\n\n\\[\n\\ket{\\Psi_{AB}} = \\sum_{\\alpha=1}^{\\min(\\operatorname{dim} \\mathcal{H}_A, \\operatorname{dim} \\mathcal{H}_B)} \\lambda_\\alpha \\ket{u_\\alpha}_A\\otimes\\ket{v_\\alpha}_B\n\\]\n\n\\(\\ket{u_\\alpha}\\) and \\(\\ket{v_\\alpha}\\) orthonormal; \\(\\lambda_\\alpha\\geq 0\\)\n\\(\\lambda_\\alpha\\) quantify entanglement between A and B"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#apply-to-reduced-density-matrix",
     "href": "talks/quantum-circuits-1/index.html#apply-to-reduced-density-matrix",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Apply to reduced density matrix",
     "text": "Apply to reduced density matrix\n\\[\n\\begin{align}\n\\rho_A &= \\operatorname{tr}_B\\left[\\ket{\\Psi}\\bra{\\Psi}\\right] \\\\\n&= \\sum_\\alpha \\lambda_\\alpha^2 \\ket{u_\\alpha}\\bra{u_\\alpha}\n\\end{align}\n\\]\n\n\\(p_\\alpha\\equiv \\lambda_\\alpha^2\\) are the eigenvalues of \\(\\rho_A\\)"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#schmidt-rank",
     "href": "talks/quantum-circuits-1/index.html#schmidt-rank",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Schmidt rank",
     "text": "Schmidt rank\n\n\\(\\operatorname{rank}=\\min(\\operatorname{dim} \\mathcal{H}_A, \\operatorname{dim} \\mathcal{H}_B)=2^{\\min(2t-2, N_A)}\\)\nHere \\(t=4\\), \\(N_A=4\\)"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#entanglement-entropy",
     "href": "talks/quantum-circuits-1/index.html#entanglement-entropy",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Entanglement entropy",
     "text": "Entanglement entropy\n\nvon Neumann entropy of \\(\\rho_A\\)\n\n\\[\n\\begin{align}\nS_A &= -\\operatorname{tr}\\left[\\rho_A\\log \\rho_A\\right]\\\\\n&=-\\sum_\\alpha p_\\alpha \\log p_\\alpha\n\\end{align}\n\\]\n\nMaximum value for equal probabilities \\(p_\\alpha = \\frac{1}{2^{\\min(2t-2, N_A)}}\\)\n\n\\[\nS_A \\leq \\min(2t-2, N_A)\\log 2\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#entanglement-spectrum",
     "href": "talks/quantum-circuits-1/index.html#entanglement-spectrum",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Entanglement Spectrum",
     "text": "Entanglement Spectrum\n\nRényi entropies depend on eigenvalues of reduced density matrix\n\n\\[\n  S^{(n)}_A = \\frac{1}{1-n}\\log \\text{tr}\\left[\\rho^n\\right]=\\frac{1}{1-n}\\sum_\\alpha p_\\alpha^n\n\\]\n\nFor SDKIM have \\(2^{\\min(2t-2,N_A)}\\) non-zero eigenvalues all equal\n\n\\[\np_\\alpha = \\left(\\frac{1}{2}\\right)^{\\min(2t-2,N_A)}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#thermalization",
     "href": "talks/quantum-circuits-1/index.html#thermalization",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Thermalization",
     "text": "Thermalization\n\nAfter \\(N_A/2 + 1\\) steps, reduced density matrix is \\(\\propto \\mathbb{1}\\)\nAll expectations (with \\(A\\)) take on infinite temperature value"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#dual-unitarity",
     "href": "talks/quantum-circuits-1/index.html#dual-unitarity",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Dual unitarity",
     "text": "Dual unitarity\n\nRecall KIM has circuit representation\n\n\n\n\n\\[\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right].\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#kim-property",
     "href": "talks/quantum-circuits-1/index.html#kim-property",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "‘KIM’ property",
     "text": "‘KIM’ property\n\n\n\n\n(\\(q=2\\) here) Not satisfied by e.g. \\(\\operatorname{SWAP}\\)"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#rho_a-via-dual-unitarity-kim",
     "href": "talks/quantum-circuits-1/index.html#rho_a-via-dual-unitarity-kim",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "\\(\\rho_A\\) via dual unitarity + KIM",
     "text": "\\(\\rho_A\\) via dual unitarity + KIM"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#further-reading",
     "href": "talks/quantum-circuits-1/index.html#further-reading",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Further reading",
     "text": "Further reading\n\nDual unitary circuits were introduced in\n\nGopalakrishnan and Lamacraft for kicked Ising\nBertini, Kos, and Prosen in general\nPiroli et al discuss more general initial conditions"
   },
@@ -2825,14 +2825,14 @@
     "href": "talks/quantum-circuits-2/index.html#effect-of-conservation-laws",
     "title": "Quantum Circuits II",
     "section": "Effect of conservation laws",
-    "text": "Effect of conservation laws\n\n\\(SU(2)\\) preserving gate\n\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{P}_{j.j+1}\n\\]\n\\begin{multline} \\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta \\operatorname{P}_{j.j+1}\\mathcal{O} \\operatorname{P}_{j.j+1} \\\\ -i\\sin\\theta\\cos\\theta \\left[\\operatorname{P}_{j.j+1}, \\mathcal{O}\\right] \\end{multline}\n\nGenerally useful idea: consider random circuit and average\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
+    "text": "Effect of conservation laws\n\n\\(SU(2)\\) preserving gate\n\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{P}_{j.j+1}\n\\]\n\\[\n\\begin{multline}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\,\\mathcal{O} + \\sin^2\\theta \\,\\operatorname{P}_{j.j+1}\\mathcal{O} \\operatorname{P}_{j.j+1} \\\\\n-i\\sin\\theta\\cos\\theta \\left[\\operatorname{P}_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\n\\]\n\nGenerally useful idea: consider random circuit and average\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#average-dynamics",
     "href": "talks/quantum-circuits-2/index.html#average-dynamics",
     "title": "Quantum Circuits II",
     "section": "Average dynamics",
-    "text": "Average dynamics\n\\[\\begin{multline}\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\\\, \\mathcal{O} + \\sin^2\\theta_0 \\\\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics"
+    "text": "Average dynamics\n\\[\n\\begin{multline}\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\,\\mathcal{O} + \\sin^2\\theta_0 \\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\n\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#continuous-time-limit",
@@ -3201,28 +3201,28 @@
   {
     "objectID": "talks/quantum-circuits-1/index.html#gate-notation",
     "href": "talks/quantum-circuits-1/index.html#gate-notation",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Gate notation",
     "text": "Gate notation"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#unitary-condition",
     "href": "talks/quantum-circuits-1/index.html#unitary-condition",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Unitary condition",
     "text": "Unitary condition"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#dual-unitarity-in-folded-picture",
     "href": "talks/quantum-circuits-1/index.html#dual-unitarity-in-folded-picture",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "Dual unitarity in folded picture",
     "text": "Dual unitarity in folded picture"
   },
   {
     "objectID": "talks/quantum-circuits-1/index.html#kim-property-folded",
     "href": "talks/quantum-circuits-1/index.html#kim-property-folded",
-    "title": "Quantum Circuits",
+    "title": "Quantum Circuits I",
     "section": "‘KIM’ property: folded",
     "text": "‘KIM’ property: folded"
   }

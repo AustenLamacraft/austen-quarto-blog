@@ -7,6 +7,7 @@ institute: University of Cambridge
 title-slide-attributes:
   data-background-image: assets/brickwall.png
   data-background-size: contain
+  data-background-opacity: "0.2"
 format:
   revealjs:
     theme: [default, reveal_custom.scss]
@@ -17,6 +18,10 @@ format:
     html-math-method: mathjax
     preview-links: true
 ---
+
+$$
+\newcommand{\tr}{\operatorname{tr}}
+$$
 
 ## This lecture
 
@@ -102,10 +107,12 @@ $$
 U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} + i\sin\theta \operatorname{P}_{j.j+1}
 $$
 
-`\begin{multline}
-\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{P}_{j.j+1}\mathcal{O} \operatorname{P}_{j.j+1} \\
+$$
+\begin{multline}
+\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \,\mathcal{O} + \sin^2\theta \,\operatorname{P}_{j.j+1}\mathcal{O} \operatorname{P}_{j.j+1} \\
 -i\sin\theta\cos\theta \left[\operatorname{P}_{j.j+1}, \mathcal{O}\right]
-\end{multline}`
+\end{multline}
+$$
 
 - _Generally useful idea_: consider __random circuit__ and average
 
@@ -115,10 +122,12 @@ $$
 
 ## Average dynamics
 
+$$
 \begin{multline}
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
+\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \,\mathcal{O} + \sin^2\theta_0 \, P_{j.j+1}\mathcal{O} P_{j.j+1} \\
 +i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
 \end{multline}
+$$
 
 - Interpretation:
   - Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$

@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Austen Lamacraft">
   <meta name="dcterms.date" content="2023-06-13">
@@ -19,9 +19,6 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
-    /* Default styles provided by pandoc.
-    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,7 +31,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-43c786d1c8ecd919271c820feae20d09.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-db84968dd3a81be0f114100d4bbaf104.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -126,6 +123,7 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.4/dist/svg.min.js"></script>
 <meta name="twitter:title" content="Quantum Circuits I – Austen Lamacraft">
 <meta name="twitter:description" content="Circuits as many-body dynamics">
 <meta name="twitter:card" content="summary">
@@ -514,7 +512,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <ul>
 <li><span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}\)</span> has diagrammatic representation
 <div data-align="center">
-<object data="assets/expectation.svg" type="image/svg+xml" width="600">
+<object data="assets/expectation.svg" type="image/svg+xml" data-script="assets/expectation.js" width="600">
 </object>
 </div></li>
 <li>(leave initial state <span class="math inline">\(\ket{\Psi}\)</span> unspecified for the moment)</li>
@@ -542,7 +540,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <li>In folded picture expectation value <span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}\)</span> looks like this</li>
 </ul>
 <figure align="center">
-<object data="assets/folded-expectation.svg" type="image/svg+xml">
+<object data="assets/folded-expectation.svg" type="image/svg+xml" data-script="assets/folded-expectation.js">
 </object>
 <figcaption>
 Click to apply unitary condition!
@@ -562,7 +560,7 @@ Click to apply unitary condition!
 </section>
 <section class="slide level2 center">
 
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml">
+<object data="assets/reduced-density-matrix.svg" type="image/svg+xml" data-script="assets/reduced-density-matrix.js">
 </object>
 <ul>
 <li>Initial RDM of bottom part of wedge is all that matters!</li>
@@ -1299,6 +1297,46 @@ i[\mathsf{S},\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 
         }
       });
       </script>
+    <script>
+    async function inlineSVGsOnSlide(slide) {
+      const objects = slide.querySelectorAll('object[type="image/svg+xml"]:not([data-initialized])');
+      for (const obj of objects) {
+        const src = obj.getAttribute('data');
+        try {
+          const resp = await fetch(src);
+          const text = await resp.text();
+          const cleaned = text.replace(/<\?xml[\s\S]*?\?>/, '').trim();
+          const tmp = document.createElement('div');
+          tmp.innerHTML = cleaned;
+          const svgEl = tmp.firstElementChild;
+          if (svgEl) {
+            svgEl.setAttribute('data-inlined', 'true');
+            obj.parentNode.insertBefore(svgEl, obj);
+            obj.setAttribute('data-initialized', 'true');
+            obj.style.display = 'none';
+            const scriptSrc = obj.getAttribute('data-script');
+            if (scriptSrc) {
+              const scriptResp = await fetch(scriptSrc);
+              const scriptText = await scriptResp.text();
+              new Function(scriptText)();
+            }
+          }
+        } catch(e) {
+          console.error('SVG inline error:', src, e);
+        }
+      }
+    }
+    function cleanupSlide(slide) {
+      if (!slide) return;
+      slide.querySelectorAll('svg[data-inlined]').forEach(s => s.remove());
+      slide.querySelectorAll('object[data-initialized]').forEach(o => {
+        o.removeAttribute('data-initialized');
+        o.style.display = '';
+      });
+    }
+    Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
+    Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
+    </script>
     
 
 </body></html>

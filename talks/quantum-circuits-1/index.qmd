@@ -1,12 +1,13 @@
 ---
 date: 03/09/2022
 date-format: long
-title: "Quantum Circuits"
+title: "Quantum Circuits I"
 author: "Austen Lamacraft"
 institute: University of Cambridge
 title-slide-attributes:
   data-background-image: assets/brickwall.png
   data-background-size: contain
+  data-background-opacity: "0.2"
 resources:
   - assets/*.svg
   - assets/*.js
@@ -147,7 +148,7 @@ $$
 
 - Multiplication by a Pauli matrix: $X$, $Y$, or $Z$.
 
-- General case $U = a_0\mathbb{1} + \vectorbold{a}\cdot(X,Y,Z)$ with $|a_0|^2+|\vectorbold{a}|^2=1$
+- General case $U = a_0\mathbb{1} + \mathbf{a}\cdot(X,Y,Z)$ with $|a_0|^2+|\mathbf{a}|^2=1$
 
 - Other special cases used in quantum information e.g. [Hadamard gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_gate)
 $$
@@ -207,7 +208,7 @@ $$
 ## General two qubit unitary
 
 
-- Any two-qubit unitary $U\in \mathcal{U(4)}$ can be written
+- Any two-qubit unitary $U\in \mathcal{U}(4)$ can be written
 
 \begin{equation}
 U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
@@ -215,7 +216,8 @@ U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+),
 
 - $u_{\pm}, v_{\pm} \in SU(2)$
 
-`\begin{align}
+$$
+\begin{align}
  V[J_x, J_y, J_z] &= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\
  &= \begin{bmatrix}
 e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\
@@ -223,7 +225,8 @@ e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\
 0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\
 -i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\
 \end{bmatrix}
-\end{align}`
+\end{align}
+$$
 
 - 16 parameters!
 
