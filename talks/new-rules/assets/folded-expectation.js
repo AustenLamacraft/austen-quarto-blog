@@ -1,4 +1,4 @@
-SVG.on(document, 'DOMContentLoaded', function() {
+(function() {
     let circuit = SVG('#gate')
     gate = circuit.findOne('#gate')
     
@@ -80,7 +80,7 @@ SVG.on(document, 'DOMContentLoaded', function() {
         })
     })
 
-})
+})()
 
 
 

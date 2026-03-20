@@ -130,7 +130,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="assets/brickwall.png" data-background-opacity="0.2" data-background-size="contain" class="quarto-title-block center">
+<section id="title-slide" data-background-image="assets/brickwall.png" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Quantum Circuits II</h1>
 
 <div class="quarto-title-authors">
@@ -145,12 +145,6 @@ Austen Lamacraft
 </div>
 
   <p class="date">March 9, 2022</p>
-</section>
-<section class="slide level2 center">
-
-<p><span class="math display">\[
-\newcommand{\tr}{\operatorname{tr}}
-\]</span></p>
 </section>
 <section id="this-lecture" class="slide level2 center">
 <h2>This lecture</h2>
@@ -224,12 +218,7 @@ c_{\alpha \beta}(x,t) = \langle \sigma_{\alpha}(x,t) \sigma_{\beta}(0,0) \rangle
 <p><span class="math display">\[
 U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} + i\sin\theta \operatorname{P}_{j.j+1}
 \]</span></p>
-<p><span class="math display">\[
-\begin{multline}
-\mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \,\mathcal{O} + \sin^2\theta \,\operatorname{P}_{j.j+1}\mathcal{O} \operatorname{P}_{j.j+1} \\
--i\sin\theta\cos\theta \left[\operatorname{P}_{j.j+1}, \mathcal{O}\right]
-\end{multline}
-\]</span></p>
+<p><code>\begin{multline} \mathcal{O} \longrightarrow U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{P}_{j.j+1}\mathcal{O} \operatorname{P}_{j.j+1} \\ -i\sin\theta\cos\theta \left[\operatorname{P}_{j.j+1}, \mathcal{O}\right] \end{multline}</code></p>
 <ul>
 <li><p><em>Generally useful idea</em>: consider <strong>random circuit</strong> and average</p></li>
 <li><p>Take distribution <span class="math inline">\(\theta=\pm \theta_0\)</span> with <span class="math inline">\(p(\theta_0)-p(-\theta_0)\equiv \delta &gt; 0\)</span></p></li>
@@ -237,12 +226,10 @@ U_{j,j+1} = \cos\theta \mathbb{1}_{j,j+1} + i\sin\theta \operatorname{P}_{j.j+1}
 </section>
 <section id="average-dynamics" class="slide level2 center">
 <h2>Average dynamics</h2>
-<p><span class="math display">\[
-\begin{multline}
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \,\mathcal{O} + \sin^2\theta_0 \, P_{j.j+1}\mathcal{O} P_{j.j+1} \\
+<p><span class="math display">\[\begin{multline}
+\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, P_{j.j+1}\mathcal{O} P_{j.j+1} \\\\
 +i\delta \sin\theta_0\cos\theta_0 \left[P_{j.j+1}, \mathcal{O}\right]
-\end{multline}
-\]</span></p>
+\end{multline}\]</span></p>
 <ul>
 <li>Interpretation:
 <ul>

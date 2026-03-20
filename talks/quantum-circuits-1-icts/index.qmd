@@ -1,13 +1,17 @@
 ---
 date: 06/13/2023
 date-format: long
-title: "Quantum Circuits I"
-subtitle: "Circuits as many-body dynamics"
+title: "Quantum Circuits I: Circuits as many-body dynamics"
+subtitle: |
+  Lectures on Quantum Circuits at ICTS Bangalore
+
+  [austen.uk/talks/quantum-circuits-1-icts](https://austen.uk/talks/quantum-circuits-1-icts) for slides
 author: "Austen Lamacraft"
 institute: University of Cambridge
 title-slide-attributes:
   data-background-image: assets/brickwall.png
   data-background-size: contain
+  data-background-opacity: "0.2"
 resources:
   - assets/*.svg
   - assets/*.js
@@ -67,11 +71,11 @@ format:
     preview-links: true
 ---
 
+## Outline
+
 $\newcommand{\abs}[1]{\left|#1\right|}$
 $\newcommand{\tr}{\operatorname{tr}}$
 $\newcommand{\sgn}{\operatorname{sgn}}$
-
-## Outline
 
 - This lecture
 

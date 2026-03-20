@@ -19,11 +19,11 @@ format:
     preview-links: true
 ---
 
+## This lecture
+
 $$
 \newcommand{\tr}{\operatorname{tr}}
 $$
-
-## This lecture
 
 - Correlations near the light cone (see [Claeys and Lamacraft](https://journals.aps.org/prresearch/abstract/10.1103/PhysRevResearch.2.033032) for details)
 

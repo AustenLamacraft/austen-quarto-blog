@@ -123,6 +123,7 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.3/lib/p5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.2.4/dist/svg.min.js"></script>
 <meta name="twitter:title" content="New Rules – Austen Lamacraft">
 <meta name="twitter:description" content="Quantum Circuits, Cellular Automata, Complexity and Chaos">
@@ -1399,6 +1400,11 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
     }
     Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
     Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
+    new p5(life, 'life');
+    new p5(elementary, 'elementary-ca');
+    new p5(difference, 'difference');
+    new p5(pca, 'pca-chaos');
+    new p5(block, 'block');
     </script>
     
 
