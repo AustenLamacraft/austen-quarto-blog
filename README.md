@@ -57,7 +57,7 @@ institute: University of Cambridge
 
 Talks updates so far 
 
-- All talks up to and including "Quantum circuits I" have been updated. Next to update "New Rules".
+- All talks up to and including "New Rules" have been updated. Next to update: second "New Rules" talk.
 
 ## Other
 

@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.35">
 
   <meta name="author" content="Austen Lamacraft">
   <meta name="dcterms.date" content="2022-07-07">
@@ -19,6 +19,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,7 +34,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-db84968dd3a81be0f114100d4bbaf104.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-43c786d1c8ecd919271c820feae20d09.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -445,47 +448,41 @@ give each pixel a random Pokemon type, and then battle pixels against their neig
 </section>
 <section class="slide level2 center">
 
-<div>
-<blockquote class="twitter-tweet" align="center">
-<p lang="en" dir="ltr">
-given these four jigsaw pieces, there is only one way to fill in the rest of the puzzle. The solution ends up drawing a Sierpinski triangle. Can you see why? <a href="https://t.co/OvxVz2oehy">pic.twitter.com/OvxVz2oehy</a>
-</p>
-— Matt Henderson (<span class="citation" data-cites="matthen2">@matthen2</span>) <a href="https://twitter.com/matthen2/status/1529552315337818112?ref_src=twsrc%5Etfw">May 25, 2022</a>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</blockquote></div>
-<hr>
-<section id="reversible-models" class="slide level2 center">
-<h2>24 reversible models</h2>
+<h3 id="reversible-models">24 reversible models</h3>
 <ul>
 <li><p>Each block a permutation of 00, 01, 10, 11</p></li>
 <li><p><span class="math inline">\(4!=24\)</span> blocks</p></li>
-<li><p>Order:</p>
+<li><p>Order</p>
 <ol type="1">
-<li><ol start="1234" type="1">
-<li></li>
+<li>Identity: (1234)</li>
+<li>Swap 10 and 11: (1243)</li>
+<li>Swap 01 and 10: (1324)</li>
+<li>…</li>
 </ol></li>
-<li><ol start="1243" type="1">
-<li></li>
-</ol></li>
-<li>(1324), and so on</li>
-</ol></li>
-<li><p>Block 2 is the map <span class="math inline">\((00, 01, 10, 11) ⟶ (00, 10, 01, 11)\)</span></p></li>
+<li><p>Block 3 is the map <span class="math inline">\((00, 01, 10, 11) ⟶ (00, 10, 01, 11)\)</span></p></li>
 <li><p>Exchange, or SWAP gate in quantum information</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
+<h3 id="reversible-vs.-irreversible-cas">Reversible vs.&nbsp;irreversible CAs</h3>
 <script src="assets/block-ca.js"></script>
 <figure align="center">
 <div id="block" style="display: inline-block; position: relative">
 
 </div>
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="ensemble-of-block-cas">Ensemble of block CAs</h3>
 <ul>
 <li><p>Results qualitatively similar to chaotic phase of of PCA</p></li>
 <li><p>No phase transition because all blocks are reversible</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="dual-reversibility">Dual reversibility</h3>
 <ul>
 <li><p>Can we find an ensemble where front propagates at maximal speed?</p></li>
@@ -493,14 +490,18 @@ given these four jigsaw pieces, there is only one way to fill in the rest of the
 <li><p>There are 12 such blocks (out of 24)</p></li>
 <li><p>Ensemble is Markov in time <em>and space</em>: must have maximal velocity!</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="mutual-information">Mutual information</h3>
 <ul>
 <li><p>Disjoint regions <span class="math inline">\(A\)</span> and <span class="math inline">\(\bar A\)</span>: how much does one tell about the other?</p></li>
 <li><p>Use <a href="https://en.wikipedia.org/wiki/Mutual_information">mutual information</a>: measure of dependence of random variables</p></li>
 <li><p>Suggested in this context by <a href="https://arxiv.org/abs/2204.03016">Pizzi <em>et al.</em> (2022)</a></p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <ul>
 <li>MI defined as <span class="math display">\[
 I(X;Y) \equiv S(X) + S(Y) - S(X,Y)
@@ -512,7 +513,9 @@ I(X;Y) \equiv S(X) + S(Y) - S(X,Y)
 </ul></li>
 <li>Vanishes if <span class="math inline">\(p_{(X,Y)}(x,y)=p_X(x)p_Y(y)\)</span></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="simple-example">Simple example</h3>
 <ul>
 <li>Suppose either <span class="math inline">\(X=Y=1\)</span> or <span class="math inline">\(X=Y=0\)</span>, with equal probability</li>
@@ -526,7 +529,9 @@ p_{(X,Y)}(1,0)&amp;=p_{(X,Y)}(0,1)=0
 <p><span class="math display">\[
 I(X;Y)=S(X) + S(Y) - S(X,Y)= 1+1-1=1 \text{ bit}
 \]</span></p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="toy-model">Toy model</h3>
 <figure align="center">
 <img src="assets/bell-swap.png" width="100%">
@@ -542,17 +547,19 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <ul>
 <li><span class="math inline">\(|A|\)</span> is (even) number of sites in <span class="math inline">\(A\)</span></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="comments">Comments</h3>
 <ul>
 <li><p>Total entropy conserved (c.f Liouville’s theorem)</p></li>
 <li><p>Entropy of initial distribution is half max, but entropy <span class="math inline">\(S(A)\)</span> saturates at maximal value (thermalization in time <span class="math inline">\(\sim |A|/2\)</span>)</p></li>
 <li><p>This model is <em>not so special!</em> Any of the dual reversible blocks CAs behaves <em>exactly the same!</em></p></li>
 </ul>
-<hr>
 </section>
-<section id="summary-so-far" class="slide level2 center">
-<h2>Summary so far</h2>
+<section class="slide level2 center">
+
+<h3 id="summary-so-far">Summary so far</h3>
 <ul>
 <li><p>CAs as dynamical systems: chaotic fronts and information dynamics</p></li>
 <li><p>Dynamical ensembles as a theoretical tool</p></li>
@@ -560,7 +567,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <p align="center" class="fragment">
 <strong>How can we extend these ideas to quantum systems?</strong>
 </p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="bits-to-qubits">Bits to qubits</h3>
 <table class="caption-top">
 <colgroup>
@@ -598,7 +607,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 </tr>
 </tbody>
 </table>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="why-consider-circuits">Why consider circuits?</h3>
 <ul>
 <li><p>Model of universal quantum computation</p></li>
@@ -607,7 +618,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <p align="center" class="fragment">
 <strong>Everyone’s doing it!</strong>
 </p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="unitaries">Unitaries</h3>
 <ul>
 <li><p><span class="math inline">\(n\)</span>-qubit unitary has matrix elements <span class="math inline">\(U_{x_1\ldots x_n,x'_1,\ldots, x'_n}\)</span> in <em>computational basis</em> <span class="math inline">\(\ket{0}\)</span>, <span class="math inline">\(\ket{1}\)</span></p></li>
@@ -619,7 +632,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <ul>
 <li>But we’d like to avoid such awful looking expressions</li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="everythings-a-tensor">Everything’s a tensor!!</h3>
 <ul>
 <li>General state of <span class="math inline">\(N\)</span> qubits is</li>
@@ -634,7 +649,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 <p><span class="math display">\[
 \mathcal{O}_{x_{1:N},x'_{1:N}} = \bra{x_{1:N}}\mathcal{O}\ket{x'_{1:N}}
 \]</span></p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="penrose-graphical-notation"><a href="https://en.wikipedia.org/wiki/Penrose_graphical_notation">Penrose graphical notation</a></h3>
 <figure align="center">
 <img src="assets/tensors.png" width="70%">
@@ -642,7 +659,9 @@ I(A;\bar A) = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
 See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</a>
 </figcaption>
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="brickwork-unitary-circuits">Brickwork unitary circuits</h3>
 <p align="center">
 <img src="assets/brickwall.png" width="450">
@@ -651,7 +670,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <li>Have <strong>causality</strong> built in</li>
 <li>Quantum analog of (block) CAs</li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="some-gates">Some gates</h3>
 <ul>
 <li><p>Work in the basis <span class="math inline">\(\ket{00}\)</span>, <span class="math inline">\(\ket{01}\)</span>, <span class="math inline">\(\ket{10}\)</span>, <span class="math inline">\(\ket{11}\)</span></p></li>
@@ -671,7 +692,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <p><span class="math display">\[
 \operatorname{SWAP}\ket{10} = \ket{01}
 \]</span></p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="square-root-of-swap">Square root of SWAP</h3>
 <p><span class="math display">\[
 \sqrt{\operatorname{SWAP}}=\begin{pmatrix}
@@ -690,14 +713,18 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <ul>
 <li><span class="math inline">\(\sqrt{\operatorname{SWAP}}\)</span> and single qubit unitaries are <strong>universal gate set</strong></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="gate-notation">Gate notation</h3>
 <ul>
 <li>We need both <span class="math inline">\(U\)</span>s and <span class="math inline">\(U^\dagger\)</span>s (e.g.&nbsp;for <span class="math inline">\(\mathcal{O}(t)=U^\dagger(t)\mathcal{O}U(t)\)</span>)</li>
 </ul>
 <object data="assets/matrix_elements.svg" type="image/svg+xml">
 </object>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="unitary-condition">Unitary condition</h3>
 <figure align="center">
 <img src="assets/diag_unitarity.png" width="70%">
@@ -705,7 +732,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <ul>
 <li>Much better!</li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="locality-as-a-feature-of-real-circuits">Locality as a feature of real circuits</h3>
 <figure align="center">
 <img src="assets/google-sycamore-schematic.png" width="400"> <img src="assets/google-sycamore-photo.png" width="400">
@@ -713,7 +742,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 (left) Schematic view of the Google Sycamore processor (right)
 </figcaption>
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="hype">Hype</h3>
 <ul>
 <li>Sampling from circuits basis of <a href="https://www.nature.com/articles/s41586-019-1666-5">Google’s “quantum supremacy”</a></li>
@@ -724,7 +755,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <p align="center" class="fragment">
 <img src="assets/google-quantum-crypto.png" width="800">
 </p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="computational-complexity">Computational complexity</h3>
 <p align="center">
 <img src="assets/brickwall.png" width="450">
@@ -734,7 +767,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <li><p>Gates are <em>sparse</em> so <span class="math inline">\(O(\operatorname{dim})=2^{N}\)</span>, but <em>still exponentially hard</em></p></li>
 <li><p>For low depth <span class="math inline">\(T&lt;N\)</span> move <em>horizontally</em> instead</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="expectation-values">Expectation values</h3>
 <ul>
 <li>Evaluate <span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}=\bra{\Psi_0}\mathcal{U}^\dagger\mathcal{O}\mathcal{U}\ket{\Psi_0}\)</span> for local <span class="math inline">\(\mathcal{O}\)</span></li>
@@ -743,7 +778,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <object data="assets/expectation.svg" type="image/svg+xml" data-script="assets/expectation.js" width="600">
 </object>
 </div>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="folded-picture">Folded picture</h3>
 <figure align="center">
 <img src="assets/diag_folded.png" width="60%">
@@ -751,7 +788,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <ul>
 <li>After folding, lines correspond to two indices / 4 dimensions</li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="unitarity-in-folded-picture">Unitarity in folded picture</h3>
 <ul>
 <li>Circle denotes <span class="math inline">\(\delta_{ab}\)</span></li>
@@ -759,14 +798,18 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <figure align="center">
 <img src="assets/folded-unitarity.png" width="60%">
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="brapsimathcaloketpsi-in-folded-picture"><span class="math inline">\(\bra{\Psi}\mathcal{O}\ket{\Psi}\)</span> in folded picture</h3>
 <ul>
 <li>Emergence of “light cone”</li>
 </ul>
 <object data="assets/folded-expectation.svg" type="image/svg+xml" data-script="assets/folded-expectation.js">
 </object>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="reduced-density-matrix">Reduced density matrix</h3>
 <ul>
 <li>Expectation values in region <span class="math inline">\(A\)</span> evaluated using <em>reduced density matrix</em></li>
@@ -776,7 +819,9 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 \]</span></p>
 <object data="assets/reduced-density-matrix.svg" type="image/svg+xml" data-script="assets/reduced-density-matrix.js">
 </object>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="entanglement-entropy">Entanglement entropy</h3>
 <ul>
 <li><p><span class="math inline">\(\rho_A\)</span> very useful for quantifying <em>entanglement</em></p></li>
@@ -787,17 +832,21 @@ See <a href="https://github.com/ey3lock3r/MPS-Tutorial">Pan Zhang’s tutorial</
 <p><span class="math display">\[
 S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 \]</span></p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="toy-model-revisted">Toy model revisted</h3>
 <figure align="center">
 <img src="assets/bell-swap.png" width="100%">
 </figure>
 <ul>
-<li><p>Each pair in <a href="https://en.wikipedia.org/wiki/Bell_state">Bell state</a> $ _{2n, 2n+1} = $</p></li>
+<li><p>Each pair in <a href="https://en.wikipedia.org/wiki/Bell_state">Bell state</a> <span class="math inline">\(\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]\)</span></p></li>
 <li><p>Reduced density matrix for one member: <span class="math inline">\(\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1\)</span></p></li>
 <li><p>Entanglement entropy of 1 bit</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <figure align="center">
 <img src="assets/bell-swap.png" width="100%">
 </figure>
@@ -810,7 +859,9 @@ S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 <li><p>Only first case contributes to $ S_A = (4t/2, |A|) $</p></li>
 <li><p>Just like mutual information in classical version!</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="dual-unitary-gates">Dual unitary gates</h3>
 <ul>
 <li>Exactly the same behavior for all unitaries satisfying</li>
@@ -823,7 +874,9 @@ S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 <li><p>Proof: apply unitary and dual unitary conditions</p></li>
 <li><p>Converse – maximal entanglement growth implies dual unitary gates – recently proved by <a href="https://arxiv.org/abs/2204.10341">Zhou and Harrow (2022)</a></p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="the-dual-unitary-family">The dual unitary family</h3>
 <ul>
 <li><p><span class="math inline">\(4\times 4\)</span> unitaries are 16-dimensional</p></li>
@@ -831,14 +884,18 @@ S_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right].
 <li><p>Includes <em>kicked Ising model</em> at particular values of couplings</p></li>
 <li><p>Dual unitaries not “integrable” but have enough structure to allow many calculations</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="operator-spreading">Operator spreading</h3>
 <ul>
 <li><p>Heisenberg picture: <span class="math inline">\(Z_n(t)=\mathcal{U}^\dagger(t)Z_n \mathcal{U}(t)\)</span></p></li>
 <li><p>Might use <span class="math inline">\(Z_n(t)\)</span> to evaluate correlation <span class="math inline">\(\langle Z_n(t)Z_m(0) \rangle\)</span></p></li>
 <li><p>How does <span class="math inline">\(Z_n(t)\)</span> <em>look</em>?</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="expansion-in-operator-basis">Expansion in operator basis</h3>
 <ul>
 <li><p>Expand <span class="math inline">\(Z_n(t)\)</span> in products of local operators <span class="math inline">\(X_m\)</span>, <span class="math inline">\(Y_m\)</span>, <span class="math inline">\(Z_m\)</span>, <span class="math inline">\(\mathbb{1}_m\)</span></p></li>
@@ -852,14 +909,18 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\m
 <li>The number of sites <span class="math inline">\(\neq\mathbb{1}\)</span> (known as <strong>operator spreading</strong>)</li>
 <li>The number of different contributions (or <strong>operator entanglement</strong>)</li>
 </ol>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <ul>
 <li><p>Operator spreading closely analogous to chaotic fronts in CAs</p></li>
 <li><p>Introduce ensemble of random circuits. <span class="math inline">\(\mathcal{C}_{\mu_{1:N}}(t)\)</span> become random</p></li>
 <li><p>Fluctuating signs mean <span class="math inline">\(\langle Z_n(t)Z_m(0) \rangle\)</span> will tend to average to zero</p></li>
 <li><p>c.f. a single PCA trajectory appears as white noise</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="out-of-time-order-correlator">Out of time order correlator</h3>
 <p><span class="math display">\[
 \operatorname{OTOC}_{nm}(t) \equiv \langle Z_n(t)Z_m(0)Z_n(t)Z_m(0)\rangle.
@@ -875,7 +936,9 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\m
 <li><p>Characteristic speed of propagation is “butterfly velocity” <span class="math inline">\(v_\text{B}\)</span></p></li>
 <li><p>OTOC quantum analog of bitstring differences <span class="math inline">\(z_t=x_t\oplus y_t\)</span> in CAs.</p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="googles-otoc-experiment">Google’s OTOC experiment</h3>
 <figure align="center">
 <img src="assets/google-otoc.png" width="1000">
@@ -883,7 +946,9 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{0,1,2,3\\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\m
 The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> gates (top) and <span class="math inline">\(\sqrt{i\operatorname{SWAP}}\)</span> (bottom) after averaging over single qubit gates.
 </figcaption>
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="quantum-advantage">Quantum advantage?</h3>
 <ul>
 <li><p><span class="math inline">\(\overline{\operatorname{OTOC}}\)</span> can be expressed as a Markov process</p></li>
@@ -892,12 +957,16 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
 <p align="center" class="fragment">
 <strong>Aren’t quantum computers supposed to do things that classical computers find hard?</strong>
 </p>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <ul>
 <li><p><em>Averaging</em> is what enables efficient classical algorithms</p></li>
 <li><p>For a <em>given</em> circuit (no averaging), <strong>no probabilistic interpretation</strong></p></li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="frontier-measurements">Frontier: measurements</h3>
 <ul>
 <li><p>Unitary evolution not the only game in town!</p></li>
@@ -907,7 +976,9 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
 <figure align="center">
 <img src="assets/measurement-circuit.png" width="70%">
 </figure>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <ul>
 <li><p><span class="math inline">\(∃\)</span> phase transition where entanglement vanishes at finite measurement rate (<a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.134306">Y Li, X Chen, MPA Fisher (2019)</a>, <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.031009">B Skinner, J Ruhman, A Nahum (2019)</a>)</p></li>
 <li><p>Alternative viewpoint: an initially mixed state is <em>purified</em> by (strong enough) measurements (<a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041020">MJ Gullans, DA Huse (2020)</a>)</p></li>
@@ -918,16 +989,18 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
 <ul>
 <li>All states purify, but on exponentially long times below transition</li>
 </ul>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <ul>
 <li><p>Measurements purify state; analogous to non-injective rules in CA</p></li>
 <li><p>It was a surprise that a mixed state survives finite measurement rate</p></li>
 <li><p>But… a chaotic front survives non-injective rules (up to a point)</p></li>
 </ul>
-<hr>
 </section>
-<section id="summary-of-analogies" class="slide level2 center">
-<h2>Summary of analogies</h2>
+<section class="slide level2 center">
+
+<h3 id="summary-of-analogies">Summary of analogies</h3>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -967,23 +1040,24 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
 <blockquote>
 <p>Thanks to Pieter Claeys, Jonah Herzog-Arbeitman, and Sarang Gopalakrishnan for sharing their ideas</p>
 </blockquote>
-<hr>
+</section>
+<section class="slide level2 center">
+
 <h3 id="further-reading">Further reading</h3>
-<p>[Links at <a href="https://austen.uk/talks/new-rules">austen.uk/talks/new-rules</a>] - Review on random circuits <a href="https://arxiv.org/abs/2111.08018">Andrew Potter, Romain Vasseur (2021)</a></p>
 <ul>
-<li>Transition to chaos in CA closely linked to <a href="http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems">synchronization of extended chaotic systems</a></li>
+<li><p>Links at <a href="https://austen.uk/talks/new-rules">austen.uk/talks/new-rules</a></p></li>
+<li><p>Review on random circuits <a href="https://arxiv.org/abs/2111.08018">Andrew Potter, Romain Vasseur (2021)</a></p></li>
+<li><p>Transition to chaos in CA closely linked to <a href="http://www.scholarpedia.org/article/Synchronization_of_extended_chaotic_systems">synchronization of extended chaotic systems</a></p></li>
 </ul>
 
 
 </section>
-</section></div>
-
-    <div class="quarto-auto-generated-content" style="display: none;">
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 
 </div>
 </div></div>
-  
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="../../site_libs/revealjs/dist/reveal.js"></script>
@@ -1400,11 +1474,6 @@ The measured OTOC for <span class="math inline">\(i\operatorname{SWAP}\)</span> 
     }
     Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
     Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
-    new p5(life, 'life');
-    new p5(elementary, 'elementary-ca');
-    new p5(difference, 'difference');
-    new p5(pca, 'pca-chaos');
-    new p5(block, 'block');
     </script>
     
 

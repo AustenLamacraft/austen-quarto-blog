@@ -53,11 +53,6 @@ include-after-body:
       }
       Reveal.on('ready', e => inlineSVGsOnSlide(e.currentSlide));
       Reveal.on('slidechanged', e => { cleanupSlide(e.previousSlide); inlineSVGsOnSlide(e.currentSlide); });
-      new p5(life, 'life');
-      new p5(elementary, 'elementary-ca');
-      new p5(difference, 'difference');
-      new p5(pca, 'pca-chaos');
-      new p5(block, 'block');
       </script>
 format:
   revealjs:
@@ -323,28 +318,26 @@ $$
 
 ---
 
-<div>
-<blockquote class="twitter-tweet" align="center"><p lang="en" dir="ltr">given these four jigsaw pieces, there is only one way to fill in the rest of the puzzle. The solution ends up drawing a Sierpinski triangle. Can you see why? <a href="https://t.co/OvxVz2oehy">pic.twitter.com/OvxVz2oehy</a></p>&mdash; Matt Henderson (@matthen2) <a href="https://twitter.com/matthen2/status/1529552315337818112?ref_src=twsrc%5Etfw">May 25, 2022</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</div>
-
----
-
-## 24 reversible models
+### 24 reversible models
 
 - Each block a permutation of 00, 01, 10, 11
 
 - $4!=24$ blocks
 
-- Order:
-  1. (1234)
-  2. (1243)
-  3. (1324), and so on
+- Order
 
-- Block 2 is the map $(00, 01, 10, 11) ⟶ (00, 10, 01, 11)$
+    1. Identity: (1234) 
+    2. Swap 10 and 11: (1243)
+    3. Swap 01 and 10: (1324)
+    4. ... 
+
+- Block 3 is the map $(00, 01, 10, 11) ⟶ (00, 10, 01, 11)$
 
 - Exchange, or SWAP gate in quantum information
 
 ---
+
+### Reversible vs. irreversible CAs
 
 <script src="assets/block-ca.js"></script>
 <figure align="center">
@@ -440,7 +433,7 @@ $$
 
 ---
 
-## Summary so far
+### Summary so far
 
 - CAs as dynamical systems: chaotic fronts and information dynamics
 
@@ -705,9 +698,7 @@ $$
 <img src="assets/bell-swap.png" width="100%"/>
 </figure>
 
-- Each pair in [Bell state](https://en.wikipedia.org/wiki/Bell_state) $
-\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]
-$
+- Each pair in [Bell state](https://en.wikipedia.org/wiki/Bell_state) $\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_{2n}\ket{1}_{2n+1}\right]$
 
 - Reduced density matrix for one member: $\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1$
 
@@ -882,7 +873,7 @@ $$
 
 ---
 
-## Summary of analogies
+### Summary of analogies
 
 |   |Cellular Automata	| Quantum Circuits |
 |--- |---	| --- |
@@ -898,7 +889,7 @@ $$
 
 ### Further reading
 
-[Links at [austen.uk/talks/new-rules](https://austen.uk/talks/new-rules)]
+- Links at [austen.uk/talks/new-rules](https://austen.uk/talks/new-rules)
 - Review on random circuits [Andrew Potter, Romain Vasseur (2021)](https://arxiv.org/abs/2111.08018)
 
 - Transition to chaos in CA closely linked to [synchronization of extended chaotic systems

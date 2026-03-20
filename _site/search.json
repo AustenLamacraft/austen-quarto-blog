@@ -758,217 +758,217 @@
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#outline",
     "href": "talks/quantum-circuits-1-icts/index.html#outline",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Outline",
-    "text": "Outline\n\\(\\newcommand{\\abs}[1]{\\left|#1\\right|}\\) \\(\\newcommand{\\tr}{\\operatorname{tr}}\\) \\(\\newcommand{\\sgn}{\\operatorname{sgn}}\\)\n\nThis lecture\n\nWhat is a quantum circuit?\nWhat are the quantities of interest?\n\nNext lecture\n\nSome special kinds of circuits"
+    "text": "Outline\n\nThis lecture\n\nWhat is a quantum circuit?\nWhat are the quantities of interest?\n\nNext lecture\n\nSome special kinds of circuits"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#what-is-a-quantum-circuit",
     "href": "talks/quantum-circuits-1-icts/index.html#what-is-a-quantum-circuit",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "What is a quantum circuit?",
     "text": "What is a quantum circuit?\n\nA way to describe operations on quantum state, usually consisting of several qubits (spin 1/2 subsystems with Hilbert space \\(\\mathbb{C}^2\\))\nTwo quantum states \\(\\ket{0}\\) and \\(\\ket{1}\\) define the computational basis.\n\n\n\n\n\n\\(f\\) acts on top five qubits, then \\(g\\) acts on lower seven"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#possible-operations",
     "href": "talks/quantum-circuits-1-icts/index.html#possible-operations",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Possible operations",
     "text": "Possible operations\n\n\n\nSource: Wikipedia\n\n\n\n\\(H\\) (a Hadamard gate) is a single qubit unitary\nAlso two qubit unitary gates (CNOT here)\nMeasurements"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#why-consider-circuits",
     "href": "talks/quantum-circuits-1-icts/index.html#why-consider-circuits",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Why consider circuits?",
     "text": "Why consider circuits?\n\nFor this program: example of discrete time, many body dynamics\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nThey exist! Companies (Google, IBM, etc.) have built platforms for gate-based QC"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#unitary-circuits",
     "href": "talks/quantum-circuits-1-icts/index.html#unitary-circuits",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Unitary circuits",
     "text": "Unitary circuits\n\n(Mostly) concerned with unitary circuits made from unitary gates\nGate is \\(n\\)-qubit unitary \\(U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n}\\)\n\n\\[\n\\sum_{s_1'\\ldots s_N'}U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n} U^\\dagger_{s'_1\\ldots s'_n,s''_1,\\ldots, s''_n}=\\delta_{s_1,s_1''}\\ldots \\delta_{s_N,s_N''}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#everything-is-a-tensor",
     "href": "talks/quantum-circuits-1-icts/index.html#everything-is-a-tensor",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Everything is a tensor",
     "text": "Everything is a tensor\n\nState of \\(N\\) qubits expressed in product basis\n\n\\[\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\\]\n\nWrite \\(\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N =\\ket{s_1\\cdots s_N}=\\ket{s_{1:N}}\\) for brevity\nOperator on \\(N\\) qubits has matrix elements\n\n\\[\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#graphical-notation",
     "href": "talks/quantum-circuits-1-icts/index.html#graphical-notation",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Graphical notation",
     "text": "Graphical notation\n\nA tensor is denoted by a blob with one leg for each index\nConnecting legs denotes contraction: summing over a shared index\n\n\n\n\nSee Glen Evenbly’s tensor contraction tutorial"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#unitary-gates-one-qubit",
     "href": "talks/quantum-circuits-1-icts/index.html#unitary-gates-one-qubit",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Unitary gates: one qubit",
     "text": "Unitary gates: one qubit\n\nMultiplication by a Pauli matrix: \\(X\\), \\(Y\\), or \\(Z\\).\nGeneral case \\(U = a_0\\mathbb{1} + \\mathbf{a}\\cdot(X,Y,Z)\\) with \\(|a_0|^2+|\\mathbf{a}|^2=1\\)\nOther special cases used in quantum information e.g. Hadamard gate\n\n\\[\nH = \\frac{1}{\\sqrt{2}}\\begin{pmatrix}\n1 & 1 \\\\\\\\\n1 & -1\n\\end{pmatrix}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#two-qubits",
     "href": "talks/quantum-circuits-1-icts/index.html#two-qubits",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Two qubits",
     "text": "Two qubits\n\nWork in basis \\(\\ket{00}\\), \\(\\ket{01}\\), \\(\\ket{10}\\), \\(\\ket{11}\\)\nSimplest example is SWAP gate\n\n\\[\n\\operatorname{SWAP}=\\begin{pmatrix}\n1 & 0 & 0 & 0 \\\\\\\n0 & 0 & 1 & 0 \\\\\\\n0 & 1 & 0 & 0 \\\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix}\n\\].\n\\[\n\\operatorname{SWAP}\\ket{10} = \\ket{01}\n\\]\n\nSWAP takes product states to product states"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#general-two-qubit-unitary",
     "href": "talks/quantum-circuits-1-icts/index.html#general-two-qubit-unitary",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "General two qubit unitary",
     "text": "General two qubit unitary\n\nAny two-qubit unitary \\(U\\in \\mathcal{U(4)}\\) can be written\n\n\\[\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\\]\n\n\\(u_{\\pm}, v_{\\pm} \\in SU(2)\\)\n\n\\[\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n\\end{bmatrix}\n\\end{align*}\n\\]\n\n16 parameters!"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#time-evolution",
     "href": "talks/quantum-circuits-1-icts/index.html#time-evolution",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Time evolution",
     "text": "Time evolution\nSingle qubit gates\n\nTime evolution operator \\(U=\\exp(-iHt)\\)\nIf \\(H=\\sum_j h_j\\) a sum of single qubit terms\n\n\\[\n\\mathcal{U} = \\exp(-iHt) = \\prod_j \\exp(-ih_j) = \\prod_j U_j\n\\] \\[\nU_j=\\mathbb{1}\\otimes \\ldots \\otimes\\mathbb{1} \\otimes \\overbrace{u_j}^{j\\text{th factor}} \\ldots \\otimes\\mathbb{1}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#floquet-theory-kicked-ising-model",
     "href": "talks/quantum-circuits-1-icts/index.html#floquet-theory-kicked-ising-model",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Floquet theory: kicked Ising model",
     "text": "Floquet theory: kicked Ising model\n\nTime dependent Hamiltonian with kicks at \\(t=0,1,2,\\ldots\\).\n\n\\[\n\\begin{align*}\nH_{\\text{KIM}}(t) = H_\\text{I}[\\mathbf{h}] + \\sum_{n}\\delta(t-n)H_\\text{K}\\\\\\\nH_\\text{I}[\\mathbf{h}]=\\sum_{j=1}^L\\left[J Z_j Z_{j+1} + h_j Z_j\\right],\\qquad H_\\text{K} &= b\\sum_{j=1}^L X_j,\n\\end{align*}\n\\]\n\n“Stroboscopic” form of \\(\\mathcal{U}(t)=\\mathcal{T}\\exp\\left[-i\\int^t H_{\\text{KIM}}(t') dt'\\right]\\)\n\n\\[\n\\begin{aligned}\n  \\mathcal{U}(n_+) &= \\left[\\mathcal{U}(1_+)\\right]^n,\\qquad U(1_-) = K I_\\mathbf{h}\\\\\\\n  I_\\mathbf{h} &= e^{-iH_\\text{I}[\\mathbf{h}]}, \\qquad K = e^{-iH_\\text{K}}\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#kim-as-a-circuit",
     "href": "talks/quantum-circuits-1-icts/index.html#kim-as-a-circuit",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "KIM as a circuit",
     "text": "KIM as a circuit\n\n\n\n\\[\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#locality",
     "href": "talks/quantum-circuits-1-icts/index.html#locality",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Locality",
     "text": "Locality\n\nLocality a feature of real quantum computing architectures\n\n\n \n\n(top) a schematic view of the Google Sycamore processor and (bottom) the real thing"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#computational-complexity",
     "href": "talks/quantum-circuits-1-icts/index.html#computational-complexity",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Computational complexity",
     "text": "Computational complexity\n\nState is vector in \\(2^N\\) dimensional space\nUpdating involves acting with a unitary matrix\nNaive matrix-vector multiplication \\(O(\\operatorname{dim}^2)=2^{2N}\\)\nSince gates gives sparse matrices update is \\(O(\\operatorname{dim})=2^{N}\\)\nStill exponentially hard in the number of qubits"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#quantum-supremacy",
     "href": "talks/quantum-circuits-1-icts/index.html#quantum-supremacy",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Quantum supremacy",
     "text": "Quantum supremacy\n\nDifficulty on classical computer basis of “quantum supremacy” based on circuit sampling\nMeasure empirical distribution of bit strings with fixed initial state\nTotal number of (time) steps \\(T\\) taken is depth of the circuit. For low depth \\(T&lt;N\\) it pays to move horizontally instead\nProblem of finding optimal contraction strategy in general is NP-hard\nGoogle’s initial claim of supremacy disputed by supercomputer optimizations, followed by improved tensor network methods: Huang et al. (2020), Gray and Kourtis (2021), Pan and Zhang (2021), Napp et al. (2022)"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#expectation-values",
     "href": "talks/quantum-circuits-1-icts/index.html#expectation-values",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Expectation values",
     "text": "Expectation values\n\nEvaluate \\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}=\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\mathcal{O}\\mathcal{U}\\ket{\\Psi_0}\\) for local operator \\(\\mathcal{O}\\)\n\nSimplest example: \\(X\\), \\(Y\\), or \\(Z\\) for one qubit\n\\(\\mathcal{U}\\) is overall unitary operator describing whole circuit"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#unitarity-in-graphical-notation",
     "href": "talks/quantum-circuits-1-icts/index.html#unitarity-in-graphical-notation",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Unitarity in graphical notation",
     "text": "Unitarity in graphical notation\n\nHave to consider both unitaries and conjugates\nIntroduce color-coded notation"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#using-unitarity",
     "href": "talks/quantum-circuits-1-icts/index.html#using-unitarity",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Using unitarity",
     "text": "Using unitarity\n\n\\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}=\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\mathcal{O}\\mathcal{U}\\ket{\\Psi_0}\\) has diagrammatic representation\n\n\n\n\n(leave initial state \\(\\ket{\\Psi}\\) unspecified for the moment)"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#folded-representations",
     "href": "talks/quantum-circuits-1-icts/index.html#folded-representations",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "“Folded” representations",
     "text": "“Folded” representations\n\nSince every \\(U\\) accompanied by \\(U^\\dagger\\), include both in single unit by “folding” one on top of the other\n\n\n\n\n\nLines correspond to two indices, and therefore \\(2^2=4\\) dimensions\nUnitarity condition takes form:"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#reduced-density-matrix",
     "href": "talks/quantum-circuits-1-icts/index.html#reduced-density-matrix",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Reduced density matrix",
     "text": "Reduced density matrix\n\nExpectation value of operator in region \\(A\\) can be computed from reduced density matrix \\(\\rho_A\\) for region \\(A\\) \\[\n\\rho_A = \\operatorname{tr}_{B}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{B}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n\\] (\\(B\\) is complement of \\(A\\))"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#quantifying-entanglement",
     "href": "talks/quantum-circuits-1-icts/index.html#quantifying-entanglement",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Quantifying entanglement",
     "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\(\\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\\)\nWrite in terms of basis vectors \\(\\ket{a}_A\\) and \\(\\ket{b}_B\\) for A and B subsystems \\[\n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n\\] \\(n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\\)\nNow regard \\(\\psi_{ab}\\) as matrix and perform a singular value decomposition"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#toy-model",
     "href": "talks/quantum-circuits-1-icts/index.html#toy-model",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Toy model",
     "text": "Toy model\n\nCircuit of SWAP gates\n\n\n\nInitial state is product of Bell states \\[\n\\ket{\\Phi^+}_{2n, 2n+1} = \\frac{1}{\\sqrt{2}}\\left[\\ket{0}_{2n}\\ket{0}_{2n+1}+ \\ket{1}_{2n}\\ket{1}_{2n+1}\\right]\n\\] \\[\n\\operatorname{tr}_{2}\\left[\\ket{\\Phi^+}_{12}\\bra{\\Phi^+}_{12}\\right] = \\frac{1}{2}\\mathbb{1}_1\n\\] with entanglement entropy of one bit"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#correlation-functions",
     "href": "talks/quantum-circuits-1-icts/index.html#correlation-functions",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Correlation functions",
     "text": "Correlation functions\n\nNatural correlation function to consider is\n\n\\[\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\tr\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\\]\n\nAverage overall all initial states uniformly\nThis is “infinite temperature”, although temperature is not defined"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#graphical-representation",
     "href": "talks/quantum-circuits-1-icts/index.html#graphical-representation",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Graphical representation",
     "text": "Graphical representation\n\\[\nc_{\\alpha \\beta}(x,t) = \\frac{1}{2^N}\\tr\\left[\\sigma_{\\alpha}(x,t) \\sigma_{\\beta}(0,0) \\right],\\qquad \\sigma_\\alpha(x,t)=\\mathcal{U}^\\dagger(t)\\sigma_\\alpha(x)\\mathcal{U}(t)\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#typical-behaviour-of-correlations",
     "href": "talks/quantum-circuits-1-icts/index.html#typical-behaviour-of-correlations",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Typical behaviour of correlations",
     "text": "Typical behaviour of correlations\n\n\n\nSource: Claeys and Lamacraft (2020)"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#operator-spreading",
     "href": "talks/quantum-circuits-1-icts/index.html#operator-spreading",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Operator spreading",
     "text": "Operator spreading\n\nHow does a local operator “look” as it evolves in Heisenberg picture?\n\\(Z_n(t)=\\mathcal{U}^\\dagger(t)Z_n \\mathcal{U}(t)\\) appears in \\(\\langle Z_n(t)Z_m(0) \\rangle\\), but this is only one “component” of \\(Z_n(t)\\)\nAny observable such as \\(Z_n(t)\\) can be expressed as expansion \\[\nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{1,x,y,z\\\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots \\sigma_N^{\\mu_N}\n\\] \\[\n\\mathcal{C}_{\\mu_{1:N}}(0)=\\begin{cases}\n1 & \\mu_j=z, \\mu_k=1,\\forall k\\neq j \\\\\\\\\n0 & \\text{otherwise}\n\\end{cases}\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#example-su2-preserving-gate",
     "href": "talks/quantum-circuits-1-icts/index.html#example-su2-preserving-gate",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Example: \\(SU(2)\\) preserving gate",
     "text": "Example: \\(SU(2)\\) preserving gate\n\nConsider gate generated by exchange Hamiltonian: \\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{\\mathsf{S}}_{j.j+1}\n\\] \\(\\operatorname{\\mathsf{S}}_{j,j+1}\\) denotes \\(\\operatorname{\\mathsf{SWAP}}\\) gate on sites \\(j\\) and \\(j+1\\)\nAction of this gate on an operator is\n\n\\[\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta \\operatorname{\\mathsf{S}}_{j.j+1}\\mathcal{O} \\operatorname{\\mathsf{S}}_{j.j+1} \\\\\\\n-i\\sin\\theta\\cos\\theta \\left[\\operatorname{\\mathsf{S}}_{j.j+1}, \\mathcal{O}\\right]\n\\]"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#ensemble-of-circuits",
     "href": "talks/quantum-circuits-1-icts/index.html#ensemble-of-circuits",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "Ensemble of circuits",
     "text": "Ensemble of circuits\n\nConsider ensemble averaged quantities\nTake \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\).\nAveraging the evolved operator gives\n\n\\[\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\\\, \\mathcal{O} + \\sin^2\\theta_0 \\\\, \\mathsf{S}_{j.j+1}\\mathcal{O} \\mathsf{S}_{j.j+1} \\\\\\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[\\mathsf{S}_{j.j+1}, \\mathcal{O}\\right]\n\\]\n\nInterpretation\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\).\nThe asymmetry \\(\\delta\\) governs strength of “quantum” dynamics"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#j0-limit",
     "href": "talks/quantum-circuits-1-icts/index.html#j0-limit",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "\\(J=0\\) limit",
     "text": "\\(J=0\\) limit\n\\[\n\\frac{d\\bar{\\mathcal{O}}}{dt} = \\sum_j \\left[iJ \\left[\\mathsf{S}_{j,j+1},\\bar{\\mathcal{O}}\\right]+\\left(\\mathsf{S}_{j,j+1}\\bar{\\mathcal{O}}\\mathsf{S}_{j,j+1}-\\bar{\\mathcal{O}}\\right)\\right]\n\\]\n\nNo splitting and merging and terms\nIn single operator sector define \\(\\mathcal{C}^a_{0\\cdots \\mu_k=a\\cdots 0}\\equiv C^a_k\\) \\[\n\\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\\equiv \\Delta_k C^a_k,\n\\] diffusion of single \\(\\sigma^a\\) (\\(\\Delta_k\\) is 1D discrete Laplacian)"
   },
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#jneq-0",
     "href": "talks/quantum-circuits-1-icts/index.html#jneq-0",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "\\(J\\neq 0\\)",
     "text": "\\(J\\neq 0\\)\n\\[\n\\partial_t \\mathcal{C}_{\\mu_{1:N}} = \\sum_j \\left[J\\epsilon_{\\alpha\\beta \\mu_j \\mu_{j+1}} \\mathcal{C}_{\\mu_1\\cdots \\alpha\\beta \\cdots \\mu_N} + \\mathcal{C}_{\\mu_1\\cdots \\mu_{j+1}\\mu_j \\cdots \\mu_N} - \\mathcal{C}_{\\mu_1\\cdots \\mu_{j}\\mu_{j+1} \\cdots \\mu_N}\\right]\n\\]\n\nFirst term leads to single site operator spreading over many sites\n\n\n\n\n\nQualitative behaviour is known as operator spreading and is a generic feature of operator dynamics"
   },
@@ -2517,7 +2517,7 @@
     "href": "talks/new-rules/index.html#reversible-models",
     "title": "New Rules",
     "section": "24 reversible models",
-    "text": "24 reversible models\n\nEach block a permutation of 00, 01, 10, 11\n\\(4!=24\\) blocks\nOrder:\n\n\n\n\n\n\n\n(1324), and so on\n\nBlock 2 is the map \\((00, 01, 10, 11) ⟶ (00, 10, 01, 11)\\)\nExchange, or SWAP gate in quantum information\n\n\n\n\n\n\n\n\n\nEnsemble of block CAs\n\nResults qualitatively similar to chaotic phase of of PCA\nNo phase transition because all blocks are reversible\n\n\nDual reversibility\n\nCan we find an ensemble where front propagates at maximal speed?\nYes! Dual reversible blocks are bijections in both time and space\nThere are 12 such blocks (out of 24)\nEnsemble is Markov in time and space: must have maximal velocity!\n\n\nMutual information\n\nDisjoint regions \\(A\\) and \\(\\bar A\\): how much does one tell about the other?\nUse mutual information: measure of dependence of random variables\nSuggested in this context by Pizzi et al. (2022)\n\n\n\nMI defined as \\[\nI(X;Y) \\equiv S(X) + S(Y) - S(X,Y)\n\\]\n\n\\(S(X)\\) is entropy of \\(p_X(x)\\); marginal distribution of \\(X\\)\n\\(S(Y)\\) is entropy of \\(p_Y(y)\\); marginal distribution of \\(Y\\)\n\\(S(X,Y)\\) is entropy of joint distribution \\(p_{(X,Y)}(x,y)\\)\n\nVanishes if \\(p_{(X,Y)}(x,y)=p_X(x)p_Y(y)\\)\n\n\nSimple example\n\nSuppose either \\(X=Y=1\\) or \\(X=Y=0\\), with equal probability\n\n\\[\n\\begin{align}\np_{(X,Y)}(0,0)&=p_{(X,Y)}(1,1)=1/2\\\\\np_{(X,Y)}(1,0)&=p_{(X,Y)}(0,1)=0\n\\end{align}\n\\]\n\\[\nI(X;Y)=S(X) + S(Y) - S(X,Y)= 1+1-1=1 \\text{ bit}\n\\]\n\nToy model\n\n\n\n\nInitial distribution factorizes over correlated pairs\nApply SWAPs\n1 bit MI for every pair with one member in \\(A\\) and one in \\(\\bar A\\)\n\n\\[\nI(A;\\bar A) = \\min(4\\lfloor t/2\\rfloor, |A|) \\text{ bits}\n\\]\n\n\\(|A|\\) is (even) number of sites in \\(A\\)\n\n\nComments\n\nTotal entropy conserved (c.f Liouville’s theorem)\nEntropy of initial distribution is half max, but entropy \\(S(A)\\) saturates at maximal value (thermalization in time \\(\\sim |A|/2\\))\nThis model is not so special! Any of the dual reversible blocks CAs behaves exactly the same!"
+    "text": "24 reversible models\n\nEach block a permutation of 00, 01, 10, 11\n\\(4!=24\\) blocks\nOrder:\n\n\n\n\n\n\n\n(1324), and so on\n\nBlock 2 is the map \\((00, 01, 10, 11) ⟶ (00, 10, 01, 11)\\)\nExchange, or SWAP gate in quantum information\n\n\n\n\n\n\n\n\n\nEnsemble of block CAs\n\nResults qualitatively similar to chaotic phase of of PCA\nNo phase transition because all blocks are reversible\n\n\nDual reversibility\n\nCan we find an ensemble where front propagates at maximal speed?\nYes! Dual reversible blocks are bijections in both time and space\nThere are 12 such blocks (out of 24)\nEnsemble is Markov in time and space: must have maximal velocity!\n\n\nMutual information\n\nDisjoint regions \\(A\\) and \\(\\bar A\\): how much does one tell about the other?\nUse mutual information: measure of dependence of random variables\nSuggested in this context by Pizzi et al. (2022)\n\n\n\nMI defined as \\[\nI(X;Y) \\equiv S(X) + S(Y) - S(X,Y)\n\\]\n\n\\(S(X)\\) is entropy of \\(p_X(x)\\); marginal distribution of \\(X\\)\n\\(S(Y)\\) is entropy of \\(p_Y(y)\\); marginal distribution of \\(Y\\)\n\\(S(X,Y)\\) is entropy of joint distribution \\(p_{(X,Y)}(x,y)\\)\n\nVanishes if \\(p_{(X,Y)}(x,y)=p_X(x)p_Y(y)\\)\n\n\nSimple example\n\nSuppose either \\(X=Y=1\\) or \\(X=Y=0\\), with equal probability\n\n\\[\n\\begin{align}\np_{(X,Y)}(0,0)&=p_{(X,Y)}(1,1)=1/2\\\\\np_{(X,Y)}(1,0)&=p_{(X,Y)}(0,1)=0\n\\end{align}\n\\]\n\\[\nI(X;Y)=S(X) + S(Y) - S(X,Y)= 1+1-1=1 \\text{ bit}\n\\]\n\nToy model\n\n\n\n\nInitial distribution factorizes over correlated pairs\nApply SWAPs\n1 bit MI for every pair with one member in \\(A\\) and one in \\(\\bar A\\)\n\n\\[\nI(A;\\bar A) = \\min(4\\lfloor t/2\\rfloor, |A|) \\text{ bits}\n\\]\n\n\\(|A|\\) is (even) number of sites in \\(A\\)\n\n\nComments\n\nTotal entropy conserved (c.f Liouville’s theorem)\nEntropy of initial distribution is half max, but entropy \\(S(A)\\) saturates at maximal value (thermalization in time \\(\\sim |A|/2\\))\nThis model is not so special! Any of the dual reversible blocks CAs behaves exactly the same!\n\n\nSummary so far\n\nCAs as dynamical systems: chaotic fronts and information dynamics\nDynamical ensembles as a theoretical tool\n\n\nHow can we extend these ideas to quantum systems?\n\n\nBits to qubits\n\n\n\n\n\n\n\n\n\nBlock CA\nQuantum Circuit\n\n\n\n\nBasic unit\nInvertible map\nUnitary operator (gate)\n\n\nLocal variable\n\\(z_n \\in \\\\{0, 1\\\\}\\)\n\\(\\ket{\\psi_n}\\in \\mathbb{C}^2\\)\n\n\nGlobal state\n$z \\{0,1\\}^N $\n\\(\\ket{\\Psi(t)}\\in \\mathbb{C}^{2^N}\\)\n\n\nSimulation\nEasy\nHard\n\n\n\n\nWhy consider circuits?\n\nModel of universal quantum computation\nExample of discrete time, many body quantum dynamics\n\n\nEveryone’s doing it!\n\n\nUnitaries\n\n\\(n\\)-qubit unitary has matrix elements \\(U_{x_1\\ldots x_n,x'_1,\\ldots, x'_n}\\) in computational basis \\(\\ket{0}\\), \\(\\ket{1}\\)\nUnitarity means\n\n\\[\n\\sum_{x_1'\\ldots x_N'}U_{x_1\\ldots x_n,x'_1,\\ldots, x'_n} U^\\dagger_{x'_1\\ldots x'_n,x''_1,\\ldots, x''_n}=\\delta_{x_1,x_1''}\\ldots \\delta_{x_N,x_N''},\n\\]\n\nBut we’d like to avoid such awful looking expressions\n\n\nEverything’s a tensor!!\n\nGeneral state of \\(N\\) qubits is\n\n\\[\n\\ket{\\Psi} = \\sum_{x_{1:N}\\in \\{0,1\\}^N} \\Psi_{x_1\\ldots x_N}\\ket{x_1}_1\\ket{x_2}_2\\cdots \\ket{x_N}_N\n\\]\n\nWrite \\(\\ket{x_1}_1\\ket{x_2}_2\\cdots \\ket{x_N}_N =\\ket{x_1\\cdots x_N}=\\ket{x_{1:N}}\\) for brevity\nOperator on \\(N\\) qubits has matrix elements\n\n\\[\n\\mathcal{O}_{x_{1:N},x'_{1:N}} = \\bra{x_{1:N}}\\mathcal{O}\\ket{x'_{1:N}}\n\\]\n\nPenrose graphical notation\n\n\n\nSee Pan Zhang’s tutorial\n\n\n\nBrickwork unitary circuits\n\n\n\n\nHave causality built in\nQuantum analog of (block) CAs\n\n\nSome gates\n\nWork in the basis \\(\\ket{00}\\), \\(\\ket{01}\\), \\(\\ket{10}\\), \\(\\ket{11}\\)\nSimplest example: SWAP gate\n\n\\[\n\\operatorname{SWAP}=\\begin{pmatrix}\n1 & 0 & 0 & 0 \\\\\\\n0 & 0 & 1 & 0 \\\\\\\n0 & 1 & 0 & 0 \\\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix}\n\\]\n\nSwitches states. Takes product state to product state\n\n\\[\n\\operatorname{SWAP}\\ket{10} = \\ket{01}\n\\]\n\nSquare root of SWAP\n\\[\n\\sqrt{\\operatorname{SWAP}}=\\begin{pmatrix}\n1 & 0 & 0 & 0 \\\\\\\n0 & \\frac{1}{2}(1+i) & \\frac{1}{2}(1-i) & 0 \\\\\\\n0 & \\frac{1}{2}(1-i) & \\frac{1}{2}(1+i) & 0 \\\\\\\n0 & 0 & 0 & 1\n\\end{pmatrix}.\n\\]\n\nGenerates entanglement (non product state)\n\n\\[\n\\sqrt{\\operatorname{SWAP}}\\ket{10} = \\frac{1}{2}\\left[(1+i)\\ket{10}+(1-i)\\ket{01}\\right]\n\\]\n\n\\(\\sqrt{\\operatorname{SWAP}}\\) and single qubit unitaries are universal gate set\n\n\nGate notation\n\nWe need both \\(U\\)s and \\(U^\\dagger\\)s (e.g. for \\(\\mathcal{O}(t)=U^\\dagger(t)\\mathcal{O}U(t)\\))\n\n\n\n\nUnitary condition\n\n\n\n\nMuch better!\n\n\nLocality as a feature of real circuits\n\n \n\n(left) Schematic view of the Google Sycamore processor (right)\n\n\n\nHype\n\nSampling from circuits basis of Google’s “quantum supremacy”\n\n\n\n\n\n\n\n\nComputational complexity\n\n\n\n\nNormally matrix-vector multiplication is \\(O(\\operatorname{dim}^2)=2^{2N}\\)\nGates are sparse so \\(O(\\operatorname{dim})=2^{N}\\), but still exponentially hard\nFor low depth \\(T&lt;N\\) move horizontally instead\n\n\nExpectation values\n\nEvaluate \\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}=\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\mathcal{O}\\mathcal{U}\\ket{\\Psi_0}\\) for local \\(\\mathcal{O}\\)\n\n\n\n\n\n\nFolded picture\n\n\n\n\nAfter folding, lines correspond to two indices / 4 dimensions\n\n\nUnitarity in folded picture\n\nCircle denotes \\(\\delta_{ab}\\)\n\n\n\n\n\n\\(\\bra{\\Psi}\\mathcal{O}\\ket{\\Psi}\\) in folded picture\n\nEmergence of “light cone”\n\n\n\n\nReduced density matrix\n\nExpectation values in region \\(A\\) evaluated using reduced density matrix\n\n\\[\n\\rho_A = \\operatorname{tr}_{\\bar A}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{\\bar A}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n\\]\n\n\n\nEntanglement entropy\n\n\\(\\rho_A\\) very useful for quantifying entanglement\nIf \\(\\ket{\\Psi} = \\ket{\\psi}_A \\otimes \\ket{\\phi}_{\\bar A}\\) then \\(\\rho_A = \\ket{\\psi}_A\\bra{\\psi}_A\\)`\nAny deviation from product state leads to mixed density matrix\nQuantify by entropy of \\(\\rho_A\\) (the entanglement entropy)\n\n\\[\nS_A \\equiv -\\operatorname{tr}\\left[\\rho_A\\log \\rho_A\\right].\n\\]\n\nToy model revisted\n\n\n\n\nEach pair in Bell state $ _{2n, 2n+1} = $\nReduced density matrix for one member: \\(\\operatorname{tr}_{2}\\left[\\ket{\\Phi^+}_{12}\\bra{\\Phi^+}_{12}\\right] = \\frac{1}{2}\\mathbb{1}_1\\)\nEntanglement entropy of 1 bit\n\n\n\n\n\n\nFor a Bell pair consisting of qubits at sites \\(m\\) and \\(n\\):\n\nIf \\(n\\in A\\), \\(m\\in\\bar A\\), \\(\\rho_A\\) has factor \\(\\mathbb{1}_n\\).\nIf \\(m, n\\in A\\) they contribute a factor \\(\\ket{\\Phi^+}_{nm}\\bra{\\Phi^+}_{nm}\\) (pure)\n\nOnly first case contributes to $ S_A = (4t/2, |A|) $\nJust like mutual information in classical version!\n\n\nDual unitary gates\n\nExactly the same behavior for all unitaries satisfying\n\n\n\n\n\nc.f. dual reversible CAs\nProof: apply unitary and dual unitary conditions\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)\n\n\nThe dual unitary family\n\n\\(4\\times 4\\) unitaries are 16-dimensional\nFamily of dual unitaries is 14-dimensional\nIncludes kicked Ising model at particular values of couplings\nDual unitaries not “integrable” but have enough structure to allow many calculations\n\n\nOperator spreading\n\nHeisenberg picture: \\(Z_n(t)=\\mathcal{U}^\\dagger(t)Z_n \\mathcal{U}(t)\\)\nMight use \\(Z_n(t)\\) to evaluate correlation \\(\\langle Z_n(t)Z_m(0) \\rangle\\)\nHow does \\(Z_n(t)\\) look?\n\n\nExpansion in operator basis\n\nExpand \\(Z_n(t)\\) in products of local operators \\(X_m\\), \\(Y_m\\), \\(Z_m\\), \\(\\mathbb{1}_m\\)\nTypical term \\(\\sim \\mathbb{1}_1\\otimes \\cdots X_{8}\\otimes Y_{9} \\otimes Z_{10}\\cdots \\otimes\\mathbb{1}_N\\)\n\n\\[\nZ_n(t)= \\sum_{\\mu_{1:N}=\\\\{0,1,2,3\\\\}^N} \\mathcal{C}_{\\mu_{1:N}}(t) \\sigma_1^{\\mu_1}\\otimes\\cdots\\otimes \\sigma_N^{\\mu_N},\\qquad \\sigma^\\mu = (\\mathbb{1},X,Y,Z)\n\\]\nAs time progresses two things (tend to) increase:\n\nThe number of sites \\(\\neq\\mathbb{1}\\) (known as operator spreading)\nThe number of different contributions (or operator entanglement)\n\n\n\nOperator spreading closely analogous to chaotic fronts in CAs\nIntroduce ensemble of random circuits. \\(\\mathcal{C}_{\\mu_{1:N}}(t)\\) become random\nFluctuating signs mean \\(\\langle Z_n(t)Z_m(0) \\rangle\\) will tend to average to zero\nc.f. a single PCA trajectory appears as white noise\n\n\nOut of time order correlator\n\\[\n\\operatorname{OTOC}_{nm}(t) \\equiv \\langle Z_n(t)Z_m(0)Z_n(t)Z_m(0)\\rangle.\n\\]\n\nIn terms of operator expansion\n\n\\[\n\\operatorname{OTOC}_{nm}(t)\\propto \\sum_{\\mu_{1:N}}\\mathcal{C}_{\\mu_{1:N}}^2(t)\\left[\\delta_{\\mu_m,0}+\\delta_{\\mu_m,3}-\\delta_{\\mu_m,1}-\\delta_{\\mu_m,2}\\right].\n\\]\n\n\\(\\operatorname{OTOC}_{nm}(t)\\neq 1\\) when operator \\(Z_n(t)\\) spreads from site \\(n\\) to \\(m\\)\nCharacteristic speed of propagation is “butterfly velocity” \\(v_\\text{B}\\)\nOTOC quantum analog of bitstring differences \\(z_t=x_t\\oplus y_t\\) in CAs.\n\n\nGoogle’s OTOC experiment\n\n\n\nThe measured OTOC for \\(i\\operatorname{SWAP}\\) gates (top) and \\(\\sqrt{i\\operatorname{SWAP}}\\) (bottom) after averaging over single qubit gates.\n\n\n\nQuantum advantage?\n\n\\(\\overline{\\operatorname{OTOC}}\\) can be expressed as a Markov process\nEfficiently calculate using Monte Carlo simulations\n\n\nAren’t quantum computers supposed to do things that classical computers find hard?\n\n\n\nAveraging is what enables efficient classical algorithms\nFor a given circuit (no averaging), no probabilistic interpretation\n\n\nFrontier: measurements\n\nUnitary evolution not the only game in town!\nWe can also measure, which we expect to reduce entanglement\nConsider measurements with certain rate and density in space\n\n\n\n\n\n\n\\(∃\\) phase transition where entanglement vanishes at finite measurement rate (Y Li, X Chen, MPA Fisher (2019), B Skinner, J Ruhman, A Nahum (2019))\nAlternative viewpoint: an initially mixed state is purified by (strong enough) measurements (MJ Gullans, DA Huse (2020))\n\n\n\n\n\nAll states purify, but on exponentially long times below transition\n\n\n\nMeasurements purify state; analogous to non-injective rules in CA\nIt was a surprise that a mixed state survives finite measurement rate\nBut… a chaotic front survives non-injective rules (up to a point)"
   },
   {
     "objectID": "talks/new-rules/index.html#summary-so-far",
@@ -2825,14 +2825,14 @@
     "href": "talks/quantum-circuits-2/index.html#effect-of-conservation-laws",
     "title": "Quantum Circuits II",
     "section": "Effect of conservation laws",
-    "text": "Effect of conservation laws\n\n\\(SU(2)\\) preserving gate\n\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{P}_{j.j+1}\n\\]\n\\begin{multline} \\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\mathcal{O} + \\sin^2\\theta \\operatorname{P}_{j.j+1}\\mathcal{O} \\operatorname{P}_{j.j+1} \\\\ -i\\sin\\theta\\cos\\theta \\left[\\operatorname{P}_{j.j+1}, \\mathcal{O}\\right] \\end{multline}\n\nGenerally useful idea: consider random circuit and average\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
+    "text": "Effect of conservation laws\n\n\\(SU(2)\\) preserving gate\n\n\\[\nU_{j,j+1} = \\cos\\theta \\mathbb{1}_{j,j+1} + i\\sin\\theta \\operatorname{P}_{j.j+1}\n\\]\n\\[\n\\begin{multline}\n\\mathcal{O} \\longrightarrow U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1} = \\cos^2\\theta \\,\\mathcal{O} + \\sin^2\\theta \\,\\operatorname{P}_{j.j+1}\\mathcal{O} \\operatorname{P}_{j.j+1} \\\\\n-i\\sin\\theta\\cos\\theta \\left[\\operatorname{P}_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\n\\]\n\nGenerally useful idea: consider random circuit and average\nTake distribution \\(\\theta=\\pm \\theta_0\\) with \\(p(\\theta_0)-p(-\\theta_0)\\equiv \\delta &gt; 0\\)"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#average-dynamics",
     "href": "talks/quantum-circuits-2/index.html#average-dynamics",
     "title": "Quantum Circuits II",
     "section": "Average dynamics",
-    "text": "Average dynamics\n\\[\\begin{multline}\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\\\, \\mathcal{O} + \\sin^2\\theta_0 \\\\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics"
+    "text": "Average dynamics\n\\[\n\\begin{multline}\n\\overline{U^\\dagger_{j,j+1}\\mathcal{O}U_{j,j+1}} = \\cos^2\\theta_0 \\,\\mathcal{O} + \\sin^2\\theta_0 \\, P_{j.j+1}\\mathcal{O} P_{j.j+1} \\\\\n+i\\delta \\sin\\theta_0\\cos\\theta_0 \\left[P_{j.j+1}, \\mathcal{O}\\right]\n\\end{multline}\n\\]\n\nInterpretation:\n\nOperators on sites \\(j\\) and \\(j+1\\) switch with probability \\(\\sin^2\\theta_0\\)\nAsymmetry \\(\\delta\\) governs strength of “quantum” dynamics"
   },
   {
     "objectID": "talks/quantum-circuits-2/index.html#continuous-time-limit",
@@ -3194,7 +3194,7 @@
   {
     "objectID": "talks/quantum-circuits-1-icts/index.html#what-are-the-quantities-of-interest",
     "href": "talks/quantum-circuits-1-icts/index.html#what-are-the-quantities-of-interest",
-    "title": "Quantum Circuits I: Circuits as many-body dynamics",
+    "title": "Quantum Circuits I",
     "section": "What are the quantities of interest?",
     "text": "What are the quantities of interest?"
   },
