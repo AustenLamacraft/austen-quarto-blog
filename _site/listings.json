@@ -1,7 +1,17 @@
 [
   {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/quarto-and-pyodide/index.html",
+      "/posts/trying-out-typst/index.pdf",
+      "/posts/ml-stat-mech-2/index.html",
+      "/posts/ml-stat-mech-1/index.html"
+    ]
+  },
+  {
     "listing": "/talks.html",
     "items": [
+      "/talks/quantum-circuits-quant26/index.html",
       "/talks/quantum-inference/index.html",
       "/talks/open-qmbp-24/index.html",
       "/talks/qpl-2024/index.html",
@@ -22,15 +32,6 @@
       "/talks/rl4qm-msml/index.html",
       "/talks/rl4qm-deepmind/index.html",
       "/talks/unitary-circuits-kings/index.html"
-    ]
-  },
-  {
-    "listing": "/posts.html",
-    "items": [
-      "/posts/quarto-and-pyodide/index.html",
-      "/posts/trying-out-typst/index.pdf",
-      "/posts/ml-stat-mech-2/index.html",
-      "/posts/ml-stat-mech-1/index.html"
     ]
   }
 ]
