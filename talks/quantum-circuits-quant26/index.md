@@ -5,13 +5,13 @@
 title: |
     Many Body Dynamics in Quantum Circuits
 subtitle: |
-  Lecture at "QUANT26: Quantum Dynamics - Fundamentals and Realizations"
+  QUANT26: Quantum Dynamics - Fundamentals and Realizations
 
   MPIPKS Dresden
 author: "Austen Lamacraft"
 date: 09/11/2026
 date-format: long
-# institute: University of Cambridge
+institute: University of Cambridge
 format:
   revealjs:
     theme: [default, reveal_custom.scss]
@@ -83,8 +83,7 @@ Based on earlier lectures
 - Representation of correlation functions
 - Idea of random circuits and simplest examples of resulting Markov chain
 
-# Fundamentals
-
+# Outline
 
 ## What is a quantum circuit?
 
@@ -125,52 +124,8 @@ Based on earlier lectures
 
 - _They exist!_ Companies (Google, IBM, etc.) have built platforms for gate-based QC
 
---- 
+- Here we are concerned with __unitary circuits__ made from __unitary gates__
 
-## Unitary circuits
-
-- (Mostly) concerned with __unitary circuits__ made from __unitary gates__
-
-- Gate is $n$-qubit unitary $U_{s_1\ldots s_n,s'_1,\ldots, s'_n}$
-
-$$
-\sum_{s_1'\ldots s_N'}U_{s_1\ldots s_n,s'_1,\ldots, s'_n} U^\dagger_{s'_1\ldots s'_n,s''_1,\ldots, s''_n}=\delta_{s_1,s_1''}\ldots \delta_{s_N,s_N''}
-$$
-
-
----
-
-## Everything is a tensor
-
-- State of $N$ qubits expressed in product basis
-  
-$$
-\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
-$$
-
-- Write $\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}$ for brevity 
-
-- Operator on $N$ qubits has matrix elements
-
-$$
-\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
-$$
-
----
-
-
-## Graphical notation
-
-- A tensor is denoted by a blob with one leg for each index
-
-- Connecting legs denotes contraction: summing over a shared index
-
-<figure align="center">
-<img src="assets/contractions.png" width="100%">
-<figcaption>See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly's tensor contraction tutorial</a> </figcaption>
-</figure>
-
----
 
 # Gates
 
@@ -211,6 +166,14 @@ $$
 $$
 
 - SWAP takes product states to product states
+
+---
+
+$$
+\operatorname{SWAP}\ket{s_1,s_2} = \ket{s2,s1}
+$$
+
+![](assets/swap_gate_wire_crossing.svg){width=100% fig-align="center"}
 
 ---
 
@@ -263,82 +226,10 @@ $$
 
 ---
 
-## Entangling power
 
+## Aside: Entanglement
 
-
-## Schmidt decomposition
-
-## Singular value decomposition
-
-- Often faced with need to truncate large matrices in some way due to limits of finite storage space or processing time
-
-- What is "right" way to perform truncation?
-
-- [Singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) (SVD) is natural in some settings: statistics, signal processing, quantum mechanics...
-
----
-
-- SVD is an example of [matrix factorization](https://en.wikipedia.org/wiki/Matrix_decomposition)
-
-$$
-M = U\Sigma V
-$$
-
-- $U$ and $V$ unitary; $\Sigma$ diagonal with non-negative real entries
-
-- SVD _completely general_: applies to _rectangular matrices_ 
-
-- If $M$ is $m\times n$, $U$ is $m\times m$, $V$ is $n\times n$, and $\Sigma$ is $m\times n$
-
-- $\min(m,n)$ diagonal elements $\sigma_i$ of $\Sigma$ are _singular values_
-
----
-
-## Geometrical interpretation
-
-- Columns of $V$ define an orthonormal basis $\mathbf{v}_i\in \mathbb{C}^n$ ($i=1,\ldots n$)
-
-- $U$ defines a basis $\mathbf{u}_i\in \mathbb{C}^m$ $i=1,\ldots m$
-
-- If we act on $\mathbf{v}_i$ with $M$ (to the left) we get $\sigma_i \mathbf{u}_i$
-
----
-
-- Number of nonzero singular values is [rank](https://en.wikipedia.org/wiki/Rank_(linear_algebra)) of matrix
-
-- Equal to number of independent rows or columns
-
-- For general rectangular matrix rank is $\min(m,n)$
-
----
-
-- Often want to produce [low rank approximation](https://en.wikipedia.org/wiki/Low-rank_approximation)
-
-- Need to define how well the matrix is approximated by the lower rank matrix $M_r$ of rank $r<\min(m,n)$
-
-- One possibility: [Frobenius norm](https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm) of $M-M_r$ should be as small as possible.
-
-- Frobenius norm $\|A\|_{\mathrm{F}}$ of a matrix $A$ is
-
-$$
-\begin{equation}
-\|A\|_{\mathrm{F}}^2=\sum_i^m \sum_j^n\left|A_{i j}\right|^2
-\end{equation}
-$$
-
----
-
-- $\exists$ following simple result: best low rank approximation of rank $r$ obtained by taking SVD and discarding all but $r$ largest singular values from matrix $\Sigma$
-
-- i.e. retain only $r$ "most important" directions $\mathbf{v}_i\in \mathbb{C}^n$ and $\mathbf{u}_i\in \mathbb{C}^m$
-
----
-
-
-## SVD in quantum mechanics
-
-- SVD arises naturally in QM of composite systems (with two subsystems)
+- Feature of quantum state of system consisting of two or more subsystems
 
 - Example: two spins $\mathbf{S}_A$ and $\mathbf{S}_B$
 
@@ -351,31 +242,51 @@ $$
 - Write in terms of basis vectors $\ket{a}_A$ and $\ket{b}_B$ for A and B subsystems as
 
 $$
-\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \psi_{ab}\ket{a}_A\ket{b}_B 
+\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
 $$
 
-- Regard components $\psi_{ab}$ as a matrix and perform SVD
+- Special case is _product state_ $\ket{\Psi_{AB}} = \ket{a}_A\ket{b}_B$
 
-- Equivalent to finding new orthonormal bases $\ket{\tilde n}_{A,B}$ for two spaces s.t. action of $\psi_{ab}$ maps between basis vectors of two subsystems (with rescaling)
+- Other states are _entangled_
 
 ---
 
-- In new bases, state $\ket{\Psi_{AB}}$ is
+$$
+\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
+$$
+
+- Regard components $\Psi_{ab}$ as matrix and perform [singular value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition) (SVD)
 
 $$
-\ket{\Psi_{AB}} = \sum_{n=1}^{\min(n_A,n_B)} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B.
+\Psi = U\Sigma V
+$$
+
+- $U$ and $V$ unitary; $\Sigma$ diagonal with non-negative real entries
+
+- If $\Psi$ is $n_A\times n_B$, $U$ is $n_A\times n_A$, $V$ is $n_B\times n_B$, and $\Sigma$ is $n_A\times n_B$
+
+- $n=\min(n_A,n_B)$ diagonal elements $\sigma_i$ of $\Sigma$ are _singular values_
+
+---
+
+$$
+\Psi = U\Sigma V
+$$
+
+- Equivalent to
+
+$$
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B.
 $$
 
 - Note _single sum_  c.f. double sum before
 
 - This is [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition): just a restatement of SVD
 
-Notion of isometry
-
 ---
 
 $$
-\ket{\Psi_{AB}} = \sum_{n=1}^{\min(n_A,n_B)} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
 $$
 
 - Singular values — or Schmidt coefficients — quantify [entanglement](https://en.wikipedia.org/wiki/Quantum_entanglement) of state ([2022 Nobel prize](https://www.nobelprize.org/prizes/physics/2022/summary/))
@@ -395,124 +306,99 @@ $$
 - Already written in Schmidt form and the two singular values are both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
 
 
-## Quantifying entanglement
-
 ## Reduced density matrix
 
-- Expectation value of operator in region $A$ can be computed from *reduced density matrix* $\rho_A$ for region $A$
 $$
-\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
 $$
-($B$ is complement of $A$)
 
----
+- Schmidt decomposition closely related to the _reduced density matrix_
 
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml"></object>
+- RDM $\rho_A$ for subsystem $A$
+$$
+\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi_{AB}}\bra{\Psi_{AB}}\right]
+$$
 
-- Initial RDM of bottom part of wedge is all that matters!
+- In terms of the Schmidt basis 
 
----
+$$
+\rho_A = \sum_{n=1}^{n} \lambda_n^2\ket{\tilde n}_A\bra{\tilde n}_A
+$$
+
+- Eigenvalues of RDM are $p_n = \lambda_n^2$. Note that $\operatorname{tr}\rho_A=\sum_n p_n = 1$
 
 ## Quantifying entanglement
-
-- RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B
-
-- General state is vector $\in\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B$  
-
-- Write in terms of basis vectors $\ket{a}_A$ and $\ket{b}_B$ for A and B subsystems
-$$
-\ket{\Psi}_{AB} = \sum_{a=1}^{n\_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B 
-$$
-$n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}$
-
-- Now regard $\psi_{ab}$ as matrix and perform a singular value decomposition
-
----
-
-- In new bases our state is
-
-$$
-\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
-$$
-
-- Note _single sum_, c.f. double sum earlier. This is [Schmidt decomposition](https://en.wikipedia.org/wiki/Schmidt_decomposition) 
-
-- $\sigma_n$ are Schmidt coefficients (singular values of SVD)
-
-- If only one nonzero singular value state we have _product state_,  indicating no correlations between subsystems
-
----
-
-- Simplest example displaying nontrivial entanglement is [Bell state](https://en.wikipedia.org/wiki/Bell_state) 
-
-$$
-\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
-$$
-
-- Schmidt coefficients both $\frac{1}{\sqrt{2}}$, indicating maximal entanglement
-
-- Schmidt decomposition closely related to RDM
-$$
-\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right] 
-= \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
-$$
-
-- Eigenvalues of RDM are $p_n=\sigma_n^2$
-
-
----
 
 - One measure of entanglement is von Neumann entropy of $\rho_A$ (aka **entanglement entropy**)
 
 $$
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\sum_n p_n \log p_n
 $$
 
-- $S_A$ vanishes for product state, and is otherwise positive
+- $S_A$ vanishes for product state (only one $p_n=1$), and is otherwise positive
 
----
+## Some useful results 
 
-- [Rényi entropies](https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy) provide more complete information
 $$
-  S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \operatorname{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum\_n p\_n^\alpha
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
 $$
-$S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A$. $S^{(0)}_A$ is number of nonzero Schmidt coefficients (aka [Schmidt rank](https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement))
+
+- Unitary transformations $U_{A/B}$ on subsystems do not affect entanglement
+- Maximal entanglement is $\log n$, where $n=\min(n_A,n_B)$
+- Entanglement between subsystems is maximal when $\Psi_{AB}$ is unitary (if $n_A=n_B$) or generally an _isometry_
+
+
+# Some graphical tools
+
+## Everything is a tensor
+
+- State of $N$ qubits expressed in product basis
+  
 $$
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr} \rho_A^2
+\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
 $$
-where $\gamma\equiv \operatorname{tr} \rho_A^2$ is [purity](https://en.wikipedia.org/wiki/Purity_(quantum_mechanics))
 
-## Maximal entanglement
+- Write $\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}$ for brevity 
 
-- Entanglement between subsystems is maximal when the matrix is an isometry
+- Operator on $N$ qubits has matrix elements
 
-## Entanglement entropy
+$$
+\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
+$$
 
-# Gates
 
-## Penrose tensor notation
+## Graphical notation
+
+- A tensor is denoted by a blob with one leg for each index
+
+- Connecting legs denotes contraction: summing over a shared index
+
+<figure align="center">
+<img src="assets/contractions.png" width="100%">
+<figcaption>See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly's tensor contraction tutorial</a> </figcaption>
+</figure>
+
+## Two qubit unitary
+
+![](assets/two_qubit_gate_tile.svg){width=200% fig-align="center"}
 
 ## Unitarity
 
-<figure align="center">
-<img src="assets/unitarity.svg" width="90%">
-</figure>
+- Unitarity of two qubit gate expressed as
 
-## Folded notation
+$$
+\sum_{s_1's_2'}U_{s_1s_2,s'_1s'_2} U^\dagger_{s'_1s'_2,s''_1s''_2}=\delta_{s_1,s_1''} \delta_{s_2,s_2''}
+$$
 
-Show unitarity in the folded picture
+- ...or in graphical form
 
+![](assets/unitarity.svg){width=150%}
 
 ## "Folded" representations
 
 - Since every $U$ accompanied by $U^\dagger$, include both in single unit by "folding" one on top of the other
 
-<p align="center">
-<img src="assets/diag_folded.png" width="60%">
-</p>
-
-
-![](assets/folded_gate_definition_v2.svg){width=80%}
+![](assets/folded_gate_definition_v2.svg){width=100%}
 
 - Lines correspond to two indices, and therefore $2^2=4$ dimensions
 
@@ -527,19 +413,24 @@ Show unitarity in the folded picture
 
 ![](assets/dual_unitarity_folded.svg){width=80%}
 
-- Introduced in...
+- Introduced in
 - See review
 
----
+
+## Parameterizing dual unitaries
+
+General form
 
 # Circuits
 
 
 ## One motivation: time evolution
 
+---
+
 ### Single qubit gates
 
-- Time evolution operator $U=\exp(-iHt)$
+- Time evolution operator $\mathcal{U}=\exp(-iHt)$
 
 - If $H=\sum_j h_j$ a sum of single qubit terms
 
@@ -605,9 +496,8 @@ $$
 $$
 e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 $$
-<p align="center">
-<img src="assets/brickwall.png" width="450"/>
-</p>
+
+![](assets/brickwork_open.svg){fig-align="center"}
 
 ---
 
@@ -635,9 +525,7 @@ $$
 
 ## KIM as a circuit
 
-<p align="center">
-<img src="assets/kim-circuit.png" width="200"/>
-</p>
+![](assets/kim-circuit.png){fig-align="center"}
 
 $$
 \begin{aligned}
@@ -690,9 +578,9 @@ $$
 
 ## Basic circuit
 
-<figure align="center">
-<img src="assets/brickwork_open.svg" width="90%">
-</figure>
+
+![](assets/brickwork_open.svg){width=100%}
+
 
 ## Expectation value
 
@@ -709,7 +597,11 @@ $$
 
 ---
 
-![](assets/folded_light_cone_reduced.svg){width=80%}
+- Recall unitarity
+
+![](assets/folded_unitarity_condition.svg){width=80% fig-align="center"}
+
+![](assets/folded_light_cone_reduced.svg){width=80% fig-align="center"}
 
 
 - "Light cone" emerges, reflecting region of circuit that affects expectation value
@@ -722,24 +614,54 @@ $$
 C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 $$
 
-![](assets/infinite_temperature_correlator_full.svg){width=80%}
+![](assets/infinite_temperature_correlator_full.svg){width=80% fig-align="center"}
 
 ---
 
-![](assets/infinite_temperature_correlator_reduced.svg){width=80%}
+![](assets/infinite_temperature_correlator_reduced.svg){width=80% fig-align="center"}
 
 
 - Correlations only nonzero inside "light cone"
 
 ## Dual unitaries
 
+![](assets/infinite_temperature_correlator_reduced.svg){width=60% fig-align="center"}
+
 - Recall the dual unitary condition
 
-![](assets/folded_unitarity_condition.svg){width=80%}
+![](assets/dual_unitarity_folded.svg){width=60% fig-align="center"}
 
-Correlations vanish inside 
+- Correlations vanish inside: $C(x,t)=d^{-1}\operatorname{tr}\left[O\right]\operatorname{tr}\left[O'\right]$
 
 ## Light cone correlations
+
+- For $x=t$ the picture simplifies...
+
+![](assets/lightcone_correlator_degenerate_chain.svg){width=100% fig-align="center"}
+
+
+## Computation of correlators
+
+![](assets/lightcone_transfer_map_definition.svg){width=100% fig-align="center"}
+
+
+$$
+  \mathcal{M}_{+}(a)
+  \;=\;
+  \frac{1}{q}\,\operatorname{tr}_{1}\!\left[\,U\,(a \otimes \mathbb{1})\,U^{\dagger}\,\right]
+$$
+
+$$
+  C(t,t)
+  \;=\;
+  \frac{1}{q}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
+$$
+
+## Behaviour of correlation functions
+
+TODO Summarize variety of behaviour for correlator (fig from review)
+
+
 
 ## Operator spreading
 
@@ -749,10 +671,10 @@ Correlations vanish inside
 
 - Any observable such as $Z_n(t)$ can be expressed as expansion
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 $$
-\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
+\mathcal{C}_{\mu_{1:N}}(0)=\begin{cases}
 1 & \mu_j=z, \mu_k=1,\forall k\neq j \\\\
 0 & \text{otherwise}
 \end{cases}
@@ -761,10 +683,10 @@ $$
 ---
 
 $$
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 $$
 
-- Since $\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
+- Since $\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}$, can extract spin correlations from $\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)$
 
 <figure align="center">
 <img src="assets/initial-terminal.png" width="400">
@@ -774,12 +696,12 @@ $$
 
 ---
 
-- Operator norm $\tr\left[Z\_n^2(t)\right]=2$ is conserved under time evolution
+- Operator norm $\operatorname{tr}\left[Z_n^2(t)\right]=2$ is conserved under time evolution
 
 - This implies the normalization
 
 $$
-\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
+\sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
 $$
 
 ---
@@ -875,29 +797,84 @@ $$
 
 - In any sample from our random circuit, single-site operator spreads to many sites
 
-- Random signs of coeffcients $\mathcal{C}\_{\mu_{1:N}}$ means most average to zero: only the single site contributions remain
+- Random signs of coeffcients $\mathcal{C}_{\mu_{1:N}}$ means most average to zero: only the single site contributions remain
 
 - When $J\neq 0$ some contribution survives and this allows for a controlled expansion
 
 - We'd like a measure that is insensitive to these random signs
 
 
+## Entanglement
 
-## Reduced density matrix
+- TODO simple model of SWAPS
 
-- Expectation value of operator in region $A$ can be computed from *reduced density matrix* $\rho_A$ for region $A$
+## Toy model
+
+- Circuit of SWAP gates
+<figure align="center">
+<img src="assets/bell-swap.png" width="80%"/>
+</figure>
+
+- Initial state is product of Bell states
 $$
-\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
+\ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
 $$
-($B$ is complement of $A$)
+$$
+\operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
+$$
+with entanglement entropy of one bit
 
 ---
 
+- $\rho_A$ therefore has factor $\mathbb{1}_n$ for each site $n\in A$ with "partner" in $B$
 
-- Initial RDM of bottom part of wedge is all that matters!
+- If _both_ qubits of a Bell pair are at sites  $n,m\in A$ they give a factor $\ket{\Phi^+}_{nm}\bra{\Phi^+}_{nm}$: a pure state
+
+- Entanglement entropy has contributions from first case only
+
+$$
+ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+$$
+
+---
+
+$$
+ S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+$$
+
+- After time $\sim |A|/2$ subsystem has thermalized. 
+
+<figure align="center">
+<img src="assets/bertini.png" width="400">
+<figcaption> 
+Source:  <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al. (2019)</a>
+</figcaption>
+</figure>
 
 
-## Entanglement 
+--- 
+
+- Ramp behaviour in many systems
+
+- In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:
+
+<figure align="center">
+<img src="assets/qp.png" width="300">
+<figcaption> 
+Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
+</figcaption>
+</figure>
+
+---
+
+- Toy model with SWAP gates is rather similar, with qubits playing the role of "noninteracting particles"
+
+- This picture remains true in circuits where there is no quasiparticle interpretation (next lecture) 
+
+
+
+
+## Entanglement in general
 
 - Entanglement determined by triangular wedge
 
@@ -911,6 +888,7 @@ $$
 
 ![](assets/wedge_bell_pairs_offset.svg){width=80%}
 
+- What is the largest entanglement?
 - For dual unitary gates this is an _isometry_!
 - Consequences for entanglement
 
@@ -932,6 +910,8 @@ $$
 ## Dual unitary circuits
 
 # Open questions
+
+- Reviews on DUCs, RUCs...
 
 ...
 

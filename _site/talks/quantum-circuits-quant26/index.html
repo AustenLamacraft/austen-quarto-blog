@@ -7,8 +7,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.35">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Austen Lamacraft">
   <meta name="dcterms.date" content="2026-09-11">
@@ -143,7 +143,7 @@
     }
   </style>
 <meta name="twitter:title" content="Many Body Dynamics in Quantum Circuits – Austen Lamacraft">
-<meta name="twitter:description" content="Lecture at &quot;QUANT26: Quantum Dynamics - Fundamentals and Realizations&quot;
+<meta name="twitter:description" content="QUANT26: Quantum Dynamics - Fundamentals and Realizations
 
 MPIPKS Dresden">
 <meta name="twitter:card" content="summary">
@@ -154,7 +154,7 @@ MPIPKS Dresden">
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title"><p>Many Body Dynamics in Quantum Circuits</p></h1>
-  <p class="subtitle">Lecture at “QUANT26: Quantum Dynamics - Fundamentals and Realizations”<br>
+  <p class="subtitle">QUANT26: Quantum Dynamics - Fundamentals and Realizations<br>
 MPIPKS Dresden</p>
 
 <div class="quarto-title-authors">
@@ -162,7 +162,10 @@ MPIPKS Dresden</p>
 <div class="quarto-title-author-name">
 Austen Lamacraft 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            University of Cambridge
+          </p>
+    </div>
 </div>
 
   <p class="date">September 11, 2026</p>
@@ -217,8 +220,8 @@ i\frac{\partial}{dt}\ket{\Psi} = H\ket{\Psi}
 </section>
 
 <section>
-<section id="fundamentals" class="title-slide slide level1 center">
-<h1>Fundamentals</h1>
+<section id="outline-1" class="title-slide slide level1 center">
+<h1>Outline</h1>
 
 </section>
 <section id="what-is-a-quantum-circuit" class="slide level2 center">
@@ -258,49 +261,8 @@ Source: <a href="https://en.wikipedia.org/wiki/Quantum_circuit">Wikipedia</a>
 <li>One of several options e.g.&nbsp;measurement-based</li>
 </ul></li>
 <li><p><em>They exist!</em> Companies (Google, IBM, etc.) have built platforms for gate-based QC</p></li>
+<li><p>Here we are concerned with <strong>unitary circuits</strong> made from <strong>unitary gates</strong></p></li>
 </ul>
-</section>
-<section id="unitary-circuits" class="slide level2 center">
-<h2>Unitary circuits</h2>
-<ul>
-<li><p>(Mostly) concerned with <strong>unitary circuits</strong> made from <strong>unitary gates</strong></p></li>
-<li><p>Gate is <span class="math inline">n</span>-qubit unitary <span class="math inline">U_{s_1\ldots s_n,s'_1,\ldots, s'_n}</span></p></li>
-</ul>
-<p><span class="math display">
-\sum_{s_1'\ldots s_N'}U_{s_1\ldots s_n,s'_1,\ldots, s'_n} U^\dagger_{s'_1\ldots s'_n,s''_1,\ldots, s''_n}=\delta_{s_1,s_1''}\ldots \delta_{s_N,s_N''}
-</span></p>
-</section>
-<section id="everything-is-a-tensor" class="slide level2 center">
-<h2>Everything is a tensor</h2>
-<ul>
-<li>State of <span class="math inline">N</span> qubits expressed in product basis</li>
-</ul>
-<p><span class="math display">
-\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
-</span></p>
-<ul>
-<li><p>Write <span class="math inline">\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}</span> for brevity</p></li>
-<li><p>Operator on <span class="math inline">N</span> qubits has matrix elements</p></li>
-</ul>
-<p><span class="math display">
-\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
-</span></p>
-</section>
-<section id="graphical-notation" class="slide level2 center">
-<h2>Graphical notation</h2>
-<ul>
-<li><p>A tensor is denoted by a blob with one leg for each index</p></li>
-<li><p>Connecting legs denotes contraction: summing over a shared index</p></li>
-</ul>
-<figure align="center">
-<img src="assets/contractions.png" width="100%">
-<figcaption>
-See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly’s tensor contraction tutorial</a>
-</figcaption>
-</figure>
-</section>
-<section class="slide level2 center">
-
 </section></section>
 <section>
 <section id="gates" class="title-slide slide level1 center">
@@ -341,6 +303,17 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 <ul>
 <li>SWAP takes product states to product states</li>
 </ul>
+</section>
+<section class="slide level2 center">
+
+<p><span class="math display">
+\operatorname{SWAP}\ket{s_1,s_2} = \ket{s2,s1}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/swap_gate_wire_crossing.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
 </section>
 <section class="slide level2 center">
 
@@ -392,76 +365,10 @@ e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
 <li>16 parameters!</li>
 </ul>
 </section>
-<section id="entangling-power" class="slide level2 center">
-<h2>Entangling power</h2>
-</section>
-<section id="schmidt-decomposition" class="slide level2 center">
-<h2>Schmidt decomposition</h2>
-</section>
-<section id="singular-value-decomposition" class="slide level2 center">
-<h2>Singular value decomposition</h2>
+<section id="aside-entanglement" class="slide level2 center">
+<h2>Aside: Entanglement</h2>
 <ul>
-<li><p>Often faced with need to truncate large matrices in some way due to limits of finite storage space or processing time</p></li>
-<li><p>What is “right” way to perform truncation?</p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">Singular value decomposition</a> (SVD) is natural in some settings: statistics, signal processing, quantum mechanics…</p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>SVD is an example of <a href="https://en.wikipedia.org/wiki/Matrix_decomposition">matrix factorization</a></li>
-</ul>
-<p><span class="math display">
-M = U\Sigma V
-</span></p>
-<ul>
-<li><p><span class="math inline">U</span> and <span class="math inline">V</span> unitary; <span class="math inline">\Sigma</span> diagonal with non-negative real entries</p></li>
-<li><p>SVD <em>completely general</em>: applies to <em>rectangular matrices</em></p></li>
-<li><p>If <span class="math inline">M</span> is <span class="math inline">m\times n</span>, <span class="math inline">U</span> is <span class="math inline">m\times m</span>, <span class="math inline">V</span> is <span class="math inline">n\times n</span>, and <span class="math inline">\Sigma</span> is <span class="math inline">m\times n</span></p></li>
-<li><p><span class="math inline">\min(m,n)</span> diagonal elements <span class="math inline">\sigma_i</span> of <span class="math inline">\Sigma</span> are <em>singular values</em></p></li>
-</ul>
-</section>
-<section id="geometrical-interpretation" class="slide level2 center">
-<h2>Geometrical interpretation</h2>
-<ul>
-<li><p>Columns of <span class="math inline">V</span> define an orthonormal basis <span class="math inline">\mathbf{v}_i\in \mathbb{C}^n</span> (<span class="math inline">i=1,\ldots n</span>)</p></li>
-<li><p><span class="math inline">U</span> defines a basis <span class="math inline">\mathbf{u}_i\in \mathbb{C}^m</span> <span class="math inline">i=1,\ldots m</span></p></li>
-<li><p>If we act on <span class="math inline">\mathbf{v}_i</span> with <span class="math inline">M</span> (to the left) we get <span class="math inline">\sigma_i \mathbf{u}_i</span></p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li><p>Number of nonzero singular values is <a href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">rank</a> of matrix</p></li>
-<li><p>Equal to number of independent rows or columns</p></li>
-<li><p>For general rectangular matrix rank is <span class="math inline">\min(m,n)</span></p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li><p>Often want to produce <a href="https://en.wikipedia.org/wiki/Low-rank_approximation">low rank approximation</a></p></li>
-<li><p>Need to define how well the matrix is approximated by the lower rank matrix <span class="math inline">M_r</span> of rank <span class="math inline">r&lt;\min(m,n)</span></p></li>
-<li><p>One possibility: <a href="https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm">Frobenius norm</a> of <span class="math inline">M-M_r</span> should be as small as possible.</p></li>
-<li><p>Frobenius norm <span class="math inline">\|A\|_{\mathrm{F}}</span> of a matrix <span class="math inline">A</span> is</p></li>
-</ul>
-<p><span class="math display">
-\begin{equation}
-\|A\|_{\mathrm{F}}^2=\sum_i^m \sum_j^n\left|A_{i j}\right|^2
-\end{equation}
-</span></p>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li><p><span class="math inline">\exists</span> following simple result: best low rank approximation of rank <span class="math inline">r</span> obtained by taking SVD and discarding all but <span class="math inline">r</span> largest singular values from matrix <span class="math inline">\Sigma</span></p></li>
-<li><p>i.e.&nbsp;retain only <span class="math inline">r</span> “most important” directions <span class="math inline">\mathbf{v}_i\in \mathbb{C}^n</span> and <span class="math inline">\mathbf{u}_i\in \mathbb{C}^m</span></p></li>
-</ul>
-</section>
-<section id="svd-in-quantum-mechanics" class="slide level2 center">
-<h2>SVD in quantum mechanics</h2>
-<ul>
-<li><p>SVD arises naturally in QM of composite systems (with two subsystems)</p></li>
+<li><p>Feature of quantum state of system consisting of two or more subsystems</p></li>
 <li><p>Example: two spins <span class="math inline">\mathbf{S}_A</span> and <span class="math inline">\mathbf{S}_B</span></p></li>
 <li><p>Hilbert space of each spin has dimension <span class="math inline">n_{A,B}\equiv 2S_{A,B}+1</span>, where <span class="math inline">\mathbf{S}_{A,B}^2=S_{A,B}(S_{A,B}+1)</span> (e.g.&nbsp;2 for spin-1/2).</p></li>
 </ul>
@@ -473,31 +380,50 @@ M = U\Sigma V
 <li><p>Write in terms of basis vectors <span class="math inline">\ket{a}_A</span> and <span class="math inline">\ket{b}_B</span> for A and B subsystems as</p></li>
 </ul>
 <p><span class="math display">
-\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \psi_{ab}\ket{a}_A\ket{b}_B
+\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
 </span></p>
 <ul>
-<li><p>Regard components <span class="math inline">\psi_{ab}</span> as a matrix and perform SVD</p></li>
-<li><p>Equivalent to finding new orthonormal bases <span class="math inline">\ket{\tilde n}_{A,B}</span> for two spaces s.t. action of <span class="math inline">\psi_{ab}</span> maps between basis vectors of two subsystems (with rescaling)</p></li>
+<li><p>Special case is <em>product state</em> <span class="math inline">\ket{\Psi_{AB}} = \ket{a}_A\ket{b}_B</span></p></li>
+<li><p>Other states are <em>entangled</em></p></li>
 </ul>
 </section>
 <section class="slide level2 center">
 
+<p><span class="math display">
+\ket{\Psi_{AB}} = \sum_{a=1}^{n_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
+</span></p>
 <ul>
-<li>In new bases, state <span class="math inline">\ket{\Psi_{AB}}</span> is</li>
+<li>Regard components <span class="math inline">\Psi_{ab}</span> as matrix and perform <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">singular value decomposition</a> (SVD)</li>
 </ul>
 <p><span class="math display">
-\ket{\Psi_{AB}} = \sum_{n=1}^{\min(n_A,n_B)} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B.
+\Psi = U\Sigma V
+</span></p>
+<ul>
+<li><p><span class="math inline">U</span> and <span class="math inline">V</span> unitary; <span class="math inline">\Sigma</span> diagonal with non-negative real entries</p></li>
+<li><p>If <span class="math inline">\Psi</span> is <span class="math inline">n_A\times n_B</span>, <span class="math inline">U</span> is <span class="math inline">n_A\times n_A</span>, <span class="math inline">V</span> is <span class="math inline">n_B\times n_B</span>, and <span class="math inline">\Sigma</span> is <span class="math inline">n_A\times n_B</span></p></li>
+<li><p><span class="math inline">n=\min(n_A,n_B)</span> diagonal elements <span class="math inline">\sigma_i</span> of <span class="math inline">\Sigma</span> are <em>singular values</em></p></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<p><span class="math display">
+\Psi = U\Sigma V
+</span></p>
+<ul>
+<li>Equivalent to</li>
+</ul>
+<p><span class="math display">
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B.
 </span></p>
 <ul>
 <li><p>Note <em>single sum</em> c.f. double sum before</p></li>
 <li><p>This is <a href="https://en.wikipedia.org/wiki/Schmidt_decomposition">Schmidt decomposition</a>: just a restatement of SVD</p></li>
 </ul>
-<p>Notion of isometry</p>
 </section>
 <section class="slide level2 center">
 
 <p><span class="math display">
-\ket{\Psi_{AB}} = \sum_{n=1}^{\min(n_A,n_B)} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
 </span></p>
 <ul>
 <li><p>Singular values — or Schmidt coefficients — quantify <a href="https://en.wikipedia.org/wiki/Quantum_entanglement">entanglement</a> of state (<a href="https://www.nobelprize.org/prizes/physics/2022/summary/">2022 Nobel prize</a>)</p></li>
@@ -517,125 +443,109 @@ M = U\Sigma V
 <li>Already written in Schmidt form and the two singular values are both <span class="math inline">\frac{1}{\sqrt{2}}</span>, indicating maximal entanglement</li>
 </ul>
 </section>
-<section id="quantifying-entanglement" class="slide level2 center">
-<h2>Quantifying entanglement</h2>
-</section>
 <section id="reduced-density-matrix" class="slide level2 center">
 <h2>Reduced density matrix</h2>
-<ul>
-<li>Expectation value of operator in region <span class="math inline">A</span> can be computed from <em>reduced density matrix</em> <span class="math inline">\rho_A</span> for region <span class="math inline">A</span> <span class="math display">
-\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
-</span> (<span class="math inline">B</span> is complement of <span class="math inline">A</span>)</li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<object data="assets/reduced-density-matrix.svg" type="image/svg+xml">
-</object>
-<ul>
-<li>Initial RDM of bottom part of wedge is all that matters!</li>
-</ul>
-</section>
-<section id="quantifying-entanglement-1" class="slide level2 center">
-<h2>Quantifying entanglement</h2>
-<ul>
-<li><p>RDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B</p></li>
-<li><p>General state is vector <span class="math inline">\in\mathcal{H}=\mathcal{H}_A\otimes\mathcal{H}_B</span></p></li>
-<li><p>Write in terms of basis vectors <span class="math inline">\ket{a}_A</span> and <span class="math inline">\ket{b}_B</span> for A and B subsystems <span class="math display">
-\ket{\Psi}_{AB} = \sum_{a=1}^{n\_A}\sum_{b=1}^{n_B} \Psi_{ab}\ket{a}_A\ket{b}_B
-</span> <span class="math inline">n_{A/B}=\operatorname{dim} \mathcal{H}_{A/B}</span></p></li>
-<li><p>Now regard <span class="math inline">\psi_{ab}</span> as matrix and perform a singular value decomposition</p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>In new bases our state is</li>
-</ul>
 <p><span class="math display">
-\ket{\Psi}_{AB} = \sum_{n=1}^{\min(n_A, n_B)} \sigma_n \ket{u_n}_A\otimes\ket{v_n}_B
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
 </span></p>
 <ul>
-<li><p>Note <em>single sum</em>, c.f. double sum earlier. This is <a href="https://en.wikipedia.org/wiki/Schmidt_decomposition">Schmidt decomposition</a></p></li>
-<li><p><span class="math inline">\sigma_n</span> are Schmidt coefficients (singular values of SVD)</p></li>
-<li><p>If only one nonzero singular value state we have <em>product state</em>, indicating no correlations between subsystems</p></li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li>Simplest example displaying nontrivial entanglement is <a href="https://en.wikipedia.org/wiki/Bell_state">Bell state</a></li>
-</ul>
-<p><span class="math display">
-\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
-</span></p>
-<ul>
-<li><p>Schmidt coefficients both <span class="math inline">\frac{1}{\sqrt{2}}</span>, indicating maximal entanglement</p></li>
-<li><p>Schmidt decomposition closely related to RDM <span class="math display">
-\rho_A = \operatorname{tr}_B\left[\ket{\Psi}\bra{\Psi}\right]
-= \sum_n \sigma_n^2 \ket{u_n}\bra{u_n}
+<li><p>Schmidt decomposition closely related to the <em>reduced density matrix</em></p></li>
+<li><p>RDM <span class="math inline">\rho_A</span> for subsystem <span class="math inline">A</span> <span class="math display">
+\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi_{AB}}\bra{\Psi_{AB}}\right]
 </span></p></li>
-<li><p>Eigenvalues of RDM are <span class="math inline">p_n=\sigma_n^2</span></p></li>
+<li><p>In terms of the Schmidt basis</p></li>
+</ul>
+<p><span class="math display">
+\rho_A = \sum_{n=1}^{n} \lambda_n^2\ket{\tilde n}_A\bra{\tilde n}_A
+</span></p>
+<ul>
+<li>Eigenvalues of RDM are <span class="math inline">p_n = \lambda_n^2</span>. Note that <span class="math inline">\operatorname{tr}\rho_A=\sum_n p_n = 1</span></li>
 </ul>
 </section>
-<section class="slide level2 center">
-
+<section id="quantifying-entanglement" class="slide level2 center">
+<h2>Quantifying entanglement</h2>
 <ul>
 <li>One measure of entanglement is von Neumann entropy of <span class="math inline">\rho_A</span> (aka <strong>entanglement entropy</strong>)</li>
 </ul>
 <p><span class="math display">
-S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right]
+S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\sum_n p_n \log p_n
 </span></p>
 <ul>
-<li><span class="math inline">S_A</span> vanishes for product state, and is otherwise positive</li>
+<li><span class="math inline">S_A</span> vanishes for product state (only one <span class="math inline">p_n=1</span>), and is otherwise positive</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
+<section id="some-useful-results" class="slide level2 center">
+<h2>Some useful results</h2>
+<p><span class="math display">
+\ket{\Psi_{AB}} = \sum_{n=1}^{n} \lambda_n\ket{\tilde n}_A\ket{\tilde n}_B
+</span></p>
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">Rényi entropies</a> provide more complete information <span class="math display">
-S^{(\alpha)}_A = \frac{1}{1-\alpha}\log \operatorname{tr}\left[\rho^n\right]=\frac{1}{1-\alpha}\sum\_n p\_n^\alpha
-</span> <span class="math inline">S^{(\text{vN})}_A=\lim_{\alpha\to 1} S^{(\alpha)}_A</span>. <span class="math inline">S^{(0)}_A</span> is number of nonzero Schmidt coefficients (aka <a href="https://en.wikipedia.org/wiki/Schmidt_decomposition#Schmidt_rank_and_entanglement">Schmidt rank</a>) <span class="math display">
-S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr} \rho_A^2
-</span> where <span class="math inline">\gamma\equiv \operatorname{tr} \rho_A^2</span> is <a href="https://en.wikipedia.org/wiki/Purity_(quantum_mechanics)">purity</a></li>
+<li>Unitary transformations <span class="math inline">U_{A/B}</span> on subsystems do not affect entanglement</li>
+<li>Maximal entanglement is <span class="math inline">\log n</span>, where <span class="math inline">n=\min(n_A,n_B)</span></li>
+<li>Entanglement between subsystems is maximal when <span class="math inline">\Psi_{AB}</span> is unitary (if <span class="math inline">n_A=n_B</span>) or generally an <em>isometry</em></li>
 </ul>
-</section>
-<section id="maximal-entanglement" class="slide level2 center">
-<h2>Maximal entanglement</h2>
-<ul>
-<li>Entanglement between subsystems is maximal when the matrix is an isometry</li>
-</ul>
-</section>
-<section id="entanglement-entropy" class="slide level2 center">
-<h2>Entanglement entropy</h2>
 </section></section>
 <section>
-<section id="gates-1" class="title-slide slide level1 center">
-<h1>Gates</h1>
+<section id="some-graphical-tools" class="title-slide slide level1 center">
+<h1>Some graphical tools</h1>
 
 </section>
-<section id="penrose-tensor-notation" class="slide level2 center">
-<h2>Penrose tensor notation</h2>
+<section id="everything-is-a-tensor" class="slide level2 center">
+<h2>Everything is a tensor</h2>
+<ul>
+<li>State of <span class="math inline">N</span> qubits expressed in product basis</li>
+</ul>
+<p><span class="math display">
+\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
+</span></p>
+<ul>
+<li><p>Write <span class="math inline">\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}</span> for brevity</p></li>
+<li><p>Operator on <span class="math inline">N</span> qubits has matrix elements</p></li>
+</ul>
+<p><span class="math display">
+\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
+</span></p>
+</section>
+<section id="graphical-notation" class="slide level2 center">
+<h2>Graphical notation</h2>
+<ul>
+<li><p>A tensor is denoted by a blob with one leg for each index</p></li>
+<li><p>Connecting legs denotes contraction: summing over a shared index</p></li>
+</ul>
+<figure align="center">
+<img src="assets/contractions.png" width="100%">
+<figcaption>
+See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly’s tensor contraction tutorial</a>
+</figcaption>
+</figure>
+</section>
+<section id="two-qubit-unitary" class="slide level2 center">
+<h2>Two qubit unitary</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/two_qubit_gate_tile.svg" class="quarto-figure quarto-figure-center" style="width:200.0%"></p>
+</figure>
+</div>
 </section>
 <section id="unitarity" class="slide level2 center">
 <h2>Unitarity</h2>
-<figure align="center">
-<img src="assets/unitarity.svg" width="90%">
-</figure>
-</section>
-<section id="folded-notation" class="slide level2 center">
-<h2>Folded notation</h2>
-<p>Show unitarity in the folded picture</p>
+<ul>
+<li>Unitarity of two qubit gate expressed as</li>
+</ul>
+<p><span class="math display">
+\sum_{s_1's_2'}U_{s_1s_2,s'_1s'_2} U^\dagger_{s'_1s'_2,s''_1s''_2}=\delta_{s_1,s_1''} \delta_{s_2,s_2''}
+</span></p>
+<ul>
+<li>…or in graphical form</li>
+</ul>
+<p><img data-src="assets/unitarity.svg" style="width:150.0%"></p>
 </section>
 <section id="folded-representations" class="slide level2 center">
 <h2>“Folded” representations</h2>
 <ul>
 <li>Since every <span class="math inline">U</span> accompanied by <span class="math inline">U^\dagger</span>, include both in single unit by “folding” one on top of the other</li>
 </ul>
-<p align="center">
-<img src="assets/diag_folded.png" width="60%">
-</p>
-<p><img data-src="assets/folded_gate_definition_v2.svg" style="width:80.0%"></p>
+<p><img data-src="assets/folded_gate_definition_v2.svg" style="width:100.0%"></p>
 <ul>
 <li>Lines correspond to two indices, and therefore <span class="math inline">2^2=4</span> dimensions</li>
 </ul>
@@ -651,12 +561,13 @@ S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr} \rho_A^2
 <h2>Dual unitaries</h2>
 <p><img data-src="assets/dual_unitarity_folded.svg" style="width:80.0%"></p>
 <ul>
-<li>Introduced in…</li>
+<li>Introduced in</li>
 <li>See review</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
+<section id="parameterizing-dual-unitaries" class="slide level2 center">
+<h2>Parameterizing dual unitaries</h2>
+<p>General form</p>
 </section></section>
 <section>
 <section id="circuits" class="title-slide slide level1 center">
@@ -665,9 +576,12 @@ S^{(2)}_A = -\log \sum_n p_n^2 = -\log \gamma\operatorname{tr} \rho_A^2
 </section>
 <section id="one-motivation-time-evolution" class="slide level2 center">
 <h2>One motivation: time evolution</h2>
+</section>
+<section class="slide level2 center">
+
 <h3 id="single-qubit-gates">Single qubit gates</h3>
 <ul>
-<li><p>Time evolution operator <span class="math inline">U=\exp(-iHt)</span></p></li>
+<li><p>Time evolution operator <span class="math inline">\mathcal{U}=\exp(-iHt)</span></p></li>
 <li><p>If <span class="math inline">H=\sum_j h_j</span> a sum of single qubit terms</p></li>
 </ul>
 <p><span class="math display">
@@ -723,16 +637,18 @@ Source: <a href="https://www.tensors.net/exact-diagonalization">Glen Evenbly</a>
 </section>
 <section class="slide level2 center">
 
-<span class="math display">
+<p><span class="math display">
 H = \sum_j h_{j,j+1}
 </span> <span class="math display">
 H_A = \sum_j h_{2j, 2j+1}\qquad H_B = \sum_j h_{2j-1, 2j}
 </span> <span class="math display">
 e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
-</span>
-<p align="center">
-<img src="assets/brickwall.png" width="450">
-</p>
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/brickwork_open.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </section>
 <section id="floquet-theory-kicked-ising-model" class="slide level2 center">
 <h2>Floquet theory: kicked Ising model</h2>
@@ -757,9 +673,11 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </section>
 <section id="kim-as-a-circuit" class="slide level2 center">
 <h2>KIM as a circuit</h2>
-<p align="center">
-<img src="assets/kim-circuit.png" width="200">
-</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/kim-circuit.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <p><span class="math display">
 \begin{aligned}
   \mathcal{K} &amp;= \exp\left[-i b X\right]\\\
@@ -801,9 +719,7 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </section>
 <section id="basic-circuit" class="slide level2 center">
 <h2>Basic circuit</h2>
-<figure align="center">
-<img src="assets/brickwork_open.svg" width="90%">
-</figure>
+<p><img data-src="assets/brickwork_open.svg" style="width:100.0%"></p>
 </section>
 <section id="expectation-value" class="slide level2 center">
 <h2>Expectation value</h2>
@@ -821,7 +737,19 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </section>
 <section class="slide level2 center">
 
-<p><img data-src="assets/folded_light_cone_reduced.svg" style="width:80.0%"></p>
+<ul>
+<li>Recall unitarity</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/folded_unitarity_condition.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/folded_light_cone_reduced.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 <ul>
 <li>“Light cone” emerges, reflecting region of circuit that affects expectation value</li>
 </ul>
@@ -831,25 +759,74 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <p><span class="math display">
 C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 </span></p>
-<p><img data-src="assets/infinite_temperature_correlator_full.svg" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/infinite_temperature_correlator_full.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </section>
 <section class="slide level2 center">
 
-<p><img data-src="assets/infinite_temperature_correlator_reduced.svg" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/infinite_temperature_correlator_reduced.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 <ul>
 <li>Correlations only nonzero inside “light cone”</li>
 </ul>
 </section>
 <section id="dual-unitaries-1" class="slide level2 center">
 <h2>Dual unitaries</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/infinite_temperature_correlator_reduced.svg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
 <ul>
 <li>Recall the dual unitary condition</li>
 </ul>
-<p><img data-src="assets/folded_unitarity_condition.svg" style="width:80.0%"></p>
-<p>Correlations vanish inside</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/dual_unitarity_folded.svg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Correlations vanish inside: <span class="math inline">C(x,t)=d^{-1}\operatorname{tr}\left[O\right]\operatorname{tr}\left[O'\right]</span></li>
+</ul>
 </section>
 <section id="light-cone-correlations" class="slide level2 center">
 <h2>Light cone correlations</h2>
+<ul>
+<li>For <span class="math inline">x=t</span> the picture simplifies…</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/lightcone_correlator_degenerate_chain.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</section>
+<section id="computation-of-correlators" class="slide level2 center">
+<h2>Computation of correlators</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/lightcone_transfer_map_definition.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<p><span class="math display">
+  \mathcal{M}_{+}(a)
+  \;=\;
+  \frac{1}{q}\,\operatorname{tr}_{1}\!\left[\,U\,(a \otimes \mathbb{1})\,U^{\dagger}\,\right]
+</span></p>
+<p><span class="math display">
+  C(t,t)
+  \;=\;
+  \frac{1}{q}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
+</span></p>
+</section>
+<section id="behaviour-of-correlation-functions" class="slide level2 center">
+<h2>Behaviour of correlation functions</h2>
+<p>TODO Summarize variety of behaviour for correlator (fig from review)</p>
 </section>
 <section id="operator-spreading" class="slide level2 center">
 <h2>Operator spreading</h2>
@@ -857,9 +834,9 @@ C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 <li><p>How does a local operator “look” as it evolves in Heisenberg picture?</p></li>
 <li><p><span class="math inline">Z_n(t)=\mathcal{U}^\dagger(t)Z_n \mathcal{U}(t)</span> appears in <span class="math inline">\langle Z_n(t)Z_m(0) \rangle</span>, but this is only one “component” of <span class="math inline">Z_n(t)</span></p></li>
 <li><p>Any observable such as <span class="math inline">Z_n(t)</span> can be expressed as expansion <span class="math display">
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 </span> <span class="math display">
-\mathcal{C}\_{\mu_{1:N}}(0)=\begin{cases}
+\mathcal{C}_{\mu_{1:N}}(0)=\begin{cases}
 1 &amp; \mu_j=z, \mu_k=1,\forall k\neq j \\\\
 0 &amp; \text{otherwise}
 \end{cases}
@@ -869,10 +846,10 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\
 <section class="slide level2 center">
 
 <p><span class="math display">
-Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
+Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_1}\otimes\cdots \sigma_N^{\mu_N}
 </span></p>
 <ul>
-<li>Since <span class="math inline">\tr\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}</span>, can extract spin correlations from <span class="math inline">\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)</span></li>
+<li>Since <span class="math inline">\operatorname{tr}\left[\sigma_\alpha\sigma_\beta\right]=2\delta_{\alpha\beta}</span>, can extract spin correlations from <span class="math inline">\langle Z_j(t)Z_k(0)\rangle=C_{jk}(t) \equiv \mathcal{C}_{1\cdots \mu_k=z \cdots 1}(t)</span></li>
 </ul>
 <figure align="center">
 <img src="assets/initial-terminal.png" width="400">
@@ -884,11 +861,11 @@ Z_n(t)= \sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}\_{\mu_{1:N}}(t) \sigma_1^{\
 <section class="slide level2 center">
 
 <ul>
-<li><p>Operator norm <span class="math inline">\tr\left[Z\_n^2(t)\right]=2</span> is conserved under time evolution</p></li>
+<li><p>Operator norm <span class="math inline">\operatorname{tr}\left[Z_n^2(t)\right]=2</span> is conserved under time evolution</p></li>
 <li><p>This implies the normalization</p></li>
 </ul>
 <p><span class="math display">
-\sum_{\mu_{1:N}=\\{1,x,y,z\\}^N} \mathcal{C}^2\_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
+\sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
 </span></p>
 </section>
 <section id="example-su2-preserving-gate" class="slide level2 center">
@@ -973,25 +950,79 @@ i[\mathsf{S},\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 
 <ul>
 <li><p>Spreading suppressed at <span class="math inline">J=0</span> because we considered <em>average</em></p></li>
 <li><p>In any sample from our random circuit, single-site operator spreads to many sites</p></li>
-<li><p>Random signs of coeffcients <span class="math inline">\mathcal{C}\_{\mu_{1:N}}</span> means most average to zero: only the single site contributions remain</p></li>
+<li><p>Random signs of coeffcients <span class="math inline">\mathcal{C}_{\mu_{1:N}}</span> means most average to zero: only the single site contributions remain</p></li>
 <li><p>When <span class="math inline">J\neq 0</span> some contribution survives and this allows for a controlled expansion</p></li>
 <li><p>We’d like a measure that is insensitive to these random signs</p></li>
 </ul>
 </section>
-<section id="reduced-density-matrix-1" class="slide level2 center">
-<h2>Reduced density matrix</h2>
+<section id="entanglement" class="slide level2 center">
+<h2>Entanglement</h2>
 <ul>
-<li>Expectation value of operator in region <span class="math inline">A</span> can be computed from <em>reduced density matrix</em> <span class="math inline">\rho_A</span> for region <span class="math inline">A</span> <span class="math display">
-\rho_A = \operatorname{tr}_{B}\left[\ket{\Psi}\bra{\Psi}\right]=\operatorname{tr}_{B}\left[\mathcal{U}\ket{\Psi_0}\bra{\Psi_0}\mathcal{U}^\dagger\right]
-</span> (<span class="math inline">B</span> is complement of <span class="math inline">A</span>)</li>
+<li>TODO simple model of SWAPS</li>
+</ul>
+</section>
+<section id="toy-model" class="slide level2 center">
+<h2>Toy model</h2>
+<ul>
+<li>Circuit of SWAP gates
+<figure align="center">
+<img src="assets/bell-swap.png" width="80%">
+</figure></li>
+<li>Initial state is product of Bell states <span class="math display">
+\ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
+</span> <span class="math display">
+\operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
+</span> with entanglement entropy of one bit</li>
 </ul>
 </section>
 <section class="slide level2 center">
 
 <ul>
-<li>Initial RDM of bottom part of wedge is all that matters!</li>
+<li><p><span class="math inline">\rho_A</span> therefore has factor <span class="math inline">\mathbb{1}_n</span> for each site <span class="math inline">n\in A</span> with “partner” in <span class="math inline">B</span></p></li>
+<li><p>If <em>both</em> qubits of a Bell pair are at sites <span class="math inline">n,m\in A</span> they give a factor <span class="math inline">\ket{\Phi^+}_{nm}\bra{\Phi^+}_{nm}</span>: a pure state</p></li>
+<li><p>Entanglement entropy has contributions from first case only</p></li>
 </ul>
-<p>##&nbsp;Entanglement</p>
+<p><span class="math display">
+S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+</span></p>
+</section>
+<section class="slide level2 center">
+
+<p><span class="math display">
+S_A = \min(4\lfloor t/2\rfloor, |A|) \text{ bits}
+</span></p>
+<ul>
+<li>After time <span class="math inline">\sim |A|/2</span> subsystem has thermalized.</li>
+</ul>
+<figure align="center">
+<img src="assets/bertini.png" width="400">
+<figcaption>
+Source: <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.9.021033">Bertini et al.&nbsp;(2019)</a>
+</figcaption>
+</figure>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><p>Ramp behaviour in many systems</p></li>
+<li><p>In noninteracting systems or integrable systems, often explained in terms of the causal propagation of (quasi-)particles:</p></li>
+</ul>
+<figure align="center">
+<img src="assets/qp.png" width="300">
+<figcaption>
+Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P04010/meta">Calabrese and Cardy (2005)</a>
+</figcaption>
+</figure>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li><p>Toy model with SWAP gates is rather similar, with qubits playing the role of “noninteracting particles”</p></li>
+<li><p>This picture remains true in circuits where there is no quasiparticle interpretation (next lecture)</p></li>
+</ul>
+</section>
+<section id="entanglement-in-general" class="slide level2 center">
+<h2>Entanglement in general</h2>
 <ul>
 <li>Entanglement determined by triangular wedge</li>
 </ul>
@@ -1005,6 +1036,7 @@ i[\mathsf{S},\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 
 <h2>Bell initial state</h2>
 <p><img data-src="assets/wedge_bell_pairs_offset.svg" style="width:80.0%"></p>
 <ul>
+<li>What is the largest entanglement?</li>
 <li>For dual unitary gates this is an <em>isometry</em>!</li>
 <li>Consequences for entanglement</li>
 </ul>
@@ -1035,6 +1067,9 @@ i[\mathsf{S},\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 
 </section></section>
 <section id="open-questions" class="title-slide slide level1 center">
 <h1>Open questions</h1>
+<ul>
+<li>Reviews on DUCs, RUCs…</li>
+</ul>
 <p>…</p>
 
 

@@ -1,0 +1,65 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Quarto and Pyodide\"\n",
+        "author: \"Austen Lamacraft\"\n",
+        "date: \"2024-06-24\"\n",
+        "categories: [tech]\n",
+        "filters:\n",
+        "  - pyodide\n",
+        "---\n",
+        "\n",
+        "Having recently switched these pages over to [Quarto](https://quarto.org/), I was keen to see how easy it was to build interactive pages. Support for [Observable](https://observablehq.com/) comes out of the box for JS people, but I was also thrilled to discover the extension [quarto-pyodide](https://quarto.thecoatlessprofessor.com/pyodide/) which makes it easy to incorporate [Pyodide](https://pyodide.org/en/stable/) – aka Python in the browser – into Quarto projects.\n",
+        "\n",
+        "This is a Pyodide-enabled code cell in a Quarto HTML document.\n",
+        "\n",
+        "__At the moment I can't do animations using Pyodide see [this issue](https://github.com/pyodide/matplotlib-pyodide/issues/46)__\n",
+        "\n",
+        "```{pyodide-python}\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "from matplotlib.animation import FuncAnimation\n",
+        "from functools import partial\n",
+        "\n",
+        "fig, ax = plt.subplots()\n",
+        "line1, = ax.plot([], [], 'ro')\n",
+        "\n",
+        "def init():\n",
+        "    ax.set_xlim(0, 2*np.pi)\n",
+        "    ax.set_ylim(-1, 1)\n",
+        "    return line1,\n",
+        "\n",
+        "def update(frame, ln, x, y):\n",
+        "    x.append(frame)\n",
+        "    y.append(np.sin(frame))\n",
+        "    ln.set_data(x, y)\n",
+        "    return ln,\n",
+        "\n",
+        "ani = FuncAnimation(\n",
+        "    fig, partial(update, ln=line1, x=[], y=[]),\n",
+        "    frames=np.linspace(0, 2*np.pi, 128),\n",
+        "    init_func=init, blit=True)\n",
+        "\n",
+        "plt.show()\n",
+        "```\n",
+        "\n",
+        "How would I run a simulation and see the results in real time?"
+      ],
+      "id": "167d56ea"
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/opt/anaconda3/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
