@@ -177,52 +177,10 @@ Austen Lamacraft
 <li><p>Fundamental problem of quantum dynamics <span class="math display">
 i\frac{\partial}{dt}\ket{\Psi} = H\ket{\Psi}
 </span> …given some initial <span class="math inline">\ket{\Psi_0}</span></p></li>
-<li><p>As number of components <span class="math inline">N</span> increases, dimensionality of <span class="math inline">\ket{\Psi}</span> grows exponentially</p></li>
+<li><p>As number of subsystems <span class="math inline">N</span> increases, dimensionality of <span class="math inline">\ket{\Psi}</span> grows exponentially</p></li>
 <li><p>What are the <em>qualitative</em> features of quantum many-body dynamics?</p></li>
+<li><p>Choose models that are tractable and generic(-ish)</p></li>
 </ul>
-</section>
-<section id="experimental-systems" class="slide level2 center">
-<h2>Experimental systems</h2>
-<p>Google quantum computer</p>
-<p>Willow stats</p>
-</section></section>
-<section id="outline" class="title-slide slide level1 center">
-<h1>Outline</h1>
-<p>Cite Pieter’s review…</p>
-<ul>
-<li>Fundamentals
-<ul>
-<li>Based on my computational physics notes</li>
-<li>Linear algebra background</li>
-<li>Basics of many body qm (qubits)</li>
-<li>Bell states</li>
-<li>Schmidt decomposition</li>
-<li>Relevance of isometries</li>
-</ul></li>
-<li>Gates</li>
-</ul>
-<p>Based on earlier lectures</p>
-<ul>
-<li><p>Basic kinds</p></li>
-<li><p>Tensor networks</p></li>
-<li><p>Intro to Penrose notation</p></li>
-<li><p>Circuits</p>
-<ul>
-<li>Connection to Floquet physics</li>
-<li>Appearance of light cone. Connect to folded transfer matrix of Mari-Carmen</li>
-<li>Folded picture</li>
-<li>Importance of unitarity (example of measurement induced entanglement)</li>
-</ul></li>
-<li><p>Operators spreading. OTOCs</p></li>
-<li><p>Representation of correlation functions</p></li>
-<li><p>Idea of random circuits and simplest examples of resulting Markov chain</p></li>
-</ul>
-</section>
-
-<section>
-<section id="outline-1" class="title-slide slide level1 center">
-<h1>Outline</h1>
-
 </section>
 <section id="what-is-a-quantum-circuit" class="slide level2 center">
 <h2>What is a quantum circuit?</h2>
@@ -236,6 +194,22 @@ i\frac{\partial}{dt}\ket{\Psi} = H\ket{\Psi}
 <ul>
 <li><span class="math inline">f</span> acts on top five qubits, then <span class="math inline">g</span> acts on lower seven</li>
 </ul>
+</section>
+<section id="n-qubit-states" class="slide level2 center">
+<h2>N qubit states</h2>
+<ul>
+<li>State of <span class="math inline">N</span> qubits expressed in product basis</li>
+</ul>
+<p><span class="math display">
+\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
+</span></p>
+<ul>
+<li><p>Write <span class="math inline">\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}</span> for brevity</p></li>
+<li><p>Operator on <span class="math inline">N</span> qubits has matrix elements</p></li>
+</ul>
+<p><span class="math display">
+\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
+</span></p>
 </section>
 <section id="possible-operations" class="slide level2 center">
 <h2><a href="https://en.wikipedia.org/wiki/Quantum_logic_gate">Possible operations</a></h2>
@@ -254,7 +228,7 @@ Source: <a href="https://en.wikipedia.org/wiki/Quantum_circuit">Wikipedia</a>
 <section id="why-consider-circuits" class="slide level2 center">
 <h2>Why consider circuits?</h2>
 <ul>
-<li><p><strong>For this program:</strong> example of discrete time, many body dynamics</p></li>
+<li><p><strong>For this audience:</strong> example of discrete time, many body dynamics</p></li>
 <li><p>Model of universal quantum computation</p>
 <ul>
 <li>How to generate an arbitrary quantum state</li>
@@ -263,6 +237,19 @@ Source: <a href="https://en.wikipedia.org/wiki/Quantum_circuit">Wikipedia</a>
 <li><p><em>They exist!</em> Companies (Google, IBM, etc.) have built platforms for gate-based QC</p></li>
 <li><p>Here we are concerned with <strong>unitary circuits</strong> made from <strong>unitary gates</strong></p></li>
 </ul>
+</section>
+<section id="outline" class="slide level2 center">
+<h2>Outline</h2>
+<ul>
+<li>Gates (and entanglement)</li>
+<li>Some graphical tools</li>
+<li>Dynamics in brickwork circuits</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/brickwork_open.svg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
 </section></section>
 <section>
 <section id="gates" class="title-slide slide level1 center">
@@ -353,12 +340,12 @@ U = e^{i \phi} (u_+ \otimes u_-) V[J_x, J_y, J_z] (v_- \otimes v_+)
 <p><span class="math display">
 \begin{align*}
 V[J_x, J_y, J_z] &amp;= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\\\
-&amp;= \begin{bmatrix}
-e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
-0 &amp; e^{iJ_z} \cos(J_+) &amp; -ie^{i J_z} \sin(J_+) &amp; 0 \\\\
-0 &amp; -ie^{i J_z} \sin(J_+) &amp; e^{iJ_z} \cos(J_+) &amp; 0 \\\\
--i e^{-i J_z \sin(J_-)} &amp; 0 &amp; 0 &amp; e^{-i J_z} \cos(J_-) \\\\
-\end{bmatrix}
+%  &amp;= \begin{bmatrix}
+% e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
+% 0 &amp; e^{iJ_z} \cos(J_+) &amp; -ie^{i J_z} \sin(J_+) &amp; 0 \\\\
+% 0 &amp; -ie^{i J_z} \sin(J_+) &amp; e^{iJ_z} \cos(J_+) &amp; 0 \\\\
+% -i e^{-i J_z \sin(J_-)} &amp; 0 &amp; 0 &amp; e^{-i J_z} \cos(J_-) \\\\
+% \end{bmatrix}
 \end{align*}
 </span></p>
 <ul>
@@ -384,8 +371,11 @@ e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
 </span></p>
 <ul>
 <li><p>Special case is <em>product state</em> <span class="math inline">\ket{\Psi_{AB}} = \ket{a}_A\ket{b}_B</span></p></li>
-<li><p>Other states are <em>entangled</em></p></li>
+<li><p>Other states are <em>entangled</em> e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Bell_state">Bell state</a></p></li>
 </ul>
+<p><span class="math display">
+\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
+</span></p>
 </section>
 <section class="slide level2 center">
 
@@ -434,7 +424,7 @@ e^{-i J_z} \cos(J_-) &amp; 0 &amp; 0 &amp; -i e^{-i J_z \sin(J_-)} \\\\
 <section class="slide level2 center">
 
 <ul>
-<li><a href="https://en.wikipedia.org/wiki/Bell_state">Bell states</a> of two spin-1/2 subsystems</li>
+<li>Recall Bell state</li>
 </ul>
 <p><span class="math display">
 \left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
@@ -499,8 +489,7 @@ S^{(\text{vN})}_A \equiv -\operatorname{tr}\left[\rho_A\log \rho_A\right] = -\su
 \ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
 </span></p>
 <ul>
-<li><p>Write <span class="math inline">\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}</span> for brevity</p></li>
-<li><p>Operator on <span class="math inline">N</span> qubits has matrix elements</p></li>
+<li>Operator on <span class="math inline">N</span> qubits has matrix elements</li>
 </ul>
 <p><span class="math display">
 \mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
@@ -538,7 +527,7 @@ See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly’s tensor contrac
 <ul>
 <li>…or in graphical form</li>
 </ul>
-<p><img data-src="assets/unitarity.svg" style="width:150.0%"></p>
+<p><img data-src="assets/unitarity.svg" style="width:100.0%"></p>
 </section>
 <section id="folded-representations" class="slide level2 center">
 <h2>“Folded” representations</h2>
@@ -561,21 +550,23 @@ See <a href="https://www.tensors.net/tutorial-1">Glen Evenbly’s tensor contrac
 <h2>Dual unitaries</h2>
 <p><img data-src="assets/dual_unitarity_folded.svg" style="width:80.0%"></p>
 <ul>
-<li>Introduced in</li>
-<li>See review</li>
+<li><p>Circuits based on DUs introduced in <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309">Gopalakrishnan and Lamacraft (2019)</a>, <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601">Bertini, Kos, and Prosen (2019)</a></p></li>
+<li><p>14 parameter family (c.f. 16 parameters for general two qubit unitary)</p></li>
+<li><p>Includes range of behaviour: integrable, chaotic</p></li>
 </ul>
-</section>
-<section id="parameterizing-dual-unitaries" class="slide level2 center">
-<h2>Parameterizing dual unitaries</h2>
-<p>General form</p>
 </section></section>
 <section>
 <section id="circuits" class="title-slide slide level1 center">
 <h1>Circuits</h1>
-
+<ul>
+<li>Kicked Ising model</li>
+<li>Expectation values</li>
+<li>Correlation functions</li>
+<li>Entanglement</li>
+</ul>
 </section>
-<section id="one-motivation-time-evolution" class="slide level2 center">
-<h2>One motivation: time evolution</h2>
+<section id="motivation-kicked-ising-model" class="slide level2 center">
+<h2>Motivation: kicked Ising model</h2>
 </section>
 <section class="slide level2 center">
 
@@ -646,7 +637,8 @@ e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 </span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/brickwork_open.svg" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="assets/brickwork_open.svg" style="width:40.0%"></p>
+<figcaption><em>Brickwork</em> circuit</figcaption>
 </figure>
 </div>
 </section>
@@ -684,6 +676,9 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
   \mathcal{I} &amp;= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right]
 \end{aligned}
 </span></p>
+<ul>
+<li><em>Dual unitary</em> when <span class="math inline">b=J=\pi / 4</span>!</li>
+</ul>
 </section>
 <section id="locality" class="slide level2 center">
 <h2>Locality</h2>
@@ -719,21 +714,30 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 </section>
 <section id="basic-circuit" class="slide level2 center">
 <h2>Basic circuit</h2>
-<p><img data-src="assets/brickwork_open.svg" style="width:100.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/brickwork_open.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section id="folded-brickwork" class="slide level2 center">
+<h2>Folded brickwork</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/folded_brickwork_circuit.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </section>
 <section id="expectation-value" class="slide level2 center">
 <h2>Expectation value</h2>
 <ul>
-<li>Folded brickwork</li>
-</ul>
-<p><img data-src="assets/folded_brickwork_circuit.svg" style="width:80.0%"></p>
-</section>
-<section class="slide level2 center">
-
-<ul>
 <li>In folded picture expectation value <span class="math inline">\bra{\Psi}\mathcal{O}\ket{\Psi}</span> looks like this</li>
 </ul>
-<p><img data-src="assets/folded_expectation_value_full.svg" style="width:80.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/folded_expectation_value_full.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </section>
 <section class="slide level2 center">
 
@@ -745,13 +749,16 @@ H_\text{I}[\mathbf{h}]=\sum_{j=1}^L\left[J Z_j Z_{j+1} + h_j Z_j\right],\qquad H
 <p><img data-src="assets/folded_unitarity_condition.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
+</section>
+<section class="slide level2 center">
+
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/folded_light_cone_reduced.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 <ul>
-<li>“Light cone” emerges, reflecting region of circuit that affects expectation value</li>
+<li>“Light cone” emerges: region of circuit that affects expectation value</li>
 </ul>
 </section>
 <section id="correlation-functions" class="slide level2 center">
@@ -778,17 +785,12 @@ C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 </section>
 <section id="dual-unitaries-1" class="slide level2 center">
 <h2>Dual unitaries</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="assets/infinite_temperature_correlator_reduced.svg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
 <ul>
 <li>Recall the dual unitary condition</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/dual_unitarity_folded.svg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+<p><img data-src="assets/dual_unitarity_folded.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </figure>
 </div>
 <ul>
@@ -802,7 +804,16 @@ C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/lightcone_correlator_degenerate_chain.svg" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="assets/lightcone_correlator_degenerate_chain.svg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/unitarity-space-time.png" style="width:60.0%"></p>
+<figcaption>Figure from Bertini, Claeys, Prosen (<a href="https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86">Rev.&nbsp;Mod. Phys. 98, 025001 (2026)</a>)</figcaption>
 </figure>
 </div>
 </section>
@@ -816,17 +827,29 @@ C(x,t) = d^{-N} \operatorname{tr}\left[O(x,t)O'(0,0)\right]
 <p><span class="math display">
   \mathcal{M}_{+}(a)
   \;=\;
-  \frac{1}{q}\,\operatorname{tr}_{1}\!\left[\,U\,(a \otimes \mathbb{1})\,U^{\dagger}\,\right]
+  \frac{1}{d}\,\operatorname{tr}_{1}\!\left[\,U^{\dagger}\,(a \otimes \mathbb{1})\,U\,\right]
 </span></p>
 <p><span class="math display">
   C(t,t)
   \;=\;
-  \frac{1}{q}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
+  \frac{1}{d}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
 </span></p>
 </section>
 <section id="behaviour-of-correlation-functions" class="slide level2 center">
 <h2>Behaviour of correlation functions</h2>
-<p>TODO Summarize variety of behaviour for correlator (fig from review)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/correlation-zoo.png" style="width:60.0%"></p>
+<figcaption>Figure from Bertini, Claeys, Prosen (<a href="https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86">Rev.&nbsp;Mod. Phys. 98, 025001 (2026)</a>)</figcaption>
+</figure>
+</div>
+</section>
+<section id="quantinuum-experiment" class="slide level2 center">
+<h2>Quantinuum experiment</h2>
+<ul>
+<li>Correlations measured in SDKIM in 2022 (<a href="https://www.nature.com/articles/s41567-022-01689-7">Nat. Phys. 18, 1074 (2022)</a>)</li>
+</ul>
+<p><img data-src="assets/quantinuum.png"></p>
 </section>
 <section id="operator-spreading" class="slide level2 center">
 <h2>Operator spreading</h2>
@@ -867,111 +890,36 @@ Z_n(t)= \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}_{\mu_{1:N}}(t) \sigma_1^{\mu_
 <p><span class="math display">
 \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
 </span></p>
-</section>
-<section id="example-su2-preserving-gate" class="slide level2 center">
-<h2>Example: <span class="math inline">SU(2)</span> preserving gate</h2>
 <ul>
-<li><p>Consider gate generated by exchange Hamiltonian: <span class="math display">
-U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
-</span> <span class="math inline">\operatorname{\mathsf{S}}_{j,j+1}</span> denotes <span class="math inline">\operatorname{\mathsf{SWAP}}</span> gate on sites <span class="math inline">j</span> and <span class="math inline">j+1</span></p></li>
-<li><p>Action of this gate on an operator is</p></li>
-</ul>
-<p><span class="math display">
-\mathcal{O} \longrightarrow U^\dagger\_{j,j+1}\mathcal{O}U\_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{\mathsf{S}}\_{j.j+1}\mathcal{O} \operatorname{\mathsf{S}}\_{j.j+1} \\\
--i\sin\theta\cos\theta \left[\operatorname{\mathsf{S}}\_{j.j+1}, \mathcal{O}\right]
-</span></p>
-</section>
-<section id="ensemble-of-circuits" class="slide level2 center">
-<h2>Ensemble of circuits</h2>
-<ul>
-<li><p>Consider ensemble averaged quantities</p></li>
-<li><p>Take <span class="math inline">\theta=\pm \theta_0</span> with <span class="math inline">p(\theta_0)-p(-\theta_0)\equiv \delta &gt; 0</span>.</p></li>
-<li><p>Averaging the evolved operator gives</p></li>
-</ul>
-<p><span class="math display">
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, \mathsf{S}\_{j.j+1}\mathcal{O} \mathsf{S}\_{j.j+1} \\\\
-+i\delta \sin\theta_0\cos\theta_0 \left[\mathsf{S}\_{j.j+1}, \mathcal{O}\right]
-</span></p>
-<ul>
-<li><p>Interpretation</p>
-<ol type="1">
-<li>Operators on sites <span class="math inline">j</span> and <span class="math inline">j+1</span> switch with probability <span class="math inline">\sin^2\theta_0</span>.</li>
-<li>The asymmetry <span class="math inline">\delta</span> governs strength of “quantum” dynamics</li>
-</ol></li>
+<li>An initially localized operator will tend to <em>spread</em> over an every growing number of sites</li>
 </ul>
 </section>
-<section class="slide level2 center">
-
+<section id="butterfly-velocity" class="slide level2 center">
+<h2>Butterfly velocity</h2>
 <ul>
-<li>Continuous time limit (<a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.246603">Claeys, Lamacraft &amp; Herzog-Arbeitman (2022)</a> <span class="math display">
-\frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[\mathsf{S}\_{j,j+1},\bar{\mathcal{O}}\right]+\left(\mathsf{S}\_{j,j+1}\bar{\mathcal{O}}\mathsf{S}\_{j,j+1}-\bar{\mathcal{O}}\right)\right]
-</span> where <span class="math inline">J\propto \delta</span>. Computing commutator:</li>
+<li>Front propagation characterised by finite velocity <span class="math inline">v_\text{B}</span></li>
 </ul>
-<p><span class="math display">
-\begin{align*}
-i[\mathsf{S},\sigma^a\otimes 1]&amp;=-\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
-i[\mathsf{S},1\otimes \sigma^a]&amp;=\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
-i[\mathsf{S},\sigma^a\otimes \sigma^b]&amp;=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otimes \sigma^c\right).
-\end{align*}
-</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/space-time-front.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
 <ul>
-<li>Describes operator “splitting” (<span class="math inline">1\to 2</span>) and “merging” (<span class="math inline">2\to 1</span>)</li>
+<li><p>Analytical progress possible in <em>random unitary circuits</em></p></li>
+<li><p>Map operator spreading to a Markov chain</p></li>
 </ul>
 </section>
-<section id="j0-limit" class="slide level2 center">
-<h2><span class="math inline">J=0</span> limit</h2>
-<p><span class="math display">
-\frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[\mathsf{S}\_{j,j+1},\bar{\mathcal{O}}\right]+\left(\mathsf{S}_{j,j+1}\bar{\mathcal{O}}\mathsf{S}\_{j,j+1}-\bar{\mathcal{O}}\right)\right]
-</span></p>
-<ul>
-<li><p>No splitting and merging and terms</p></li>
-<li><p>In single operator sector define <span class="math inline">\mathcal{C}^a_{0\cdots \mu_k=a\cdots 0}\equiv C^a_k</span> <span class="math display">
-\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\equiv \Delta_k C^a_k,
-</span> diffusion of single <span class="math inline">\sigma^a</span> (<span class="math inline">\Delta_k</span> is 1D discrete Laplacian)</p></li>
-</ul>
-</section>
-<section id="jneq-0" class="slide level2 center">
-<h2><span class="math inline">J\neq 0</span></h2>
-<p><span class="math display">
-\partial_t \mathcal{C}\_{\mu_{1:N}} = \sum_j \left[J\epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}\_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}\_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}\_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right]
-</span></p>
-<ul>
-<li>First term leads to single site operator spreading over many sites</li>
-</ul>
-<p align="center">
-<img src="assets/2nd-order-2.png" width="250">
-</p>
-<ul>
-<li>Qualitative behaviour is known as <strong>operator spreading</strong> and is a generic feature of operator dynamics</li>
-</ul>
-</section>
-<section class="slide level2 center">
-
-<ul>
-<li><p>Spreading suppressed at <span class="math inline">J=0</span> because we considered <em>average</em></p></li>
-<li><p>In any sample from our random circuit, single-site operator spreads to many sites</p></li>
-<li><p>Random signs of coeffcients <span class="math inline">\mathcal{C}_{\mu_{1:N}}</span> means most average to zero: only the single site contributions remain</p></li>
-<li><p>When <span class="math inline">J\neq 0</span> some contribution survives and this allows for a controlled expansion</p></li>
-<li><p>We’d like a measure that is insensitive to these random signs</p></li>
-</ul>
-</section>
-<section id="entanglement" class="slide level2 center">
-<h2>Entanglement</h2>
-<ul>
-<li>TODO simple model of SWAPS</li>
-</ul>
-</section>
-<section id="toy-model" class="slide level2 center">
-<h2>Toy model</h2>
+<section id="entanglement-toy-model" class="slide level2 center">
+<h2>Entanglement: toy model</h2>
 <ul>
 <li>Circuit of SWAP gates
 <figure align="center">
 <img src="assets/bell-swap.png" width="80%">
 </figure></li>
 <li>Initial state is product of Bell states <span class="math display">
-\ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
+\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_o{2n}\ket{1}_{2n+1}\right]
 </span> <span class="math display">
-\operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
+\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1
 </span> with entanglement entropy of one bit</li>
 </ul>
 </section>
@@ -1018,7 +966,7 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 
 <ul>
 <li><p>Toy model with SWAP gates is rather similar, with qubits playing the role of “noninteracting particles”</p></li>
-<li><p>This picture remains true in circuits where there is no quasiparticle interpretation (next lecture)</p></li>
+<li><p>This picture remains true in circuits where there is no quasiparticle interpretation</p></li>
 </ul>
 </section>
 <section id="entanglement-in-general" class="slide level2 center">
@@ -1036,41 +984,17 @@ Source: <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P0
 <h2>Bell initial state</h2>
 <p><img data-src="assets/wedge_bell_pairs_offset.svg" style="width:80.0%"></p>
 <ul>
-<li>What is the largest entanglement?</li>
 <li>For dual unitary gates this is an <em>isometry</em>!</li>
-<li>Consequences for entanglement</li>
+<li>Entanglement growth therefore <em>maximal</em></li>
+<li>Converse – maximal entanglement growth implies dual unitary gates – recently proved by <a href="https://arxiv.org/abs/2204.10341">Zhou and Harrow (2022)</a></li>
 </ul>
-</section>
-<section id="entanglement-growth" class="slide level2 center">
-<h2>Entanglement growth</h2>
-<ul>
-<li><p>Maximal</p></li>
-<li><p>Result about converse</p></li>
-</ul>
-</section>
-<section id="dual-unitary-circuit" class="slide level2 center">
-<h2>Dual unitary circuit</h2>
-</section>
-<section id="generalized-initial-states" class="slide level2 center">
-<h2>Generalized initial states</h2>
 </section></section>
-<section>
-<section id="some-special-kinds-of-circuits" class="title-slide slide level1 center">
-<h1>Some special kinds of circuits</h1>
-
-</section>
-<section id="random-circuits" class="slide level2 center">
-<h2>Random circuits</h2>
-</section>
-<section id="dual-unitary-circuits" class="slide level2 center">
-<h2>Dual unitary circuits</h2>
-</section></section>
-<section id="open-questions" class="title-slide slide level1 center">
-<h1>Open questions</h1>
+<section id="further-reading" class="title-slide slide level1 center">
+<h1>Further reading</h1>
 <ul>
-<li>Reviews on DUCs, RUCs…</li>
+<li><p><em>Exactly solvable quantum many-body dynamics from space-time duality</em>, Bertini, Claeys, Prosen (<a href="https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86">Rev.&nbsp;Mod. Phys. 98, 025001 (2026)</a>)</p></li>
+<li><p><em>Random Quantum Circuits</em>, Fisher, Khemani, Nahum, Vijay (<a href="https://doi.org/10.1146/annurev-conmatphys-031720-030658">Ann. Rev.&nbsp;of Cond. Matt. Phys. 14:335-379 (2023)</a>)</p></li>
 </ul>
-<p>…</p>
 
 
 </section>

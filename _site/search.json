@@ -2986,7 +2986,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#expectation-value",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Expectation value",
-    "text": "Expectation value\n\nFolded brickwork"
+    "text": "Expectation value\n\nIn folded picture expectation value \\bra{\\Psi}\\mathcal{O}\\ket{\\Psi} looks like this"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#correlation-functions",
@@ -3315,14 +3315,14 @@
     "href": "talks/quantum-circuits-quant26/index.html#quantifying-entanglement-1",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Quantifying entanglement",
-    "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\psi_{ab} as matrix and perform a singular value decomposition"
+    "text": "Quantifying entanglement\n\nRDM quantifies entanglement present in a quantum state describing a system composed of two subsystems A and B\nGeneral state is vector \\in\\mathcal{H}=\\mathcal{H}_A\\otimes\\mathcal{H}_B\nWrite in terms of basis vectors \\ket{a}_A and \\ket{b}_B for A and B subsystems \n\\ket{\\Psi}_{AB} = \\sum_{a=1}^{n\\_A}\\sum_{b=1}^{n_B} \\Psi_{ab}\\ket{a}_A\\ket{b}_B\n n_{A/B}=\\operatorname{dim} \\mathcal{H}_{A/B}\nNow regard \\psi_{ab} as matrix and perform a singular value decomposition"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#reduced-density-matrix-1",
     "href": "talks/quantum-circuits-quant26/index.html#reduced-density-matrix-1",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Reduced density matrix",
-    "text": "Reduced density matrix\n\nExpectation value of operator in region A can be computed from reduced density matrix \\rho_A for region A \n\\rho_A = \\operatorname{tr}_{B}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{B}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n (B is complement of A)\nInitial RDM of bottom part of wedge is all that matters!"
+    "text": "Reduced density matrix\n\nExpectation value of operator in region A can be computed from reduced density matrix \\rho_A for region A \n\\rho_A = \\operatorname{tr}_{B}\\left[\\ket{\\Psi}\\bra{\\Psi}\\right]=\\operatorname{tr}_{B}\\left[\\mathcal{U}\\ket{\\Psi_0}\\bra{\\Psi_0}\\mathcal{U}^\\dagger\\right]\n (B is complement of A)"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#folded-notation",
@@ -3364,7 +3364,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#why-consider-circuits",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Why consider circuits?",
-    "text": "Why consider circuits?\n\nFor this program: example of discrete time, many body dynamics\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nThey exist! Companies (Google, IBM, etc.) have built platforms for gate-based QC\nHere we are concerned with unitary circuits made from unitary gates"
+    "text": "Why consider circuits?\n\nFor this audience: example of discrete time, many body dynamics\nModel of universal quantum computation\n\nHow to generate an arbitrary quantum state\nOne of several options e.g. measurement-based\n\nThey exist! Companies (Google, IBM, etc.) have built platforms for gate-based QC\nHere we are concerned with unitary circuits made from unitary gates"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#unitary-circuits",
@@ -3378,7 +3378,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#everything-is-a-tensor",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Everything is a tensor",
-    "text": "Everything is a tensor\n\nState of N qubits expressed in product basis\n\n\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\n\nWrite \\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N =\\ket{s_1\\cdots s_N}=\\ket{s_{1:N}} for brevity\nOperator on N qubits has matrix elements\n\n\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}"
+    "text": "Everything is a tensor\n\nState of N qubits expressed in product basis\n\n\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\n\nOperator on N qubits has matrix elements\n\n\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#graphical-notation",
@@ -3406,7 +3406,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#general-two-qubit-unitary",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "General two qubit unitary",
-    "text": "General two qubit unitary\n\nAny two-qubit unitary U\\in \\mathcal{U(4)} can be written\n\n\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\n\nu_{\\pm}, v_{\\pm} \\in SU(2)\n\n\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n&= \\begin{bmatrix}\ne^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n-i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n\\end{bmatrix}\n\\end{align*}\n\n\n16 parameters!"
+    "text": "General two qubit unitary\n\nAny two-qubit unitary U\\in \\mathcal{U(4)} can be written\n\n\nU = e^{i \\phi} (u_+ \\otimes u_-) V[J_x, J_y, J_z] (v_- \\otimes v_+)\n\n\nu_{\\pm}, v_{\\pm} \\in SU(2)\n\n\n\\begin{align*}\nV[J_x, J_y, J_z] &= \\exp \\left[-i\\left(J_x \\sigma^x \\otimes \\sigma^x + J_y \\sigma^y \\otimes \\sigma^y+ J_z \\sigma^z \\otimes \\sigma^z\\right)\\right]\\\\\\\\\n%  &= \\begin{bmatrix}\n% e^{-i J_z} \\cos(J_-) & 0 & 0 & -i e^{-i J_z \\sin(J_-)} \\\\\\\\\n% 0 & e^{iJ_z} \\cos(J_+) & -ie^{i J_z} \\sin(J_+) & 0 \\\\\\\\\n% 0 & -ie^{i J_z} \\sin(J_+) & e^{iJ_z} \\cos(J_+) & 0 \\\\\\\\\n% -i e^{-i J_z \\sin(J_-)} & 0 & 0 & e^{-i J_z} \\cos(J_-) \\\\\\\\\n% \\end{bmatrix}\n\\end{align*}\n\n\n16 parameters!"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#time-evolution",
@@ -3427,7 +3427,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#kim-as-a-circuit",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "KIM as a circuit",
-    "text": "KIM as a circuit\n\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}"
+    "text": "KIM as a circuit\n\n\n\n\n\n\n\\begin{aligned}\n  \\mathcal{K} &= \\exp\\left[-i b X\\right]\\\\\\\n  \\mathcal{I} &= \\exp\\left[-iJ Z_1 Z_2 -i \\left(h_1 Z_1 + h_2 Z_2\\right)/2\\right]\n\\end{aligned}\n\n\nDual unitary when b=J=\\pi / 4!"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#locality",
@@ -3511,21 +3511,21 @@
     "href": "talks/quantum-circuits-quant26/index.html#dual-unitaries",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Dual unitaries",
-    "text": "Dual unitaries\n\n\nIntroduced in\nSee review"
+    "text": "Dual unitaries\n\n\nCircuits based on DUs introduced in Gopalakrishnan and Lamacraft (2019), Bertini, Kos, and Prosen (2019)\n14 parameter family (c.f. 16 parameters for general two qubit unitary)\nIncludes range of behaviour: integrable, chaotic"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#one-motivation-time-evolution",
     "href": "talks/quantum-circuits-quant26/index.html#one-motivation-time-evolution",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "One motivation: time evolution",
-    "text": "One motivation: time evolution"
+    "text": "One motivation: time evolution\nSingle qubit gates\n\nTime evolution operator U=\\exp(-iHt)\nIf H=\\sum_j h_j a sum of single qubit terms\n\n\n\\mathcal{U} = \\exp(-iHt) = \\prod_j \\exp(-ih_j) = \\prod_j U_j\n \nU_j=\\mathbb{1}\\otimes \\ldots \\otimes\\mathbb{1} \\otimes \\overbrace{u_j}^{j\\text{th factor}} \\ldots \\otimes\\mathbb{1}"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#bell-initial-state",
     "href": "talks/quantum-circuits-quant26/index.html#bell-initial-state",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Bell initial state",
-    "text": "Bell initial state\n\n\nWhat is the largest entanglement?\nFor dual unitary gates this is an isometry!\nConsequences for entanglement"
+    "text": "Bell initial state\n\n\nFor dual unitary gates this is an isometry!\nEntanglement growth therefore maximal\nConverse – maximal entanglement growth implies dual unitary gates – recently proved by Zhou and Harrow (2022)"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#dual-unitary-circuit",
@@ -3560,7 +3560,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#dual-unitaries-1",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Dual unitaries",
-    "text": "Dual unitaries\n\n\n\n\n\n\nRecall the dual unitary condition\n\n\n\n\n\n\n\nCorrelations vanish inside: C(x,t)=d^{-1}\\operatorname{tr}\\left[O\\right]\\operatorname{tr}\\left[O'\\right]"
+    "text": "Dual unitaries\n\nRecall the dual unitary condition\n\n\n\n\n\n\n\nCorrelations vanish inside: C(x,t)=d^{-1}\\operatorname{tr}\\left[O\\right]\\operatorname{tr}\\left[O'\\right]"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#light-cone-correlations",
@@ -3595,7 +3595,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#toy-model",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Toy model",
-    "text": "Toy model\n\nCircuit of SWAP gates\n\n\n\nInitial state is product of Bell states \n\\ket{\\Phi^+}\\_{2n, 2n+1} = \\frac{1}{\\sqrt{2}}\\left[\\ket{0}\\_{2n}\\ket{0}\\_{2n+1}+ \\ket{1}\\_{2n}\\ket{1}\\_{2n+1}\\right]\n \n\\operatorname{tr}\\_{2}\\left[\\ket{\\Phi^+}\\_{12}\\bra{\\Phi^+}\\_{12}\\right] = \\frac{1}{2}\\mathbb{1}_1\n with entanglement entropy of one bit"
+    "text": "Toy model\n\nCircuit of SWAP gates\n\n\n\nInitial state is product of Bell states \n\\ket{\\Phi^+}_{2n, 2n+1} = \\frac{1}{\\sqrt{2}}\\left[\\ket{0}_{2n}\\ket{0}_{2n+1}+ \\ket{1}_{2n}\\ket{1}_{2n+1}\\right]\n \n\\operatorname{tr}_{2}\\left[\\ket{\\Phi^+}_{12}\\bra{\\Phi^+}_{12}\\right] = \\frac{1}{2}\\mathbb{1}_1\n with entanglement entropy of one bit"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#entanglement-1",
@@ -3616,14 +3616,14 @@
     "href": "talks/quantum-circuits-quant26/index.html#behaviour-of-correlation-functions",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Behaviour of correlation functions",
-    "text": "Behaviour of correlation functions\nTODO Summarize variety of behaviour for correlator (fig from review)"
+    "text": "Behaviour of correlation functions\n\n\n\nFigure from Bertini, Claeys, Prosen (Rev. Mod. Phys. 98, 025001 (2026))"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#computation-of-correlators",
     "href": "talks/quantum-circuits-quant26/index.html#computation-of-correlators",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Computation of correlators",
-    "text": "Computation of correlators\n\n\n\n\n\n\n  \\mathcal{M}_{+}(a)\n  \\;=\\;\n  \\frac{1}{q}\\,\\operatorname{tr}_{1}\\!\\left[\\,U\\,(a \\otimes \\mathbb{1})\\,U^{\\dagger}\\,\\right]\n\n\n  C(t,t)\n  \\;=\\;\n  \\frac{1}{q}\\,\\operatorname{tr}\\!\\left[\\,O^{\\dagger}\\,\\mathcal{M}_{+}^{\\,t}(O')\\,\\right]"
+    "text": "Computation of correlators\n\n\n\n\n\n\n  \\mathcal{M}_{+}(a)\n  \\;=\\;\n  \\frac{1}{d}\\,\\operatorname{tr}_{1}\\!\\left[\\,U^{\\dagger}\\,(a \\otimes \\mathbb{1})\\,U\\,\\right]\n\n\n  C(t,t)\n  \\;=\\;\n  \\frac{1}{d}\\,\\operatorname{tr}\\!\\left[\\,O^{\\dagger}\\,\\mathcal{M}_{+}^{\\,t}(O')\\,\\right]"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#some-useful-results",
@@ -3644,7 +3644,7 @@
     "href": "talks/quantum-circuits-quant26/index.html#parameterizing-dual-unitaries",
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Parameterizing dual unitaries",
-    "text": "Parameterizing dual unitaries\nGeneral form"
+    "text": "Parameterizing dual unitaries\n-TODO General form 14 params"
   },
   {
     "objectID": "talks/quantum-circuits-quant26/index.html#unitary-gates",
@@ -3652,5 +3652,82 @@
     "title": "Many Body Dynamics in Quantum Circuits",
     "section": "Unitary gates",
     "text": "Unitary gates\n\nGate is n-qubit unitary U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n}\n\n\n\\sum_{s_1'\\ldots s_N'}U_{s_1\\ldots s_n,s'_1,\\ldots, s'_n} U^\\dagger_{s'_1\\ldots s'_n,s''_1,\\ldots, s''_n}=\\delta_{s_1,s_1''}\\ldots \\delta_{s_N,s_N''}"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#folded-brickwork",
+    "href": "talks/quantum-circuits-quant26/index.html#folded-brickwork",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Folded brickwork",
+    "text": "Folded brickwork"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#quantinuum-experiment",
+    "href": "talks/quantum-circuits-quant26/index.html#quantinuum-experiment",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Quantinuum experiment",
+    "text": "Quantinuum experiment\n\nCorrelations measured in SDKIM in 2022 (Nat. Phys. 18, 1074 (2022))"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#mathematical-setting",
+    "href": "talks/quantum-circuits-quant26/index.html#mathematical-setting",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Mathematical setting",
+    "text": "Mathematical setting\n\nState of N qubits expressed in product basis\n\n\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\n\nWrite \\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N =\\ket{s_1\\cdots s_N}=\\ket{s_{1:N}} for brevity\nOperator on N qubits has matrix elements\n\n\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#n-qubit-states",
+    "href": "talks/quantum-circuits-quant26/index.html#n-qubit-states",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "N qubit states",
+    "text": "N qubit states\n\nState of N qubits expressed in product basis\n\n\n\\ket{\\Psi} = \\sum_{s_{1:N}\\in \\{0,1\\}^N} \\Psi_{s_1\\ldots s_N}\\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N\n\n\nWrite \\ket{s_1}_1\\ket{s_2}_2\\cdots \\ket{s_N}_N =\\ket{s_1\\cdots s_N}=\\ket{s_{1:N}} for brevity\nOperator on N qubits has matrix elements\n\n\n\\mathcal{O}_{s_{1:N},s'_{1:N}} = \\bra{s_{1:N}}\\mathcal{O}\\ket{s'_{1:N}}"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#butterfly-velocity",
+    "href": "talks/quantum-circuits-quant26/index.html#butterfly-velocity",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Butterfly velocity",
+    "text": "Butterfly velocity\n\nFront propagation characterised by finite velocity v_\\text{B}\n\n\n\n\n\n\n\nAnalytical progress possible in random unitary circuits\nMap operator spreading to a Markov chain"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#entanglement-toy-model",
+    "href": "talks/quantum-circuits-quant26/index.html#entanglement-toy-model",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Entanglement: toy model",
+    "text": "Entanglement: toy model\n\nCircuit of SWAP gates\n\n\n\nInitial state is product of Bell states \n\\ket{\\Phi^+}_{2n, 2n+1} = \\frac{1}{\\sqrt{2}}\\left[\\ket{0}_{2n}\\ket{0}_{2n+1}+ \\ket{1}_o{2n}\\ket{1}_{2n+1}\\right]\n \n\\operatorname{tr}_{2}\\left[\\ket{\\Phi^+}_{12}\\bra{\\Phi^+}_{12}\\right] = \\frac{1}{2}\\mathbb{1}_1\n with entanglement entropy of one bit"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#motivation-kicked-ising-model",
+    "href": "talks/quantum-circuits-quant26/index.html#motivation-kicked-ising-model",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Motivation: kicked Ising model",
+    "text": "Motivation: kicked Ising model"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#outline-2",
+    "href": "talks/quantum-circuits-quant26/index.html#outline-2",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Outline",
+    "text": "Outline\n\nGates o"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#outline-1",
+    "href": "talks/quantum-circuits-quant26/index.html#outline-1",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Outline",
+    "text": "Outline\n\nGates (and entanglement)\nSome graphical tools\nDynamics in brickwork circuits"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#section",
+    "href": "talks/quantum-circuits-quant26/index.html#section",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "",
+    "text": "Figure from Bertini, Claeys, Prosen (Rev. Mod. Phys. 98, 025001 (2026))"
+  },
+  {
+    "objectID": "talks/quantum-circuits-quant26/index.html#outline",
+    "href": "talks/quantum-circuits-quant26/index.html#outline",
+    "title": "Many Body Dynamics in Quantum Circuits",
+    "section": "Outline",
+    "text": "Outline\n\nGates (and entanglement)\nSome graphical tools\nDynamics in brickwork circuits"
   }
 ]

@@ -39,51 +39,12 @@ i\frac{\partial}{dt}\ket{\Psi} = H\ket{\Psi}
 $$
 ...given some initial $\ket{\Psi_0}$
 
-- As number of components $N$ increases, dimensionality of $\ket{\Psi}$ grows exponentially
+- As number of subsystems $N$ increases, dimensionality of $\ket{\Psi}$ grows exponentially
 
 - What are the _qualitative_ features of quantum many-body dynamics?
 
-## Experimental systems
+- Choose models that are tractable and generic(-ish)
 
-Google quantum computer
-
-Willow stats
-
-# Outline
-
-Cite Pieter's review...
-
-- Fundamentals
-    - Based on my computational physics notes 
-    - Linear algebra background
-    - Basics of many body qm (qubits)
-    - Bell states
-    - Schmidt decomposition
-    - Relevance of isometries
-
-- Gates
-
-Based on earlier lectures
-
-- Basic kinds
-
--  Tensor networks
-
-- Intro to Penrose notation
-
-- Circuits
-
-    - Connection to Floquet physics
-    - Appearance of light cone. Connect to folded transfer matrix of Mari-Carmen
-    - Folded picture
-    - Importance of unitarity (example of measurement induced entanglement)
-
-- Operators spreading. OTOCs
-
-- Representation of correlation functions
-- Idea of random circuits and simplest examples of resulting Markov chain
-
-# Outline
 
 ## What is a quantum circuit?
 
@@ -97,7 +58,22 @@ Based on earlier lectures
 
 - $f$ acts on top five qubits, then $g$ acts on lower seven
 
----
+## N qubit states
+
+- State of $N$ qubits expressed in product basis
+  
+$$
+\ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
+$$
+
+- Write $\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}$ for brevity 
+
+- Operator on $N$ qubits has matrix elements
+
+$$
+\mathcal{O}_{s_{1:N},s'_{1:N}} = \bra{s_{1:N}}\mathcal{O}\ket{s'_{1:N}}
+$$
+
 
 ## [Possible operations](https://en.wikipedia.org/wiki/Quantum_logic_gate)
 
@@ -116,7 +92,7 @@ Based on earlier lectures
 
 ## Why consider circuits?
 
-- __For this program:__ example of discrete time, many body dynamics
+- __For this audience:__ example of discrete time, many body dynamics
 
 - Model of universal quantum computation 
   - How to generate an arbitrary quantum state
@@ -126,6 +102,13 @@ Based on earlier lectures
 
 - Here we are concerned with __unitary circuits__ made from __unitary gates__
 
+## Outline 
+
+- Gates (and entanglement)
+- Some graphical tools
+- Dynamics in brickwork circuits
+
+![](assets/brickwork_open.svg){width=60% fig-align="center"}
 
 # Gates
 
@@ -213,12 +196,12 @@ $$
 $$
 \begin{align*}
  V[J_x, J_y, J_z] &= \exp \left[-i\left(J_x \sigma^x \otimes \sigma^x + J_y \sigma^y \otimes \sigma^y+ J_z \sigma^z \otimes \sigma^z\right)\right]\\\\
- &= \begin{bmatrix}
-e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
-0 & e^{iJ_z} \cos(J_+) & -ie^{i J_z} \sin(J_+) & 0 \\\\
-0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\\\
--i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\\\
-\end{bmatrix}
+%  &= \begin{bmatrix}
+% e^{-i J_z} \cos(J_-) & 0 & 0 & -i e^{-i J_z \sin(J_-)} \\\\
+% 0 & e^{iJ_z} \cos(J_+) & -ie^{i J_z} \sin(J_+) & 0 \\\\
+% 0 & -ie^{i J_z} \sin(J_+) & e^{iJ_z} \cos(J_+) & 0 \\\\
+% -i e^{-i J_z \sin(J_-)} & 0 & 0 & e^{-i J_z} \cos(J_-) \\\\
+% \end{bmatrix}
 \end{align*}
 $$
 
@@ -247,7 +230,11 @@ $$
 
 - Special case is _product state_ $\ket{\Psi_{AB}} = \ket{a}_A\ket{b}_B$
 
-- Other states are _entangled_
+- Other states are _entangled_ e.g. [Bell state](https://en.wikipedia.org/wiki/Bell_state)
+
+$$
+\left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
+$$
 
 ---
 
@@ -297,7 +284,7 @@ $$
 
 --- 
 
-- [Bell states](https://en.wikipedia.org/wiki/Bell_state) of two spin-1/2 subsystems
+- Recall Bell state
 
 $$
 \left|\Psi^{+}\right\rangle=\frac{1}{\sqrt{2}}\left(|0\rangle_A \otimes|1\rangle_B+|1\rangle_A \otimes|0\rangle_B\right)
@@ -358,8 +345,6 @@ $$
 \ket{\Psi} = \sum_{s_{1:N}\in \{0,1\}^N} \Psi_{s_1\ldots s_N}\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N
 $$
 
-- Write $\ket{s_1}_1\ket{s_2}_2\cdots \ket{s_N}_N =\ket{s_1\cdots s_N}=\ket{s_{1:N}}$ for brevity 
-
 - Operator on $N$ qubits has matrix elements
 
 $$
@@ -392,7 +377,7 @@ $$
 
 - ...or in graphical form
 
-![](assets/unitarity.svg){width=150%}
+![](assets/unitarity.svg){width=100%}
 
 ## "Folded" representations
 
@@ -413,18 +398,20 @@ $$
 
 ![](assets/dual_unitarity_folded.svg){width=80%}
 
-- Introduced in
-- See review
+- Circuits based on DUs introduced in [Gopalakrishnan and Lamacraft (2019)](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.100.064309), [Bertini, Kos, and Prosen (2019)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.123.210601)
 
+- 14 parameter family (c.f. 16 parameters for general two qubit unitary)
 
-## Parameterizing dual unitaries
-
-General form
+- Includes range of behaviour: integrable, chaotic
 
 # Circuits
 
+- Kicked Ising model
+- Expectation values
+- Correlation functions
+- Entanglement
 
-## One motivation: time evolution
+## Motivation: kicked Ising model
 
 ---
 
@@ -497,7 +484,7 @@ $$
 e^{-iH_A/n}=\prod_j U_{2j,2j+1}\qquad e^{-iH_B/n} = \prod_j U_{2j-1,2j}
 $$
 
-![](assets/brickwork_open.svg){fig-align="center"}
+![_Brickwork_ circuit](assets/brickwork_open.svg){width=40% fig-align="center"}
 
 ---
 
@@ -533,6 +520,8 @@ $$
   \mathcal{I} &= \exp\left[-iJ Z_1 Z_2 -i \left(h_1 Z_1 + h_2 Z_2\right)/2\right]
 \end{aligned}
 $$
+
+- _Dual unitary_ when $b=J=\pi / 4$!
 
 ---
 
@@ -579,21 +568,18 @@ $$
 ## Basic circuit
 
 
-![](assets/brickwork_open.svg){width=100%}
+![](assets/brickwork_open.svg){width=80% fig-align="center"}
 
+
+## Folded brickwork
+
+![](assets/folded_brickwork_circuit.svg){width=80% fig-align="center"}
 
 ## Expectation value
 
-
-- Folded brickwork
-
-![](assets/folded_brickwork_circuit.svg){width=80%}
-
----
-
 - In folded picture expectation value $\bra{\Psi}\mathcal{O}\ket{\Psi}$ looks like this
 
-![](assets/folded_expectation_value_full.svg){width=80%}
+![](assets/folded_expectation_value_full.svg){width=80% fig-align="center"}
 
 ---
 
@@ -601,10 +587,12 @@ $$
 
 ![](assets/folded_unitarity_condition.svg){width=80% fig-align="center"}
 
+---
+
 ![](assets/folded_light_cone_reduced.svg){width=80% fig-align="center"}
 
 
-- "Light cone" emerges, reflecting region of circuit that affects expectation value
+- "Light cone" emerges: region of circuit that affects expectation value
 
 ---
 
@@ -623,13 +611,12 @@ $$
 
 - Correlations only nonzero inside "light cone"
 
-## Dual unitaries
 
-![](assets/infinite_temperature_correlator_reduced.svg){width=60% fig-align="center"}
+## Dual unitaries
 
 - Recall the dual unitary condition
 
-![](assets/dual_unitarity_folded.svg){width=60% fig-align="center"}
+![](assets/dual_unitarity_folded.svg){width=80% fig-align="center"}
 
 - Correlations vanish inside: $C(x,t)=d^{-1}\operatorname{tr}\left[O\right]\operatorname{tr}\left[O'\right]$
 
@@ -637,8 +624,13 @@ $$
 
 - For $x=t$ the picture simplifies...
 
-![](assets/lightcone_correlator_degenerate_chain.svg){width=100% fig-align="center"}
+![](assets/lightcone_correlator_degenerate_chain.svg){width=80% fig-align="center"}
 
+---
+
+![Figure from Bertini, Claeys, Prosen ([Rev. Mod. Phys. 98, 025001 (2026)](https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86))](assets/unitarity-space-time.png){width=60%}
+
+---
 
 ## Computation of correlators
 
@@ -648,20 +640,26 @@ $$
 $$
   \mathcal{M}_{+}(a)
   \;=\;
-  \frac{1}{q}\,\operatorname{tr}_{1}\!\left[\,U\,(a \otimes \mathbb{1})\,U^{\dagger}\,\right]
+  \frac{1}{d}\,\operatorname{tr}_{1}\!\left[\,U^{\dagger}\,(a \otimes \mathbb{1})\,U\,\right]
 $$
 
 $$
   C(t,t)
   \;=\;
-  \frac{1}{q}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
+  \frac{1}{d}\,\operatorname{tr}\!\left[\,O^{\dagger}\,\mathcal{M}_{+}^{\,t}(O')\,\right]
 $$
 
 ## Behaviour of correlation functions
 
-TODO Summarize variety of behaviour for correlator (fig from review)
+![Figure from Bertini, Claeys, Prosen ([Rev. Mod. Phys. 98, 025001 (2026)](https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86))](assets/correlation-zoo.png){width=60%}
 
+## Quantinuum experiment
 
+- Correlations measured in SDKIM in 2022 ([Nat. Phys. 18, 1074 (2022)](https://www.nature.com/articles/s41567-022-01689-7))
+
+![](assets/quantinuum.png)
+
+---
 
 ## Operator spreading
 
@@ -704,111 +702,19 @@ $$
 \sum_{\mu_{1:N}=\{1,x,y,z\}^N} \mathcal{C}^2_{\mu_{1:N}}(t) = \frac{1}{2^{N-1}}.
 $$
 
----
+- An initially localized operator will tend to _spread_ over an every growing number of sites
 
-## Example: $SU(2)$ preserving gate
+## Butterfly velocity
 
-- Consider gate generated by exchange Hamiltonian:
-$$
-U\_{j,j+1} = \cos\theta \mathbb{1}\_{j,j+1} + i\sin\theta \operatorname{\mathsf{S}}\_{j.j+1}
-$$
-$\operatorname{\mathsf{S}}_{j,j+1}$ denotes $\operatorname{\mathsf{SWAP}}$ gate on sites $j$ and $j+1$
+- Front propagation characterised by finite velocity $v_\text{B}$
 
-- Action of this gate on an operator is
+![](assets/space-time-front.png){width=60% fig-align="center"}
 
-$$
-\mathcal{O} \longrightarrow U^\dagger\_{j,j+1}\mathcal{O}U\_{j,j+1} = \cos^2\theta \mathcal{O} + \sin^2\theta \operatorname{\mathsf{S}}\_{j.j+1}\mathcal{O} \operatorname{\mathsf{S}}\_{j.j+1} \\\
--i\sin\theta\cos\theta \left[\operatorname{\mathsf{S}}\_{j.j+1}, \mathcal{O}\right]
-$$
+- Analytical progress possible in _random unitary circuits_
 
----
+- Map operator spreading to a Markov chain 
 
-## Ensemble of circuits
-
-- Consider ensemble averaged quantities
-
-- Take $\theta=\pm \theta_0$ with $p(\theta_0)-p(-\theta_0)\equiv \delta > 0$.
-
-- Averaging the evolved operator gives
-
-$$
-\overline{U^\dagger_{j,j+1}\mathcal{O}U_{j,j+1}} = \cos^2\theta_0 \\, \mathcal{O} + \sin^2\theta_0 \\, \mathsf{S}\_{j.j+1}\mathcal{O} \mathsf{S}\_{j.j+1} \\\\
-+i\delta \sin\theta_0\cos\theta_0 \left[\mathsf{S}\_{j.j+1}, \mathcal{O}\right]
-$$
-
-- Interpretation
-
-  1. Operators on sites $j$ and $j+1$ switch with probability $\sin^2\theta_0$.
-  2. The asymmetry $\delta$ governs strength of "quantum" dynamics
-
----
-
-- Continuous time limit ([Claeys, Lamacraft & Herzog-Arbeitman (2022)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.128.246603)
-$$
-\frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[\mathsf{S}\_{j,j+1},\bar{\mathcal{O}}\right]+\left(\mathsf{S}\_{j,j+1}\bar{\mathcal{O}}\mathsf{S}\_{j,j+1}-\bar{\mathcal{O}}\right)\right]
-$$
-where $J\propto \delta$. Computing commutator:
-
-$$
-\begin{align*}
-i[\mathsf{S},\sigma^a\otimes 1]&=-\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
-i[\mathsf{S},1\otimes \sigma^a]&=\epsilon^{abc}\sigma^b\otimes\sigma^c\nonumber\\\\
-i[\mathsf{S},\sigma^a\otimes \sigma^b]&=\epsilon^{abc}\left(\sigma^c\otimes 1- 1\otimes \sigma^c\right).
-\end{align*}
-$$
-
-- Describes operator "splitting" ($1\to 2$) and "merging" ($2\to 1$) 
-
----
-
-## $J=0$ limit
-
-$$
-\frac{d\bar{\mathcal{O}}}{dt} = \sum_j \left[iJ \left[\mathsf{S}\_{j,j+1},\bar{\mathcal{O}}\right]+\left(\mathsf{S}_{j,j+1}\bar{\mathcal{O}}\mathsf{S}\_{j,j+1}-\bar{\mathcal{O}}\right)\right]
-$$
-
-- No splitting and merging and terms
-
-- In single operator sector define $\mathcal{C}^a_{0\cdots \mu_k=a\cdots 0}\equiv C^a_k$
-$$
-\partial_t C^a_k = C^a_{k+1} + C^a_{k-1} - 2 C^a_k\equiv \Delta_k C^a_k,
-$$
-diffusion of single $\sigma^a$ ($\Delta_k$ is 1D discrete Laplacian)
-
----
-
-## $J\neq 0$ 
-
-$$
-\partial_t \mathcal{C}\_{\mu_{1:N}} = \sum_j \left[J\epsilon_{\alpha\beta \mu_j \mu_{j+1}} \mathcal{C}\_{\mu_1\cdots \alpha\beta \cdots \mu_N} + \mathcal{C}\_{\mu_1\cdots \mu_{j+1}\mu_j \cdots \mu_N} - \mathcal{C}\_{\mu_1\cdots \mu_{j}\mu_{j+1} \cdots \mu_N}\right]
-$$
-
-- First term leads to single site operator spreading over many sites
-
-<p align="center">
-<img src="assets/2nd-order-2.png" width="250">
-</p>
-
-- Qualitative behaviour is known as __operator spreading__ and is a generic feature of operator dynamics
-
----
-
-- Spreading suppressed at $J=0$ because we considered _average_
-
-- In any sample from our random circuit, single-site operator spreads to many sites
-
-- Random signs of coeffcients $\mathcal{C}_{\mu_{1:N}}$ means most average to zero: only the single site contributions remain
-
-- When $J\neq 0$ some contribution survives and this allows for a controlled expansion
-
-- We'd like a measure that is insensitive to these random signs
-
-
-## Entanglement
-
-- TODO simple model of SWAPS
-
-## Toy model
+## Entanglement: toy model
 
 - Circuit of SWAP gates
 <figure align="center">
@@ -817,10 +723,10 @@ $$
 
 - Initial state is product of Bell states
 $$
-\ket{\Phi^+}\_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}\_{2n}\ket{0}\_{2n+1}+ \ket{1}\_{2n}\ket{1}\_{2n+1}\right]
+\ket{\Phi^+}_{2n, 2n+1} = \frac{1}{\sqrt{2}}\left[\ket{0}_{2n}\ket{0}_{2n+1}+ \ket{1}_o{2n}\ket{1}_{2n+1}\right]
 $$
 $$
-\operatorname{tr}\_{2}\left[\ket{\Phi^+}\_{12}\bra{\Phi^+}\_{12}\right] = \frac{1}{2}\mathbb{1}_1
+\operatorname{tr}_{2}\left[\ket{\Phi^+}_{12}\bra{\Phi^+}_{12}\right] = \frac{1}{2}\mathbb{1}_1
 $$
 with entanglement entropy of one bit
 
@@ -869,9 +775,7 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 
 - Toy model with SWAP gates is rather similar, with qubits playing the role of "noninteracting particles"
 
-- This picture remains true in circuits where there is no quasiparticle interpretation (next lecture) 
-
-
+- This picture remains true in circuits where there is no quasiparticle interpretation
 
 
 ## Entanglement in general
@@ -888,31 +792,16 @@ Source:  <a href="https://iopscience.iop.org/article/10.1088/1742-5468/2005/04/P
 
 ![](assets/wedge_bell_pairs_offset.svg){width=80%}
 
-- What is the largest entanglement?
 - For dual unitary gates this is an _isometry_!
-- Consequences for entanglement
-
-## Entanglement growth
-
-- Maximal
-
-- Result about converse
-
-## Dual unitary circuit
-
-## Generalized initial states
+- Entanglement growth therefore _maximal_
+- Converse – maximal entanglement growth implies dual unitary gates – recently proved by [Zhou and Harrow (2022)](https://arxiv.org/abs/2204.10341)
 
 
-# Some special kinds of circuits
+# Further reading
 
-## Random circuits
+- _Exactly solvable quantum many-body dynamics from space-time duality_, Bertini, Claeys, Prosen ([Rev. Mod. Phys. 98, 025001 (2026)](https://journals.aps.org/rmp/abstract/10.1103/yx73-dk86))
 
-## Dual unitary circuits
-
-# Open questions
-
-- Reviews on DUCs, RUCs...
-
-...
+-  _Random Quantum Circuits_, Fisher, Khemani, Nahum, Vijay ([Ann. Rev. of Cond. Matt. 
+Phys. 14:335-379 (2023)](https://doi.org/10.1146/annurev-conmatphys-031720-030658))
 
 
